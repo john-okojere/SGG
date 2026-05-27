@@ -1,0 +1,193 @@
+{
+    "classes": [
+        {
+            "className": "TileCacheManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "layer",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "zoom",
+                            "type": "int"
+                        },
+                        {
+                            "name": "tileX",
+                            "type": "int"
+                        },
+                        {
+                            "name": "tileY",
+                            "type": "int"
+                        },
+                        {
+                            "name": "remoteUrl",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "revision",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "tileSource",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "geometry",
+                            "type": "QVariantList"
+                        },
+                        {
+                            "name": "layer",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "centerLatitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "centerLongitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "minZoom",
+                            "type": "int"
+                        },
+                        {
+                            "name": "maxZoom",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "downloadMissionArea",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "clearCache",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "downloading",
+                    "notify": "cacheChanged",
+                    "read": "downloading",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "offlineMode",
+                    "notify": "cacheChanged",
+                    "read": "offlineMode",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setOfflineMode"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "queuedTiles",
+                    "notify": "cacheChanged",
+                    "read": "queuedTiles",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "downloadedTiles",
+                    "notify": "cacheChanged",
+                    "read": "downloadedTiles",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "cacheRevision",
+                    "notify": "cacheChanged",
+                    "read": "cacheRevision",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "status",
+                    "notify": "cacheChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "name": "cacheRoot",
+                    "read": "cacheRoot",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "TileCacheManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "cacheChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TileCacheManager.h",
+    "outputRevision": 68
+}

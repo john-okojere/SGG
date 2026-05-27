@@ -1,0 +1,72 @@
+{
+    "classes": [
+        {
+            "className": "ProfileSyncManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "syncProfile",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "bootstrap",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "applyBootstrap",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "status",
+                    "notify": "profileSyncChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "syncing",
+                    "notify": "profileSyncChanged",
+                    "read": "syncing",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ProfileSyncManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "profileSyncChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ProfileSyncManager.h",
+    "outputRevision": 68
+}

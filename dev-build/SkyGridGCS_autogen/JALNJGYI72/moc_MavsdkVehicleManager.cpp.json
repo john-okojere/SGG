@@ -1,0 +1,193 @@
+{
+    "classes": [
+        {
+            "className": "MavsdkVehicleManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "startDiscovery",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "stopDiscovery",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "connectRetry",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "refreshSystems",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "connected",
+                    "notify": "vehicleChanged",
+                    "read": "connected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "discoveryActive",
+                    "notify": "vehicleChanged",
+                    "read": "discoveryActive",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "status",
+                    "notify": "vehicleChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "connectionUrl",
+                    "notify": "vehicleChanged",
+                    "read": "connectionUrl",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "systemId",
+                    "notify": "vehicleChanged",
+                    "read": "systemId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "autopilot",
+                    "notify": "vehicleChanged",
+                    "read": "autopilot",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "name": "armed",
+                    "notify": "vehicleChanged",
+                    "read": "armed",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
+                    "name": "inAir",
+                    "notify": "vehicleChanged",
+                    "read": "inAir",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 8,
+                    "name": "flightMode",
+                    "notify": "vehicleChanged",
+                    "read": "flightMode",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 9,
+                    "name": "health",
+                    "notify": "vehicleChanged",
+                    "read": "health",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "MavsdkVehicleManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "vehicleChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "systemReady",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "MavsdkVehicleManager.h",
+    "outputRevision": 68
+}

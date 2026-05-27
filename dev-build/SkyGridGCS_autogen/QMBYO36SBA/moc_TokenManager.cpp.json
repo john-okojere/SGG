@@ -1,0 +1,68 @@
+{
+    "classes": [
+        {
+            "className": "TokenManager",
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "hasSession",
+                    "notify": "sessionChanged",
+                    "read": "hasSession",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "deviceTrusted",
+                    "notify": "sessionChanged",
+                    "read": "deviceTrusted",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "deviceStatus",
+                    "notify": "sessionChanged",
+                    "read": "deviceStatus",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "TokenManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "sessionChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TokenManager.h",
+    "outputRevision": 68
+}

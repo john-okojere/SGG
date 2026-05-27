@@ -1,0 +1,12 @@
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_automoc_json_extraction.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_qmltyperegistration.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/all_qmltyperegistrations.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_other_files.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_qmllint.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/all_qmllint.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_tooling.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/ui-smoke.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/edit_cache.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/rebuild_cache.dir
+/home/Software_projects/SkyGrid_inc/SGG/build/CMakeFiles/SkyGridGCS_autogen.dir

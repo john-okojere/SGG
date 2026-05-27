@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/SkyGrid">
+    <file alias="qmldir">/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qmldir</file>
+  </qresource>
+</RCC>
+

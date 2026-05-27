@@ -1,0 +1,211 @@
+{
+    "classes": [
+        {
+            "className": "FlightSessionSyncManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "bootstrap",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "applyBootstrap",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "clientSessionId",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "beginPilotSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "clientSessionId",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "missionId",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "beginMissionSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "endStatus",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "endActiveSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "endStatus",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "endActiveSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "endActiveSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "actionType",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "actionData",
+                            "type": "QJsonObject"
+                        },
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "recordPilotAction",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "actionType",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "actionData",
+                            "type": "QJsonObject"
+                        }
+                    ],
+                    "name": "recordPilotAction",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "actionType",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "recordPilotAction",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "active",
+                    "notify": "sessionChanged",
+                    "read": "active",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "serverSessionId",
+                    "notify": "sessionChanged",
+                    "read": "serverSessionId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "clientSessionId",
+                    "notify": "sessionChanged",
+                    "read": "clientSessionId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "mode",
+                    "notify": "sessionChanged",
+                    "read": "mode",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "status",
+                    "notify": "sessionChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "FlightSessionSyncManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "sessionChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "FlightSessionSyncManager.h",
+    "outputRevision": 68
+}

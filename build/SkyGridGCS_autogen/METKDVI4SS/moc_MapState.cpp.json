@@ -1,0 +1,177 @@
+{
+    "classes": [
+        {
+            "className": "MapState",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "zoomIn",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "zoomOut",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setOverlayMode",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "refreshOverlay",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "centerLatitude",
+                    "notify": "centerChanged",
+                    "read": "centerLatitude",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "write": "setCenterLatitude"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "centerLongitude",
+                    "notify": "centerChanged",
+                    "read": "centerLongitude",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "write": "setCenterLongitude"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "zoomLevel",
+                    "notify": "zoomChanged",
+                    "read": "zoomLevel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "write": "setZoomLevel"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "layerMode",
+                    "notify": "layerChanged",
+                    "read": "layerMode",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setLayerMode"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "followAircraft",
+                    "notify": "followAircraftChanged",
+                    "read": "followAircraft",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setFollowAircraft"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "activeOverlayMode",
+                    "notify": "overlayChanged",
+                    "read": "activeOverlayMode",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "name": "overlayRevision",
+                    "notify": "overlayChanged",
+                    "read": "overlayRevision",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "MapState",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "centerChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "zoomChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "layerChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "followAircraftChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "overlayChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "MapState.h",
+    "outputRevision": 68
+}

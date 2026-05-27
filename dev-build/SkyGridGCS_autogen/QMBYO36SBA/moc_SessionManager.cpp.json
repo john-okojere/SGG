@@ -1,0 +1,96 @@
+{
+    "classes": [
+        {
+            "className": "SessionManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "validateSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "startMonitoring",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "stopMonitoring",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "operationsAllowed",
+                    "notify": "sessionStateChanged",
+                    "read": "operationsAllowed",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "controlCenterReachable",
+                    "notify": "sessionStateChanged",
+                    "read": "controlCenterReachable",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "blockReason",
+                    "notify": "sessionStateChanged",
+                    "read": "blockReason",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "SessionManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "sessionStateChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "forceLogout",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "SessionManager.h",
+    "outputRevision": 68
+}
