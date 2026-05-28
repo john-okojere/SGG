@@ -355,6 +355,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qsslpresharedkeyauthenticator.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
+ /home/Software_projects/SkyGrid_inc/SGG/src/sync/../vehicle/HomePositionManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/sync/../vehicle/VehicleTelemetryModel.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/sync/../network/WebSocketClient.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QHash \

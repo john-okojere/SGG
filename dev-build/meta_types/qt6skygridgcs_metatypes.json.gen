@@ -1055,6 +1055,48 @@
                         "designable": true,
                         "final": false,
                         "index": 10,
+                        "name": "averageSpeedMps",
+                        "notify": "statsChanged",
+                        "read": "averageSpeedMps",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 11,
+                        "name": "endedAt",
+                        "notify": "statsChanged",
+                        "read": "endedAt",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 12,
+                        "name": "lastRecord",
+                        "notify": "statsChanged",
+                        "read": "lastRecord",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 13,
                         "name": "flightPath",
                         "notify": "statsChanged",
                         "read": "flightPath",
@@ -1068,7 +1110,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 11,
+                        "index": 14,
                         "name": "status",
                         "notify": "statsChanged",
                         "read": "status",
@@ -1084,6 +1126,17 @@
                     {
                         "access": "public",
                         "name": "statsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "record",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "flightEnded",
                         "returnType": "void"
                     }
                 ],
@@ -1269,6 +1322,169 @@
             }
         ],
         "inputFile": "ManualControlManager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "PostMissionSummaryManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "dismiss",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "syncNow",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "exportReport",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "viewFullLog",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "returnToDashboard",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "startNewMission",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "visible",
+                        "notify": "summaryChanged",
+                        "read": "visible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "status",
+                        "notify": "summaryChanged",
+                        "read": "status",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "syncStatus",
+                        "notify": "summaryChanged",
+                        "read": "syncStatus",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "lastSummary",
+                        "notify": "summaryChanged",
+                        "read": "lastSummary",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "fullLogVisible",
+                        "notify": "summaryChanged",
+                        "read": "fullLogVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setFullLogVisible"
+                    }
+                ],
+                "qualifiedClassName": "PostMissionSummaryManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "summaryChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "returnToDashboardRequested",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "startNewMissionRequested",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "result",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "handleMissionFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "record",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "handleFlightEnded",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "PostMissionSummaryManager.h",
         "outputRevision": 68
     },
     {
@@ -1673,6 +1889,175 @@
     {
         "classes": [
             {
+                "className": "HomePositionManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "source",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setHome",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            }
+                        ],
+                        "name": "setHome",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "clearHome",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "source",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "updateHomeToCurrentTelemetry",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "name": "updateHomeToCurrentTelemetry",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            }
+                        ],
+                        "name": "distanceFromHomeMeters",
+                        "returnType": "double"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "hasHome",
+                        "notify": "homeChanged",
+                        "read": "hasHome",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "homeLatitude",
+                        "notify": "homeChanged",
+                        "read": "homeLatitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "homeLongitude",
+                        "notify": "homeChanged",
+                        "read": "homeLongitude",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "source",
+                        "notify": "homeChanged",
+                        "read": "source",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "locked",
+                        "notify": "homeChanged",
+                        "read": "locked",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setLocked"
+                    }
+                ],
+                "qualifiedClassName": "HomePositionManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "homeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "HomePositionManager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "MavsdkVehicleManager",
                 "methods": [
                     {
@@ -1954,6 +2339,17 @@
                             }
                         ],
                         "name": "missionStartFailed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "result",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "missionFinished",
                         "returnType": "void"
                     }
                 ],
@@ -2833,6 +3229,25 @@
                         "access": "public",
                         "arguments": [
                             {
+                                "name": "afterIndex",
+                                "type": "int"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            }
+                        ],
+                        "name": "insertPolygonVertex",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
                                 "name": "index",
                                 "type": "int"
                             },
@@ -2846,6 +3261,17 @@
                             }
                         ],
                         "name": "movePolygonVertex",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "deletePolygonVertex",
                         "returnType": "void"
                     },
                     {
@@ -4052,6 +4478,90 @@
                         "stored": true,
                         "type": "QString",
                         "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 64,
+                        "name": "generatedRoute",
+                        "notify": "geometryChanged",
+                        "read": "generatedRoute",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 65,
+                        "name": "routeEstimates",
+                        "notify": "geometryChanged",
+                        "read": "routeEstimates",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 66,
+                        "name": "cameraPreview",
+                        "notify": "geometryChanged",
+                        "read": "cameraPreview",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 67,
+                        "name": "elevationProfile",
+                        "notify": "geometryChanged",
+                        "read": "elevationProfile",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 68,
+                        "name": "boundaryPreview",
+                        "notify": "geometryChanged",
+                        "read": "boundaryPreview",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 69,
+                        "name": "generationRevision",
+                        "notify": "geometryChanged",
+                        "read": "generationRevision",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
                     }
                 ],
                 "qualifiedClassName": "MissionPlanModel",
@@ -4069,6 +4579,11 @@
                     {
                         "access": "public",
                         "name": "operationStatusChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "geometryChanged",
                         "returnType": "void"
                     }
                 ],
@@ -4251,6 +4766,21 @@
                         "designable": true,
                         "final": false,
                         "index": 6,
+                        "name": "selectedPolygonIndex",
+                        "notify": "selectedGeometryChanged",
+                        "read": "selectedPolygonIndex",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setSelectedPolygonIndex"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
                         "name": "rightPanelCollapsed",
                         "notify": "panelChanged",
                         "read": "rightPanelCollapsed",
@@ -4287,6 +4817,11 @@
                     {
                         "access": "public",
                         "name": "selectedWaypointChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "selectedGeometryChanged",
                         "returnType": "void"
                     },
                     {
@@ -5992,6 +6527,25 @@
                             {
                                 "name": "reason",
                                 "type": "QString"
+                            },
+                            {
+                                "name": "summary",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "endActiveSession",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "endStatus",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "reason",
+                                "type": "QString"
                             }
                         ],
                         "name": "endActiveSession",
@@ -6233,6 +6787,113 @@
             }
         ],
         "inputFile": "GcsEventSyncManager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "MissionPreviewManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "missionId",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "stage",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "previewPath",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "missionId",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "stage",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "filePath",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "width",
+                                "type": "int"
+                            },
+                            {
+                                "name": "height",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "syncPreview",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "status",
+                        "notify": "statusChanged",
+                        "read": "status",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "MissionPreviewManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "statusChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "missionId",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "stage",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "success",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "previewSynced",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "MissionPreviewManager.h",
         "outputRevision": 68
     },
     {

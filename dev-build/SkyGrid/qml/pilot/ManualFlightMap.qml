@@ -24,11 +24,17 @@ Item {
         mapProvider.layerMode = "SAT"
         mapState.layerMode = "SAT"
         mapState.followAircraft = true
+        if (!homePositionManager.hasHome && telemetryStore.connected) {
+            homePositionManager.updateHomeToCurrentTelemetry("manual_first_fix")
+        }
     }
 
     Connections {
         target: telemetryStore
         function onTelemetryChanged() {
+            if (!homePositionManager.hasHome && telemetryStore.connected && telemetryStore.armed) {
+                homePositionManager.updateHomeToCurrentTelemetry("manual_first_fix")
+            }
             if (mapState.followAircraft
                     && telemetryStore.connected
                     && Math.abs(telemetryStore.latitude) > 0.000001
@@ -126,6 +132,20 @@ Item {
             iconSource: AssetRegistry.icons.pin_location
             active: mapState.followAircraft
             onClicked: mapState.followAircraft = !mapState.followAircraft
+        }
+        IconButton {
+            implicitWidth: 44
+            implicitHeight: 44
+            iconText: "H"
+            active: false
+            onClicked: {
+                if (homePositionManager.updateHomeToCurrentTelemetry("operator_update")) {
+                    pilotActionSyncManager.recordAction("home_position_updated", "Home position updated by operator", {
+                        latitude: homePositionManager.homeLatitude,
+                        longitude: homePositionManager.homeLongitude
+                    })
+                }
+            }
         }
         RowLayout {
             spacing: 4

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MissionExecutionManager_t {
-    const uint offsetsAndSize[22];
-    char stringdata0[138];
+    const uint offsetsAndSize[26];
+    char stringdata0[161];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MissionExecutionManager_t, stringdata0) + ofs), len 
@@ -35,17 +35,20 @@ QT_MOC_LITERAL(41, 0), // ""
 QT_MOC_LITERAL(42, 14), // "missionStarted"
 QT_MOC_LITERAL(57, 18), // "missionStartFailed"
 QT_MOC_LITERAL(76, 7), // "message"
-QT_MOC_LITERAL(84, 12), // "startMission"
-QT_MOC_LITERAL(97, 9), // "executing"
-QT_MOC_LITERAL(107, 14), // "activeWaypoint"
-QT_MOC_LITERAL(122, 8), // "progress"
-QT_MOC_LITERAL(131, 6) // "status"
+QT_MOC_LITERAL(84, 15), // "missionFinished"
+QT_MOC_LITERAL(100, 6), // "result"
+QT_MOC_LITERAL(107, 12), // "startMission"
+QT_MOC_LITERAL(120, 9), // "executing"
+QT_MOC_LITERAL(130, 14), // "activeWaypoint"
+QT_MOC_LITERAL(145, 8), // "progress"
+QT_MOC_LITERAL(154, 6) // "status"
 
     },
     "MissionExecutionManager\0executionChanged\0"
     "\0missionStarted\0missionStartFailed\0"
-    "message\0startMission\0executing\0"
-    "activeWaypoint\0progress\0status"
+    "message\0missionFinished\0result\0"
+    "startMission\0executing\0activeWaypoint\0"
+    "progress\0status"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,34 +58,36 @@ static const uint qt_meta_data_MissionExecutionManager[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
-       4,   44, // properties
+       5,   14, // methods
+       4,   53, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x06,    5 /* Public */,
-       3,    0,   39,    2, 0x06,    6 /* Public */,
-       4,    1,   40,    2, 0x06,    7 /* Public */,
+       1,    0,   44,    2, 0x06,    5 /* Public */,
+       3,    0,   45,    2, 0x06,    6 /* Public */,
+       4,    1,   46,    2, 0x06,    7 /* Public */,
+       6,    1,   49,    2, 0x06,    9 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    0,   43,    2, 0x02,    9 /* Public */,
+       8,    0,   52,    2, 0x02,   11 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QVariantMap,    7,
 
  // methods: parameters
     QMetaType::Void,
 
  // properties: name, type, flags
-       7, QMetaType::Bool, 0x00015001, uint(0), 0,
-       8, QMetaType::Int, 0x00015001, uint(0), 0,
-       9, QMetaType::Int, 0x00015001, uint(0), 0,
-      10, QMetaType::QString, 0x00015001, uint(0), 0,
+       9, QMetaType::Bool, 0x00015001, uint(0), 0,
+      10, QMetaType::Int, 0x00015001, uint(0), 0,
+      11, QMetaType::Int, 0x00015001, uint(0), 0,
+      12, QMetaType::QString, 0x00015001, uint(0), 0,
 
        0        // eod
 };
@@ -96,7 +101,8 @@ void MissionExecutionManager::qt_static_metacall(QObject *_o, QMetaObject::Call 
         case 0: _t->executionChanged(); break;
         case 1: _t->missionStarted(); break;
         case 2: _t->missionStartFailed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->startMission(); break;
+        case 3: _t->missionFinished((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 4: _t->startMission(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -119,6 +125,13 @@ void MissionExecutionManager::qt_static_metacall(QObject *_o, QMetaObject::Call 
             using _t = void (MissionExecutionManager::*)(const QString & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MissionExecutionManager::missionStartFailed)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (MissionExecutionManager::*)(const QVariantMap & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MissionExecutionManager::missionFinished)) {
+                *result = 3;
                 return;
             }
         }
@@ -149,7 +162,7 @@ const QMetaObject MissionExecutionManager::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MissionExecutionManager_t
-, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<MissionExecutionManager, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<MissionExecutionManager, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>
 
 , QtPrivate::TypeAndForceComplete<void, std::false_type>
 
@@ -177,13 +190,13 @@ int MissionExecutionManager::qt_metacall(QMetaObject::Call _c, int _id, void **_
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
@@ -213,6 +226,13 @@ void MissionExecutionManager::missionStartFailed(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void MissionExecutionManager::missionFinished(const QVariantMap & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

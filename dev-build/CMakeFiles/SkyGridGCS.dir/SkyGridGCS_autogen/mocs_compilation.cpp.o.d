@@ -348,6 +348,8 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/../../../src/flight/ManualControlManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/moc_PostMissionSummaryManager.cpp \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/../../../src/flight/PostMissionSummaryManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/moc_PreflightChecklistManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/../../../src/flight/PreflightChecklistManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSet \
@@ -421,6 +423,8 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/FlightSessionSyncManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_GcsEventSyncManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/GcsEventSyncManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_MissionPreviewManager.cpp \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/MissionPreviewManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_MissionSyncManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/MissionSyncManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
@@ -441,6 +445,8 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/2DPUCG456N/../../../src/telemetry/WindCheckManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/2DPUCG456N/moc_WindTelemetryManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/2DPUCG456N/../../../src/telemetry/WindTelemetryManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/JALNJGYI72/moc_HomePositionManager.cpp \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/JALNJGYI72/../../../src/vehicle/HomePositionManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/JALNJGYI72/moc_MavsdkVehicleManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/JALNJGYI72/../../../src/vehicle/MavsdkVehicleManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/JALNJGYI72/moc_MissionExecutionManager.cpp \

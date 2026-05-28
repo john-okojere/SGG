@@ -11,7 +11,7 @@ GridLayout {
     columnSpacing: 10
 
     function hasUploadRoute() {
-        return !missionStore.plan.boundaryOnly && missionStore.plan.serializeForMavsdkMission().length >= 2
+        return !missionStore.plan.boundaryOnly && missionStore.plan.generatedRoute.length >= 2
     }
 
     function backendReadyForUpload() {

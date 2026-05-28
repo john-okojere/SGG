@@ -68,18 +68,21 @@ void MissionExecutionManager::startMission()
     if (!m_session || !m_session->operationsAllowed()) {
         const QString message = QStringLiteral("Device approval required before aircraft upload.");
         setStatus(message);
+        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
         emit missionStartFailed(message);
         return;
     }
     if (!m_vehicle || !m_vehicle->connected() || !m_vehicle->system()) {
         const QString message = QStringLiteral("Aircraft not connected. Please connect Gazebo/PX4 before starting.");
         setStatus(message);
+        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
         emit missionStartFailed(message);
         return;
     }
     if (!m_plan || m_plan->uploadState() != QStringLiteral("uploaded")) {
         const QString message = QStringLiteral("Upload the mission before starting autonomous flight.");
         setStatus(message);
+        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
         emit missionStartFailed(message);
         return;
     }
@@ -89,6 +92,7 @@ void MissionExecutionManager::startMission()
             const QString reason = m_preflight->blockReason();
             const QString message = reason.isEmpty() ? QStringLiteral("Preflight failed.") : QStringLiteral("Preflight failed: %1").arg(reason);
             setStatus(message);
+            emit missionFinished(finishPayload(QStringLiteral("failed"), message));
             emit missionStartFailed(message);
             return;
         }
@@ -128,6 +132,7 @@ void MissionExecutionManager::startMission()
                     {QStringLiteral("success"), true},
                     {QStringLiteral("reason"), QString()}
                 });
+                emit missionFinished(finishPayload(QStringLiteral("completed")));
                 if (m_flightSessions) {
                     m_flightSessions->endActiveSession(QStringLiteral("completed"), QStringLiteral("Mission execution completed"));
                 }
@@ -187,6 +192,7 @@ void MissionExecutionManager::startMission()
                     }
                     const QString message = QStringLiteral("Mission start failed: %1").arg(enumString(result));
                     setStatus(message);
+                    emit missionFinished(finishPayload(QStringLiteral("failed"), message));
                     emit missionStartFailed(message);
                 }
                 emit executionChanged();
@@ -229,6 +235,7 @@ void MissionExecutionManager::startMission()
                     }
                     const QString message = QStringLiteral("Mission takeoff failed: %1").arg(enumString(result));
                     setStatus(message);
+                    emit missionFinished(finishPayload(QStringLiteral("failed"), message));
                     emit missionStartFailed(message);
                     emit executionChanged();
                     return;
@@ -274,6 +281,7 @@ void MissionExecutionManager::startMission()
                         }
                         const QString message = QStringLiteral("Mission arm failed: %1").arg(enumString(result));
                         setStatus(message);
+                        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
                         emit missionStartFailed(message);
                         emit executionChanged();
                         return;
@@ -300,6 +308,24 @@ void MissionExecutionManager::setStatus(const QString &status)
     }
     m_status = status;
     emit executionChanged();
+}
+
+QVariantMap MissionExecutionManager::finishPayload(const QString &status, const QString &reason) const
+{
+    return QVariantMap{
+        {QStringLiteral("result_status"), status},
+        {QStringLiteral("reason"), reason},
+        {QStringLiteral("ended_at"), QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)},
+        {QStringLiteral("active_waypoint"), m_activeWaypoint},
+        {QStringLiteral("progress_percent"), m_progress},
+        {QStringLiteral("executing"), m_executing},
+        {QStringLiteral("mission_id"), m_plan ? m_plan->missionId() : QString()},
+        {QStringLiteral("mission_name"), m_plan ? m_plan->name() : QStringLiteral("Untitled Mission")},
+        {QStringLiteral("mission_type"), m_plan ? m_plan->missionType() : QString()},
+        {QStringLiteral("waypoint_count"), m_plan ? m_plan->generatedRoute().size() : 0},
+        {QStringLiteral("flight_session_id"), m_flightSessions ? m_flightSessions->clientSessionId() : QString()},
+        {QStringLiteral("server_session_id"), m_flightSessions ? m_flightSessions->serverSessionId() : QString()}
+    };
 }
 
 void MissionExecutionManager::postExecutionAction(const QString &action, const QJsonObject &payload)

@@ -771,6 +771,12 @@
 			null
 		],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.h",
+			"Mu",
+			"CL3GGLWYWM/moc_PostMissionSummaryManager.cpp",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/flight/PreflightChecklistManager.h",
 			"Mu",
 			"CL3GGLWYWM/moc_PreflightChecklistManager.cpp",
@@ -780,6 +786,12 @@
 			"/home/Software_projects/SkyGrid_inc/SGG/src/map/TileCacheManager.h",
 			"Mu",
 			"GVBWGARL6Y/moc_TileCacheManager.cpp",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/models/MissionGenerationService.h",
+			"Mu",
+			"M4YTXQ7V2H/moc_MissionGenerationService.cpp",
 			null
 		],
 		[
@@ -855,6 +867,12 @@
 			null
 		],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.h",
+			"Mu",
+			"Y7MAPSIO2O/moc_MissionPreviewManager.cpp",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionSyncManager.h",
 			"Mu",
 			"Y7MAPSIO2O/moc_MissionSyncManager.cpp",
@@ -906,6 +924,12 @@
 			"/home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindTelemetryManager.h",
 			"Mu",
 			"2DPUCG456N/moc_WindTelemetryManager.cpp",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.h",
+			"Mu",
+			"JALNJGYI72/moc_HomePositionManager.cpp",
 			null
 		],
 		[
@@ -1081,6 +1105,7 @@
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp",
@@ -1197,6 +1222,11 @@
 			null
 		],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.cpp",
+			"Mu",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/flight/PreflightChecklistManager.cpp",
 			"Mu",
 			null
@@ -1204,6 +1234,11 @@
 		[ "/home/Software_projects/SkyGrid_inc/SGG/src/main.cpp", "Mu", null ],
 		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/map/TileCacheManager.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/models/MissionGenerationService.cpp",
 			"Mu",
 			null
 		],
@@ -1268,6 +1303,11 @@
 			null
 		],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.cpp",
+			"Mu",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionSyncManager.cpp",
 			"Mu",
 			null
@@ -1309,6 +1349,11 @@
 		],
 		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindTelemetryManager.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.cpp",
 			"Mu",
 			null
 		],

@@ -36,6 +36,7 @@
 #include "controllers/ThemeController.h"
 #include "flight/EventLogManager.h"
 #include "flight/FlightStatsManager.h"
+#include "flight/PostMissionSummaryManager.h"
 #include "flight/PreflightChecklistManager.h"
 #include "flight/ManualControlManager.h"
 #include "map/TileCacheManager.h"
@@ -267,6 +268,28 @@ int main(int argc, char *argv[])
                                               &flightSessionSyncManager,
                                               &webSocketClient,
                                               &localSyncCache);
+    PostMissionSummaryManager postMissionSummaryManager(&apiClient,
+                                                        &sessionManager,
+                                                        &localSyncCache,
+                                                        missionStore.plan(),
+                                                        &flightStatsManager,
+                                                        &flightSessionSyncManager,
+                                                        &telemetrySyncManager,
+                                                        &missionSyncManager,
+                                                        &profileManager,
+                                                        &telemetry);
+    QObject::connect(&missionExecutionManager,
+                     &MissionExecutionManager::missionFinished,
+                     &postMissionSummaryManager,
+                     &PostMissionSummaryManager::handleMissionFinished);
+    QObject::connect(&postMissionSummaryManager,
+                     &PostMissionSummaryManager::returnToDashboardRequested,
+                     &appState,
+                     &AppState::goHome);
+    QObject::connect(&postMissionSummaryManager,
+                     &PostMissionSummaryManager::startNewMissionRequested,
+                     &appState,
+                     &AppState::openMissionSelector);
 
     QQmlApplicationEngine engine;
     engine.addImageProvider(QStringLiteral("svgicon"), new SvgIconProvider);
@@ -404,6 +427,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("weatherSyncManager", &weatherSyncManager);
     engine.rootContext()->setContextProperty("windTelemetryManager", &windTelemetryManager);
     engine.rootContext()->setContextProperty("flightStatsManager", &flightStatsManager);
+    engine.rootContext()->setContextProperty("postMissionSummaryManager", &postMissionSummaryManager);
     engine.rootContext()->setContextProperty("flightSessionSyncManager", &flightSessionSyncManager);
     engine.rootContext()->setContextProperty("missionStore", &missionStore);
     engine.rootContext()->setContextProperty("operatorStateManager", &operatorStateManager);

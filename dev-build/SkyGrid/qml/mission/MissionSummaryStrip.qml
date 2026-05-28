@@ -16,7 +16,7 @@ RowLayout {
 
     function fourthValue() {
         if (root.activeMissionType === "photomap" || root.activeMissionType === "virtualFence") return Number(missionStore.plan.missionAreaHa).toFixed(1)
-        return String(missionStore.plan.serializeForMavsdkMission().length)
+        return String(missionStore.plan.generatedRoute.length)
     }
 
     function fourthUnit() {

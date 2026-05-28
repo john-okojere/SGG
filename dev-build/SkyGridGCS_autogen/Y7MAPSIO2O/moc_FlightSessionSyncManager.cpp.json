@@ -50,6 +50,25 @@
                         {
                             "name": "reason",
                             "type": "QString"
+                        },
+                        {
+                            "name": "summary",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "endActiveSession",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "endStatus",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "reason",
+                            "type": "QString"
                         }
                     ],
                     "name": "endActiveSession",

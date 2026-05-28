@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QDateTime>
 #include <QString>
+#include <QVariantMap>
 
 #include <memory>
 
@@ -47,10 +48,12 @@ signals:
     void executionChanged();
     void missionStarted();
     void missionStartFailed(const QString &message);
+    void missionFinished(const QVariantMap &result);
 
 private:
     void setStatus(const QString &status);
     void postExecutionAction(const QString &action, const QJsonObject &payload);
+    QVariantMap finishPayload(const QString &status, const QString &reason = QString()) const;
 
     MavsdkVehicleManager *m_vehicle = nullptr;
     MissionPlanModel *m_plan = nullptr;

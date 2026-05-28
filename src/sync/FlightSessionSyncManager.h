@@ -44,7 +44,8 @@ public:
     Q_INVOKABLE void beginPilotSession(const QString &clientSessionId);
     Q_INVOKABLE void beginMissionSession(const QString &clientSessionId, const QString &missionId);
     Q_INVOKABLE void endActiveSession(const QString &endStatus = QStringLiteral("completed"),
-                                      const QString &reason = QString());
+                                      const QString &reason = QString(),
+                                      const QVariantMap &summary = {});
     Q_INVOKABLE void recordPilotAction(const QString &actionType,
                                        const QJsonObject &actionData = {},
                                        const QString &message = QString());

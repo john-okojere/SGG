@@ -1,0 +1,107 @@
+{
+    "classes": [
+        {
+            "className": "MissionPreviewManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "missionId",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "stage",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "previewPath",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "missionId",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "stage",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "filePath",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "width",
+                            "type": "int"
+                        },
+                        {
+                            "name": "height",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "syncPreview",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "status",
+                    "notify": "statusChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "MissionPreviewManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "statusChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "missionId",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "stage",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "success",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "previewSynced",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "MissionPreviewManager.h",
+    "outputRevision": 68
+}

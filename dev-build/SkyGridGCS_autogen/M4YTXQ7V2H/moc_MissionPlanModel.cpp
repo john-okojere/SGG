@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MissionPlanModel_t {
-    const uint offsetsAndSize[258];
-    char stringdata0[1786];
+    const uint offsetsAndSize[278];
+    char stringdata0[1949];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MissionPlanModel_t, stringdata0) + ofs), len 
@@ -34,149 +34,160 @@ QT_MOC_LITERAL(17, 11), // "planChanged"
 QT_MOC_LITERAL(29, 0), // ""
 QT_MOC_LITERAL(30, 17), // "validationChanged"
 QT_MOC_LITERAL(48, 22), // "operationStatusChanged"
-QT_MOC_LITERAL(71, 11), // "createDraft"
-QT_MOC_LITERAL(83, 11), // "missionType"
-QT_MOC_LITERAL(95, 10), // "aircraftId"
-QT_MOC_LITERAL(106, 11), // "loadMission"
-QT_MOC_LITERAL(118, 7), // "mission"
-QT_MOC_LITERAL(126, 19), // "serializeForBackend"
-QT_MOC_LITERAL(146, 25), // "serializeForMavsdkMission"
-QT_MOC_LITERAL(172, 17), // "validateForUpload"
-QT_MOC_LITERAL(190, 17), // "aircraftConnected"
-QT_MOC_LITERAL(208, 13), // "aircraftReady"
-QT_MOC_LITERAL(222, 13), // "markUploading"
-QT_MOC_LITERAL(236, 12), // "markUploaded"
-QT_MOC_LITERAL(249, 6), // "result"
-QT_MOC_LITERAL(256, 16), // "markUploadFailed"
-QT_MOC_LITERAL(273, 6), // "reason"
-QT_MOC_LITERAL(280, 13), // "markExecuting"
-QT_MOC_LITERAL(294, 13), // "markCompleted"
-QT_MOC_LITERAL(308, 7), // "success"
-QT_MOC_LITERAL(316, 20), // "setExecutionProgress"
-QT_MOC_LITERAL(337, 14), // "activeWaypoint"
-QT_MOC_LITERAL(352, 15), // "progressPercent"
-QT_MOC_LITERAL(368, 11), // "addWaypoint"
-QT_MOC_LITERAL(380, 8), // "latitude"
-QT_MOC_LITERAL(389, 9), // "longitude"
-QT_MOC_LITERAL(399, 15), // "setTakeoffPoint"
-QT_MOC_LITERAL(415, 17), // "clearTakeoffPoint"
-QT_MOC_LITERAL(433, 16), // "addPolygonVertex"
-QT_MOC_LITERAL(450, 17), // "movePolygonVertex"
-QT_MOC_LITERAL(468, 5), // "index"
-QT_MOC_LITERAL(474, 12), // "moveWaypoint"
-QT_MOC_LITERAL(487, 19), // "setWaypointAltitude"
-QT_MOC_LITERAL(507, 8), // "altitude"
-QT_MOC_LITERAL(516, 16), // "setWaypointSpeed"
-QT_MOC_LITERAL(533, 5), // "speed"
-QT_MOC_LITERAL(539, 18), // "setWaypointHeading"
-QT_MOC_LITERAL(558, 7), // "heading"
-QT_MOC_LITERAL(566, 22), // "setWaypointGimbalPitch"
-QT_MOC_LITERAL(589, 5), // "pitch"
-QT_MOC_LITERAL(595, 17), // "setWaypointAction"
-QT_MOC_LITERAL(613, 6), // "action"
-QT_MOC_LITERAL(620, 21), // "setWaypointCameraMode"
-QT_MOC_LITERAL(642, 10), // "cameraMode"
-QT_MOC_LITERAL(653, 24), // "setWaypointLoiterSeconds"
-QT_MOC_LITERAL(678, 7), // "seconds"
-QT_MOC_LITERAL(686, 23), // "setWaypointHoverSeconds"
-QT_MOC_LITERAL(710, 14), // "deleteWaypoint"
-QT_MOC_LITERAL(725, 17), // "moveWaypointOrder"
-QT_MOC_LITERAL(743, 9), // "fromIndex"
-QT_MOC_LITERAL(753, 7), // "toIndex"
-QT_MOC_LITERAL(761, 10), // "waypointAt"
-QT_MOC_LITERAL(772, 6), // "setPoi"
-QT_MOC_LITERAL(779, 12), // "setPoiRadius"
-QT_MOC_LITERAL(792, 6), // "radius"
-QT_MOC_LITERAL(799, 20), // "setPrimaryCoordinate"
-QT_MOC_LITERAL(820, 16), // "undoLastGeometry"
-QT_MOC_LITERAL(837, 18), // "clearDraftGeometry"
-QT_MOC_LITERAL(856, 15), // "validateMission"
-QT_MOC_LITERAL(872, 22), // "applyBackendValidation"
-QT_MOC_LITERAL(895, 10), // "validation"
-QT_MOC_LITERAL(906, 11), // "saveMission"
-QT_MOC_LITERAL(918, 9), // "saveLocal"
-QT_MOC_LITERAL(928, 13), // "resetGeometry"
-QT_MOC_LITERAL(942, 16), // "chooseImportFile"
-QT_MOC_LITERAL(959, 17), // "importMissionFile"
-QT_MOC_LITERAL(977, 13), // "fileUrlOrPath"
-QT_MOC_LITERAL(991, 9), // "missionId"
-QT_MOC_LITERAL(1001, 4), // "name"
-QT_MOC_LITERAL(1006, 18), // "selectedAircraftId"
-QT_MOC_LITERAL(1025, 9), // "syncState"
-QT_MOC_LITERAL(1035, 12), // "missionState"
-QT_MOC_LITERAL(1048, 11), // "uploadState"
-QT_MOC_LITERAL(1060, 14), // "executionState"
-QT_MOC_LITERAL(1075, 19), // "activeWaypointIndex"
-QT_MOC_LITERAL(1095, 14), // "createdLocally"
-QT_MOC_LITERAL(1110, 5), // "dirty"
-QT_MOC_LITERAL(1116, 6), // "hasPoi"
-QT_MOC_LITERAL(1123, 15), // "captureInterval"
-QT_MOC_LITERAL(1139, 3), // "gsd"
-QT_MOC_LITERAL(1143, 12), // "frontOverlap"
-QT_MOC_LITERAL(1156, 11), // "sideOverlap"
-QT_MOC_LITERAL(1168, 14), // "buildingRadius"
-QT_MOC_LITERAL(1183, 10), // "safeMargin"
-QT_MOC_LITERAL(1194, 11), // "minAltitude"
-QT_MOC_LITERAL(1206, 11), // "maxAltitude"
-QT_MOC_LITERAL(1218, 11), // "courseAngle"
-QT_MOC_LITERAL(1230, 6), // "margin"
-QT_MOC_LITERAL(1237, 11), // "gimbalPitch"
-QT_MOC_LITERAL(1249, 11), // "cameraModel"
-QT_MOC_LITERAL(1261, 13), // "shootingAngle"
-QT_MOC_LITERAL(1275, 11), // "captureMode"
-QT_MOC_LITERAL(1287, 16), // "flightCourseMode"
-QT_MOC_LITERAL(1304, 10), // "insideMode"
-QT_MOC_LITERAL(1315, 11), // "headingMode"
-QT_MOC_LITERAL(1327, 16), // "aircraftRotation"
-QT_MOC_LITERAL(1344, 14), // "corneringStyle"
-QT_MOC_LITERAL(1359, 12), // "finishAction"
-QT_MOC_LITERAL(1372, 10), // "fenceShape"
-QT_MOC_LITERAL(1383, 12), // "boundaryType"
-QT_MOC_LITERAL(1396, 12), // "breachAction"
-QT_MOC_LITERAL(1409, 13), // "warningAction"
-QT_MOC_LITERAL(1423, 15), // "flightDirection"
-QT_MOC_LITERAL(1439, 9), // "waypoints"
-QT_MOC_LITERAL(1449, 12), // "takeoffPoint"
-QT_MOC_LITERAL(1462, 15), // "hasTakeoffPoint"
-QT_MOC_LITERAL(1478, 15), // "routeDistanceKm"
-QT_MOC_LITERAL(1494, 7), // "polygon"
-QT_MOC_LITERAL(1502, 3), // "poi"
-QT_MOC_LITERAL(1506, 15), // "primaryLatitude"
-QT_MOC_LITERAL(1522, 16), // "primaryLongitude"
-QT_MOC_LITERAL(1539, 13), // "missionAreaHa"
-QT_MOC_LITERAL(1553, 16), // "estimatedBattery"
-QT_MOC_LITERAL(1570, 13), // "estimatedTime"
-QT_MOC_LITERAL(1584, 16), // "missionReadiness"
-QT_MOC_LITERAL(1601, 18), // "validationWarnings"
-QT_MOC_LITERAL(1620, 16), // "validationChecks"
-QT_MOC_LITERAL(1637, 17), // "validationRunning"
-QT_MOC_LITERAL(1655, 12), // "missionReady"
-QT_MOC_LITERAL(1668, 22), // "backendValidationState"
-QT_MOC_LITERAL(1691, 16), // "backendSyncReady"
-QT_MOC_LITERAL(1708, 21), // "backendUploadEligible"
-QT_MOC_LITERAL(1730, 12), // "boundaryOnly"
-QT_MOC_LITERAL(1743, 12), // "importStatus"
-QT_MOC_LITERAL(1756, 13), // "importSummary"
-QT_MOC_LITERAL(1770, 15) // "operationStatus"
+QT_MOC_LITERAL(71, 15), // "geometryChanged"
+QT_MOC_LITERAL(87, 11), // "createDraft"
+QT_MOC_LITERAL(99, 11), // "missionType"
+QT_MOC_LITERAL(111, 10), // "aircraftId"
+QT_MOC_LITERAL(122, 11), // "loadMission"
+QT_MOC_LITERAL(134, 7), // "mission"
+QT_MOC_LITERAL(142, 19), // "serializeForBackend"
+QT_MOC_LITERAL(162, 25), // "serializeForMavsdkMission"
+QT_MOC_LITERAL(188, 17), // "validateForUpload"
+QT_MOC_LITERAL(206, 17), // "aircraftConnected"
+QT_MOC_LITERAL(224, 13), // "aircraftReady"
+QT_MOC_LITERAL(238, 13), // "markUploading"
+QT_MOC_LITERAL(252, 12), // "markUploaded"
+QT_MOC_LITERAL(265, 6), // "result"
+QT_MOC_LITERAL(272, 16), // "markUploadFailed"
+QT_MOC_LITERAL(289, 6), // "reason"
+QT_MOC_LITERAL(296, 13), // "markExecuting"
+QT_MOC_LITERAL(310, 13), // "markCompleted"
+QT_MOC_LITERAL(324, 7), // "success"
+QT_MOC_LITERAL(332, 20), // "setExecutionProgress"
+QT_MOC_LITERAL(353, 14), // "activeWaypoint"
+QT_MOC_LITERAL(368, 15), // "progressPercent"
+QT_MOC_LITERAL(384, 11), // "addWaypoint"
+QT_MOC_LITERAL(396, 8), // "latitude"
+QT_MOC_LITERAL(405, 9), // "longitude"
+QT_MOC_LITERAL(415, 15), // "setTakeoffPoint"
+QT_MOC_LITERAL(431, 17), // "clearTakeoffPoint"
+QT_MOC_LITERAL(449, 16), // "addPolygonVertex"
+QT_MOC_LITERAL(466, 19), // "insertPolygonVertex"
+QT_MOC_LITERAL(486, 10), // "afterIndex"
+QT_MOC_LITERAL(497, 17), // "movePolygonVertex"
+QT_MOC_LITERAL(515, 5), // "index"
+QT_MOC_LITERAL(521, 19), // "deletePolygonVertex"
+QT_MOC_LITERAL(541, 12), // "moveWaypoint"
+QT_MOC_LITERAL(554, 19), // "setWaypointAltitude"
+QT_MOC_LITERAL(574, 8), // "altitude"
+QT_MOC_LITERAL(583, 16), // "setWaypointSpeed"
+QT_MOC_LITERAL(600, 5), // "speed"
+QT_MOC_LITERAL(606, 18), // "setWaypointHeading"
+QT_MOC_LITERAL(625, 7), // "heading"
+QT_MOC_LITERAL(633, 22), // "setWaypointGimbalPitch"
+QT_MOC_LITERAL(656, 5), // "pitch"
+QT_MOC_LITERAL(662, 17), // "setWaypointAction"
+QT_MOC_LITERAL(680, 6), // "action"
+QT_MOC_LITERAL(687, 21), // "setWaypointCameraMode"
+QT_MOC_LITERAL(709, 10), // "cameraMode"
+QT_MOC_LITERAL(720, 24), // "setWaypointLoiterSeconds"
+QT_MOC_LITERAL(745, 7), // "seconds"
+QT_MOC_LITERAL(753, 23), // "setWaypointHoverSeconds"
+QT_MOC_LITERAL(777, 14), // "deleteWaypoint"
+QT_MOC_LITERAL(792, 17), // "moveWaypointOrder"
+QT_MOC_LITERAL(810, 9), // "fromIndex"
+QT_MOC_LITERAL(820, 7), // "toIndex"
+QT_MOC_LITERAL(828, 10), // "waypointAt"
+QT_MOC_LITERAL(839, 6), // "setPoi"
+QT_MOC_LITERAL(846, 12), // "setPoiRadius"
+QT_MOC_LITERAL(859, 6), // "radius"
+QT_MOC_LITERAL(866, 20), // "setPrimaryCoordinate"
+QT_MOC_LITERAL(887, 16), // "undoLastGeometry"
+QT_MOC_LITERAL(904, 18), // "clearDraftGeometry"
+QT_MOC_LITERAL(923, 15), // "validateMission"
+QT_MOC_LITERAL(939, 22), // "applyBackendValidation"
+QT_MOC_LITERAL(962, 10), // "validation"
+QT_MOC_LITERAL(973, 11), // "saveMission"
+QT_MOC_LITERAL(985, 9), // "saveLocal"
+QT_MOC_LITERAL(995, 13), // "resetGeometry"
+QT_MOC_LITERAL(1009, 16), // "chooseImportFile"
+QT_MOC_LITERAL(1026, 17), // "importMissionFile"
+QT_MOC_LITERAL(1044, 13), // "fileUrlOrPath"
+QT_MOC_LITERAL(1058, 9), // "missionId"
+QT_MOC_LITERAL(1068, 4), // "name"
+QT_MOC_LITERAL(1073, 18), // "selectedAircraftId"
+QT_MOC_LITERAL(1092, 9), // "syncState"
+QT_MOC_LITERAL(1102, 12), // "missionState"
+QT_MOC_LITERAL(1115, 11), // "uploadState"
+QT_MOC_LITERAL(1127, 14), // "executionState"
+QT_MOC_LITERAL(1142, 19), // "activeWaypointIndex"
+QT_MOC_LITERAL(1162, 14), // "createdLocally"
+QT_MOC_LITERAL(1177, 5), // "dirty"
+QT_MOC_LITERAL(1183, 6), // "hasPoi"
+QT_MOC_LITERAL(1190, 15), // "captureInterval"
+QT_MOC_LITERAL(1206, 3), // "gsd"
+QT_MOC_LITERAL(1210, 12), // "frontOverlap"
+QT_MOC_LITERAL(1223, 11), // "sideOverlap"
+QT_MOC_LITERAL(1235, 14), // "buildingRadius"
+QT_MOC_LITERAL(1250, 10), // "safeMargin"
+QT_MOC_LITERAL(1261, 11), // "minAltitude"
+QT_MOC_LITERAL(1273, 11), // "maxAltitude"
+QT_MOC_LITERAL(1285, 11), // "courseAngle"
+QT_MOC_LITERAL(1297, 6), // "margin"
+QT_MOC_LITERAL(1304, 11), // "gimbalPitch"
+QT_MOC_LITERAL(1316, 11), // "cameraModel"
+QT_MOC_LITERAL(1328, 13), // "shootingAngle"
+QT_MOC_LITERAL(1342, 11), // "captureMode"
+QT_MOC_LITERAL(1354, 16), // "flightCourseMode"
+QT_MOC_LITERAL(1371, 10), // "insideMode"
+QT_MOC_LITERAL(1382, 11), // "headingMode"
+QT_MOC_LITERAL(1394, 16), // "aircraftRotation"
+QT_MOC_LITERAL(1411, 14), // "corneringStyle"
+QT_MOC_LITERAL(1426, 12), // "finishAction"
+QT_MOC_LITERAL(1439, 10), // "fenceShape"
+QT_MOC_LITERAL(1450, 12), // "boundaryType"
+QT_MOC_LITERAL(1463, 12), // "breachAction"
+QT_MOC_LITERAL(1476, 13), // "warningAction"
+QT_MOC_LITERAL(1490, 15), // "flightDirection"
+QT_MOC_LITERAL(1506, 9), // "waypoints"
+QT_MOC_LITERAL(1516, 12), // "takeoffPoint"
+QT_MOC_LITERAL(1529, 15), // "hasTakeoffPoint"
+QT_MOC_LITERAL(1545, 15), // "routeDistanceKm"
+QT_MOC_LITERAL(1561, 7), // "polygon"
+QT_MOC_LITERAL(1569, 3), // "poi"
+QT_MOC_LITERAL(1573, 15), // "primaryLatitude"
+QT_MOC_LITERAL(1589, 16), // "primaryLongitude"
+QT_MOC_LITERAL(1606, 13), // "missionAreaHa"
+QT_MOC_LITERAL(1620, 16), // "estimatedBattery"
+QT_MOC_LITERAL(1637, 13), // "estimatedTime"
+QT_MOC_LITERAL(1651, 16), // "missionReadiness"
+QT_MOC_LITERAL(1668, 18), // "validationWarnings"
+QT_MOC_LITERAL(1687, 16), // "validationChecks"
+QT_MOC_LITERAL(1704, 17), // "validationRunning"
+QT_MOC_LITERAL(1722, 12), // "missionReady"
+QT_MOC_LITERAL(1735, 22), // "backendValidationState"
+QT_MOC_LITERAL(1758, 16), // "backendSyncReady"
+QT_MOC_LITERAL(1775, 21), // "backendUploadEligible"
+QT_MOC_LITERAL(1797, 12), // "boundaryOnly"
+QT_MOC_LITERAL(1810, 12), // "importStatus"
+QT_MOC_LITERAL(1823, 13), // "importSummary"
+QT_MOC_LITERAL(1837, 15), // "operationStatus"
+QT_MOC_LITERAL(1853, 14), // "generatedRoute"
+QT_MOC_LITERAL(1868, 14), // "routeEstimates"
+QT_MOC_LITERAL(1883, 13), // "cameraPreview"
+QT_MOC_LITERAL(1897, 16), // "elevationProfile"
+QT_MOC_LITERAL(1914, 15), // "boundaryPreview"
+QT_MOC_LITERAL(1930, 18) // "generationRevision"
 
     },
     "MissionPlanModel\0planChanged\0\0"
     "validationChanged\0operationStatusChanged\0"
-    "createDraft\0missionType\0aircraftId\0"
-    "loadMission\0mission\0serializeForBackend\0"
-    "serializeForMavsdkMission\0validateForUpload\0"
-    "aircraftConnected\0aircraftReady\0"
-    "markUploading\0markUploaded\0result\0"
-    "markUploadFailed\0reason\0markExecuting\0"
-    "markCompleted\0success\0setExecutionProgress\0"
-    "activeWaypoint\0progressPercent\0"
-    "addWaypoint\0latitude\0longitude\0"
-    "setTakeoffPoint\0clearTakeoffPoint\0"
-    "addPolygonVertex\0movePolygonVertex\0"
-    "index\0moveWaypoint\0setWaypointAltitude\0"
-    "altitude\0setWaypointSpeed\0speed\0"
-    "setWaypointHeading\0heading\0"
-    "setWaypointGimbalPitch\0pitch\0"
+    "geometryChanged\0createDraft\0missionType\0"
+    "aircraftId\0loadMission\0mission\0"
+    "serializeForBackend\0serializeForMavsdkMission\0"
+    "validateForUpload\0aircraftConnected\0"
+    "aircraftReady\0markUploading\0markUploaded\0"
+    "result\0markUploadFailed\0reason\0"
+    "markExecuting\0markCompleted\0success\0"
+    "setExecutionProgress\0activeWaypoint\0"
+    "progressPercent\0addWaypoint\0latitude\0"
+    "longitude\0setTakeoffPoint\0clearTakeoffPoint\0"
+    "addPolygonVertex\0insertPolygonVertex\0"
+    "afterIndex\0movePolygonVertex\0index\0"
+    "deletePolygonVertex\0moveWaypoint\0"
+    "setWaypointAltitude\0altitude\0"
+    "setWaypointSpeed\0speed\0setWaypointHeading\0"
+    "heading\0setWaypointGimbalPitch\0pitch\0"
     "setWaypointAction\0action\0setWaypointCameraMode\0"
     "cameraMode\0setWaypointLoiterSeconds\0"
     "seconds\0setWaypointHoverSeconds\0"
@@ -209,7 +220,10 @@ QT_MOC_LITERAL(1770, 15) // "operationStatus"
     "validationRunning\0missionReady\0"
     "backendValidationState\0backendSyncReady\0"
     "backendUploadEligible\0boundaryOnly\0"
-    "importStatus\0importSummary\0operationStatus"
+    "importStatus\0importSummary\0operationStatus\0"
+    "generatedRoute\0routeEstimates\0"
+    "cameraPreview\0elevationProfile\0"
+    "boundaryPreview\0generationRevision"
 };
 #undef QT_MOC_LITERAL
 
@@ -219,139 +233,141 @@ static const uint qt_meta_data_MissionPlanModel[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      43,   14, // methods
-      64,  415, // properties
+      46,   14, // methods
+      70,  444, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  272,    2, 0x06,   65 /* Public */,
-       3,    0,  273,    2, 0x06,   66 /* Public */,
-       4,    0,  274,    2, 0x06,   67 /* Public */,
+       1,    0,  290,    2, 0x06,   71 /* Public */,
+       3,    0,  291,    2, 0x06,   72 /* Public */,
+       4,    0,  292,    2, 0x06,   73 /* Public */,
+       5,    0,  293,    2, 0x06,   74 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    2,  275,    2, 0x02,   68 /* Public */,
-       8,    1,  280,    2, 0x02,   71 /* Public */,
-      10,    0,  283,    2, 0x102,   73 /* Public | MethodIsConst  */,
-      11,    0,  284,    2, 0x102,   74 /* Public | MethodIsConst  */,
-      12,    2,  285,    2, 0x02,   75 /* Public */,
-      15,    0,  290,    2, 0x02,   78 /* Public */,
-      16,    1,  291,    2, 0x02,   79 /* Public */,
-      18,    1,  294,    2, 0x02,   81 /* Public */,
-      20,    0,  297,    2, 0x02,   83 /* Public */,
-      21,    2,  298,    2, 0x02,   84 /* Public */,
-      23,    2,  303,    2, 0x02,   87 /* Public */,
-      26,    2,  308,    2, 0x02,   90 /* Public */,
-      29,    2,  313,    2, 0x02,   93 /* Public */,
-      30,    0,  318,    2, 0x02,   96 /* Public */,
-      31,    2,  319,    2, 0x02,   97 /* Public */,
-      32,    3,  324,    2, 0x02,  100 /* Public */,
-      34,    3,  331,    2, 0x02,  104 /* Public */,
-      35,    2,  338,    2, 0x02,  108 /* Public */,
-      37,    2,  343,    2, 0x02,  111 /* Public */,
-      39,    2,  348,    2, 0x02,  114 /* Public */,
-      41,    2,  353,    2, 0x02,  117 /* Public */,
-      43,    2,  358,    2, 0x02,  120 /* Public */,
-      45,    2,  363,    2, 0x02,  123 /* Public */,
-      47,    2,  368,    2, 0x02,  126 /* Public */,
-      49,    2,  373,    2, 0x02,  129 /* Public */,
-      50,    1,  378,    2, 0x02,  132 /* Public */,
-      51,    2,  381,    2, 0x02,  134 /* Public */,
-      54,    1,  386,    2, 0x102,  137 /* Public | MethodIsConst  */,
-      55,    2,  389,    2, 0x02,  139 /* Public */,
-      56,    1,  394,    2, 0x02,  142 /* Public */,
-      58,    2,  397,    2, 0x02,  144 /* Public */,
-      59,    0,  402,    2, 0x02,  147 /* Public */,
-      60,    0,  403,    2, 0x02,  148 /* Public */,
-      61,    0,  404,    2, 0x02,  149 /* Public */,
-      62,    1,  405,    2, 0x02,  150 /* Public */,
-      64,    0,  408,    2, 0x02,  152 /* Public */,
-      65,    0,  409,    2, 0x02,  153 /* Public */,
-      66,    0,  410,    2, 0x02,  154 /* Public */,
-      67,    0,  411,    2, 0x102,  155 /* Public | MethodIsConst  */,
-      68,    1,  412,    2, 0x02,  156 /* Public */,
+       6,    2,  294,    2, 0x02,   75 /* Public */,
+       9,    1,  299,    2, 0x02,   78 /* Public */,
+      11,    0,  302,    2, 0x102,   80 /* Public | MethodIsConst  */,
+      12,    0,  303,    2, 0x102,   81 /* Public | MethodIsConst  */,
+      13,    2,  304,    2, 0x02,   82 /* Public */,
+      16,    0,  309,    2, 0x02,   85 /* Public */,
+      17,    1,  310,    2, 0x02,   86 /* Public */,
+      19,    1,  313,    2, 0x02,   88 /* Public */,
+      21,    0,  316,    2, 0x02,   90 /* Public */,
+      22,    2,  317,    2, 0x02,   91 /* Public */,
+      24,    2,  322,    2, 0x02,   94 /* Public */,
+      27,    2,  327,    2, 0x02,   97 /* Public */,
+      30,    2,  332,    2, 0x02,  100 /* Public */,
+      31,    0,  337,    2, 0x02,  103 /* Public */,
+      32,    2,  338,    2, 0x02,  104 /* Public */,
+      33,    3,  343,    2, 0x02,  107 /* Public */,
+      35,    3,  350,    2, 0x02,  111 /* Public */,
+      37,    1,  357,    2, 0x02,  115 /* Public */,
+      38,    3,  360,    2, 0x02,  117 /* Public */,
+      39,    2,  367,    2, 0x02,  121 /* Public */,
+      41,    2,  372,    2, 0x02,  124 /* Public */,
+      43,    2,  377,    2, 0x02,  127 /* Public */,
+      45,    2,  382,    2, 0x02,  130 /* Public */,
+      47,    2,  387,    2, 0x02,  133 /* Public */,
+      49,    2,  392,    2, 0x02,  136 /* Public */,
+      51,    2,  397,    2, 0x02,  139 /* Public */,
+      53,    2,  402,    2, 0x02,  142 /* Public */,
+      54,    1,  407,    2, 0x02,  145 /* Public */,
+      55,    2,  410,    2, 0x02,  147 /* Public */,
+      58,    1,  415,    2, 0x102,  150 /* Public | MethodIsConst  */,
+      59,    2,  418,    2, 0x02,  152 /* Public */,
+      60,    1,  423,    2, 0x02,  155 /* Public */,
+      62,    2,  426,    2, 0x02,  157 /* Public */,
+      63,    0,  431,    2, 0x02,  160 /* Public */,
+      64,    0,  432,    2, 0x02,  161 /* Public */,
+      65,    0,  433,    2, 0x02,  162 /* Public */,
+      66,    1,  434,    2, 0x02,  163 /* Public */,
+      68,    0,  437,    2, 0x02,  165 /* Public */,
+      69,    0,  438,    2, 0x02,  166 /* Public */,
+      70,    0,  439,    2, 0x02,  167 /* Public */,
+      71,    0,  440,    2, 0x102,  168 /* Public | MethodIsConst  */,
+      72,    1,  441,    2, 0x02,  169 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    6,    7,
-    QMetaType::Void, QMetaType::QVariantMap,    9,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    7,    8,
+    QMetaType::Void, QMetaType::QVariantMap,   10,
     QMetaType::QVariantMap,
     QMetaType::QVariantList,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   13,   14,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   17,
-    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   20,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool, QMetaType::QString,   22,   19,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   24,   25,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   27,   28,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   27,   28,
+    QMetaType::Void, QMetaType::Bool, QMetaType::QString,   23,   20,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   25,   26,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   28,   29,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   28,   29,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   27,   28,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Double,   33,   27,   28,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Double,   33,   27,   28,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   36,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   38,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   40,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   42,
-    QMetaType::Void, QMetaType::Int, QMetaType::QString,   33,   44,
-    QMetaType::Void, QMetaType::Int, QMetaType::QString,   33,   46,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   48,
-    QMetaType::Void, QMetaType::Int, QMetaType::Double,   33,   48,
-    QMetaType::Void, QMetaType::Int,   33,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   52,   53,
-    QMetaType::QVariantMap, QMetaType::Int,   33,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   27,   28,
-    QMetaType::Void, QMetaType::Double,   57,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   27,   28,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   28,   29,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Double,   34,   28,   29,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Double,   36,   28,   29,
+    QMetaType::Void, QMetaType::Int,   36,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Double,   36,   28,   29,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   40,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   42,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   44,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   46,
+    QMetaType::Void, QMetaType::Int, QMetaType::QString,   36,   48,
+    QMetaType::Void, QMetaType::Int, QMetaType::QString,   36,   50,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   52,
+    QMetaType::Void, QMetaType::Int, QMetaType::Double,   36,   52,
+    QMetaType::Void, QMetaType::Int,   36,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   56,   57,
+    QMetaType::QVariantMap, QMetaType::Int,   36,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   28,   29,
+    QMetaType::Void, QMetaType::Double,   61,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   28,   29,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QVariantMap,   63,
+    QMetaType::Void, QMetaType::QVariantMap,   67,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::QString,
-    QMetaType::Bool, QMetaType::QString,   69,
+    QMetaType::Bool, QMetaType::QString,   73,
 
  // properties: name, type, flags
-      70, QMetaType::QString, 0x00015001, uint(0), 0,
-      71, QMetaType::QString, 0x00015103, uint(0), 0,
-       6, QMetaType::QString, 0x00015103, uint(0), 0,
-      72, QMetaType::QString, 0x00015001, uint(0), 0,
-      73, QMetaType::QString, 0x00015001, uint(0), 0,
       74, QMetaType::QString, 0x00015001, uint(0), 0,
-      75, QMetaType::QString, 0x00015001, uint(0), 0,
+      75, QMetaType::QString, 0x00015103, uint(0), 0,
+       7, QMetaType::QString, 0x00015103, uint(0), 0,
       76, QMetaType::QString, 0x00015001, uint(0), 0,
-      77, QMetaType::Int, 0x00015001, uint(0), 0,
-      25, QMetaType::Int, 0x00015001, uint(0), 0,
-      78, QMetaType::Bool, 0x00015001, uint(0), 0,
-      79, QMetaType::Bool, 0x00015001, uint(0), 0,
-      80, QMetaType::Bool, 0x00015001, uint(0), 0,
-      38, QMetaType::Double, 0x00015103, uint(0), 0,
-      36, QMetaType::Double, 0x00015103, uint(0), 0,
-      81, QMetaType::Double, 0x00015103, uint(0), 0,
-      82, QMetaType::Double, 0x00015103, uint(0), 0,
-      83, QMetaType::Int, 0x00015103, uint(0), 0,
-      84, QMetaType::Int, 0x00015103, uint(0), 0,
-      57, QMetaType::Double, 0x00015103, uint(0), 0,
+      77, QMetaType::QString, 0x00015001, uint(0), 0,
+      78, QMetaType::QString, 0x00015001, uint(0), 0,
+      79, QMetaType::QString, 0x00015001, uint(0), 0,
+      80, QMetaType::QString, 0x00015001, uint(0), 0,
+      81, QMetaType::Int, 0x00015001, uint(0), 0,
+      26, QMetaType::Int, 0x00015001, uint(0), 0,
+      82, QMetaType::Bool, 0x00015001, uint(0), 0,
+      83, QMetaType::Bool, 0x00015001, uint(0), 0,
+      84, QMetaType::Bool, 0x00015001, uint(0), 0,
+      42, QMetaType::Double, 0x00015103, uint(0), 0,
+      40, QMetaType::Double, 0x00015103, uint(0), 0,
       85, QMetaType::Double, 0x00015103, uint(0), 0,
       86, QMetaType::Double, 0x00015103, uint(0), 0,
-      87, QMetaType::Double, 0x00015103, uint(0), 0,
-      88, QMetaType::Double, 0x00015103, uint(0), 0,
+      87, QMetaType::Int, 0x00015103, uint(0), 0,
+      88, QMetaType::Int, 0x00015103, uint(0), 0,
+      61, QMetaType::Double, 0x00015103, uint(0), 0,
       89, QMetaType::Double, 0x00015103, uint(0), 0,
       90, QMetaType::Double, 0x00015103, uint(0), 0,
       91, QMetaType::Double, 0x00015103, uint(0), 0,
-      92, QMetaType::QString, 0x00015103, uint(0), 0,
-      93, QMetaType::QString, 0x00015103, uint(0), 0,
-      94, QMetaType::QString, 0x00015103, uint(0), 0,
-      95, QMetaType::QString, 0x00015103, uint(0), 0,
+      92, QMetaType::Double, 0x00015103, uint(0), 0,
+      93, QMetaType::Double, 0x00015103, uint(0), 0,
+      94, QMetaType::Double, 0x00015103, uint(0), 0,
+      95, QMetaType::Double, 0x00015103, uint(0), 0,
       96, QMetaType::QString, 0x00015103, uint(0), 0,
       97, QMetaType::QString, 0x00015103, uint(0), 0,
       98, QMetaType::QString, 0x00015103, uint(0), 0,
@@ -362,29 +378,39 @@ static const uint qt_meta_data_MissionPlanModel[] = {
      103, QMetaType::QString, 0x00015103, uint(0), 0,
      104, QMetaType::QString, 0x00015103, uint(0), 0,
      105, QMetaType::QString, 0x00015103, uint(0), 0,
-     106, QMetaType::QVariantList, 0x00015001, uint(0), 0,
-     107, QMetaType::QVariantMap, 0x00015001, uint(0), 0,
-     108, QMetaType::Bool, 0x00015001, uint(0), 0,
-     109, QMetaType::Double, 0x00015001, uint(0), 0,
+     106, QMetaType::QString, 0x00015103, uint(0), 0,
+     107, QMetaType::QString, 0x00015103, uint(0), 0,
+     108, QMetaType::QString, 0x00015103, uint(0), 0,
+     109, QMetaType::QString, 0x00015103, uint(0), 0,
      110, QMetaType::QVariantList, 0x00015001, uint(0), 0,
      111, QMetaType::QVariantMap, 0x00015001, uint(0), 0,
-     112, QMetaType::Double, 0x00015103, uint(0), 0,
-     113, QMetaType::Double, 0x00015103, uint(0), 0,
-     114, QMetaType::Double, 0x00015001, uint(0), 0,
-     115, QMetaType::Double, 0x00015001, uint(0), 0,
-     116, QMetaType::QString, 0x00015001, uint(0), 0,
-     117, QMetaType::Int, 0x00015001, uint(1), 0,
-     118, QMetaType::QVariantList, 0x00015001, uint(0), 0,
-     119, QMetaType::QVariantList, 0x00015001, uint(1), 0,
-     120, QMetaType::Bool, 0x00015001, uint(1), 0,
-     121, QMetaType::Bool, 0x00015001, uint(1), 0,
-     122, QMetaType::QString, 0x00015001, uint(1), 0,
-     123, QMetaType::Bool, 0x00015001, uint(1), 0,
+     112, QMetaType::Bool, 0x00015001, uint(0), 0,
+     113, QMetaType::Double, 0x00015001, uint(0), 0,
+     114, QMetaType::QVariantList, 0x00015001, uint(0), 0,
+     115, QMetaType::QVariantMap, 0x00015001, uint(0), 0,
+     116, QMetaType::Double, 0x00015103, uint(0), 0,
+     117, QMetaType::Double, 0x00015103, uint(0), 0,
+     118, QMetaType::Double, 0x00015001, uint(0), 0,
+     119, QMetaType::Double, 0x00015001, uint(0), 0,
+     120, QMetaType::QString, 0x00015001, uint(0), 0,
+     121, QMetaType::Int, 0x00015001, uint(1), 0,
+     122, QMetaType::QVariantList, 0x00015001, uint(0), 0,
+     123, QMetaType::QVariantList, 0x00015001, uint(1), 0,
      124, QMetaType::Bool, 0x00015001, uint(1), 0,
      125, QMetaType::Bool, 0x00015001, uint(1), 0,
-     126, QMetaType::QString, 0x00015001, uint(0), 0,
-     127, QMetaType::QString, 0x00015001, uint(0), 0,
-     128, QMetaType::QString, 0x00015001, uint(2), 0,
+     126, QMetaType::QString, 0x00015001, uint(1), 0,
+     127, QMetaType::Bool, 0x00015001, uint(1), 0,
+     128, QMetaType::Bool, 0x00015001, uint(1), 0,
+     129, QMetaType::Bool, 0x00015001, uint(1), 0,
+     130, QMetaType::QString, 0x00015001, uint(0), 0,
+     131, QMetaType::QString, 0x00015001, uint(0), 0,
+     132, QMetaType::QString, 0x00015001, uint(2), 0,
+     133, QMetaType::QVariantList, 0x00015001, uint(3), 0,
+     134, QMetaType::QVariantMap, 0x00015001, uint(3), 0,
+     135, QMetaType::QVariantMap, 0x00015001, uint(3), 0,
+     136, QMetaType::QVariantList, 0x00015001, uint(3), 0,
+     137, QMetaType::QVariantList, 0x00015001, uint(3), 0,
+     138, QMetaType::Int, 0x00015001, uint(3), 0,
 
        0        // eod
 };
@@ -398,51 +424,54 @@ void MissionPlanModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 0: _t->planChanged(); break;
         case 1: _t->validationChanged(); break;
         case 2: _t->operationStatusChanged(); break;
-        case 3: _t->createDraft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 4: _t->loadMission((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 5: { QVariantMap _r = _t->serializeForBackend();
+        case 3: _t->geometryChanged(); break;
+        case 4: _t->createDraft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 5: _t->loadMission((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 6: { QVariantMap _r = _t->serializeForBackend();
             if (_a[0]) *reinterpret_cast< QVariantMap*>(_a[0]) = std::move(_r); }  break;
-        case 6: { QVariantList _r = _t->serializeForMavsdkMission();
+        case 7: { QVariantList _r = _t->serializeForMavsdkMission();
             if (_a[0]) *reinterpret_cast< QVariantList*>(_a[0]) = std::move(_r); }  break;
-        case 7: { bool _r = _t->validateForUpload((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])));
+        case 8: { bool _r = _t->validateForUpload((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 8: _t->markUploading(); break;
-        case 9: _t->markUploaded((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 10: _t->markUploadFailed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 11: _t->markExecuting(); break;
-        case 12: _t->markCompleted((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 13: _t->setExecutionProgress((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 14: _t->addWaypoint((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 15: _t->setTakeoffPoint((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 16: _t->clearTakeoffPoint(); break;
-        case 17: _t->addPolygonVertex((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 18: _t->movePolygonVertex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
-        case 19: _t->moveWaypoint((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
-        case 20: _t->setWaypointAltitude((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 21: _t->setWaypointSpeed((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 22: _t->setWaypointHeading((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 23: _t->setWaypointGimbalPitch((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 24: _t->setWaypointAction((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 25: _t->setWaypointCameraMode((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 26: _t->setWaypointLoiterSeconds((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 27: _t->setWaypointHoverSeconds((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 28: _t->deleteWaypoint((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 29: _t->moveWaypointOrder((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 30: { QVariantMap _r = _t->waypointAt((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])));
+        case 9: _t->markUploading(); break;
+        case 10: _t->markUploaded((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 11: _t->markUploadFailed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 12: _t->markExecuting(); break;
+        case 13: _t->markCompleted((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 14: _t->setExecutionProgress((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 15: _t->addWaypoint((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 16: _t->setTakeoffPoint((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 17: _t->clearTakeoffPoint(); break;
+        case 18: _t->addPolygonVertex((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 19: _t->insertPolygonVertex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
+        case 20: _t->movePolygonVertex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
+        case 21: _t->deletePolygonVertex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 22: _t->moveWaypoint((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[3]))); break;
+        case 23: _t->setWaypointAltitude((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 24: _t->setWaypointSpeed((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 25: _t->setWaypointHeading((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 26: _t->setWaypointGimbalPitch((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 27: _t->setWaypointAction((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 28: _t->setWaypointCameraMode((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 29: _t->setWaypointLoiterSeconds((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 30: _t->setWaypointHoverSeconds((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 31: _t->deleteWaypoint((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 32: _t->moveWaypointOrder((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 33: { QVariantMap _r = _t->waypointAt((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast< QVariantMap*>(_a[0]) = std::move(_r); }  break;
-        case 31: _t->setPoi((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 32: _t->setPoiRadius((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
-        case 33: _t->setPrimaryCoordinate((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 34: _t->undoLastGeometry(); break;
-        case 35: _t->clearDraftGeometry(); break;
-        case 36: _t->validateMission(); break;
-        case 37: _t->applyBackendValidation((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 38: _t->saveMission(); break;
-        case 39: _t->saveLocal(); break;
-        case 40: _t->resetGeometry(); break;
-        case 41: { QString _r = _t->chooseImportFile();
+        case 34: _t->setPoi((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 35: _t->setPoiRadius((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
+        case 36: _t->setPrimaryCoordinate((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 37: _t->undoLastGeometry(); break;
+        case 38: _t->clearDraftGeometry(); break;
+        case 39: _t->validateMission(); break;
+        case 40: _t->applyBackendValidation((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 41: _t->saveMission(); break;
+        case 42: _t->saveLocal(); break;
+        case 43: _t->resetGeometry(); break;
+        case 44: { QString _r = _t->chooseImportFile();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 42: { bool _r = _t->importMissionFile((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])));
+        case 45: { bool _r = _t->importMissionFile((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -466,6 +495,13 @@ void MissionPlanModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             using _t = void (MissionPlanModel::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MissionPlanModel::operationStatusChanged)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (MissionPlanModel::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MissionPlanModel::geometryChanged)) {
+                *result = 3;
                 return;
             }
         }
@@ -540,6 +576,12 @@ void MissionPlanModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 61: *reinterpret_cast< QString*>(_v) = _t->importStatus(); break;
         case 62: *reinterpret_cast< QString*>(_v) = _t->importSummary(); break;
         case 63: *reinterpret_cast< QString*>(_v) = _t->operationStatus(); break;
+        case 64: *reinterpret_cast< QVariantList*>(_v) = _t->generatedRoute(); break;
+        case 65: *reinterpret_cast< QVariantMap*>(_v) = _t->routeEstimates(); break;
+        case 66: *reinterpret_cast< QVariantMap*>(_v) = _t->cameraPreview(); break;
+        case 67: *reinterpret_cast< QVariantList*>(_v) = _t->elevationProfile(); break;
+        case 68: *reinterpret_cast< QVariantList*>(_v) = _t->boundaryPreview(); break;
+        case 69: *reinterpret_cast< int*>(_v) = _t->generationRevision(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -594,9 +636,9 @@ const QMetaObject MissionPlanModel::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MissionPlanModel_t
-, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<MissionPlanModel, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<double, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::true_type>, QtPrivate::TypeAndForceComplete<int, std::true_type>, QtPrivate::TypeAndForceComplete<MissionPlanModel, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantList, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<QVariantMap, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
 
 >,
     nullptr
@@ -622,20 +664,20 @@ int MissionPlanModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 43)
+        if (_id < 46)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 43;
+        _id -= 46;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 43)
+        if (_id < 46)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 43;
+        _id -= 46;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 64;
+        _id -= 70;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
@@ -657,6 +699,12 @@ void MissionPlanModel::validationChanged()
 void MissionPlanModel::operationStatusChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void MissionPlanModel::geometryChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

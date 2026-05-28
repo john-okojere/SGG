@@ -8,6 +8,7 @@ QString AppState::operationalMode() const { return m_operationalMode; }
 QString AppState::selectedMissionId() const { return m_selectedMissionId; }
 QString AppState::selectedTool() const { return m_selectedTool; }
 int AppState::selectedWaypointIndex() const { return m_selectedWaypointIndex; }
+int AppState::selectedPolygonIndex() const { return m_selectedPolygonIndex; }
 bool AppState::rightPanelCollapsed() const { return m_rightPanelCollapsed; }
 
 void AppState::setSelectedTool(const QString &tool)
@@ -35,7 +36,24 @@ void AppState::setSelectedWaypointIndex(int index)
         return;
     }
     m_selectedWaypointIndex = index;
+    if (index >= 0) {
+        m_selectedPolygonIndex = -1;
+        emit selectedGeometryChanged();
+    }
     emit selectedWaypointChanged();
+}
+
+void AppState::setSelectedPolygonIndex(int index)
+{
+    if (m_selectedPolygonIndex == index) {
+        return;
+    }
+    m_selectedPolygonIndex = index;
+    if (index >= 0) {
+        m_selectedWaypointIndex = -1;
+        emit selectedWaypointChanged();
+    }
+    emit selectedGeometryChanged();
 }
 
 void AppState::setRightPanelCollapsed(bool collapsed)
@@ -92,10 +110,12 @@ void AppState::startMission(const QString &missionType)
         m_selectedTool = "select";
     }
     m_selectedWaypointIndex = -1;
+    m_selectedPolygonIndex = -1;
     emit missionChanged();
     emit navigationChanged();
     emit toolChanged();
     emit selectedWaypointChanged();
+    emit selectedGeometryChanged();
     emit missionStarted(missionType);
 }
 
@@ -121,10 +141,12 @@ void AppState::openExistingMission(const QString &missionType, const QString &mi
         m_selectedTool = QStringLiteral("select");
     }
     m_selectedWaypointIndex = -1;
+    m_selectedPolygonIndex = -1;
     emit missionChanged();
     emit navigationChanged();
     emit toolChanged();
     emit selectedWaypointChanged();
+    emit selectedGeometryChanged();
 }
 
 void AppState::startPilotMode()
@@ -135,10 +157,12 @@ void AppState::startPilotMode()
     m_currentScreen = QStringLiteral("planner");
     m_selectedTool = QStringLiteral("select");
     m_selectedWaypointIndex = -1;
+    m_selectedPolygonIndex = -1;
     emit missionChanged();
     emit navigationChanged();
     emit toolChanged();
     emit selectedWaypointChanged();
+    emit selectedGeometryChanged();
 }
 
 QString AppState::missionTitle() const

@@ -746,6 +746,19 @@ void MissionPlanModel::addPolygonVertex(double latitude, double longitude)
     markDirty();
 }
 
+void MissionPlanModel::insertPolygonVertex(int afterIndex, double latitude, double longitude)
+{
+    if (m_polygon.isEmpty()) {
+        addPolygonVertex(latitude, longitude);
+        return;
+    }
+    const int clampedAfter = std::clamp(afterIndex, 0, static_cast<int>(m_polygon.size()) - 1);
+    const int insertIndex = clampedAfter + 1;
+    m_polygon.insert(insertIndex, QVariantMap{{"latitude", latitude}, {"longitude", longitude}});
+    setOperationStatus(QStringLiteral("Boundary vertex inserted"));
+    markDirty();
+}
+
 void MissionPlanModel::movePolygonVertex(int index, double latitude, double longitude)
 {
     if (index < 0 || index >= m_polygon.size()) {
@@ -756,6 +769,16 @@ void MissionPlanModel::movePolygonVertex(int index, double latitude, double long
     point["longitude"] = longitude;
     m_polygon[index] = point;
     setOperationStatus(QStringLiteral("Boundary adjusted"));
+    markDirty();
+}
+
+void MissionPlanModel::deletePolygonVertex(int index)
+{
+    if (index < 0 || index >= m_polygon.size()) {
+        return;
+    }
+    m_polygon.removeAt(index);
+    setOperationStatus(QStringLiteral("Boundary vertex deleted"));
     markDirty();
 }
 
@@ -1067,7 +1090,7 @@ void MissionPlanModel::resetParameters()
     m_minAltitude = 101.2;
     m_maxAltitude = 120.1;
     m_courseAngle = 70.0;
-    m_margin = 70.0;
+    m_margin = 0.0;
     m_gimbalPitch = 45.0;
     m_cameraModel = QStringLiteral("Phantom 4 Pro Camera");
     m_shootingAngle = QStringLiteral("Parallel To Main Path");
@@ -1141,7 +1164,18 @@ void MissionPlanModel::regenerateMission()
     m_cameraPreview = result.cameraPreview;
     m_elevationProfile = result.elevationProfile;
     m_boundaryPreview = result.boundaryPreview;
+    const double generatedGsd = m_routeEstimates.value(QStringLiteral("gsd_cm_px"), m_gsd).toDouble();
+    const bool gsdChanged = std::abs(m_gsd - generatedGsd) > 0.01
+        && (m_missionType == QStringLiteral("photomap")
+            || m_missionType == QStringLiteral("map3dArea")
+            || m_missionType == QStringLiteral("towerInspection"));
+    if (gsdChanged) {
+        m_gsd = generatedGsd;
+    }
     ++m_generationRevision;
+    if (gsdChanged) {
+        emit planChanged();
+    }
     emit geometryChanged();
     emit validationChanged();
 }

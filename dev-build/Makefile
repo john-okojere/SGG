@@ -1735,6 +1735,30 @@ dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.s
 .PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.s
 
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s
+
 dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o
 .PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.o
 
@@ -3079,6 +3103,30 @@ src/flight/ManualControlManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.s
 .PHONY : src/flight/ManualControlManager.cpp.s
 
+src/flight/PostMissionSummaryManager.o: src/flight/PostMissionSummaryManager.cpp.o
+.PHONY : src/flight/PostMissionSummaryManager.o
+
+# target to build an object file
+src/flight/PostMissionSummaryManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o
+.PHONY : src/flight/PostMissionSummaryManager.cpp.o
+
+src/flight/PostMissionSummaryManager.i: src/flight/PostMissionSummaryManager.cpp.i
+.PHONY : src/flight/PostMissionSummaryManager.i
+
+# target to preprocess a source file
+src/flight/PostMissionSummaryManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.i
+.PHONY : src/flight/PostMissionSummaryManager.cpp.i
+
+src/flight/PostMissionSummaryManager.s: src/flight/PostMissionSummaryManager.cpp.s
+.PHONY : src/flight/PostMissionSummaryManager.s
+
+# target to generate assembly for a file
+src/flight/PostMissionSummaryManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.s
+.PHONY : src/flight/PostMissionSummaryManager.cpp.s
+
 src/flight/PreflightChecklistManager.o: src/flight/PreflightChecklistManager.cpp.o
 .PHONY : src/flight/PreflightChecklistManager.o
 
@@ -3150,6 +3198,30 @@ src/map/TileCacheManager.s: src/map/TileCacheManager.cpp.s
 src/map/TileCacheManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.s
 .PHONY : src/map/TileCacheManager.cpp.s
+
+src/models/MissionGenerationService.o: src/models/MissionGenerationService.cpp.o
+.PHONY : src/models/MissionGenerationService.o
+
+# target to build an object file
+src/models/MissionGenerationService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o
+.PHONY : src/models/MissionGenerationService.cpp.o
+
+src/models/MissionGenerationService.i: src/models/MissionGenerationService.cpp.i
+.PHONY : src/models/MissionGenerationService.i
+
+# target to preprocess a source file
+src/models/MissionGenerationService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.i
+.PHONY : src/models/MissionGenerationService.cpp.i
+
+src/models/MissionGenerationService.s: src/models/MissionGenerationService.cpp.s
+.PHONY : src/models/MissionGenerationService.s
+
+# target to generate assembly for a file
+src/models/MissionGenerationService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.s
+.PHONY : src/models/MissionGenerationService.cpp.s
 
 src/models/MissionPlanModel.o: src/models/MissionPlanModel.cpp.o
 .PHONY : src/models/MissionPlanModel.o
@@ -3439,6 +3511,30 @@ src/sync/GcsEventSyncManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.s
 .PHONY : src/sync/GcsEventSyncManager.cpp.s
 
+src/sync/MissionPreviewManager.o: src/sync/MissionPreviewManager.cpp.o
+.PHONY : src/sync/MissionPreviewManager.o
+
+# target to build an object file
+src/sync/MissionPreviewManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o
+.PHONY : src/sync/MissionPreviewManager.cpp.o
+
+src/sync/MissionPreviewManager.i: src/sync/MissionPreviewManager.cpp.i
+.PHONY : src/sync/MissionPreviewManager.i
+
+# target to preprocess a source file
+src/sync/MissionPreviewManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.i
+.PHONY : src/sync/MissionPreviewManager.cpp.i
+
+src/sync/MissionPreviewManager.s: src/sync/MissionPreviewManager.cpp.s
+.PHONY : src/sync/MissionPreviewManager.s
+
+# target to generate assembly for a file
+src/sync/MissionPreviewManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.s
+.PHONY : src/sync/MissionPreviewManager.cpp.s
+
 src/sync/MissionSyncManager.o: src/sync/MissionSyncManager.cpp.o
 .PHONY : src/sync/MissionSyncManager.o
 
@@ -3654,6 +3750,30 @@ src/telemetry/WindTelemetryManager.s: src/telemetry/WindTelemetryManager.cpp.s
 src/telemetry/WindTelemetryManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.s
 .PHONY : src/telemetry/WindTelemetryManager.cpp.s
+
+src/vehicle/HomePositionManager.o: src/vehicle/HomePositionManager.cpp.o
+.PHONY : src/vehicle/HomePositionManager.o
+
+# target to build an object file
+src/vehicle/HomePositionManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o
+.PHONY : src/vehicle/HomePositionManager.cpp.o
+
+src/vehicle/HomePositionManager.i: src/vehicle/HomePositionManager.cpp.i
+.PHONY : src/vehicle/HomePositionManager.i
+
+# target to preprocess a source file
+src/vehicle/HomePositionManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.i
+.PHONY : src/vehicle/HomePositionManager.cpp.i
+
+src/vehicle/HomePositionManager.s: src/vehicle/HomePositionManager.cpp.s
+.PHONY : src/vehicle/HomePositionManager.s
+
+# target to generate assembly for a file
+src/vehicle/HomePositionManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.s
+.PHONY : src/vehicle/HomePositionManager.cpp.s
 
 src/vehicle/MavsdkVehicleManager.o: src/vehicle/MavsdkVehicleManager.cpp.o
 .PHONY : src/vehicle/MavsdkVehicleManager.o
@@ -3979,6 +4099,9 @@ help:
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.o"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.i"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.s"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.o"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.i"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.s"
@@ -4147,6 +4270,9 @@ help:
 	@echo "... src/flight/ManualControlManager.o"
 	@echo "... src/flight/ManualControlManager.i"
 	@echo "... src/flight/ManualControlManager.s"
+	@echo "... src/flight/PostMissionSummaryManager.o"
+	@echo "... src/flight/PostMissionSummaryManager.i"
+	@echo "... src/flight/PostMissionSummaryManager.s"
 	@echo "... src/flight/PreflightChecklistManager.o"
 	@echo "... src/flight/PreflightChecklistManager.i"
 	@echo "... src/flight/PreflightChecklistManager.s"
@@ -4156,6 +4282,9 @@ help:
 	@echo "... src/map/TileCacheManager.o"
 	@echo "... src/map/TileCacheManager.i"
 	@echo "... src/map/TileCacheManager.s"
+	@echo "... src/models/MissionGenerationService.o"
+	@echo "... src/models/MissionGenerationService.i"
+	@echo "... src/models/MissionGenerationService.s"
 	@echo "... src/models/MissionPlanModel.o"
 	@echo "... src/models/MissionPlanModel.i"
 	@echo "... src/models/MissionPlanModel.s"
@@ -4192,6 +4321,9 @@ help:
 	@echo "... src/sync/GcsEventSyncManager.o"
 	@echo "... src/sync/GcsEventSyncManager.i"
 	@echo "... src/sync/GcsEventSyncManager.s"
+	@echo "... src/sync/MissionPreviewManager.o"
+	@echo "... src/sync/MissionPreviewManager.i"
+	@echo "... src/sync/MissionPreviewManager.s"
 	@echo "... src/sync/MissionSyncManager.o"
 	@echo "... src/sync/MissionSyncManager.i"
 	@echo "... src/sync/MissionSyncManager.s"
@@ -4219,6 +4351,9 @@ help:
 	@echo "... src/telemetry/WindTelemetryManager.o"
 	@echo "... src/telemetry/WindTelemetryManager.i"
 	@echo "... src/telemetry/WindTelemetryManager.s"
+	@echo "... src/vehicle/HomePositionManager.o"
+	@echo "... src/vehicle/HomePositionManager.i"
+	@echo "... src/vehicle/HomePositionManager.s"
 	@echo "... src/vehicle/MavsdkVehicleManager.o"
 	@echo "... src/vehicle/MavsdkVehicleManager.i"
 	@echo "... src/vehicle/MavsdkVehicleManager.s"

@@ -164,6 +164,8 @@ qt_add_executable(SkyGridGCS
     src/flight/EventLogManager.h
     src/flight/FlightStatsManager.cpp
     src/flight/FlightStatsManager.h
+    src/flight/PostMissionSummaryManager.cpp
+    src/flight/PostMissionSummaryManager.h
     src/flight/PreflightChecklistManager.cpp
     src/flight/PreflightChecklistManager.h
     src/flight/ManualControlManager.cpp
@@ -298,6 +300,7 @@ qt_add_qml_module(SkyGridGCS
         qml/mission/PilotFlightPanel.qml
         qml/mission/MissionSelectionModal.qml
         qml/mission/MissionSummaryStrip.qml
+        qml/mission/PostMissionSummaryModal.qml
         qml/mission/PreflightChecklistModal.qml
         qml/mission/PreflightChecklistPanel.qml
         qml/mission/MissionValidationPanel.qml

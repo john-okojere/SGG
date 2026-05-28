@@ -8,8 +8,10 @@
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../CL3GGLWYWM/moc_EventLogManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../CL3GGLWYWM/moc_FlightStatsManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../CL3GGLWYWM/moc_ManualControlManager.cpp.json
+/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../CL3GGLWYWM/moc_PostMissionSummaryManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../CL3GGLWYWM/moc_PreflightChecklistManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../GVBWGARL6Y/moc_TileCacheManager.cpp.json
+/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../JALNJGYI72/moc_HomePositionManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../JALNJGYI72/moc_MavsdkVehicleManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../JALNJGYI72/moc_MissionExecutionManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../JALNJGYI72/moc_MissionUploadManager.cpp.json
@@ -32,6 +34,7 @@
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../UFQQIFJZKK/moc_WebSocketClient.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_FlightSessionSyncManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_GcsEventSyncManager.cpp.json
+/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_MissionPreviewManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_MissionSyncManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_PilotActionSyncManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_PreferencesSyncManager.cpp.json

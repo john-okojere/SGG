@@ -50,6 +50,22 @@ private:
         double y = 0.0;
     };
 
+    struct CameraProfile {
+        double sensorWidthMm = 13.2;
+        double sensorHeightMm = 8.8;
+        double focalLengthMm = 8.8;
+        double imageWidthPx = 5472.0;
+    };
+
+    struct Footprint {
+        double widthM = 1.0;
+        double lengthM = 1.0;
+        double gsdCmPx = 1.0;
+    };
+
+    static CameraProfile cameraProfile(const QString &cameraModel);
+    static Footprint cameraFootprint(const Request &request);
+    static QVariantList generatePhotomapRoute(const Request &request);
     static QVariantList generateSurveyRoute(const Request &request);
     static QVariantList generateOrbitRoute(const Request &request);
     static QVariantList normalizedWaypointRoute(const Request &request);

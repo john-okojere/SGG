@@ -12,6 +12,11 @@ Rectangle {
     border.width: 1
     property int activeIndex: appState.operationalMode === "pilot" ? 1 : 0
 
+    WheelHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        onWheel: function(event) { event.accepted = true }
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: 0
@@ -39,6 +44,10 @@ Rectangle {
         property url iconSource: ""
         property bool active: false
         hoverEnabled: true
+        WheelHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+            onWheel: function(event) { event.accepted = true }
+        }
         background: Rectangle {
             color: tab.active ? "#f7f1fd" : (tab.hovered ? "#fbf8fe" : "#ffffff")
             radius: 7

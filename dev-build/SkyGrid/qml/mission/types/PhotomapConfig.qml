@@ -11,7 +11,7 @@ ColumnLayout {
     Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#d8cde5" }
     ParameterSlider { Layout.fillWidth: true; label: "Flight Speed"; from: 2; to: 140; value: missionStore.plan.speed; unit: "m/s"; onValueEdited: missionStore.plan.speed = value }
     ParameterSlider { Layout.fillWidth: true; label: "Capture Interval"; from: 0.5; to: 10; value: missionStore.plan.captureInterval; decimals: 1; unit: "m/s"; onValueEdited: missionStore.plan.captureInterval = value }
-    ParameterSlider { Layout.fillWidth: true; label: "Flight Alt."; from: 20; to: 160; value: missionStore.plan.altitude; decimals: 1; unit: "ft"; onValueEdited: missionStore.plan.altitude = value }
+    ParameterSlider { Layout.fillWidth: true; label: "Flight Alt."; from: 20; to: 160; value: missionStore.plan.altitude; decimals: 1; unit: "m"; onValueEdited: missionStore.plan.altitude = value }
     ParameterSlider { Layout.fillWidth: true; label: "GSD"; from: 0.5; to: 12; value: missionStore.plan.gsd; decimals: 1; unit: "cm/px"; onValueEdited: missionStore.plan.gsd = value }
     Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#d8cde5" }
     ParameterSlider { Layout.fillWidth: true; label: "Front Overlap"; from: 10; to: 95; value: missionStore.plan.frontOverlap; unit: "%"; onValueEdited: missionStore.plan.frontOverlap = Math.round(value) }

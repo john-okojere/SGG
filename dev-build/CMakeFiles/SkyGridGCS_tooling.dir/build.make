@@ -302,356 +302,360 @@ SkyGrid/qml/mission/MissionSummaryStrip.qml: ../qml/mission/MissionSummaryStrip.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Generating SkyGrid/qml/mission/MissionSummaryStrip.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/MissionSummaryStrip.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/MissionSummaryStrip.qml
 
+SkyGrid/qml/mission/PostMissionSummaryModal.qml: ../qml/mission/PostMissionSummaryModal.qml
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Generating SkyGrid/qml/mission/PostMissionSummaryModal.qml"
+	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/PostMissionSummaryModal.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/PostMissionSummaryModal.qml
+
 SkyGrid/qml/mission/PreflightChecklistModal.qml: ../qml/mission/PreflightChecklistModal.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Generating SkyGrid/qml/mission/PreflightChecklistModal.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Generating SkyGrid/qml/mission/PreflightChecklistModal.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/PreflightChecklistModal.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/PreflightChecklistModal.qml
 
 SkyGrid/qml/mission/PreflightChecklistPanel.qml: ../qml/mission/PreflightChecklistPanel.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Generating SkyGrid/qml/mission/PreflightChecklistPanel.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Generating SkyGrid/qml/mission/PreflightChecklistPanel.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/PreflightChecklistPanel.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/PreflightChecklistPanel.qml
 
 SkyGrid/qml/mission/MissionValidationPanel.qml: ../qml/mission/MissionValidationPanel.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Generating SkyGrid/qml/mission/MissionValidationPanel.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Generating SkyGrid/qml/mission/MissionValidationPanel.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/MissionValidationPanel.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/MissionValidationPanel.qml
 
 SkyGrid/qml/mission/MissionWeatherCard.qml: ../qml/mission/MissionWeatherCard.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Generating SkyGrid/qml/mission/MissionWeatherCard.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Generating SkyGrid/qml/mission/MissionWeatherCard.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/MissionWeatherCard.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/MissionWeatherCard.qml
 
 SkyGrid/qml/mission/MissionWorkspace.qml: ../qml/mission/MissionWorkspace.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Generating SkyGrid/qml/mission/MissionWorkspace.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Generating SkyGrid/qml/mission/MissionWorkspace.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/MissionWorkspace.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/MissionWorkspace.qml
 
 SkyGrid/qml/mission/types/Map3DAreaConfig.qml: ../qml/mission/types/Map3DAreaConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Generating SkyGrid/qml/mission/types/Map3DAreaConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Generating SkyGrid/qml/mission/types/Map3DAreaConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/Map3DAreaConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/Map3DAreaConfig.qml
 
 SkyGrid/qml/mission/types/Map3DPoiConfig.qml: ../qml/mission/types/Map3DPoiConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Generating SkyGrid/qml/mission/types/Map3DPoiConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Generating SkyGrid/qml/mission/types/Map3DPoiConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/Map3DPoiConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/Map3DPoiConfig.qml
 
 SkyGrid/qml/mission/types/PhotomapConfig.qml: ../qml/mission/types/PhotomapConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Generating SkyGrid/qml/mission/types/PhotomapConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Generating SkyGrid/qml/mission/types/PhotomapConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/PhotomapConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/PhotomapConfig.qml
 
 SkyGrid/qml/mission/types/TowerInspectionConfig.qml: ../qml/mission/types/TowerInspectionConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Generating SkyGrid/qml/mission/types/TowerInspectionConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Generating SkyGrid/qml/mission/types/TowerInspectionConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/TowerInspectionConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/TowerInspectionConfig.qml
 
 SkyGrid/qml/mission/types/VirtualFenceConfig.qml: ../qml/mission/types/VirtualFenceConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Generating SkyGrid/qml/mission/types/VirtualFenceConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Generating SkyGrid/qml/mission/types/VirtualFenceConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/VirtualFenceConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/VirtualFenceConfig.qml
 
 SkyGrid/qml/mission/types/WaypointRouteConfig.qml: ../qml/mission/types/WaypointRouteConfig.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Generating SkyGrid/qml/mission/types/WaypointRouteConfig.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Generating SkyGrid/qml/mission/types/WaypointRouteConfig.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/mission/types/WaypointRouteConfig.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/mission/types/WaypointRouteConfig.qml
 
 SkyGrid/qml/map/CompassControl.qml: ../qml/map/CompassControl.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Generating SkyGrid/qml/map/CompassControl.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Generating SkyGrid/qml/map/CompassControl.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/CompassControl.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/CompassControl.qml
 
 SkyGrid/qml/map/ArcGisMapSurface.qml: ../qml/map/ArcGisMapSurface.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Generating SkyGrid/qml/map/ArcGisMapSurface.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Generating SkyGrid/qml/map/ArcGisMapSurface.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/ArcGisMapSurface.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/ArcGisMapSurface.qml
 
 SkyGrid/qml/map/MapControls.qml: ../qml/map/MapControls.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Generating SkyGrid/qml/map/MapControls.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Generating SkyGrid/qml/map/MapControls.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/MapControls.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/MapControls.qml
 
 SkyGrid/qml/map/MapHud.qml: ../qml/map/MapHud.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Generating SkyGrid/qml/map/MapHud.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Generating SkyGrid/qml/map/MapHud.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/MapHud.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/MapHud.qml
 
 SkyGrid/qml/map/MissionMap.qml: ../qml/map/MissionMap.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Generating SkyGrid/qml/map/MissionMap.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Generating SkyGrid/qml/map/MissionMap.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/MissionMap.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/MissionMap.qml
 
 SkyGrid/qml/map/OfflineMapSurface.qml: ../qml/map/OfflineMapSurface.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Generating SkyGrid/qml/map/OfflineMapSurface.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Generating SkyGrid/qml/map/OfflineMapSurface.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/OfflineMapSurface.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/OfflineMapSurface.qml
 
 SkyGrid/qml/map/TileMapSurface.qml: ../qml/map/TileMapSurface.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Generating SkyGrid/qml/map/TileMapSurface.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Generating SkyGrid/qml/map/TileMapSurface.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/TileMapSurface.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/TileMapSurface.qml
 
 SkyGrid/qml/map/overlays/AircraftMarkerOverlay.qml: ../qml/map/overlays/AircraftMarkerOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Generating SkyGrid/qml/map/overlays/AircraftMarkerOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Generating SkyGrid/qml/map/overlays/AircraftMarkerOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/AircraftMarkerOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/AircraftMarkerOverlay.qml
 
 SkyGrid/qml/map/overlays/AltitudeLabelOverlay.qml: ../qml/map/overlays/AltitudeLabelOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Generating SkyGrid/qml/map/overlays/AltitudeLabelOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Generating SkyGrid/qml/map/overlays/AltitudeLabelOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/AltitudeLabelOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/AltitudeLabelOverlay.qml
 
 SkyGrid/qml/map/overlays/GeofenceOverlay.qml: ../qml/map/overlays/GeofenceOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Generating SkyGrid/qml/map/overlays/GeofenceOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Generating SkyGrid/qml/map/overlays/GeofenceOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/GeofenceOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/GeofenceOverlay.qml
 
 SkyGrid/qml/map/overlays/OrbitOverlay.qml: ../qml/map/overlays/OrbitOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Generating SkyGrid/qml/map/overlays/OrbitOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Generating SkyGrid/qml/map/overlays/OrbitOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/OrbitOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/OrbitOverlay.qml
 
 SkyGrid/qml/map/overlays/OverlayLayer.qml: ../qml/map/overlays/OverlayLayer.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Generating SkyGrid/qml/map/overlays/OverlayLayer.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Generating SkyGrid/qml/map/overlays/OverlayLayer.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/OverlayLayer.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/OverlayLayer.qml
 
 SkyGrid/qml/map/overlays/PoiMarkerOverlay.qml: ../qml/map/overlays/PoiMarkerOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Generating SkyGrid/qml/map/overlays/PoiMarkerOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Generating SkyGrid/qml/map/overlays/PoiMarkerOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/PoiMarkerOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/PoiMarkerOverlay.qml
 
 SkyGrid/qml/map/overlays/PolygonOverlay.qml: ../qml/map/overlays/PolygonOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Generating SkyGrid/qml/map/overlays/PolygonOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Generating SkyGrid/qml/map/overlays/PolygonOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/PolygonOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/PolygonOverlay.qml
 
 SkyGrid/qml/map/overlays/ScanLineOverlay.qml: ../qml/map/overlays/ScanLineOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Generating SkyGrid/qml/map/overlays/ScanLineOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Generating SkyGrid/qml/map/overlays/ScanLineOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/ScanLineOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/ScanLineOverlay.qml
 
 SkyGrid/qml/map/overlays/TowerInspectionOverlay.qml: ../qml/map/overlays/TowerInspectionOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Generating SkyGrid/qml/map/overlays/TowerInspectionOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Generating SkyGrid/qml/map/overlays/TowerInspectionOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/TowerInspectionOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/TowerInspectionOverlay.qml
 
 SkyGrid/qml/map/overlays/WaypointOverlay.qml: ../qml/map/overlays/WaypointOverlay.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Generating SkyGrid/qml/map/overlays/WaypointOverlay.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Generating SkyGrid/qml/map/overlays/WaypointOverlay.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/map/overlays/WaypointOverlay.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/map/overlays/WaypointOverlay.qml
 
 SkyGrid/qml/controls/AircraftCard.qml: ../qml/controls/AircraftCard.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Generating SkyGrid/qml/controls/AircraftCard.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Generating SkyGrid/qml/controls/AircraftCard.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/AircraftCard.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/AircraftCard.qml
 
 SkyGrid/qml/controls/AssetIcon.qml: ../qml/controls/AssetIcon.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Generating SkyGrid/qml/controls/AssetIcon.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Generating SkyGrid/qml/controls/AssetIcon.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/AssetIcon.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/AssetIcon.qml
 
 SkyGrid/qml/controls/CollapsibleSection.qml: ../qml/controls/CollapsibleSection.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Generating SkyGrid/qml/controls/CollapsibleSection.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Generating SkyGrid/qml/controls/CollapsibleSection.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/CollapsibleSection.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/CollapsibleSection.qml
 
 SkyGrid/qml/controls/GlassPanel.qml: ../qml/controls/GlassPanel.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Generating SkyGrid/qml/controls/GlassPanel.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Generating SkyGrid/qml/controls/GlassPanel.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/GlassPanel.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/GlassPanel.qml
 
 SkyGrid/qml/controls/IconButton.qml: ../qml/controls/IconButton.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Generating SkyGrid/qml/controls/IconButton.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Generating SkyGrid/qml/controls/IconButton.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/IconButton.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/IconButton.qml
 
 SkyGrid/qml/controls/MetricTile.qml: ../qml/controls/MetricTile.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Generating SkyGrid/qml/controls/MetricTile.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Generating SkyGrid/qml/controls/MetricTile.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/MetricTile.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/MetricTile.qml
 
 SkyGrid/qml/controls/MissionHistoryRow.qml: ../qml/controls/MissionHistoryRow.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Generating SkyGrid/qml/controls/MissionHistoryRow.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Generating SkyGrid/qml/controls/MissionHistoryRow.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/MissionHistoryRow.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/MissionHistoryRow.qml
 
 SkyGrid/qml/controls/MissionToolButton.qml: ../qml/controls/MissionToolButton.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Generating SkyGrid/qml/controls/MissionToolButton.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Generating SkyGrid/qml/controls/MissionToolButton.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/MissionToolButton.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/MissionToolButton.qml
 
 SkyGrid/qml/controls/ParameterSlider.qml: ../qml/controls/ParameterSlider.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Generating SkyGrid/qml/controls/ParameterSlider.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Generating SkyGrid/qml/controls/ParameterSlider.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/ParameterSlider.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/ParameterSlider.qml
 
 SkyGrid/qml/controls/PrimaryButton.qml: ../qml/controls/PrimaryButton.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Generating SkyGrid/qml/controls/PrimaryButton.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Generating SkyGrid/qml/controls/PrimaryButton.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/PrimaryButton.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/PrimaryButton.qml
 
 SkyGrid/qml/controls/SegmentedControl.qml: ../qml/controls/SegmentedControl.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Generating SkyGrid/qml/controls/SegmentedControl.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Generating SkyGrid/qml/controls/SegmentedControl.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/SegmentedControl.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/SegmentedControl.qml
 
 SkyGrid/qml/controls/SelectRow.qml: ../qml/controls/SelectRow.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Generating SkyGrid/qml/controls/SelectRow.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Generating SkyGrid/qml/controls/SelectRow.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/SelectRow.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/SelectRow.qml
 
 SkyGrid/qml/controls/StatusPill.qml: ../qml/controls/StatusPill.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Generating SkyGrid/qml/controls/StatusPill.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Generating SkyGrid/qml/controls/StatusPill.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/StatusPill.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/StatusPill.qml
 
 SkyGrid/qml/controls/ToggleRow.qml: ../qml/controls/ToggleRow.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Generating SkyGrid/qml/controls/ToggleRow.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Generating SkyGrid/qml/controls/ToggleRow.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/ToggleRow.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/ToggleRow.qml
 
 SkyGrid/qml/controls/WindowCloseButton.qml: ../qml/controls/WindowCloseButton.qml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Generating SkyGrid/qml/controls/WindowCloseButton.qml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Generating SkyGrid/qml/controls/WindowCloseButton.qml"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy qml/controls/WindowCloseButton.qml /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/qml/controls/WindowCloseButton.qml
 
 SkyGrid/assets/full_logo.svg: ../Asset/full_logo.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Generating SkyGrid/assets/full_logo.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Generating SkyGrid/assets/full_logo.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/full_logo.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/full_logo.svg
 
 SkyGrid/assets/icon.png: ../Asset/icon.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Generating SkyGrid/assets/icon.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Generating SkyGrid/assets/icon.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icon.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icon.png
 
 SkyGrid/assets/logo.png: ../Asset/logo.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Generating SkyGrid/assets/logo.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Generating SkyGrid/assets/logo.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/logo.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/logo.png
 
 SkyGrid/assets/icons/Vector.svg: ../Asset/icons/Vector.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Generating SkyGrid/assets/icons/Vector.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Generating SkyGrid/assets/icons/Vector.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/Vector.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/Vector.svg
 
 SkyGrid/assets/icons/arrow.svg: ../Asset/icons/arrow.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Generating SkyGrid/assets/icons/arrow.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Generating SkyGrid/assets/icons/arrow.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/arrow.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/arrow.svg
 
 SkyGrid/assets/icons/boxicons_battery-3.svg: ../Asset/icons/boxicons_battery-3.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Generating SkyGrid/assets/icons/boxicons_battery-3.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Generating SkyGrid/assets/icons/boxicons_battery-3.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_battery-3.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_battery-3.svg
 
 SkyGrid/assets/icons/boxicons_camera.svg: ../Asset/icons/boxicons_camera.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Generating SkyGrid/assets/icons/boxicons_camera.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Generating SkyGrid/assets/icons/boxicons_camera.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_camera.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_camera.svg
 
 SkyGrid/assets/icons/boxicons_cursor-pointer.svg: ../Asset/icons/boxicons_cursor-pointer.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Generating SkyGrid/assets/icons/boxicons_cursor-pointer.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Generating SkyGrid/assets/icons/boxicons_cursor-pointer.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_cursor-pointer.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_cursor-pointer.svg
 
 SkyGrid/assets/icons/boxicons_filter.svg: ../Asset/icons/boxicons_filter.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Generating SkyGrid/assets/icons/boxicons_filter.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Generating SkyGrid/assets/icons/boxicons_filter.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_filter.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_filter.svg
 
 SkyGrid/assets/icons/boxicons_search-big.svg: ../Asset/icons/boxicons_search-big.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Generating SkyGrid/assets/icons/boxicons_search-big.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Generating SkyGrid/assets/icons/boxicons_search-big.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_search-big.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_search-big.svg
 
 SkyGrid/assets/icons/boxicons_git-branch.svg: ../Asset/icons/boxicons_git-branch.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Generating SkyGrid/assets/icons/boxicons_git-branch.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Generating SkyGrid/assets/icons/boxicons_git-branch.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_git-branch.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_git-branch.svg
 
 SkyGrid/assets/icons/boxicons_play.svg: ../Asset/icons/boxicons_play.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Generating SkyGrid/assets/icons/boxicons_play.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Generating SkyGrid/assets/icons/boxicons_play.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_play.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_play.svg
 
 SkyGrid/assets/icons/boxicons_save.svg: ../Asset/icons/boxicons_save.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Generating SkyGrid/assets/icons/boxicons_save.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Generating SkyGrid/assets/icons/boxicons_save.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_save.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_save.svg
 
 SkyGrid/assets/icons/boxicons_trash.svg: ../Asset/icons/boxicons_trash.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Generating SkyGrid/assets/icons/boxicons_trash.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Generating SkyGrid/assets/icons/boxicons_trash.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_trash.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_trash.svg
 
 SkyGrid/assets/icons/boxicons_undo.svg: ../Asset/icons/boxicons_undo.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Generating SkyGrid/assets/icons/boxicons_undo.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Generating SkyGrid/assets/icons/boxicons_undo.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_undo.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_undo.svg
 
 SkyGrid/assets/icons/boxicons_wifi.svg: ../Asset/icons/boxicons_wifi.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Generating SkyGrid/assets/icons/boxicons_wifi.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Generating SkyGrid/assets/icons/boxicons_wifi.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_wifi.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_wifi.svg
 
 SkyGrid/assets/icons/boxicons_wind-filled.svg: ../Asset/icons/boxicons_wind-filled.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Generating SkyGrid/assets/icons/boxicons_wind-filled.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Generating SkyGrid/assets/icons/boxicons_wind-filled.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/boxicons_wind-filled.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/boxicons_wind-filled.svg
 
 SkyGrid/assets/icons/cloud.svg: ../Asset/icons/cloud.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Generating SkyGrid/assets/icons/cloud.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Generating SkyGrid/assets/icons/cloud.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/cloud.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/cloud.svg
 
 SkyGrid/assets/icons/compass_border.svg: ../Asset/icons/compass_border.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Generating SkyGrid/assets/icons/compass_border.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Generating SkyGrid/assets/icons/compass_border.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/compass_border.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/compass_border.svg
 
 SkyGrid/assets/icons/cube.svg: ../Asset/icons/cube.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Generating SkyGrid/assets/icons/cube.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Generating SkyGrid/assets/icons/cube.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/cube.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/cube.svg
 
 SkyGrid/assets/icons/divider_lines.svg: ../Asset/icons/divider_lines.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Generating SkyGrid/assets/icons/divider_lines.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Generating SkyGrid/assets/icons/divider_lines.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/divider_lines.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/divider_lines.svg
 
 SkyGrid/assets/icons/edit.svg: ../Asset/icons/edit.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Generating SkyGrid/assets/icons/edit.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Generating SkyGrid/assets/icons/edit.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/edit.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/edit.svg
 
 SkyGrid/assets/icons/iconamoon_arrow-up-2.svg: ../Asset/icons/iconamoon_arrow-up-2.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Generating SkyGrid/assets/icons/iconamoon_arrow-up-2.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Generating SkyGrid/assets/icons/iconamoon_arrow-up-2.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/iconamoon_arrow-up-2.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/iconamoon_arrow-up-2.svg
 
 SkyGrid/assets/icons/iconoir_cancel.svg: ../Asset/icons/iconoir_cancel.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Generating SkyGrid/assets/icons/iconoir_cancel.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Generating SkyGrid/assets/icons/iconoir_cancel.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/iconoir_cancel.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/iconoir_cancel.svg
 
 SkyGrid/assets/icons/lucide_building-2.svg: ../Asset/icons/lucide_building-2.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Generating SkyGrid/assets/icons/lucide_building-2.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Generating SkyGrid/assets/icons/lucide_building-2.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_building-2.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_building-2.svg
 
 SkyGrid/assets/icons/lucide_grid-3x3.svg: ../Asset/icons/lucide_grid-3x3.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Generating SkyGrid/assets/icons/lucide_grid-3x3.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Generating SkyGrid/assets/icons/lucide_grid-3x3.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_grid-3x3.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_grid-3x3.svg
 
 SkyGrid/assets/icons/lucide_mountain.svg: ../Asset/icons/lucide_mountain.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Generating SkyGrid/assets/icons/lucide_mountain.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Generating SkyGrid/assets/icons/lucide_mountain.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_mountain.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_mountain.svg
 
 SkyGrid/assets/icons/lucide_route.svg: ../Asset/icons/lucide_route.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Generating SkyGrid/assets/icons/lucide_route.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Generating SkyGrid/assets/icons/lucide_route.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_route.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_route.svg
 
 SkyGrid/assets/icons/lucide_satellite.svg: ../Asset/icons/lucide_satellite.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Generating SkyGrid/assets/icons/lucide_satellite.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Generating SkyGrid/assets/icons/lucide_satellite.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_satellite.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_satellite.svg
 
 SkyGrid/assets/icons/lucide_waypoints.svg: ../Asset/icons/lucide_waypoints.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Generating SkyGrid/assets/icons/lucide_waypoints.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Generating SkyGrid/assets/icons/lucide_waypoints.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/lucide_waypoints.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/lucide_waypoints.svg
 
 SkyGrid/assets/icons/mdi_person-outline.svg: ../Asset/icons/mdi_person-outline.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Generating SkyGrid/assets/icons/mdi_person-outline.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Generating SkyGrid/assets/icons/mdi_person-outline.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/mdi_person-outline.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/mdi_person-outline.svg
 
 SkyGrid/assets/icons/mdi_check-circle.svg: ../Asset/icons/mdi_check-circle.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Generating SkyGrid/assets/icons/mdi_check-circle.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Generating SkyGrid/assets/icons/mdi_check-circle.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/mdi_check-circle.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/mdi_check-circle.svg
 
 SkyGrid/assets/icons/mdi_home-outline.svg: ../Asset/icons/mdi_home-outline.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Generating SkyGrid/assets/icons/mdi_home-outline.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Generating SkyGrid/assets/icons/mdi_home-outline.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/mdi_home-outline.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/mdi_home-outline.svg
 
 SkyGrid/assets/icons/mingcute_compass-line.svg: ../Asset/icons/mingcute_compass-line.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Generating SkyGrid/assets/icons/mingcute_compass-line.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Generating SkyGrid/assets/icons/mingcute_compass-line.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/mingcute_compass-line.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/mingcute_compass-line.svg
 
 SkyGrid/assets/icons/pin_location.svg: ../Asset/icons/pin_location.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Generating SkyGrid/assets/icons/pin_location.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Generating SkyGrid/assets/icons/pin_location.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/pin_location.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/pin_location.svg
 
 SkyGrid/assets/icons/plane.svg: ../Asset/icons/plane.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Generating SkyGrid/assets/icons/plane.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Generating SkyGrid/assets/icons/plane.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/plane.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/plane.svg
 
 SkyGrid/assets/icons/plus.svg: ../Asset/icons/plus.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Generating SkyGrid/assets/icons/plus.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Generating SkyGrid/assets/icons/plus.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/plus.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/plus.svg
 
 SkyGrid/assets/icons/waypioint.svg: ../Asset/icons/waypioint.svg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Generating SkyGrid/assets/icons/waypioint.svg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Generating SkyGrid/assets/icons/waypioint.svg"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy Asset/icons/waypioint.svg /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/icons/waypioint.svg
 
 SkyGrid/assets/aircraft/SkyGrid_VTOL-03.png: ../Asset/aircraft/SkyGrid_VTOL-03.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Generating SkyGrid/assets/aircraft/SkyGrid_VTOL-03.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Generating SkyGrid/assets/aircraft/SkyGrid_VTOL-03.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/aircraft/SkyGrid_VTOL-03.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/aircraft/SkyGrid_VTOL-03.png
 
 SkyGrid/assets/aircraft/SkyGrid_X8-01.png: ../Asset/aircraft/SkyGrid_X8-01.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Generating SkyGrid/assets/aircraft/SkyGrid_X8-01.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Generating SkyGrid/assets/aircraft/SkyGrid_X8-01.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/aircraft/SkyGrid_X8-01.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/aircraft/SkyGrid_X8-01.png
 
 SkyGrid/assets/dashboard/mission_operations_center_bg.png: ../Asset/dashboard/mission_operations_center_bg.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Generating SkyGrid/assets/dashboard/mission_operations_center_bg.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Generating SkyGrid/assets/dashboard/mission_operations_center_bg.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/dashboard/mission_operations_center_bg.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/dashboard/mission_operations_center_bg.png
 
 SkyGrid/assets/mission_badges/mission_badges.png: ../Asset/mission_badges/mission_badges.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Generating SkyGrid/assets/mission_badges/mission_badges.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Generating SkyGrid/assets/mission_badges/mission_badges.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/mission_badges/mission_badges.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/mission_badges/mission_badges.png
 
 SkyGrid/assets/sidebar/sidebar_badges.png: ../Asset/sidebar/sidebar_badges.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Generating SkyGrid/assets/sidebar/sidebar_badges.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Generating SkyGrid/assets/sidebar/sidebar_badges.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/sidebar/sidebar_badges.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/sidebar/sidebar_badges.png
 
 SkyGrid/assets/sidebar/tab_mission.png: ../Asset/sidebar/tab_mission.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Generating SkyGrid/assets/sidebar/tab_mission.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Generating SkyGrid/assets/sidebar/tab_mission.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/sidebar/tab_mission.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/sidebar/tab_mission.png
 
 SkyGrid/assets/weather/weather_widgets.png: ../Asset/weather/weather_widgets.png
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Generating SkyGrid/assets/weather/weather_widgets.png"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Generating SkyGrid/assets/weather/weather_widgets.png"
 	cd /home/Software_projects/SkyGrid_inc/SGG && /usr/bin/cmake -E copy /home/Software_projects/SkyGrid_inc/SGG/Asset/weather/weather_widgets.png /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/assets/weather/weather_widgets.png
 
 SkyGridGCS_tooling: SkyGrid/assets/aircraft/SkyGrid_VTOL-03.png
@@ -760,6 +764,7 @@ SkyGridGCS_tooling: SkyGrid/qml/mission/MissionValidationPanel.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/MissionWeatherCard.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/MissionWorkspace.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/PilotFlightPanel.qml
+SkyGridGCS_tooling: SkyGrid/qml/mission/PostMissionSummaryModal.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/PreflightChecklistModal.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/PreflightChecklistPanel.qml
 SkyGridGCS_tooling: SkyGrid/qml/mission/types/Map3DAreaConfig.qml

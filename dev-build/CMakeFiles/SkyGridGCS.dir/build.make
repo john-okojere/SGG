@@ -638,12 +638,21 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/MissionSummaryStrip.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionSummaryStrip.qml
 
+.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp: /usr/lib/qt6/libexec/qmlcachegen
+.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp: ../qml/mission/PostMissionSummaryModal.qml
+.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp: .rcc/qmake_SkyGrid.qrc
+.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
+.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp"
+	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
+	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/PostMissionSummaryModal.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/PostMissionSummaryModal.qml
+
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp: /usr/lib/qt6/libexec/qmlcachegen
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp: ../qml/mission/PreflightChecklistModal.qml
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/PreflightChecklistModal.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/PreflightChecklistModal.qml
 
@@ -652,7 +661,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/PreflightChecklistPanel.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/PreflightChecklistPanel.qml
 
@@ -661,7 +670,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/MissionValidationPanel.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionValidationPanel.qml
 
@@ -670,7 +679,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/MissionWeatherCard.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionWeatherCard.qml
 
@@ -679,7 +688,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/MissionWorkspace.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionWorkspace.qml
 
@@ -688,7 +697,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/Map3DAreaConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/Map3DAreaConfig.qml
 
@@ -697,7 +706,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/Map3DPoiConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/Map3DPoiConfig.qml
 
@@ -706,7 +715,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/PhotomapConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/PhotomapConfig.qml
 
@@ -715,7 +724,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/TowerInspectionConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/TowerInspectionConfig.qml
 
@@ -724,7 +733,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/VirtualFenceConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/VirtualFenceConfig.qml
 
@@ -733,7 +742,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Generating .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/mission/types/WaypointRouteConfig.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/mission/types/WaypointRouteConfig.qml
 
@@ -742,7 +751,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/CompassControl.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/CompassControl.qml
 
@@ -751,7 +760,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/ArcGisMapSurface.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/ArcGisMapSurface.qml
 
@@ -760,7 +769,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/MapControls.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/MapControls.qml
 
@@ -769,7 +778,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/MapHud.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/MapHud.qml
 
@@ -778,7 +787,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/MissionMap.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/MissionMap.qml
 
@@ -787,7 +796,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/OfflineMapSurface.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/OfflineMapSurface.qml
 
@@ -796,7 +805,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/TileMapSurface.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/TileMapSurface.qml
 
@@ -805,7 +814,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/AircraftMarkerOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/AircraftMarkerOverlay.qml
 
@@ -814,7 +823,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/AltitudeLabelOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/AltitudeLabelOverlay.qml
 
@@ -823,7 +832,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/GeofenceOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/GeofenceOverlay.qml
 
@@ -832,7 +841,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/OrbitOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/OrbitOverlay.qml
 
@@ -841,7 +850,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/OverlayLayer.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/OverlayLayer.qml
 
@@ -850,7 +859,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/PoiMarkerOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/PoiMarkerOverlay.qml
 
@@ -859,7 +868,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/PolygonOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/PolygonOverlay.qml
 
@@ -868,7 +877,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/ScanLineOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/ScanLineOverlay.qml
 
@@ -877,7 +886,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/TowerInspectionOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/TowerInspectionOverlay.qml
 
@@ -886,7 +895,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Generating .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/map/overlays/WaypointOverlay.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/map/overlays/WaypointOverlay.qml
 
@@ -895,7 +904,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/AircraftCard.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/AircraftCard.qml
 
@@ -904,7 +913,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/AssetIcon.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/AssetIcon.qml
 
@@ -913,7 +922,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/CollapsibleSection.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/CollapsibleSection.qml
 
@@ -922,7 +931,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/GlassPanel.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/GlassPanel.qml
 
@@ -931,7 +940,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/IconButton.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/IconButton.qml
 
@@ -940,7 +949,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/MetricTile.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/MetricTile.qml
 
@@ -949,7 +958,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/MissionHistoryRow.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/MissionHistoryRow.qml
 
@@ -958,7 +967,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/MissionToolButton.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/MissionToolButton.qml
 
@@ -967,7 +976,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/ParameterSlider.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/ParameterSlider.qml
 
@@ -976,7 +985,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/PrimaryButton.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/PrimaryButton.qml
 
@@ -985,7 +994,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/SegmentedControl.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/SegmentedControl.qml
 
@@ -994,7 +1003,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/SelectRow.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/SelectRow.qml
 
@@ -1003,7 +1012,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/StatusPill.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/StatusPill.qml
 
@@ -1012,7 +1021,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/ToggleRow.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/ToggleRow.qml
 
@@ -1021,7 +1030,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp: .rcc/qmake_SkyGrid.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp: SkyGrid/SkyGridGCS.qmltypes
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Generating .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp"
 	/usr/bin/cmake -E make_directory /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls
 	/usr/lib/qt6/libexec/qmlcachegen --resource-path /qt/qml/SkyGrid/qml/controls/WindowCloseButton.qml -I /home/Software_projects/SkyGrid_inc/SGG/dev-build -i /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGrid/SkyGridGCS.qmltypes --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmake_SkyGrid.qrc --resource /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc -o /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp /home/Software_projects/SkyGrid_inc/SGG/qml/controls/WindowCloseButton.qml
 
@@ -1084,6 +1093,7 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/PilotFlightPanel.qml
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/MissionSelectionModal.qml
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/MissionSummaryStrip.qml
+.rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/PostMissionSummaryModal.qml
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/PreflightChecklistModal.qml
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/PreflightChecklistPanel.qml
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../qml/mission/MissionValidationPanel.qml
@@ -1174,13 +1184,13 @@ SkyGrid/SkyGridGCS.qmltypes: skygridgcs_qmltyperegistrations.cpp
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: ../Asset/weather/weather_widgets.png
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: .rcc/SkyGridGCS_raw_qml_0.qrc
 .rcc/qrc_SkyGridGCS_raw_qml_0.cpp: /usr/lib/qt6/libexec/rcc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Running rcc for resource SkyGridGCS_raw_qml_0"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Running rcc for resource SkyGridGCS_raw_qml_0"
 	/usr/lib/qt6/libexec/rcc --output /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp --name SkyGridGCS_raw_qml_0 /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/SkyGridGCS_raw_qml_0.qrc
 
 CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: SkyGridGCS_autogen/mocs_compilation.cpp
 CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o -MF CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/mocs_compilation.cpp
 
 CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.i: cmake_force
@@ -1194,7 +1204,7 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/main.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/main.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/main.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/main.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/main.cpp.i: cmake_force
@@ -1208,7 +1218,7 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o: ../src/auth/AuthManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/auth/AuthManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.i: cmake_force
@@ -1222,7 +1232,7 @@ CMakeFiles/SkyGridGCS.dir/src/auth/AuthManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o: ../src/auth/SessionManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/auth/SessionManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.i: cmake_force
@@ -1236,7 +1246,7 @@ CMakeFiles/SkyGridGCS.dir/src/auth/SessionManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o: ../src/auth/TokenManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/auth/TokenManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.i: cmake_force
@@ -1250,7 +1260,7 @@ CMakeFiles/SkyGridGCS.dir/src/auth/TokenManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o: ../src/cache/LocalSyncCache.cpp
 CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/cache/LocalSyncCache.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.i: cmake_force
@@ -1264,7 +1274,7 @@ CMakeFiles/SkyGridGCS.dir/src/cache/LocalSyncCache.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o: ../src/controllers/AppState.cpp
 CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/controllers/AppState.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.i: cmake_force
@@ -1278,7 +1288,7 @@ CMakeFiles/SkyGridGCS.dir/src/controllers/AppState.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o: ../src/controllers/MapState.cpp
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/controllers/MapState.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.i: cmake_force
@@ -1292,7 +1302,7 @@ CMakeFiles/SkyGridGCS.dir/src/controllers/MapState.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o: ../src/controllers/MapProviderController.cpp
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/controllers/MapProviderController.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.i: cmake_force
@@ -1306,7 +1316,7 @@ CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.cpp.s: cmake_for
 CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o: ../src/controllers/MissionStore.cpp
 CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/controllers/MissionStore.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.i: cmake_force
@@ -1320,7 +1330,7 @@ CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o: ../src/flight/EventLogManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/flight/EventLogManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.i: cmake_force
@@ -1334,7 +1344,7 @@ CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o: ../src/flight/FlightStatsManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/flight/FlightStatsManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.i: cmake_force
@@ -1345,10 +1355,24 @@ CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/flight/FlightStatsManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.s
 
+CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
+CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o: ../src/flight/PostMissionSummaryManager.cpp
+CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.cpp
+
+CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.cpp > CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.i
+
+CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.s
+
 CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o: ../src/flight/PreflightChecklistManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/flight/PreflightChecklistManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.i: cmake_force
@@ -1362,7 +1386,7 @@ CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.s: cmake_forc
 CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o: ../src/flight/ManualControlManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/flight/ManualControlManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.i: cmake_force
@@ -1376,7 +1400,7 @@ CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o: ../src/map/TileCacheManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/map/TileCacheManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.i: cmake_force
@@ -1390,7 +1414,7 @@ CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o: ../src/network/ApiClient.cpp
 CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/network/ApiClient.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.i: cmake_force
@@ -1404,7 +1428,7 @@ CMakeFiles/SkyGridGCS.dir/src/network/ApiClient.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o: ../src/network/WebSocketClient.cpp
 CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/network/WebSocketClient.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.i: cmake_force
@@ -1418,7 +1442,7 @@ CMakeFiles/SkyGridGCS.dir/src/network/WebSocketClient.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o: ../src/preferences/PreferencesManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/preferences/PreferencesManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.i: cmake_force
@@ -1432,7 +1456,7 @@ CMakeFiles/SkyGridGCS.dir/src/preferences/PreferencesManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o: ../src/profile/OperatorStateManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/profile/OperatorStateManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.i: cmake_force
@@ -1446,7 +1470,7 @@ CMakeFiles/SkyGridGCS.dir/src/profile/OperatorStateManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o: ../src/profile/ProfileManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/profile/ProfileManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.i: cmake_force
@@ -1460,7 +1484,7 @@ CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o: ../src/security/BackendTrustManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/security/BackendTrustManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.i: cmake_force
@@ -1474,7 +1498,7 @@ CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o: ../src/security/DeviceManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/security/DeviceManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.i: cmake_force
@@ -1488,7 +1512,7 @@ CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o: ../src/security/SecureStorage.cpp
 CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/security/SecureStorage.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.i: cmake_force
@@ -1502,7 +1526,7 @@ CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o: ../src/models/MissionPlanModel.cpp
 CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionPlanModel.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.i: cmake_force
@@ -1513,10 +1537,24 @@ CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionPlanModel.cpp -o CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.s
 
+CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
+CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o: ../src/models/MissionGenerationService.cpp
+CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionGenerationService.cpp
+
+CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionGenerationService.cpp > CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.i
+
+CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionGenerationService.cpp -o CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.s
+
 CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o: ../src/models/MissionTypeModel.cpp
 CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/models/MissionTypeModel.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.i: cmake_force
@@ -1530,7 +1568,7 @@ CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o: ../src/sync/MissionSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.i: cmake_force
@@ -1541,10 +1579,24 @@ CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionSyncManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.s
 
+CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
+CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o: ../src/sync/MissionPreviewManager.cpp
+CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.cpp
+
+CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.cpp > CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.i
+
+CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.s
+
 CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o: ../src/sync/PreferencesSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/PreferencesSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.i: cmake_force
@@ -1558,7 +1610,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o: ../src/sync/ProfileSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/ProfileSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.i: cmake_force
@@ -1572,7 +1624,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o: ../src/sync/GcsEventSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/GcsEventSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.i: cmake_force
@@ -1586,7 +1638,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o: ../src/sync/TelemetrySyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/TelemetrySyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.i: cmake_force
@@ -1600,7 +1652,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/TelemetrySyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o: ../src/sync/FlightSessionSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/FlightSessionSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.i: cmake_force
@@ -1614,7 +1666,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/FlightSessionSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o: ../src/sync/PilotActionSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/PilotActionSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.i: cmake_force
@@ -1628,7 +1680,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/PilotActionSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o: ../src/sync/WeatherSyncManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/sync/WeatherSyncManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.i: cmake_force
@@ -1642,7 +1694,7 @@ CMakeFiles/SkyGridGCS.dir/src/sync/WeatherSyncManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o: ../src/telemetry/WeatherManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WeatherManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.i: cmake_force
@@ -1656,7 +1708,7 @@ CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o: ../src/telemetry/WindCheckManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindCheckManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.i: cmake_force
@@ -1670,7 +1722,7 @@ CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o: ../src/telemetry/WindTelemetryManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindTelemetryManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.i: cmake_force
@@ -1684,7 +1736,7 @@ CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o: ../src/vehicle/MavsdkVehicleManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MavsdkVehicleManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.i: cmake_force
@@ -1695,10 +1747,24 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MavsdkVehicleManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.s
 
+CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
+CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o: ../src/vehicle/HomePositionManager.cpp
+CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.cpp
+
+CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.cpp > CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.i
+
+CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.cpp -o CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.s
+
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o: ../src/vehicle/VehicleActionManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/VehicleActionManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.i: cmake_force
@@ -1712,7 +1778,7 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o: ../src/vehicle/MissionExecutionManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MissionExecutionManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.i: cmake_force
@@ -1726,7 +1792,7 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o: ../src/vehicle/MissionUploadManager.cpp
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MissionUploadManager.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.i: cmake_force
@@ -1740,7 +1806,7 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o: ../src/vehicle/VehicleTelemetryModel.cpp
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o -MF CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/VehicleTelemetryModel.cpp
 
 CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.i: cmake_force
@@ -1754,7 +1820,7 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleTelemetryModel.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o: skygridgcs_qmltyperegistrations.cpp
 CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o -MF CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/skygridgcs_qmltyperegistrations.cpp
 
 CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.i: cmake_force
@@ -1768,7 +1834,7 @@ CMakeFiles/SkyGridGCS.dir/skygridgcs_qmltyperegistrations.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o: .rcc/qrc_qmake_SkyGrid.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qrc_qmake_SkyGrid.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.i: cmake_force
@@ -1782,7 +1848,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_qmake_SkyGrid.cpp.s: cmake_force
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o: .rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp.i: cmake_force
@@ -1796,7 +1862,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qmlcache_loader.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.i: cmake_force
@@ -1810,7 +1876,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/Main_qml.cpp.s:
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qml.cpp.i: cmake_force
@@ -1824,7 +1890,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/AppShell_qm
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_qml.cpp.i: cmake_force
@@ -1838,7 +1904,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/AssetRegistry_q
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.cpp.i: cmake_force
@@ -1852,7 +1918,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/Router_qml.
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignTokens_qml.cpp.i: cmake_force
@@ -1866,7 +1932,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/DesignToken
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBar_qml.cpp.i: cmake_force
@@ -1880,7 +1946,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/app/TelemetryBa
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginScreen_qml.cpp.i: cmake_force
@@ -1894,7 +1960,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/LoginSc
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScreen_qml.cpp.i: cmake_force
@@ -1908,7 +1974,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/HomeScr
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/MissionPlannerScreen_qml.cpp.i: cmake_force
@@ -1922,7 +1988,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/screens/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp.i: cmake_force
@@ -1936,7 +2002,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopSt
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SidebarTabButton_qml.cpp.i: cmake_force
@@ -1950,7 +2016,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Sideb
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/MissionHistoryItem_qml.cpp.i: cmake_force
@@ -1964,7 +2030,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Missi
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroOperationsCard_qml.cpp.i: cmake_force
@@ -1978,7 +2044,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/HeroO
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/AircraftSummaryCard_qml.cpp.i: cmake_force
@@ -1992,7 +2058,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Aircr
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/QuickActionTile_qml.cpp.i: cmake_force
@@ -2006,7 +2072,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Quick
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/ReadinessCard_qml.cpp.i: cmake_force
@@ -2020,7 +2086,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Readi
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/RecentActivityCard_qml.cpp.i: cmake_force
@@ -2034,7 +2100,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Recen
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp.i: cmake_force
@@ -2048,7 +2114,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Syste
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/PilotAssignmentCard_qml.cpp.i: cmake_force
@@ -2062,7 +2128,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Pilot
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.i: cmake_force
@@ -2076,7 +2142,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/Weath
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftMarker_qml.cpp.i: cmake_force
@@ -2090,7 +2156,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftM
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftStatusPanel_qml.cpp.i: cmake_force
@@ -2104,7 +2170,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/AircraftS
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpvPanel_qml.cpp.i: cmake_force
@@ -2118,7 +2184,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CameraFpv
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHudStack_qml.cpp.i: cmake_force
@@ -2132,7 +2198,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/CompassHu
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightStateCard_qml.cpp.i: cmake_force
@@ -2146,7 +2212,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightSta
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTrailOverlay_qml.cpp.i: cmake_force
@@ -2160,7 +2226,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightTra
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud_qml.cpp.i: cmake_force
@@ -2174,7 +2240,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/FlightHud
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarker_qml.cpp.i: cmake_force
@@ -2188,7 +2254,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/HomeMarke
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickVisibilityToggle_qml.cpp.i: cmake_force
@@ -2202,7 +2268,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/JoystickV
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimaryView_qml.cpp.i: cmake_force
@@ -2216,7 +2282,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/MapPrimar
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightMap_qml.cpp.i: cmake_force
@@ -2230,7 +2296,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFli
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFlightScreen_qml.cpp.i: cmake_force
@@ -2244,7 +2310,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualFli
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsPanel_qml.cpp.i: cmake_force
@@ -2258,7 +2324,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSet
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSettingsDrawer_qml.cpp.i: cmake_force
@@ -2272,7 +2338,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ManualSet
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitchTabs_qml.cpp.i: cmake_force
@@ -2286,7 +2352,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/ModeSwitc
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotModeTopBar_qml.cpp.i: cmake_force
@@ -2300,7 +2366,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotMode
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotViewSwitcher_qml.cpp.i: cmake_force
@@ -2314,7 +2380,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/PilotView
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActionsPanel_qml.cpp.i: cmake_force
@@ -2328,7 +2394,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/QuickActi
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlightView_qml.cpp.i: cmake_force
@@ -2342,7 +2408,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SplitFlig
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudWidget_qml.cpp.i: cmake_force
@@ -2356,7 +2422,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SmallHudW
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemStatusBar_qml.cpp.i: cmake_force
@@ -2370,7 +2436,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/SystemSta
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryGrid_qml.cpp.i: cmake_force
@@ -2384,7 +2450,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/Telemetry
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryMetricCard_qml.cpp.i: cmake_force
@@ -2398,7 +2464,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/Telemetry
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryPanel_qml.cpp.i: cmake_force
@@ -2412,7 +2478,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/Telemetry
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/TelemetryRow_qml.cpp.i: cmake_force
@@ -2426,7 +2492,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/Telemetry
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrimaryView_qml.cpp.i: cmake_force
@@ -2440,7 +2506,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VideoPrim
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJoystickOverlay_qml.cpp.i: cmake_force
@@ -2454,7 +2520,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/VirtualJo
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompassWidget_qml.cpp.i: cmake_force
@@ -2468,7 +2534,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/WindCompa
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoordinateDialog_qml.cpp.i: cmake_force
@@ -2482,7 +2548,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/GoToCoord
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogPanel_qml.cpp.i: cmake_force
@@ -2496,7 +2562,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/pilot/EventLogP
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionActionBar_qml.cpp.i: cmake_force
@@ -2510,7 +2576,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCatalog_qml.cpp.i: cmake_force
@@ -2524,7 +2590,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionCommandPanel_qml.cpp.i: cmake_force
@@ -2538,7 +2604,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionConfigPanel_qml.cpp.i: cmake_force
@@ -2552,7 +2618,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionElevationProfile_qml.cpp.i: cmake_force
@@ -2566,7 +2632,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionPlanningPreviewPanel_qml.cpp.i: cmake_force
@@ -2580,7 +2646,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.i: cmake_force
@@ -2594,7 +2660,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFl
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.i: cmake_force
@@ -2608,7 +2674,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.i: cmake_force
@@ -2619,10 +2685,24 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.s
 
+CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
+CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp
+CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp
+
+CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp > CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.i
+
+CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.s
+
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.i: cmake_force
@@ -2636,7 +2716,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Preflig
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.i: cmake_force
@@ -2650,7 +2730,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Preflig
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.i: cmake_force
@@ -2664,7 +2744,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp.i: cmake_force
@@ -2678,7 +2758,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp.i: cmake_force
@@ -2692,7 +2772,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/Mission
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp.i: cmake_force
@@ -2706,7 +2786,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/M
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DPoiConfig_qml.cpp.i: cmake_force
@@ -2720,7 +2800,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/M
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/PhotomapConfig_qml.cpp.i: cmake_force
@@ -2734,7 +2814,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/P
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/TowerInspectionConfig_qml.cpp.i: cmake_force
@@ -2748,7 +2828,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/T
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/VirtualFenceConfig_qml.cpp.i: cmake_force
@@ -2762,7 +2842,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/V
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/WaypointRouteConfig_qml.cpp.i: cmake_force
@@ -2776,7 +2856,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/types/W
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp.i: cmake_force
@@ -2790,7 +2870,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassCont
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.i: cmake_force
@@ -2804,7 +2884,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSu
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp.i: cmake_force
@@ -2818,7 +2898,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.cpp.i: cmake_force
@@ -2832,7 +2912,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapHud_qml.
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_qml.cpp.i: cmake_force
@@ -2846,7 +2926,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MissionMap_
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapSurface_qml.cpp.i: cmake_force
@@ -2860,7 +2940,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/OfflineMapS
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurface_qml.cpp.i: cmake_force
@@ -2874,7 +2954,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/TileMapSurf
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AircraftMarkerOverlay_qml.cpp.i: cmake_force
@@ -2888,7 +2968,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Ai
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/AltitudeLabelOverlay_qml.cpp.i: cmake_force
@@ -2902,7 +2982,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Al
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/GeofenceOverlay_qml.cpp.i: cmake_force
@@ -2916,7 +2996,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Ge
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OrbitOverlay_qml.cpp.i: cmake_force
@@ -2930,7 +3010,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Or
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/OverlayLayer_qml.cpp.i: cmake_force
@@ -2944,7 +3024,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Ov
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PoiMarkerOverlay_qml.cpp.i: cmake_force
@@ -2958,7 +3038,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Po
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/PolygonOverlay_qml.cpp.i: cmake_force
@@ -2972,7 +3052,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Po
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/ScanLineOverlay_qml.cpp.i: cmake_force
@@ -2986,7 +3066,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Sc
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/TowerInspectionOverlay_qml.cpp.i: cmake_force
@@ -3000,7 +3080,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/To
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_243) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/WaypointOverlay_qml.cpp.i: cmake_force
@@ -3014,7 +3094,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/overlays/Wa
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_244) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AircraftCard_qml.cpp.i: cmake_force
@@ -3028,7 +3108,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Aircra
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_245) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetIcon_qml.cpp.i: cmake_force
@@ -3042,7 +3122,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/AssetI
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_246) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/CollapsibleSection_qml.cpp.i: cmake_force
@@ -3056,7 +3136,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Collap
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_247) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassPanel_qml.cpp.i: cmake_force
@@ -3070,7 +3150,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/GlassP
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_248) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconButton_qml.cpp.i: cmake_force
@@ -3084,7 +3164,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/IconBu
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_243) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_249) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MetricTile_qml.cpp.i: cmake_force
@@ -3098,7 +3178,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Metric
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_244) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_250) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionHistoryRow_qml.cpp.i: cmake_force
@@ -3112,7 +3192,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Missio
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_245) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_251) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/MissionToolButton_qml.cpp.i: cmake_force
@@ -3126,7 +3206,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Missio
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_246) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_252) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ParameterSlider_qml.cpp.i: cmake_force
@@ -3140,7 +3220,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Parame
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_247) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_253) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/PrimaryButton_qml.cpp.i: cmake_force
@@ -3154,7 +3234,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Primar
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_248) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_254) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SegmentedControl_qml.cpp.i: cmake_force
@@ -3168,7 +3248,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Segmen
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_249) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_255) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/SelectRow_qml.cpp.i: cmake_force
@@ -3182,7 +3262,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Select
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_250) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_256) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/StatusPill_qml.cpp.i: cmake_force
@@ -3196,7 +3276,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Status
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_251) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_257) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/ToggleRow_qml.cpp.i: cmake_force
@@ -3210,7 +3290,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Toggle
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o: .rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_252) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_258) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/WindowCloseButton_qml.cpp.i: cmake_force
@@ -3224,7 +3304,7 @@ CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/controls/Window
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o: CMakeFiles/SkyGridGCS.dir/flags.make
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o: .rcc/qrc_SkyGridGCS_raw_qml_0.cpp
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o: CMakeFiles/SkyGridGCS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_253) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_259) "Building CXX object CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o -MF CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o.d -o CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.o -c /home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp
 
 CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qrc_SkyGridGCS_raw_qml_0.cpp.i: cmake_force
@@ -3249,6 +3329,7 @@ SkyGridGCS_OBJECTS = \
 "CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o" \
+"CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o" \
@@ -3261,8 +3342,10 @@ SkyGridGCS_OBJECTS = \
 "CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o" \
+"CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o" \
+"CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o" \
@@ -3274,6 +3357,7 @@ SkyGridGCS_OBJECTS = \
 "CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o" \
+"CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o" \
@@ -3340,6 +3424,7 @@ SkyGridGCS_OBJECTS = \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o" \
+"CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o" \
 "CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o" \
@@ -3400,6 +3485,7 @@ bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/controllers/MapProviderController.
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/flight/EventLogManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/flight/FlightStatsManager.cpp.o
+bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/flight/PostMissionSummaryManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/flight/PreflightChecklistManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/flight/ManualControlManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/map/TileCacheManager.cpp.o
@@ -3412,8 +3498,10 @@ bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/security/BackendTrustManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/security/DeviceManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/security/SecureStorage.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/models/MissionPlanModel.cpp.o
+bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/models/MissionGenerationService.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/models/MissionTypeModel.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/sync/MissionSyncManager.cpp.o
+bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/sync/MissionPreviewManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/sync/PreferencesSyncManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/sync/ProfileSyncManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/sync/GcsEventSyncManager.cpp.o
@@ -3425,6 +3513,7 @@ bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/telemetry/WeatherManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/telemetry/WindCheckManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/telemetry/WindTelemetryManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/vehicle/MavsdkVehicleManager.cpp.o
+bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/vehicle/HomePositionManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/vehicle/VehicleActionManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionUploadManager.cpp.o
@@ -3491,6 +3580,7 @@ bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSelectionModal_qml.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionSummaryStrip_qml.cpp.o
+bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp.o
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/mission/MissionValidationPanel_qml.cpp.o
@@ -3558,7 +3648,7 @@ bin/SkyGridGCS: /usr/lib/x86_64-linux-gnu/libgobject-2.0.so
 bin/SkyGridGCS: /usr/lib/x86_64-linux-gnu/libglib-2.0.so
 bin/SkyGridGCS: /usr/lib/x86_64-linux-gnu/libcairo.so
 bin/SkyGridGCS: CMakeFiles/SkyGridGCS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_254) "Linking CXX executable bin/SkyGridGCS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/Software_projects/SkyGrid_inc/SGG/dev-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_260) "Linking CXX executable bin/SkyGridGCS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SkyGridGCS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -3630,6 +3720,7 @@ CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionVa
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWeatherCard_qml.cpp
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/MissionWorkspace_qml.cpp
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/PilotFlightPanel_qml.cpp
+CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/PostMissionSummaryModal_qml.cpp
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistModal_qml.cpp
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/PreflightChecklistPanel_qml.cpp
 CMakeFiles/SkyGridGCS.dir/depend: .rcc/qmlcache/SkyGridGCS_qml/mission/types/Map3DAreaConfig_qml.cpp

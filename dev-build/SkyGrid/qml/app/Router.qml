@@ -40,6 +40,13 @@ Item {
         sourceComponent: modalComponent
     }
 
+    PostMissionSummaryModal {
+        anchors.fill: parent
+        visible: postMissionSummaryManager.visible
+        enabled: postMissionSummaryManager.visible
+        z: 40
+    }
+
     Component {
         id: homeComponent
         HomeScreen {

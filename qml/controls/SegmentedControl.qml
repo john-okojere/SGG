@@ -12,6 +12,11 @@ Rectangle {
     radius: 6
     color: "#eeeaf2"
 
+    WheelHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        onWheel: function(event) { event.accepted = true }
+    }
+
     RowLayout {
         anchors.fill: parent
         anchors.margins: 4
@@ -32,6 +37,8 @@ Rectangle {
                 }
                 MouseArea {
                     anchors.fill: parent
+                    hoverEnabled: true
+                    onWheel: function(wheel) { wheel.accepted = true }
                     onClicked: {
                         root.currentIndex = index
                         root.selected(index)

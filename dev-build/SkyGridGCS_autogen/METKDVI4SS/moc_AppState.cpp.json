@@ -149,6 +149,21 @@
                     "designable": true,
                     "final": false,
                     "index": 6,
+                    "name": "selectedPolygonIndex",
+                    "notify": "selectedGeometryChanged",
+                    "read": "selectedPolygonIndex",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "write": "setSelectedPolygonIndex"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
                     "name": "rightPanelCollapsed",
                     "notify": "panelChanged",
                     "read": "rightPanelCollapsed",
@@ -185,6 +200,11 @@
                 {
                     "access": "public",
                     "name": "selectedWaypointChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "selectedGeometryChanged",
                     "returnType": "void"
                 },
                 {

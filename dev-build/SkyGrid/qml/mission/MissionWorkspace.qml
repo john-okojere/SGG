@@ -121,9 +121,14 @@ Item {
             failPrepareAndStart("Set a takeoff point before starting the mission.")
             return
         }
-        if (missionStore.plan.serializeForMavsdkMission().length < 2) {
+        if (missionStore.plan.generatedRoute.length < 2) {
             failPrepareAndStart("Add at least two route points before starting.")
             return
+        }
+        if (typeof homePositionManager !== "undefined" && missionStore.plan.hasTakeoffPoint) {
+            homePositionManager.setHome(missionStore.plan.takeoffPoint.latitude,
+                                        missionStore.plan.takeoffPoint.longitude,
+                                        "mission_takeoff")
         }
         if (!missionStore.plan.missionReady) {
             failPrepareAndStart(missionStore.plan.operationStatus.length > 0
@@ -211,6 +216,28 @@ Item {
         }
     }
 
+    function captureMissionPreview(stage) {
+        if (typeof missionPreviewManager === "undefined"
+                || missionStore.plan.createdLocally
+                || String(missionStore.plan.missionId).length === 0
+                || map.width < 80
+                || map.height < 80) {
+            return
+        }
+        var path = missionPreviewManager.previewPath(String(missionStore.plan.missionId), stage)
+        var targetWidth = Math.min(1280, Math.max(320, Math.round(map.width)))
+        var targetHeight = Math.min(720, Math.max(180, Math.round(map.height)))
+        map.grabToImage(function(result) {
+            if (result && result.saveToFile(path)) {
+                missionPreviewManager.syncPreview(String(missionStore.plan.missionId),
+                                                  stage,
+                                                  path,
+                                                  targetWidth,
+                                                  targetHeight)
+            }
+        }, Qt.size(targetWidth, targetHeight))
+    }
+
     Component.onCompleted: forceActiveFocus()
 
     Timer {
@@ -234,6 +261,7 @@ Item {
     Connections {
         target: missionUploadManager
         function onMissionUploaded() {
+            root.captureMissionPreview("uploaded")
             if (root.startFlowActive && root.startFlowStep === "upload") {
                 root.waitingForUploadBeforePilotStart = false
                 root.setStartFlowMessage("Mission uploaded successfully.")
@@ -259,6 +287,7 @@ Item {
                 root.failPrepareAndStart(message)
                 return
             }
+            root.captureMissionPreview("saved")
             root.startFlowStep = "backendValidation"
             root.continuePrepareAndStart()
         }
@@ -271,6 +300,7 @@ Item {
                 root.failPrepareAndStart(message)
                 return
             }
+            root.captureMissionPreview("validated")
             root.setStartFlowMessage(message.length > 0 ? message : "Mission validated by Control Center.")
             root.startFlowStep = "preflight"
             root.continuePrepareAndStart()

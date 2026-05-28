@@ -59,6 +59,7 @@
     <file alias="qml/mission/PilotFlightPanel.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/PilotFlightPanel.qml</file>
     <file alias="qml/mission/MissionSelectionModal.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionSelectionModal.qml</file>
     <file alias="qml/mission/MissionSummaryStrip.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionSummaryStrip.qml</file>
+    <file alias="qml/mission/PostMissionSummaryModal.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/PostMissionSummaryModal.qml</file>
     <file alias="qml/mission/PreflightChecklistModal.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/PreflightChecklistModal.qml</file>
     <file alias="qml/mission/PreflightChecklistPanel.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/PreflightChecklistPanel.qml</file>
     <file alias="qml/mission/MissionValidationPanel.qml">/home/Software_projects/SkyGrid_inc/SGG/qml/mission/MissionValidationPanel.qml</file>

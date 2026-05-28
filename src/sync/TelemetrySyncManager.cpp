@@ -463,6 +463,20 @@ void TelemetrySyncManager::postQueuedItem(const QVariantMap &item)
         endpoint = QStringLiteral("/api/telemetry/");
     } else if (kind == QStringLiteral("gcs_event")) {
         endpoint = QStringLiteral("/api/gcs-events/");
+    } else if (kind == QStringLiteral("post_mission_summary")) {
+        const QString serverSessionId = payload.value(QStringLiteral("server_session_id")).toString().trimmed();
+        if (!serverSessionId.isEmpty()) {
+            endpoint = QStringLiteral("/api/flight-sessions/%1/summary/").arg(serverSessionId);
+        } else {
+            payload = QJsonObject{
+                {QStringLiteral("event_type"), kind},
+                {QStringLiteral("severity"), QStringLiteral("info")},
+                {QStringLiteral("message"), QStringLiteral("Post-flight summary queued from GCS")},
+                {QStringLiteral("payload"), payload},
+                {QStringLiteral("recorded_at"), QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)}
+            };
+            endpoint = QStringLiteral("/api/gcs-events/");
+        }
     } else if (kind == QStringLiteral("pilot_action") || kind == QStringLiteral("flight_record")) {
         payload = QJsonObject{
             {QStringLiteral("event_type"), kind},

@@ -57,6 +57,7 @@
 /qt/qml/SkyGrid/qml/mission/PilotFlightPanel.qml
 /qt/qml/SkyGrid/qml/mission/MissionSelectionModal.qml
 /qt/qml/SkyGrid/qml/mission/MissionSummaryStrip.qml
+/qt/qml/SkyGrid/qml/mission/PostMissionSummaryModal.qml
 /qt/qml/SkyGrid/qml/mission/PreflightChecklistModal.qml
 /qt/qml/SkyGrid/qml/mission/PreflightChecklistPanel.qml
 /qt/qml/SkyGrid/qml/mission/MissionValidationPanel.qml

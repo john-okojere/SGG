@@ -24,6 +24,9 @@ class FlightStatsManager : public QObject
     Q_PROPERTY(double maxAltitude READ maxAltitude NOTIFY statsChanged)
     Q_PROPERTY(double batteryStartPercent READ batteryStartPercent NOTIFY statsChanged)
     Q_PROPERTY(double batteryEndPercent READ batteryEndPercent NOTIFY statsChanged)
+    Q_PROPERTY(double averageSpeedMps READ averageSpeedMps NOTIFY statsChanged)
+    Q_PROPERTY(QString endedAt READ endedAt NOTIFY statsChanged)
+    Q_PROPERTY(QVariantMap lastRecord READ lastRecord NOTIFY statsChanged)
     Q_PROPERTY(QVariantList flightPath READ flightPath NOTIFY statsChanged)
     Q_PROPERTY(QString status READ status NOTIFY statsChanged)
 
@@ -46,6 +49,9 @@ public:
     double maxAltitude() const;
     double batteryStartPercent() const;
     double batteryEndPercent() const;
+    double averageSpeedMps() const;
+    QString endedAt() const;
+    QVariantMap lastRecord() const;
     QVariantList flightPath() const;
     QString status() const;
 
@@ -55,6 +61,7 @@ public:
 
 signals:
     void statsChanged();
+    void flightEnded(const QVariantMap &record);
 
 private:
     static double distanceBetween(double latA, double lonA, double latB, double lonB);
@@ -78,6 +85,8 @@ private:
     double m_maxAltitude = 0.0;
     double m_batteryStartPercent = 0.0;
     double m_batteryEndPercent = 0.0;
+    QString m_endedAt;
+    QVariantMap m_lastRecord;
     double m_lastLatitude = 0.0;
     double m_lastLongitude = 0.0;
     QVariantList m_flightPath;

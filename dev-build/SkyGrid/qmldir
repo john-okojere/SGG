@@ -60,6 +60,7 @@ MissionPlanningPreviewPanel 1.0 qml/mission/MissionPlanningPreviewPanel.qml
 PilotFlightPanel 1.0 qml/mission/PilotFlightPanel.qml
 MissionSelectionModal 1.0 qml/mission/MissionSelectionModal.qml
 MissionSummaryStrip 1.0 qml/mission/MissionSummaryStrip.qml
+PostMissionSummaryModal 1.0 qml/mission/PostMissionSummaryModal.qml
 PreflightChecklistModal 1.0 qml/mission/PreflightChecklistModal.qml
 PreflightChecklistPanel 1.0 qml/mission/PreflightChecklistPanel.qml
 MissionValidationPanel 1.0 qml/mission/MissionValidationPanel.qml

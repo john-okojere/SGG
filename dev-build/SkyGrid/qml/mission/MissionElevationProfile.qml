@@ -14,7 +14,7 @@ Rectangle {
     width: 1030
 
     function routeItems() {
-        return missionStore.plan.serializeForMavsdkMission()
+        return missionStore.plan.generatedRoute
     }
 
     function distanceMeters(a, b) {
@@ -38,7 +38,11 @@ Rectangle {
         return { values: distances, total: Math.max(total, 1) }
     }
 
-    Connections { target: missionStore.plan; function onPlanChanged() { profileCanvas.requestPaint() } }
+    Connections {
+        target: missionStore.plan
+        function onPlanChanged() { profileCanvas.requestPaint() }
+        function onGeometryChanged() { profileCanvas.requestPaint() }
+    }
     Connections { target: mapState; function onCenterChanged() { profileCanvas.requestPaint() } }
 
     ColumnLayout {

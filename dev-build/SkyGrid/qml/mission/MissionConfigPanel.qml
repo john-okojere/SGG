@@ -16,6 +16,10 @@ Rectangle {
     readonly property bool isWaypointRoute: activeMissionType === "waypointRoute"
     readonly property bool isVirtualFence: activeMissionType === "virtualFence"
     readonly property bool isPoi: activeMissionType === "map3dPoi"
+    readonly property bool isPolygonMission: activeMissionType === "photomap"
+                                            || activeMissionType === "map3dArea"
+                                            || activeMissionType === "towerInspection"
+                                            || activeMissionType === "virtualFence"
     readonly property bool compactLayout: width < 370 || height < 760
     readonly property int labelSize: compactLayout ? 13 : 14
     readonly property int inputSize: compactLayout ? 12 : 13
@@ -42,7 +46,7 @@ Rectangle {
         return missionStore.plan.name
     }
 
-    function routeItems() { return missionStore.plan.serializeForMavsdkMission() }
+    function routeItems() { return missionStore.plan.generatedRoute }
     function routeDistanceFt() { return missionStore.plan.routeDistanceKm * 3280.84 }
     function selectedWaypoint() { return missionStore.plan.waypointAt(appState.selectedWaypointIndex) }
     function safeWaypointIndex() { return appState.selectedWaypointIndex >= 0 ? appState.selectedWaypointIndex : 0 }
@@ -96,15 +100,57 @@ Rectangle {
         return { latitude: lat / source.length, longitude: lon / source.length }
     }
 
+    function editablePrimaryCoordinate() {
+        if (appState.selectedPolygonIndex >= 0 && appState.selectedPolygonIndex < missionStore.plan.polygon.length) {
+            return missionStore.plan.polygon[appState.selectedPolygonIndex]
+        }
+        return { latitude: missionStore.plan.primaryLatitude, longitude: missionStore.plan.primaryLongitude }
+    }
+
     function applyCoordinate(latText, lonText, selectedOnly) {
         var lat = Number(latText)
         var lon = Number(lonText)
         if (isNaN(lat) || isNaN(lon)) return
         if (selectedOnly && appState.selectedWaypointIndex >= 0) {
             missionStore.plan.moveWaypoint(appState.selectedWaypointIndex, lat, lon)
+        } else if (!selectedOnly && appState.selectedPolygonIndex >= 0 && appState.selectedPolygonIndex < missionStore.plan.polygon.length) {
+            missionStore.plan.movePolygonVertex(appState.selectedPolygonIndex, lat, lon)
         } else {
             missionStore.plan.setPrimaryCoordinate(lat, lon)
         }
+    }
+
+    function selectedPolygonPoint() {
+        if (appState.selectedPolygonIndex >= 0 && appState.selectedPolygonIndex < missionStore.plan.polygon.length) {
+            return missionStore.plan.polygon[appState.selectedPolygonIndex]
+        }
+        return {}
+    }
+
+    function insertPolygonNearSelected(after) {
+        if (missionStore.plan.polygon.length === 0) {
+            missionStore.plan.addPolygonVertex(mapState.centerLatitude, mapState.centerLongitude)
+            appState.selectedPolygonIndex = 0
+            appState.selectedTool = "polygon"
+            return
+        }
+        var baseIndex = appState.selectedPolygonIndex >= 0 ? appState.selectedPolygonIndex : missionStore.plan.polygon.length - 1
+        var afterIndex = after ? baseIndex : Math.max(0, baseIndex - 1)
+        var a = missionStore.plan.polygon[afterIndex]
+        var b = missionStore.plan.polygon[(afterIndex + 1) % missionStore.plan.polygon.length]
+        var lat = b ? (a.latitude + b.latitude) / 2 : a.latitude
+        var lon = b ? (a.longitude + b.longitude) / 2 : a.longitude
+        missionStore.plan.insertPolygonVertex(afterIndex, lat, lon)
+        appState.selectedPolygonIndex = afterIndex + 1
+        appState.selectedTool = "polygon"
+    }
+
+    function deleteSelectedPolygonPoint() {
+        if (appState.selectedPolygonIndex < 0 || appState.selectedPolygonIndex >= missionStore.plan.polygon.length) return
+        var nextIndex = Math.min(appState.selectedPolygonIndex, missionStore.plan.polygon.length - 2)
+        missionStore.plan.deletePolygonVertex(appState.selectedPolygonIndex)
+        appState.selectedPolygonIndex = nextIndex
+        appState.selectedTool = "polygon"
     }
 
     function templateDescription() {
@@ -203,6 +249,8 @@ Rectangle {
         }
 
         Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#ded5ea" }
+
+        PolygonWorkflowSection { visible: root.isPolygonMission }
 
         Rectangle {
             Layout.fillWidth: true
@@ -303,6 +351,91 @@ Rectangle {
         Metric { visible: root.metricFourLabel().length > 0; label: root.metricFourLabel(); value: root.metricFourValue(); unit: root.metricFourUnit() }
     }
 
+    component PolygonWorkflowSection: ColumnLayout {
+        width: parent.width
+        spacing: 8
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: root.controlHeight
+            radius: 6
+            color: "#f0eef3"
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 3
+                spacing: 0
+                SegmentedButton {
+                    Layout.fillWidth: true
+                    text: "Edit Polygon"
+                    active: appState.selectedTool === "polygon"
+                    onClicked: appState.selectedTool = "polygon"
+                }
+                SegmentedButton {
+                    Layout.fillWidth: true
+                    text: "Survey Preview"
+                    active: appState.selectedTool === "survey"
+                    enabled: missionStore.plan.polygon.length >= 3
+                    onClicked: appState.selectedTool = "survey"
+                }
+            }
+        }
+
+        Text {
+            Layout.fillWidth: true
+            text: missionStore.plan.polygon.length < 3
+                  ? "Add at least 3 polygon vertices before survey lanes are generated."
+                  : (appState.selectedTool === "polygon"
+                     ? "Polygon edit mode: drag numbered vertices or click + handles on edges to insert points."
+                     : "Survey preview mode: generated lanes are clipped to the polygon and used for upload.")
+            color: missionStore.plan.polygon.length < 3 ? Theme.amber : Theme.muted
+            font.pixelSize: root.helperSize
+            wrapMode: Text.WordWrap
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 8
+            ActionButton {
+                Layout.fillWidth: true
+                text: "Insert Before"
+                iconText: "+"
+                primary: false
+                enabled: missionStore.plan.polygon.length > 0
+                onClicked: root.insertPolygonNearSelected(false)
+            }
+            ActionButton {
+                Layout.fillWidth: true
+                text: "Insert After"
+                iconText: "+"
+                primary: false
+                enabled: missionStore.plan.polygon.length > 0
+                onClicked: root.insertPolygonNearSelected(true)
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 8
+            ActionButton {
+                Layout.fillWidth: true
+                text: "Delete Vertex"
+                iconText: "×"
+                primary: false
+                enabled: appState.selectedPolygonIndex >= 0 && appState.selectedPolygonIndex < missionStore.plan.polygon.length
+                onClicked: root.deleteSelectedPolygonPoint()
+            }
+            Text {
+                Layout.fillWidth: true
+                text: appState.selectedPolygonIndex >= 0 && appState.selectedPolygonIndex < missionStore.plan.polygon.length
+                      ? ("Selected vertex " + (appState.selectedPolygonIndex + 1))
+                      : "No vertex selected"
+                color: "#4f465b"
+                font.pixelSize: root.helperSize
+                elide: Text.ElideRight
+            }
+        }
+    }
+
     component SurveyForm: ColumnLayout {
         width: parent.width
         spacing: root.rowSpacing
@@ -383,8 +516,8 @@ Rectangle {
             SelectInput { label: "Flight Course Mode"; help: "Pattern style used to generate the POI flight path."; value: missionStore.plan.flightCourseMode; options: ["Circle Mode", "Spiral Mode", "Vertical Scan"]; onAcceptedValue: missionStore.plan.flightCourseMode = value }
             SelectInput { label: "Capture Mode"; help: "How the camera captures during the generated path."; value: missionStore.plan.captureMode; options: ["Capture at Equal Dist. Interval", "Timed Capture", "Hover Capture"]; onAcceptedValue: missionStore.plan.captureMode = value }
             SliderRow { label: "Speed"; help: "Target aircraft speed for this mission."; value: missionStore.plan.speed; from: 1; to: 35; suffix: "m/s"; onEdited: missionStore.plan.speed = value }
-            SliderRow { label: "Flight Rad."; help: "Orbit radius around the point of interest."; value: missionStore.plan.radius; from: 20; to: 1200; suffix: "ft"; onEdited: missionStore.plan.radius = value }
-            SliderRow { label: "Building Rad."; help: "Approximate subject radius used to maintain clearance."; value: missionStore.plan.buildingRadius; from: 5; to: 600; suffix: "ft"; onEdited: missionStore.plan.buildingRadius = value }
+            SliderRow { label: "Flight Rad."; help: "Orbit radius around the point of interest in meters."; value: missionStore.plan.radius; from: 20; to: 1200; suffix: "m"; onEdited: missionStore.plan.radius = value }
+            SliderRow { label: "Building Rad."; help: "Approximate subject radius in meters used to maintain clearance."; value: missionStore.plan.buildingRadius; from: 5; to: 600; suffix: "m"; onEdited: missionStore.plan.buildingRadius = value }
             AltitudeRangeRow {}
             CoordinatePair { selectedOnly: false }
         }
@@ -411,14 +544,16 @@ Rectangle {
         SliderRow { label: "Front Overlap"; help: "Forward image overlap used for survey capture spacing."; value: missionStore.plan.frontOverlap; from: 10; to: 95; suffix: "%"; onEdited: missionStore.plan.frontOverlap = Math.round(value) }
         SliderRow { label: "Side Overlap"; help: "Side-to-side overlap used between generated lanes."; value: missionStore.plan.sideOverlap; from: 10; to: 95; suffix: "%"; onEdited: missionStore.plan.sideOverlap = Math.round(value) }
         SliderRow { visible: root.activeMissionType !== "map3dPoi"; label: "Course Angle"; help: "Heading angle for generated survey lanes."; value: missionStore.plan.courseAngle; from: 0; to: 360; suffix: "°"; onEdited: missionStore.plan.courseAngle = value }
-        SliderRow { visible: root.activeMissionType !== "map3dPoi"; label: "Margin"; help: "Extra spacing added around the mapped area."; value: missionStore.plan.margin; from: 0; to: 250; suffix: "M"; onEdited: missionStore.plan.margin = value }
+        SliderRow { visible: root.activeMissionType !== "map3dPoi"; label: "Margin"; help: "Inset spacing from the polygon boundary used when generating PhotoMap lanes."; value: missionStore.plan.margin; from: 0; to: 250; suffix: "m"; onEdited: missionStore.plan.margin = value }
         SliderRow { label: "Gimbal Pitch"; help: "Camera pitch angle during capture."; value: missionStore.plan.gimbalPitch; from: -90; to: 45; suffix: "°"; onEdited: missionStore.plan.gimbalPitch = value }
-        SelectInput { visible: root.activeMissionType === "map3dPoi" || root.activeMissionType === "map3dArea"; label: "Flight Direction"; help: "Direction used for generated orbit or area paths."; value: missionStore.plan.flightDirection; options: ["Clockwise", "Counter Clockwise", "North Up"]; onAcceptedValue: missionStore.plan.flightDirection = value }
+        SelectInput { visible: root.activeMissionType === "photomap" || root.activeMissionType === "map3dPoi" || root.activeMissionType === "map3dArea"; label: "Flight Direction"; help: "Direction used for generated survey or orbit paths."; value: missionStore.plan.flightDirection; options: ["Clockwise", "Counter Clockwise", "North Up"]; onAcceptedValue: missionStore.plan.flightDirection = value }
         SelectInput { visible: root.activeMissionType === "map3dPoi" || root.activeMissionType === "map3dArea"; label: "Finish Action"; help: "Aircraft behavior after mission execution completes."; value: missionStore.plan.finishAction; options: ["Return to Home", "Hover", "Land"]; onAcceptedValue: missionStore.plan.finishAction = value }
         CoordinatePair { selectedOnly: false }
         Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#ded5ea" }
-        ReadonlyField { label: "GSD"; help: "Estimated ground sampling distance from altitude and camera profile."; value: Number(missionStore.plan.gsd).toFixed(1) + " cm/px" }
-        ReadonlyField { label: "Est. Photos"; help: "Approximate number of photos from route items and capture spacing."; value: String(Math.max(1, Math.round(root.routeItems().length * 3))) }
+        ReadonlyField { label: "GSD"; help: "Estimated ground sampling distance from altitude and camera profile."; value: Number(missionStore.plan.routeEstimates.gsd_cm_px || missionStore.plan.gsd).toFixed(1) + " cm/px" }
+        ReadonlyField { label: "Lane Spacing"; help: "Distance between generated survey lanes from side overlap and camera footprint."; value: Number(missionStore.plan.routeEstimates.lane_spacing_m || 0).toFixed(1) + " m" }
+        ReadonlyField { label: "Shot Spacing"; help: "Distance between photo capture points from front overlap and camera footprint."; value: Number(missionStore.plan.routeEstimates.shot_spacing_m || 0).toFixed(1) + " m" }
+        ReadonlyField { label: "Est. Photos"; help: "Approximate number of photos from route length and capture spacing."; value: String(Math.max(1, Math.round(missionStore.plan.routeEstimates.estimated_photos || root.routeItems().length * 3))) }
         ReadonlyField { label: "Est. Batteries"; help: "Battery sets estimated from planned energy use."; value: Number(Math.max(1, Math.ceil(missionStore.plan.estimatedBattery / 70))).toFixed(0) + " Set Approx." }
     }
 
@@ -439,7 +574,7 @@ Rectangle {
         SelectInput { label: "Breach Action"; help: "Action requested if the aircraft breaches the boundary."; value: missionStore.plan.breachAction; options: ["Return to Home", "Hold Position", "Land", "Alert Only"]; onAcceptedValue: missionStore.plan.breachAction = value }
         SelectInput { label: "Warning Action"; help: "Alert behavior before a boundary breach."; value: missionStore.plan.warningAction; options: ["Alert Pilot", "Control Center Alert", "Audio Warning"]; onAcceptedValue: missionStore.plan.warningAction = value }
         SliderRow { label: "Capture Interval"; help: "Optional camera sampling interval while monitoring this boundary."; value: missionStore.plan.captureInterval; from: 0.5; to: 10; suffix: "s"; onEdited: missionStore.plan.captureInterval = value }
-        SliderRow { label: "Flight Alt."; help: "Reference altitude for fence validation and display."; value: missionStore.plan.altitude; from: 10; to: 160; suffix: "ft"; onEdited: missionStore.plan.altitude = value }
+        SliderRow { label: "Flight Alt."; help: "Reference altitude in meters for fence validation and display."; value: missionStore.plan.altitude; from: 10; to: 160; suffix: "m"; onEdited: missionStore.plan.altitude = value }
         SliderRow { label: "GSD"; help: "Estimated imagery resolution if capture is enabled."; value: missionStore.plan.gsd; from: 0.5; to: 12; suffix: "cm/px"; onEdited: missionStore.plan.gsd = value }
     }
 
@@ -486,7 +621,7 @@ Rectangle {
                 font.pixelSize: root.labelSize
                 font.bold: true
             }
-            SliderRow { label: "Altitude"; help: "Altitude override for this waypoint."; value: parent.point.altitude || missionStore.plan.altitude; from: 10; to: 160; suffix: "ft"; enabled: appState.selectedWaypointIndex >= 0; onEdited: missionStore.plan.setWaypointAltitude(appState.selectedWaypointIndex, value) }
+            SliderRow { label: "Altitude"; help: "Altitude override in meters for this waypoint."; value: parent.point.altitude || missionStore.plan.altitude; from: 10; to: 160; suffix: "m"; enabled: appState.selectedWaypointIndex >= 0; onEdited: missionStore.plan.setWaypointAltitude(appState.selectedWaypointIndex, value) }
             SliderRow { label: "Speed"; help: "Speed override for this waypoint."; value: parent.point.speed || missionStore.plan.speed; from: 1; to: 35; suffix: "m/s"; enabled: appState.selectedWaypointIndex >= 0; onEdited: missionStore.plan.setWaypointSpeed(appState.selectedWaypointIndex, value) }
             SliderRow { label: "Heading"; help: "Aircraft heading at this waypoint."; value: parent.point.heading || 0; from: 0; to: 359; suffix: "°"; enabled: appState.selectedWaypointIndex >= 0; onEdited: missionStore.plan.setWaypointHeading(appState.selectedWaypointIndex, value) }
             SelectInput { label: "Rotation Direc."; help: "Rotation behavior used at the selected point."; value: missionStore.plan.aircraftRotation; options: ["Counter Clockwise", "Clockwise", "Auto"]; enabled: appState.selectedWaypointIndex >= 0; onAcceptedValue: missionStore.plan.aircraftRotation = value }
@@ -505,11 +640,11 @@ Rectangle {
         RowLayout {
             Layout.fillWidth: true
             spacing: root.rowSpacing
-            FieldLabel { text: "Min Alt."; help: "Minimum planned altitude for validation and generated routes." }
-            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Minimum planned altitude for this mission."; text: Number(missionStore.plan.minAltitude).toFixed(1); suffix: "ft"; onAcceptedValue: missionStore.plan.minAltitude = Number(value) }
+            FieldLabel { text: "Min Alt."; help: "Minimum planned altitude in meters for validation and generated routes." }
+            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Minimum planned altitude in meters for this mission."; text: Number(missionStore.plan.minAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.minAltitude = Number(value) }
             Item { Layout.fillWidth: true }
-            FieldLabel { Layout.preferredWidth: root.compactLayout ? 64 : 74; text: "Max Alt."; help: "Maximum planned altitude for validation and generated routes." }
-            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Maximum planned altitude for this mission."; text: Number(missionStore.plan.maxAltitude).toFixed(1); suffix: "ft"; onAcceptedValue: missionStore.plan.maxAltitude = Number(value) }
+            FieldLabel { Layout.preferredWidth: root.compactLayout ? 64 : 74; text: "Max Alt."; help: "Maximum planned altitude in meters for validation and generated routes." }
+            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Maximum planned altitude in meters for this mission."; text: Number(missionStore.plan.maxAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.maxAltitude = Number(value) }
         }
         SliderBox {
             Layout.fillWidth: true
@@ -518,27 +653,28 @@ Rectangle {
             value: missionStore.plan.altitude
             onMoved: missionStore.plan.altitude = value
             ToolTip.visible: hovered
-            ToolTip.text: "Default altitude applied to generated routes and new waypoints."
+            ToolTip.text: "Default altitude in meters applied to generated routes and new waypoints."
         }
     }
 
     component CoordinatePair: ColumnLayout {
         property bool selectedOnly: false
         readonly property var point: selectedOnly ? root.selectedWaypoint() : ({})
+        readonly property var primaryPoint: root.editablePrimaryCoordinate()
         width: parent.width
         spacing: root.rowSpacing
         CoordinateInput {
             id: latInput
             label: "Latitude"
-            help: selectedOnly ? "Latitude for the selected waypoint." : "Primary mission latitude used for geometry and weather checks."
-            text: Number(selectedOnly && appState.selectedWaypointIndex >= 0 ? point.latitude : missionStore.plan.primaryLatitude).toFixed(8)
+            help: selectedOnly ? "Latitude for the selected waypoint." : (appState.selectedPolygonIndex >= 0 ? "Latitude for the selected boundary point." : "Primary mission latitude used for geometry and weather checks.")
+            text: Number(selectedOnly && appState.selectedWaypointIndex >= 0 ? point.latitude : primaryPoint.latitude).toFixed(8)
             onAcceptedText: root.applyCoordinate(text, lonInput.text, selectedOnly)
         }
         CoordinateInput {
             id: lonInput
             label: "Longitude"
-            help: selectedOnly ? "Longitude for the selected waypoint." : "Primary mission longitude used for geometry and weather checks."
-            text: Number(selectedOnly && appState.selectedWaypointIndex >= 0 ? point.longitude : missionStore.plan.primaryLongitude).toFixed(8)
+            help: selectedOnly ? "Longitude for the selected waypoint." : (appState.selectedPolygonIndex >= 0 ? "Longitude for the selected boundary point." : "Primary mission longitude used for geometry and weather checks.")
+            text: Number(selectedOnly && appState.selectedWaypointIndex >= 0 ? point.longitude : primaryPoint.longitude).toFixed(8)
             onAcceptedText: root.applyCoordinate(latInput.text, text, selectedOnly)
         }
     }
@@ -743,6 +879,10 @@ Rectangle {
         property bool active: false
         implicitHeight: root.controlHeight - 4
         hoverEnabled: true
+        WheelHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+            onWheel: function(event) { event.accepted = true }
+        }
         contentItem: Text { text: tab.text; color: tab.active ? Theme.white : "#0f0b14"; horizontalAlignment: Text.AlignHCenter; verticalAlignment: Text.AlignVCenter; font.pixelSize: 13; font.bold: true }
         background: Rectangle { radius: 4; color: tab.active ? Theme.purple : "#00000000" }
     }
@@ -754,6 +894,10 @@ Rectangle {
         implicitHeight: root.controlHeight
         hoverEnabled: true
         opacity: enabled ? 1 : 0.45
+        WheelHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+            onWheel: function(event) { event.accepted = true }
+        }
         contentItem: Row {
             anchors.centerIn: parent
             spacing: 8

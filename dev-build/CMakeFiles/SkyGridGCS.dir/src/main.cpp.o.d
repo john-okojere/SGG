@@ -728,6 +728,7 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/src/controllers/ThemeController.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/flight/EventLogManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/flight/FlightStatsManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/src/flight/PostMissionSummaryManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/flight/PreflightChecklistManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSet \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
@@ -782,6 +783,7 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/src/security/SecureStorage.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/sync/FlightSessionSyncManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/sync/GcsEventSyncManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionPreviewManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/sync/MissionSyncManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
@@ -794,6 +796,7 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindCheckManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/telemetry/WindTelemetryManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MavsdkVehicleManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/HomePositionManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MissionExecutionManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MissionUploadManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/VehicleActionManager.h \

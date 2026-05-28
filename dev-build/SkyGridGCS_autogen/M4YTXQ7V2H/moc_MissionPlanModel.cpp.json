@@ -170,6 +170,25 @@
                     "access": "public",
                     "arguments": [
                         {
+                            "name": "afterIndex",
+                            "type": "int"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        }
+                    ],
+                    "name": "insertPolygonVertex",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
                             "name": "index",
                             "type": "int"
                         },
@@ -183,6 +202,17 @@
                         }
                     ],
                     "name": "movePolygonVertex",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "deletePolygonVertex",
                     "returnType": "void"
                 },
                 {
@@ -1389,6 +1419,90 @@
                     "stored": true,
                     "type": "QString",
                     "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 64,
+                    "name": "generatedRoute",
+                    "notify": "geometryChanged",
+                    "read": "generatedRoute",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 65,
+                    "name": "routeEstimates",
+                    "notify": "geometryChanged",
+                    "read": "routeEstimates",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 66,
+                    "name": "cameraPreview",
+                    "notify": "geometryChanged",
+                    "read": "cameraPreview",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 67,
+                    "name": "elevationProfile",
+                    "notify": "geometryChanged",
+                    "read": "elevationProfile",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 68,
+                    "name": "boundaryPreview",
+                    "notify": "geometryChanged",
+                    "read": "boundaryPreview",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 69,
+                    "name": "generationRevision",
+                    "notify": "geometryChanged",
+                    "read": "generationRevision",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
                 }
             ],
             "qualifiedClassName": "MissionPlanModel",
@@ -1406,6 +1520,11 @@
                 {
                     "access": "public",
                     "name": "operationStatusChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "geometryChanged",
                     "returnType": "void"
                 }
             ],

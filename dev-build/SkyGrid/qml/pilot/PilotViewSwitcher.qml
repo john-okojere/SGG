@@ -12,6 +12,11 @@ Rectangle {
     implicitWidth: 246
     implicitHeight: 38
 
+    WheelHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        onWheel: function(event) { event.accepted = true }
+    }
+
     RowLayout {
         anchors.fill: parent
         anchors.margins: 4
@@ -22,6 +27,11 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 text: modelData
+                hoverEnabled: true
+                WheelHandler {
+                    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                    onWheel: function(event) { event.accepted = true }
+                }
                 onClicked: root.modeSelected(modelData)
                 background: Rectangle {
                     radius: 4

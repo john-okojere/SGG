@@ -416,6 +416,13 @@ namespace _qt_qml_SkyGrid_qml_mission_MissionSummaryStrip_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
+namespace _qt_qml_SkyGrid_qml_mission_PostMissionSummaryModal_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
 namespace _qt_qml_SkyGrid_qml_mission_PreflightChecklistModal_qml { 
     extern const unsigned char qmlData[];
     extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
@@ -790,6 +797,7 @@ Registry::Registry() {
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/PilotFlightPanel.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_PilotFlightPanel_qml::unit);
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/MissionSelectionModal.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_MissionSelectionModal_qml::unit);
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/MissionSummaryStrip.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_MissionSummaryStrip_qml::unit);
+        resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/PostMissionSummaryModal.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_PostMissionSummaryModal_qml::unit);
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/PreflightChecklistModal.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_PreflightChecklistModal_qml::unit);
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/PreflightChecklistPanel.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_PreflightChecklistPanel_qml::unit);
         resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SkyGrid/qml/mission/MissionValidationPanel.qml"), &QmlCacheGeneratedCode::_qt_qml_SkyGrid_qml_mission_MissionValidationPanel_qml::unit);

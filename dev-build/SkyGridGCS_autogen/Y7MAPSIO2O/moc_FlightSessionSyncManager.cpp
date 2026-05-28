@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_FlightSessionSyncManager_t {
-    const uint offsetsAndSize[40];
-    char stringdata0[247];
+    const uint offsetsAndSize[42];
+    char stringdata0[255];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FlightSessionSyncManager_t, stringdata0) + ofs), len 
@@ -41,23 +41,24 @@ QT_MOC_LITERAL(120, 9), // "missionId"
 QT_MOC_LITERAL(130, 16), // "endActiveSession"
 QT_MOC_LITERAL(147, 9), // "endStatus"
 QT_MOC_LITERAL(157, 6), // "reason"
-QT_MOC_LITERAL(164, 17), // "recordPilotAction"
-QT_MOC_LITERAL(182, 10), // "actionType"
-QT_MOC_LITERAL(193, 10), // "actionData"
-QT_MOC_LITERAL(204, 7), // "message"
-QT_MOC_LITERAL(212, 6), // "active"
-QT_MOC_LITERAL(219, 15), // "serverSessionId"
-QT_MOC_LITERAL(235, 4), // "mode"
-QT_MOC_LITERAL(240, 6) // "status"
+QT_MOC_LITERAL(164, 7), // "summary"
+QT_MOC_LITERAL(172, 17), // "recordPilotAction"
+QT_MOC_LITERAL(190, 10), // "actionType"
+QT_MOC_LITERAL(201, 10), // "actionData"
+QT_MOC_LITERAL(212, 7), // "message"
+QT_MOC_LITERAL(220, 6), // "active"
+QT_MOC_LITERAL(227, 15), // "serverSessionId"
+QT_MOC_LITERAL(243, 4), // "mode"
+QT_MOC_LITERAL(248, 6) // "status"
 
     },
     "FlightSessionSyncManager\0sessionChanged\0"
     "\0applyBootstrap\0bootstrap\0beginPilotSession\0"
     "clientSessionId\0beginMissionSession\0"
     "missionId\0endActiveSession\0endStatus\0"
-    "reason\0recordPilotAction\0actionType\0"
-    "actionData\0message\0active\0serverSessionId\0"
-    "mode\0status"
+    "reason\0summary\0recordPilotAction\0"
+    "actionType\0actionData\0message\0active\0"
+    "serverSessionId\0mode\0status"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,26 +68,27 @@ static const uint qt_meta_data_FlightSessionSyncManager[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
-       5,  110, // properties
+      11,   14, // methods
+       5,  123, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   74,    2, 0x06,    6 /* Public */,
+       1,    0,   80,    2, 0x06,    6 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    1,   75,    2, 0x02,    7 /* Public */,
-       5,    1,   78,    2, 0x02,    9 /* Public */,
-       7,    2,   81,    2, 0x02,   11 /* Public */,
-       9,    2,   86,    2, 0x02,   14 /* Public */,
-       9,    1,   91,    2, 0x22,   17 /* Public | MethodCloned */,
-       9,    0,   94,    2, 0x22,   19 /* Public | MethodCloned */,
-      12,    3,   95,    2, 0x02,   20 /* Public */,
-      12,    2,  102,    2, 0x22,   24 /* Public | MethodCloned */,
-      12,    1,  107,    2, 0x22,   27 /* Public | MethodCloned */,
+       3,    1,   81,    2, 0x02,    7 /* Public */,
+       5,    1,   84,    2, 0x02,    9 /* Public */,
+       7,    2,   87,    2, 0x02,   11 /* Public */,
+       9,    3,   92,    2, 0x02,   14 /* Public */,
+       9,    2,   99,    2, 0x22,   18 /* Public | MethodCloned */,
+       9,    1,  104,    2, 0x22,   21 /* Public | MethodCloned */,
+       9,    0,  107,    2, 0x22,   23 /* Public | MethodCloned */,
+      13,    3,  108,    2, 0x02,   24 /* Public */,
+      13,    2,  115,    2, 0x22,   28 /* Public | MethodCloned */,
+      13,    1,  120,    2, 0x22,   31 /* Public | MethodCloned */,
 
  // signals: parameters
     QMetaType::Void,
@@ -95,19 +97,20 @@ static const uint qt_meta_data_FlightSessionSyncManager[] = {
     QMetaType::Void, QMetaType::QVariantMap,    4,
     QMetaType::Void, QMetaType::QString,    6,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    6,    8,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QVariantMap,   10,   11,   12,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,   10,   11,
     QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject, QMetaType::QString,   13,   14,   15,
-    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   13,   14,
-    QMetaType::Void, QMetaType::QString,   13,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject, QMetaType::QString,   14,   15,   16,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   14,   15,
+    QMetaType::Void, QMetaType::QString,   14,
 
  // properties: name, type, flags
-      16, QMetaType::Bool, 0x00015001, uint(0), 0,
-      17, QMetaType::QString, 0x00015001, uint(0), 0,
-       6, QMetaType::QString, 0x00015001, uint(0), 0,
+      17, QMetaType::Bool, 0x00015001, uint(0), 0,
       18, QMetaType::QString, 0x00015001, uint(0), 0,
+       6, QMetaType::QString, 0x00015001, uint(0), 0,
       19, QMetaType::QString, 0x00015001, uint(0), 0,
+      20, QMetaType::QString, 0x00015001, uint(0), 0,
 
        0        // eod
 };
@@ -122,12 +125,13 @@ void FlightSessionSyncManager::qt_static_metacall(QObject *_o, QMetaObject::Call
         case 1: _t->applyBootstrap((*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[1]))); break;
         case 2: _t->beginPilotSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->beginMissionSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 4: _t->endActiveSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 5: _t->endActiveSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 6: _t->endActiveSession(); break;
-        case 7: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
-        case 8: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
-        case 9: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->endActiveSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QVariantMap>>(_a[3]))); break;
+        case 5: _t->endActiveSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 6: _t->endActiveSession((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->endActiveSession(); break;
+        case 8: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
+        case 9: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 10: _t->recordPilotAction((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -169,7 +173,7 @@ const QMetaObject FlightSessionSyncManager::staticMetaObject = { {
 qt_incomplete_metaTypeArray<qt_meta_stringdata_FlightSessionSyncManager_t
 , QtPrivate::TypeAndForceComplete<bool, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<QString, std::true_type>, QtPrivate::TypeAndForceComplete<FlightSessionSyncManager, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QVariantMap &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
 
 >,
     nullptr
@@ -195,13 +199,13 @@ int FlightSessionSyncManager::qt_metacall(QMetaObject::Call _c, int _id, void **
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 11;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty

@@ -202,7 +202,9 @@ public:
     Q_INVOKABLE void setTakeoffPoint(double latitude, double longitude);
     Q_INVOKABLE void clearTakeoffPoint();
     Q_INVOKABLE void addPolygonVertex(double latitude, double longitude);
+    Q_INVOKABLE void insertPolygonVertex(int afterIndex, double latitude, double longitude);
     Q_INVOKABLE void movePolygonVertex(int index, double latitude, double longitude);
+    Q_INVOKABLE void deletePolygonVertex(int index);
     Q_INVOKABLE void moveWaypoint(int index, double latitude, double longitude);
     Q_INVOKABLE void setWaypointAltitude(int index, double altitude);
     Q_INVOKABLE void setWaypointSpeed(int index, double speed);

@@ -9,7 +9,7 @@ Item {
     ScanLineOverlay {
         anchors.fill: parent
         mapItem: root.mapItem
-        visible: root.activeMissionType === "photomap" || root.activeMissionType === "map3dArea" || root.activeMissionType === "towerInspection"
+        visible: root.activeMissionType === "map3dArea" || root.activeMissionType === "towerInspection"
     }
     OrbitOverlay {
         anchors.fill: parent

@@ -304,6 +304,9 @@ CMakeFiles/SkyGridGCS.dir/src/controllers/MissionStore.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/quuid.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariantMap \
  /home/Software_projects/SkyGrid_inc/SGG/src/controllers/../models/MissionTypeModel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \

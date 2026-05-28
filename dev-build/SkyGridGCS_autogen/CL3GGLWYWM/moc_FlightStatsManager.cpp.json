@@ -166,6 +166,48 @@
                     "designable": true,
                     "final": false,
                     "index": 10,
+                    "name": "averageSpeedMps",
+                    "notify": "statsChanged",
+                    "read": "averageSpeedMps",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 11,
+                    "name": "endedAt",
+                    "notify": "statsChanged",
+                    "read": "endedAt",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 12,
+                    "name": "lastRecord",
+                    "notify": "statsChanged",
+                    "read": "lastRecord",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 13,
                     "name": "flightPath",
                     "notify": "statsChanged",
                     "read": "flightPath",
@@ -179,7 +221,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 11,
+                    "index": 14,
                     "name": "status",
                     "notify": "statsChanged",
                     "read": "status",
@@ -195,6 +237,17 @@
                 {
                     "access": "public",
                     "name": "statsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "record",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "flightEnded",
                     "returnType": "void"
                 }
             ],

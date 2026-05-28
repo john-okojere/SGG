@@ -297,6 +297,8 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariantMap \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/MavsdkVehicleManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
@@ -312,8 +314,6 @@ CMakeFiles/SkyGridGCS.dir/src/vehicle/MissionExecutionManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/quuid.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariantList \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariantMap \
  /home/Software_projects/SkyGrid_inc/SGG/src/vehicle/../network/ApiClient.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QJsonObject \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qjsonobject.h \

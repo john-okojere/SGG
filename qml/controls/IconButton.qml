@@ -19,6 +19,11 @@ Button {
     font.pixelSize: 23
     font.bold: true
 
+    WheelHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        onWheel: function(event) { event.accepted = true }
+    }
+
     contentItem: Item {
         AssetIcon {
             anchors.centerIn: parent

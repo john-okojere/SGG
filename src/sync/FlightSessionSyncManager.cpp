@@ -102,7 +102,7 @@ void FlightSessionSyncManager::beginMissionSession(const QString &clientSessionI
     startSessionOnServer(QStringLiteral("MISSION"), clientSessionId, backendMissionId);
 }
 
-void FlightSessionSyncManager::endActiveSession(const QString &endStatus, const QString &reason)
+void FlightSessionSyncManager::endActiveSession(const QString &endStatus, const QString &reason, const QVariantMap &summary)
 {
     if (!m_active) {
         return;
@@ -115,6 +115,7 @@ void FlightSessionSyncManager::endActiveSession(const QString &endStatus, const 
         {QStringLiteral("mode"), m_mode},
         {QStringLiteral("end_status"), endStatus},
         {QStringLiteral("reason"), reason},
+        {QStringLiteral("summary"), summary},
         {QStringLiteral("ended_at"), QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)}
     };
 
@@ -139,6 +140,9 @@ void FlightSessionSyncManager::endActiveSession(const QString &endStatus, const 
         {QStringLiteral("status"), endStatus},
         {QStringLiteral("reason"), reason}
     };
+    if (!summary.isEmpty()) {
+        payload.insert(QStringLiteral("summary"), QJsonObject::fromVariantMap(summary));
+    }
     m_api->post(QStringLiteral("/api/flight-sessions/%1/end/").arg(serverId), payload, true, true,
                 [this, endStatus](int statusCode, const QJsonObject &, const QString &error) {
         if (statusCode < 200 || statusCode >= 300) {

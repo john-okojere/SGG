@@ -12,6 +12,7 @@ class AppState : public QObject
     Q_PROPERTY(QString selectedMissionId READ selectedMissionId NOTIFY missionChanged)
     Q_PROPERTY(QString selectedTool READ selectedTool WRITE setSelectedTool NOTIFY toolChanged)
     Q_PROPERTY(int selectedWaypointIndex READ selectedWaypointIndex WRITE setSelectedWaypointIndex NOTIFY selectedWaypointChanged)
+    Q_PROPERTY(int selectedPolygonIndex READ selectedPolygonIndex WRITE setSelectedPolygonIndex NOTIFY selectedGeometryChanged)
     Q_PROPERTY(bool rightPanelCollapsed READ rightPanelCollapsed WRITE setRightPanelCollapsed NOTIFY panelChanged)
 
 public:
@@ -23,11 +24,13 @@ public:
     QString selectedMissionId() const;
     QString selectedTool() const;
     int selectedWaypointIndex() const;
+    int selectedPolygonIndex() const;
     bool rightPanelCollapsed() const;
 
     void setSelectedTool(const QString &tool);
     void setOperationalMode(const QString &mode);
     void setSelectedWaypointIndex(int index);
+    void setSelectedPolygonIndex(int index);
     void setRightPanelCollapsed(bool collapsed);
 
     Q_INVOKABLE void goHome();
@@ -44,6 +47,7 @@ signals:
     void operationalModeChanged();
     void toolChanged();
     void selectedWaypointChanged();
+    void selectedGeometryChanged();
     void panelChanged();
     void missionStarted(const QString &missionType);
 
@@ -54,5 +58,6 @@ private:
     QString m_selectedMissionId;
     QString m_selectedTool = "select";
     int m_selectedWaypointIndex = -1;
+    int m_selectedPolygonIndex = -1;
     bool m_rightPanelCollapsed = false;
 };

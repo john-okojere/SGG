@@ -105,6 +105,7 @@ file(REMOVE_RECURSE
   "SkyGrid/qml/mission/MissionWeatherCard.qml"
   "SkyGrid/qml/mission/MissionWorkspace.qml"
   "SkyGrid/qml/mission/PilotFlightPanel.qml"
+  "SkyGrid/qml/mission/PostMissionSummaryModal.qml"
   "SkyGrid/qml/mission/PreflightChecklistModal.qml"
   "SkyGrid/qml/mission/PreflightChecklistPanel.qml"
   "SkyGrid/qml/mission/types/Map3DAreaConfig.qml"

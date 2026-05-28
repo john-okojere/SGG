@@ -8,8 +8,10 @@ Item {
     property real routeDashOffset: 0
     readonly property string activeMissionType: missionStore.plan.missionType.length > 0 ? missionStore.plan.missionType : appState.currentMissionType
     readonly property bool mapInteractionActive: ["select", "takeoff", "point", "poi", "route", "polygon"].indexOf(appState.selectedTool) !== -1
+    readonly property bool showGeneratedSurvey: root.activeMissionType !== "photomap"
+                                             || (missionStore.plan.polygon.length >= 3 && appState.selectedTool !== "polygon")
     readonly property bool fastMode: String(performanceMode) === "fast"
-    readonly property bool routeVisible: !missionStore.plan.boundaryOnly && missionStore.plan.serializeForMavsdkMission().length > 1
+    readonly property bool routeVisible: !missionStore.plan.boundaryOnly && missionStore.plan.generatedRoute.length > 1
     readonly property bool routeAnimationActive: !fastMode
                                              && visible
                                              && routeVisible
@@ -67,7 +69,11 @@ Item {
         z: 2
         antialiasing: !root.fastMode
 
-        Connections { target: missionStore.plan; function onPlanChanged() { geometryCanvas.requestPaint() } }
+        Connections {
+            target: missionStore.plan
+            function onPlanChanged() { geometryCanvas.requestPaint() }
+            function onGeometryChanged() { geometryCanvas.requestPaint() }
+        }
         Connections { target: appState; function onMissionChanged() { geometryCanvas.requestPaint() } }
         Connections { target: appState; function onToolChanged() { geometryCanvas.requestPaint() } }
         Connections { target: mapState; function onOverlayChanged() { geometryCanvas.requestPaint() } }
@@ -79,10 +85,12 @@ Item {
         onPaint: {
             var ctx = getContext("2d")
             ctx.clearRect(0, 0, width, height)
-            var polygon = missionStore.plan.polygon
+            var polygon = missionStore.plan.boundaryOnly && missionStore.plan.boundaryPreview.length > 0
+                    ? missionStore.plan.boundaryPreview
+                    : missionStore.plan.polygon
             var waypoints = missionStore.plan.waypoints
             var takeoff = missionStore.plan.takeoffPoint
-            var uploadRoute = missionStore.plan.serializeForMavsdkMission()
+            var uploadRoute = missionStore.plan.generatedRoute
 
             if (root.activeMissionType === "photomap" || root.activeMissionType === "map3dArea" || root.activeMissionType === "virtualFence" || root.activeMissionType === "towerInspection") {
                 ctx.beginPath()
@@ -92,17 +100,20 @@ Item {
                     else ctx.lineTo(pp.x, pp.y)
                 }
                 ctx.closePath()
-                ctx.fillStyle = root.activeMissionType === "virtualFence" ? "rgba(247,201,72,0.13)" : "rgba(75,18,139,0.18)"
-                ctx.strokeStyle = root.activeMissionType === "virtualFence" ? "#f7c948" : "rgba(255,255,255,0.92)"
+                ctx.fillStyle = root.activeMissionType === "virtualFence" ? "rgba(247,201,72,0.13)"
+                              : (root.activeMissionType === "photomap" ? "rgba(0,188,212,0.10)" : "rgba(75,18,139,0.18)")
+                ctx.strokeStyle = root.activeMissionType === "virtualFence" ? "#f7c948"
+                                : (root.activeMissionType === "photomap" ? "#25d6f5" : "rgba(255,255,255,0.92)")
                 ctx.lineWidth = 3
                 ctx.fill()
                 ctx.stroke()
-                ctx.strokeStyle = root.activeMissionType === "virtualFence" ? "rgba(247,201,72,0.32)" : "rgba(124,69,184,0.55)"
+                ctx.strokeStyle = root.activeMissionType === "virtualFence" ? "rgba(247,201,72,0.32)"
+                                : (root.activeMissionType === "photomap" ? "rgba(37,214,245,0.28)" : "rgba(124,69,184,0.55)")
                 ctx.lineWidth = 8
                 ctx.stroke()
             }
 
-            if (!missionStore.plan.boundaryOnly && uploadRoute.length > 1) {
+            if (!missionStore.plan.boundaryOnly && uploadRoute.length > 1 && root.showGeneratedSurvey) {
                 ctx.lineJoin = "round"
                 ctx.lineCap = "round"
                 ctx.beginPath()
@@ -111,11 +122,11 @@ Item {
                     if (j === 0) ctx.moveTo(wp.x, wp.y)
                     else ctx.lineTo(wp.x, wp.y)
                 }
-                ctx.strokeStyle = "rgba(44,0,87,0.78)"
-                ctx.lineWidth = 10
+                ctx.strokeStyle = root.activeMissionType === "photomap" ? "rgba(0,86,48,0.62)" : "rgba(44,0,87,0.78)"
+                ctx.lineWidth = root.activeMissionType === "photomap" ? 8 : 10
                 ctx.stroke()
-                ctx.strokeStyle = "rgba(255,255,255,0.96)"
-                ctx.lineWidth = 4
+                ctx.strokeStyle = root.activeMissionType === "photomap" ? "#32d36b" : "rgba(255,255,255,0.96)"
+                ctx.lineWidth = root.activeMissionType === "photomap" ? 3 : 4
                 if (root.routeAnimationActive) {
                     ctx.setLineDash([18, 10])
                     ctx.lineDashOffset = -root.routeDashOffset
@@ -186,6 +197,51 @@ Item {
     Repeater {
         model: missionStore.plan.polygon
         delegate: Rectangle {
+            id: edgeInsertHandle
+            readonly property int nextIndex: missionStore.plan.polygon.length > 0 ? (index + 1) % missionStore.plan.polygon.length : 0
+            readonly property var nextPoint: missionStore.plan.polygon.length > nextIndex ? missionStore.plan.polygon[nextIndex] : modelData
+            readonly property var pointA: root.pointFor(modelData.latitude, modelData.longitude)
+            readonly property var pointB: root.pointFor(nextPoint.latitude, nextPoint.longitude)
+            z: 4.8
+            width: 18
+            height: 18
+            radius: 9
+            visible: appState.selectedTool === "polygon"
+                     && missionStore.plan.polygon.length > 1
+                     && (missionStore.plan.polygon.length > 2 || index === 0)
+            x: (pointA.x + pointB.x) / 2 - width / 2
+            y: (pointA.y + pointB.y) / 2 - height / 2
+            color: insertArea.containsMouse ? "#25d6f5" : "#ffffff"
+            border.color: "#25d6f5"
+            border.width: 2
+            scale: insertArea.containsMouse ? 1.25 : 1.0
+            Text {
+                anchors.centerIn: parent
+                text: "+"
+                color: insertArea.containsMouse ? "#ffffff" : "#25d6f5"
+                font.pixelSize: 14
+                font.bold: true
+            }
+            MouseArea {
+                id: insertArea
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: {
+                    var c = root.coordinateFor(Qt.point(edgeInsertHandle.x + edgeInsertHandle.width / 2,
+                                                        edgeInsertHandle.y + edgeInsertHandle.height / 2))
+                    missionStore.plan.insertPolygonVertex(index, c.latitude, c.longitude)
+                    appState.selectedPolygonIndex = index + 1
+                    appState.selectedTool = "polygon"
+                }
+            }
+            Behavior on scale { NumberAnimation { duration: Theme.animFast; easing.type: Easing.OutCubic } }
+            Behavior on color { ColorAnimation { duration: Theme.animFast } }
+        }
+    }
+
+    Repeater {
+        model: missionStore.plan.polygon
+        delegate: Rectangle {
             id: polygonHandle
             z: 5
             width: 24
@@ -193,18 +249,31 @@ Item {
             radius: 12
             scale: handleArea.containsMouse || handleArea.pressed ? 1.2 : 1
             visible: missionStore.plan.polygon.length > 0
-            color: handleArea.containsMouse ? Theme.amber : Theme.white
-            border.color: Theme.purple
+            color: root.activeMissionType === "photomap"
+                   ? (handleArea.containsMouse ? "#dffbff" : "#102c3a")
+                   : (handleArea.containsMouse ? Theme.amber : Theme.white)
+            border.color: root.activeMissionType === "photomap" ? "#25d6f5" : Theme.purple
             border.width: 3
             x: root.pointFor(modelData.latitude, modelData.longitude).x - width / 2
             y: root.pointFor(modelData.latitude, modelData.longitude).y - height / 2
             Behavior on color { ColorAnimation { duration: Theme.animFast } }
             Behavior on scale { NumberAnimation { duration: Theme.animFast; easing.type: Easing.OutCubic } }
+            Text {
+                anchors.centerIn: parent
+                text: String(index + 1)
+                color: root.activeMissionType === "photomap" ? "#ffffff" : Theme.purple
+                font.pixelSize: 11
+                font.bold: true
+            }
             MouseArea {
                 id: handleArea
                 anchors.fill: parent
                 hoverEnabled: true
                 drag.target: parent
+                onPressed: {
+                    appState.selectedPolygonIndex = index
+                    appState.selectedTool = "polygon"
+                }
                 onPositionChanged: {
                     if (pressed) {
                         var c = root.coordinateFor(Qt.point(parent.x + parent.width / 2, parent.y + parent.height / 2))
@@ -231,7 +300,10 @@ Item {
                 anchors.fill: parent
                 hoverEnabled: true
                 drag.target: parent
-                onPressed: appState.selectedWaypointIndex = index
+                onPressed: {
+                    appState.selectedWaypointIndex = index
+                    appState.selectedPolygonIndex = -1
+                }
                 onPositionChanged: {
                     if (pressed) {
                         var c = root.coordinateFor(Qt.point(parent.x + parent.width / 2, parent.y + parent.height / 2))

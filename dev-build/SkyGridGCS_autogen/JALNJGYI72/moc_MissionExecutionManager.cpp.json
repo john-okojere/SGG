@@ -90,6 +90,17 @@
                     ],
                     "name": "missionStartFailed",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "result",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "missionFinished",
+                    "returnType": "void"
                 }
             ],
             "superClasses": [

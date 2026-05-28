@@ -55,6 +55,12 @@ double FlightStatsManager::distanceKm() const { return m_distanceMeters / 1000.0
 double FlightStatsManager::maxAltitude() const { return m_maxAltitude; }
 double FlightStatsManager::batteryStartPercent() const { return m_batteryStartPercent; }
 double FlightStatsManager::batteryEndPercent() const { return m_batteryEndPercent; }
+double FlightStatsManager::averageSpeedMps() const
+{
+    return m_flightDurationSeconds > 0 ? m_distanceMeters / static_cast<double>(m_flightDurationSeconds) : 0.0;
+}
+QString FlightStatsManager::endedAt() const { return m_endedAt; }
+QVariantMap FlightStatsManager::lastRecord() const { return m_lastRecord; }
 QVariantList FlightStatsManager::flightPath() const { return m_flightPath; }
 QString FlightStatsManager::status() const { return m_status; }
 
@@ -70,6 +76,8 @@ void FlightStatsManager::startSession()
         m_flightSessionId = QUuid::createUuid().toString(QUuid::WithoutBraces);
     }
     m_startedAt = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs);
+    m_endedAt.clear();
+    m_lastRecord.clear();
     m_startedMsec = QDateTime::currentMSecsSinceEpoch();
     m_flightDurationSeconds = 0;
     m_distanceMeters = 0.0;
@@ -117,18 +125,28 @@ void FlightStatsManager::endSession()
     m_timer.stop();
     m_batteryEndPercent = m_telemetry ? m_telemetry->battery() : m_batteryEndPercent;
 
+    m_endedAt = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs);
+    const QString operationMode = (m_plan && (m_plan->executionState() == QStringLiteral("executing")
+                                              || m_plan->executionState() == QStringLiteral("completed")
+                                              || m_plan->executionState() == QStringLiteral("failed")))
+        ? QStringLiteral("MISSION")
+        : QStringLiteral("PILOT");
     QVariantMap record{
-        {QStringLiteral("operation_mode"), QStringLiteral("PILOT")},
+        {QStringLiteral("operation_mode"), operationMode},
         {QStringLiteral("flight_session_id"), m_flightSessionId},
+        {QStringLiteral("server_session_id"), m_flightSessions ? m_flightSessions->serverSessionId() : QString()},
         {QStringLiteral("started_at"), m_startedAt},
-        {QStringLiteral("ended_at"), QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)},
+        {QStringLiteral("ended_at"), m_endedAt},
         {QStringLiteral("duration_seconds"), m_flightDurationSeconds},
         {QStringLiteral("distance_m"), m_distanceMeters},
         {QStringLiteral("max_altitude_m"), m_maxAltitude},
+        {QStringLiteral("average_speed_mps"), averageSpeedMps()},
         {QStringLiteral("battery_start_percent"), m_batteryStartPercent},
         {QStringLiteral("battery_end_percent"), m_batteryEndPercent},
+        {QStringLiteral("battery_used_percent"), qMax(0.0, m_batteryStartPercent - m_batteryEndPercent)},
         {QStringLiteral("flight_path"), m_flightPath}
     };
+    m_lastRecord = record;
     if (m_cache) {
         const QString id = QDateTime::currentDateTimeUtc().toString(QStringLiteral("yyyyMMddhhmmsszzz"));
         m_cache->saveObject(QStringLiteral("flight_records"), id, record);
@@ -144,6 +162,7 @@ void FlightStatsManager::endSession()
     }
     setStatus(QStringLiteral("Flight saved: %1, %2 m").arg(flightTimeText()).arg(qRound(m_distanceMeters)));
     emit statsChanged();
+    emit flightEnded(record);
 }
 
 void FlightStatsManager::reset()
@@ -158,6 +177,8 @@ void FlightStatsManager::reset()
     m_maxAltitude = 0.0;
     m_batteryStartPercent = 0.0;
     m_batteryEndPercent = 0.0;
+    m_endedAt.clear();
+    m_lastRecord.clear();
     m_lastLatitude = 0.0;
     m_lastLongitude = 0.0;
     m_flightPath.clear();

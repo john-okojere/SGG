@@ -1,0 +1,163 @@
+{
+    "classes": [
+        {
+            "className": "PostMissionSummaryManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "dismiss",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "syncNow",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "exportReport",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "viewFullLog",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "returnToDashboard",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "startNewMission",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "visible",
+                    "notify": "summaryChanged",
+                    "read": "visible",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "status",
+                    "notify": "summaryChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "syncStatus",
+                    "notify": "summaryChanged",
+                    "read": "syncStatus",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "lastSummary",
+                    "notify": "summaryChanged",
+                    "read": "lastSummary",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "fullLogVisible",
+                    "notify": "summaryChanged",
+                    "read": "fullLogVisible",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setFullLogVisible"
+                }
+            ],
+            "qualifiedClassName": "PostMissionSummaryManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "summaryChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "returnToDashboardRequested",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "startNewMissionRequested",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "result",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "handleMissionFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "record",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "handleFlightEnded",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "PostMissionSummaryManager.h",
+    "outputRevision": 68
+}
