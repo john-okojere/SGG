@@ -18,20 +18,13 @@ GridLayout {
     }
 
     function homeCoordText() {
-        var path = telemetryStore.livePath
-        if (!telemetryStore.connected || path.length === 0) return "--"
-        return coordText(path[0].latitude, path[0].longitude)
+        if (!homePositionManager.hasHome) return "--"
+        return coordText(homePositionManager.homeLatitude, homePositionManager.homeLongitude)
     }
 
     function distanceFromHome() {
-        var path = telemetryStore.livePath
-        if (!telemetryStore.connected || path.length === 0) return "--"
-        var lat1 = Number(path[0].latitude) * Math.PI / 180
-        var lat2 = Number(telemetryStore.latitude) * Math.PI / 180
-        var dLat = lat2 - lat1
-        var dLon = (Number(telemetryStore.longitude) - Number(path[0].longitude)) * Math.PI / 180
-        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
-        return Math.round(6371000 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)))
+        if (!telemetryStore.connected || !homePositionManager.hasHome) return "--"
+        return Math.round(homePositionManager.distanceFromHomeMeters(telemetryStore.latitude, telemetryStore.longitude))
     }
 
     function metricStatusColor(kind, value) {

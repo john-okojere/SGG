@@ -49,6 +49,7 @@
 #include "security/SecureStorage.h"
 #include "sync/FlightSessionSyncManager.h"
 #include "sync/GcsEventSyncManager.h"
+#include "sync/MissionPreviewManager.h"
 #include "sync/MissionSyncManager.h"
 #include "sync/PreferencesSyncManager.h"
 #include "sync/ProfileSyncManager.h"
@@ -59,6 +60,7 @@
 #include "telemetry/WindCheckManager.h"
 #include "telemetry/WindTelemetryManager.h"
 #include "vehicle/MavsdkVehicleManager.h"
+#include "vehicle/HomePositionManager.h"
 #include "vehicle/MissionExecutionManager.h"
 #include "vehicle/MissionUploadManager.h"
 #include "vehicle/VehicleActionManager.h"
@@ -212,6 +214,7 @@ int main(int argc, char *argv[])
                                                         &windCheckManager,
                                                         &gcsEventSyncManager);
     MissionSyncManager missionSyncManager(&apiClient, &sessionManager, &localSyncCache, missionStore.plan(), &gcsEventSyncManager);
+    MissionPreviewManager missionPreviewManager(&apiClient, &sessionManager);
     FlightSessionSyncManager flightSessionSyncManager(&apiClient,
                                                       &sessionManager,
                                                       &missionSyncManager,
@@ -224,6 +227,7 @@ int main(int argc, char *argv[])
     ProfileSyncManager profileSyncManager(&apiClient, &sessionManager, &profileManager);
     PreferencesSyncManager preferencesSyncManager(&apiClient, &sessionManager, &preferencesManager);
     MavsdkVehicleManager vehicleManager(&telemetry);
+    HomePositionManager homePositionManager(&telemetry);
     MissionUploadManager missionUploadManager(&vehicleManager,
                                               &telemetry,
                                               missionStore.plan(),
@@ -259,6 +263,7 @@ int main(int argc, char *argv[])
                                               &manualControlManager,
                                               &windTelemetryManager,
                                               &flightStatsManager,
+                                              &homePositionManager,
                                               &flightSessionSyncManager,
                                               &webSocketClient,
                                               &localSyncCache);
@@ -385,6 +390,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("deviceManager", &deviceManager);
     engine.rootContext()->setContextProperty("localSyncCache", &localSyncCache);
     engine.rootContext()->setContextProperty("missionSyncManager", &missionSyncManager);
+    engine.rootContext()->setContextProperty("missionPreviewManager", &missionPreviewManager);
     engine.rootContext()->setContextProperty("missionUploadManager", &missionUploadManager);
     engine.rootContext()->setContextProperty("missionExecutionManager", &missionExecutionManager);
     engine.rootContext()->setContextProperty("vehicleActionManager", &vehicleActionManager);
@@ -413,6 +419,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("mapProvider", &mapProvider);
     engine.rootContext()->setContextProperty("tileCacheManager", &tileCacheManager);
     engine.rootContext()->setContextProperty("vehicleManager", &vehicleManager);
+    engine.rootContext()->setContextProperty("homePositionManager", &homePositionManager);
 
     QObject::connect(&appState, &AppState::missionStarted, &missionStore, &MissionStore::startDraft);
     QObject::connect(&missionSyncManager, &MissionSyncManager::missionOpened, &appState, &AppState::openExistingMission);
@@ -488,7 +495,7 @@ int main(int argc, char *argv[])
         missionChangeSyncTimer.start();
     });
     QObject::connect(&missionChangeSyncTimer, &QTimer::timeout, &gcsEventSyncManager, [&]() {
-        const QVariantList routeItems = missionStore.plan()->serializeForMavsdkMission();
+        const QVariantList routeItems = missionStore.plan()->generatedRoute();
         QVariantMap mission{
             {QStringLiteral("mission_id"), missionStore.plan()->missionId()},
             {QStringLiteral("mission_name"), missionStore.plan()->name()},

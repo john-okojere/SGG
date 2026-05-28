@@ -8,6 +8,7 @@
 #include "../flight/ManualControlManager.h"
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
+#include "../vehicle/HomePositionManager.h"
 #include "../vehicle/VehicleTelemetryModel.h"
 #include "../network/WebSocketClient.h"
 #include "../telemetry/WindTelemetryManager.h"
@@ -31,6 +32,7 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
                                            ManualControlManager *manualControl,
                                            WindTelemetryManager *wind,
                                            FlightStatsManager *flightStats,
+                                           HomePositionManager *homePosition,
                                            FlightSessionSyncManager *flightSessions,
                                            WebSocketClient *websocket,
                                            LocalSyncCache *cache,
@@ -45,6 +47,7 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
       m_manualControl(manualControl),
       m_wind(wind),
       m_flightStats(flightStats),
+      m_homePosition(homePosition),
       m_flightSessions(flightSessions),
       m_websocket(websocket),
       m_cache(cache)
@@ -257,7 +260,7 @@ QJsonObject TelemetrySyncManager::missionMetricsPayload() const
         {QStringLiteral("waypoint_count"), m_plan->waypoints().size()},
         {QStringLiteral("polygon_vertex_count"), m_plan->polygon().size()},
         {QStringLiteral("has_poi"), m_plan->hasPoi()},
-        {QStringLiteral("route_item_count"), m_plan->serializeForMavsdkMission().size()},
+        {QStringLiteral("route_item_count"), m_plan->generatedRoute().size()},
         {QStringLiteral("route_distance_km"), roundNumber(m_plan->routeDistanceKm(), 2)},
         {QStringLiteral("estimated_time"), m_plan->estimatedTime()},
         {QStringLiteral("estimated_battery"), roundNumber(m_plan->estimatedBattery(), 2)},
@@ -400,22 +403,10 @@ double TelemetrySyncManager::distanceFromHomeMeters() const
     if (!m_telemetry || !m_telemetry->connected()) {
         return 0.0;
     }
-    const QVariantList path = m_telemetry->livePath();
-    if (path.isEmpty()) {
+    if (!m_homePosition || !m_homePosition->hasHome()) {
         return 0.0;
     }
-    const QVariantMap home = path.first().toMap();
-    const double latA = home.value(QStringLiteral("latitude")).toDouble();
-    const double lonA = home.value(QStringLiteral("longitude")).toDouble();
-    const double latB = m_telemetry->latitude();
-    const double lonB = m_telemetry->longitude();
-    const double phiA = qDegreesToRadians(latA);
-    const double phiB = qDegreesToRadians(latB);
-    const double dPhi = qDegreesToRadians(latB - latA);
-    const double dLambda = qDegreesToRadians(lonB - lonA);
-    const double a = qSin(dPhi / 2.0) * qSin(dPhi / 2.0)
-        + qCos(phiA) * qCos(phiB) * qSin(dLambda / 2.0) * qSin(dLambda / 2.0);
-    return 6371000.0 * 2.0 * qAtan2(qSqrt(a), qSqrt(1.0 - a));
+    return m_homePosition->distanceFromHomeMeters(m_telemetry->latitude(), m_telemetry->longitude());
 }
 
 void TelemetrySyncManager::drainQueuedSync()

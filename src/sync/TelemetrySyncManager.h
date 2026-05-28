@@ -10,6 +10,7 @@ class ApiClient;
 class AppState;
 class FlightSessionSyncManager;
 class FlightStatsManager;
+class HomePositionManager;
 class LocalSyncCache;
 class ManualControlManager;
 class MissionPlanModel;
@@ -39,6 +40,7 @@ public:
                                   ManualControlManager *manualControl,
                                   WindTelemetryManager *wind,
                                   FlightStatsManager *flightStats,
+                                  HomePositionManager *homePosition,
                                   FlightSessionSyncManager *flightSessions,
                                   WebSocketClient *websocket,
                                   LocalSyncCache *cache,
@@ -88,6 +90,7 @@ private:
     ManualControlManager *m_manualControl = nullptr;
     WindTelemetryManager *m_wind = nullptr;
     FlightStatsManager *m_flightStats = nullptr;
+    HomePositionManager *m_homePosition = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     WebSocketClient *m_websocket = nullptr;
     LocalSyncCache *m_cache = nullptr;

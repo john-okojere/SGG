@@ -42,7 +42,7 @@ Rectangle {
         return missionStore.plan.name
     }
 
-    function routeItems() { return missionStore.plan.serializeForMavsdkMission() }
+    function routeItems() { return missionStore.plan.generatedRoute }
     function routeDistanceFt() { return missionStore.plan.routeDistanceKm * 3280.84 }
     function selectedWaypoint() { return missionStore.plan.waypointAt(appState.selectedWaypointIndex) }
     function safeWaypointIndex() { return appState.selectedWaypointIndex >= 0 ? appState.selectedWaypointIndex : 0 }
@@ -418,7 +418,7 @@ Rectangle {
         CoordinatePair { selectedOnly: false }
         Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#ded5ea" }
         ReadonlyField { label: "GSD"; help: "Estimated ground sampling distance from altitude and camera profile."; value: Number(missionStore.plan.gsd).toFixed(1) + " cm/px" }
-        ReadonlyField { label: "Est. Photos"; help: "Approximate number of photos from route items and capture spacing."; value: String(Math.max(1, Math.round(root.routeItems().length * 3))) }
+        ReadonlyField { label: "Est. Photos"; help: "Approximate number of photos from route length and capture spacing."; value: String(Math.max(1, Math.round(missionStore.plan.routeEstimates.estimated_photos || root.routeItems().length * 3))) }
         ReadonlyField { label: "Est. Batteries"; help: "Battery sets estimated from planned energy use."; value: Number(Math.max(1, Math.ceil(missionStore.plan.estimatedBattery / 70))).toFixed(0) + " Set Approx." }
     }
 

@@ -12,7 +12,7 @@ Rectangle {
     implicitHeight: 132
 
     function routeItems() {
-        return missionStore.plan.serializeForMavsdkMission()
+        return missionStore.plan.generatedRoute
     }
 
     function firstPoint() {
@@ -100,6 +100,8 @@ Rectangle {
         Metric { label: "Reserve"; value: telemetryStore.connected ? reserveAfterMission().toFixed(0) : "--"; unit: "%" }
         Metric { label: "Wind"; value: weatherManager.available ? windCheckManager.result : "Waiting"; accent: windCheckManager.severity === "critical" ? Theme.red : (windCheckManager.severity === "warning" ? "#b77900" : Theme.ink) }
         Metric { label: "Route"; value: missionStore.plan.boundaryOnly ? "Boundary" : routeItems().length; unit: missionStore.plan.boundaryOnly ? "" : "pts" }
+        Metric { label: "Spacing"; value: missionStore.plan.routeEstimates.lane_spacing_m ? Number(missionStore.plan.routeEstimates.lane_spacing_m).toFixed(0) : "--"; unit: "m" }
+        Metric { label: "Footprint"; value: missionStore.plan.cameraPreview.footprint_width_m ? Number(missionStore.plan.cameraPreview.footprint_width_m).toFixed(0) : "--"; unit: "m" }
         Metric { label: "Backend"; value: root.backendLabel(); accent: missionStore.plan.backendUploadEligible || missionStore.plan.boundaryOnly ? "#148a34" : "#9b6b00" }
         Metric { label: "Reach"; value: canReachFirstWaypoint() ? "Yes" : "No"; accent: canReachFirstWaypoint() ? "#148a34" : Theme.red }
     }

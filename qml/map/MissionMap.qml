@@ -9,7 +9,7 @@ Item {
     readonly property string activeMissionType: missionStore.plan.missionType.length > 0 ? missionStore.plan.missionType : appState.currentMissionType
     readonly property bool mapInteractionActive: ["select", "takeoff", "point", "poi", "route", "polygon"].indexOf(appState.selectedTool) !== -1
     readonly property bool fastMode: String(performanceMode) === "fast"
-    readonly property bool routeVisible: !missionStore.plan.boundaryOnly && missionStore.plan.serializeForMavsdkMission().length > 1
+    readonly property bool routeVisible: !missionStore.plan.boundaryOnly && missionStore.plan.generatedRoute.length > 1
     readonly property bool routeAnimationActive: !fastMode
                                              && visible
                                              && routeVisible
@@ -67,7 +67,11 @@ Item {
         z: 2
         antialiasing: !root.fastMode
 
-        Connections { target: missionStore.plan; function onPlanChanged() { geometryCanvas.requestPaint() } }
+        Connections {
+            target: missionStore.plan
+            function onPlanChanged() { geometryCanvas.requestPaint() }
+            function onGeometryChanged() { geometryCanvas.requestPaint() }
+        }
         Connections { target: appState; function onMissionChanged() { geometryCanvas.requestPaint() } }
         Connections { target: appState; function onToolChanged() { geometryCanvas.requestPaint() } }
         Connections { target: mapState; function onOverlayChanged() { geometryCanvas.requestPaint() } }
@@ -79,10 +83,12 @@ Item {
         onPaint: {
             var ctx = getContext("2d")
             ctx.clearRect(0, 0, width, height)
-            var polygon = missionStore.plan.polygon
+            var polygon = missionStore.plan.boundaryOnly && missionStore.plan.boundaryPreview.length > 0
+                    ? missionStore.plan.boundaryPreview
+                    : missionStore.plan.polygon
             var waypoints = missionStore.plan.waypoints
             var takeoff = missionStore.plan.takeoffPoint
-            var uploadRoute = missionStore.plan.serializeForMavsdkMission()
+            var uploadRoute = missionStore.plan.generatedRoute
 
             if (root.activeMissionType === "photomap" || root.activeMissionType === "map3dArea" || root.activeMissionType === "virtualFence" || root.activeMissionType === "towerInspection") {
                 ctx.beginPath()

@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include <QJsonValue>
+#include <QTimer>
 #include <QVariantList>
 #include <QVariantMap>
 
@@ -72,6 +73,12 @@ class MissionPlanModel : public QObject
     Q_PROPERTY(QString importStatus READ importStatus NOTIFY planChanged)
     Q_PROPERTY(QString importSummary READ importSummary NOTIFY planChanged)
     Q_PROPERTY(QString operationStatus READ operationStatus NOTIFY operationStatusChanged)
+    Q_PROPERTY(QVariantList generatedRoute READ generatedRoute NOTIFY geometryChanged)
+    Q_PROPERTY(QVariantMap routeEstimates READ routeEstimates NOTIFY geometryChanged)
+    Q_PROPERTY(QVariantMap cameraPreview READ cameraPreview NOTIFY geometryChanged)
+    Q_PROPERTY(QVariantList elevationProfile READ elevationProfile NOTIFY geometryChanged)
+    Q_PROPERTY(QVariantList boundaryPreview READ boundaryPreview NOTIFY geometryChanged)
+    Q_PROPERTY(int generationRevision READ generationRevision NOTIFY geometryChanged)
 
 public:
     explicit MissionPlanModel(QObject *parent = nullptr);
@@ -140,6 +147,12 @@ public:
     QString importStatus() const;
     QString importSummary() const;
     QString operationStatus() const;
+    QVariantList generatedRoute() const;
+    QVariantMap routeEstimates() const;
+    QVariantMap cameraPreview() const;
+    QVariantList elevationProfile() const;
+    QVariantList boundaryPreview() const;
+    int generationRevision() const;
 
     void setName(const QString &value);
     void setMissionType(const QString &value);
@@ -219,10 +232,13 @@ signals:
     void planChanged();
     void validationChanged();
     void operationStatusChanged();
+    void geometryChanged();
 
 private:
     void resetParameters();
     void markDirty();
+    void scheduleGeneration();
+    void regenerateMission();
     QVariantList generatedSurveyRoute() const;
     QVariantList generatedOrbitRoute() const;
     QVariantList clippedLaneRoute(const QVariantList &polygon) const;
@@ -286,4 +302,11 @@ private:
     QString m_importStatus = "No imported file";
     QString m_importSummary;
     QString m_operationStatus = "Draft mission ready";
+    QVariantList m_generatedRoute;
+    QVariantMap m_routeEstimates;
+    QVariantMap m_cameraPreview;
+    QVariantList m_elevationProfile;
+    QVariantList m_boundaryPreview;
+    int m_generationRevision = 0;
+    QTimer m_generationTimer;
 };

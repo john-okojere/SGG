@@ -188,10 +188,14 @@ qt_add_executable(SkyGridGCS
     src/security/SecureStorage.h
     src/models/MissionPlanModel.cpp
     src/models/MissionPlanModel.h
+    src/models/MissionGenerationService.cpp
+    src/models/MissionGenerationService.h
     src/models/MissionTypeModel.cpp
     src/models/MissionTypeModel.h
     src/sync/MissionSyncManager.cpp
     src/sync/MissionSyncManager.h
+    src/sync/MissionPreviewManager.cpp
+    src/sync/MissionPreviewManager.h
     src/sync/PreferencesSyncManager.cpp
     src/sync/PreferencesSyncManager.h
     src/sync/ProfileSyncManager.cpp
@@ -214,6 +218,8 @@ qt_add_executable(SkyGridGCS
     src/telemetry/WindTelemetryManager.h
     src/vehicle/MavsdkVehicleManager.cpp
     src/vehicle/MavsdkVehicleManager.h
+    src/vehicle/HomePositionManager.cpp
+    src/vehicle/HomePositionManager.h
     src/vehicle/VehicleActionManager.cpp
     src/vehicle/VehicleActionManager.h
     src/vehicle/MissionExecutionManager.cpp

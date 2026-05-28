@@ -31,7 +31,7 @@ Item {
     }
 
     function routeItems() {
-        return missionStore.plan.serializeForMavsdkMission()
+        return missionStore.plan.generatedRoute
     }
 
     function runAndContinue() {

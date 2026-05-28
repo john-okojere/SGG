@@ -1,4 +1,5 @@
 #include "MissionPlanModel.h"
+#include "MissionGenerationService.h"
 
 #include <QDateTime>
 #include <QDir>
@@ -18,7 +19,11 @@
 
 MissionPlanModel::MissionPlanModel(QObject *parent) : QObject(parent)
 {
+    m_generationTimer.setSingleShot(true);
+    m_generationTimer.setInterval(130);
+    connect(&m_generationTimer, &QTimer::timeout, this, &MissionPlanModel::regenerateMission);
     resetParameters();
+    regenerateMission();
 }
 
 QString MissionPlanModel::missionId() const { return m_missionId; }
@@ -98,12 +103,7 @@ bool MissionPlanModel::hasTakeoffPoint() const
 }
 double MissionPlanModel::routeDistanceKm() const
 {
-    const QVariantList route = serializeForMavsdkMission();
-    double routeMeters = 0.0;
-    for (int i = 1; i < route.size(); ++i) {
-        routeMeters += distanceMeters(route.at(i - 1).toMap(), route.at(i).toMap());
-    }
-    return routeMeters / 1000.0;
+    return m_routeEstimates.value(QStringLiteral("distance_km")).toDouble();
 }
 QVariantList MissionPlanModel::polygon() const { return m_polygon; }
 QVariantMap MissionPlanModel::poi() const { return m_poi; }
@@ -159,28 +159,15 @@ double MissionPlanModel::missionAreaHa() const
 
 double MissionPlanModel::estimatedBattery() const
 {
-    const QVariantList route = serializeForMavsdkMission();
-    double routeMeters = 0.0;
-    for (int i = 1; i < route.size(); ++i) {
-        routeMeters += distanceMeters(route.at(i - 1).toMap(), route.at(i).toMap());
-    }
-    const double areaLoad = missionAreaHa() * (1.0 + (m_frontOverlap + m_sideOverlap) / 160.0);
-    const double speedLoad = std::max(0.0, (m_speed - 16.0) / 4.0);
-    const double battery = 8.0 + routeMeters / 450.0 + areaLoad * 0.75 + speedLoad;
-    return std::clamp(battery, 0.0, 96.0);
+    return m_routeEstimates.value(QStringLiteral("battery_percent")).toDouble();
 }
 
 QString MissionPlanModel::estimatedTime() const
 {
-    const QVariantList route = serializeForMavsdkMission();
-    double routeMeters = 0.0;
-    for (int i = 1; i < route.size(); ++i) {
-        routeMeters += distanceMeters(route.at(i - 1).toMap(), route.at(i).toMap());
-    }
-    if (routeMeters <= 0.1) {
+    const int seconds = m_routeEstimates.value(QStringLiteral("duration_seconds")).toInt();
+    if (seconds <= 0) {
         return QStringLiteral("0m00s");
     }
-    const int seconds = static_cast<int>(routeMeters / std::max(1.0, m_speed));
     return QStringLiteral("%1m%2s").arg(seconds / 60).arg(seconds % 60, 2, 10, QLatin1Char('0'));
 }
 
@@ -264,6 +251,12 @@ bool MissionPlanModel::boundaryOnly() const { return m_boundaryOnly || m_mission
 QString MissionPlanModel::importStatus() const { return m_importStatus; }
 QString MissionPlanModel::importSummary() const { return m_importSummary; }
 QString MissionPlanModel::operationStatus() const { return m_operationStatus; }
+QVariantList MissionPlanModel::generatedRoute() const { return m_generatedRoute; }
+QVariantMap MissionPlanModel::routeEstimates() const { return m_routeEstimates; }
+QVariantMap MissionPlanModel::cameraPreview() const { return m_cameraPreview; }
+QVariantList MissionPlanModel::elevationProfile() const { return m_elevationProfile; }
+QVariantList MissionPlanModel::boundaryPreview() const { return m_boundaryPreview; }
+int MissionPlanModel::generationRevision() const { return m_generationRevision; }
 
 void MissionPlanModel::setName(const QString &value)
 {
@@ -286,12 +279,29 @@ void MissionPlanModel::setMissionType(const QString &value)
 void MissionPlanModel::setSpeed(double value)
 {
     m_speed = std::clamp(value, 1.0, 35.0);
+    for (int i = 0; i < m_waypoints.size(); ++i) {
+        auto point = m_waypoints.at(i).toMap();
+        if (!point.value(QStringLiteral("speed_override"), false).toBool()) {
+            point[QStringLiteral("speed")] = m_speed;
+            m_waypoints[i] = point;
+        }
+    }
     markDirty();
 }
 
 void MissionPlanModel::setAltitude(double value)
 {
-    m_altitude = std::clamp(value, 10.0, 160.0);
+    m_altitude = std::min(std::clamp(value, 10.0, 160.0), m_maxAltitude);
+    for (int i = 0; i < m_waypoints.size(); ++i) {
+        auto point = m_waypoints.at(i).toMap();
+        if (!point.value(QStringLiteral("altitude_override"), false).toBool()) {
+            point[QStringLiteral("altitude")] = m_altitude;
+            m_waypoints[i] = point;
+        }
+    }
+    if (hasTakeoffPoint()) {
+        m_takeoffPoint[QStringLiteral("altitude")] = m_altitude;
+    }
     markDirty();
 }
 
@@ -352,6 +362,17 @@ void MissionPlanModel::setMaxAltitude(double value)
     if (m_minAltitude > m_maxAltitude) {
         m_minAltitude = m_maxAltitude;
     }
+    if (m_altitude > m_maxAltitude) {
+        m_altitude = m_maxAltitude;
+    }
+    for (int i = 0; i < m_waypoints.size(); ++i) {
+        auto point = m_waypoints.at(i).toMap();
+        const double altitude = point.value(QStringLiteral("altitude"), m_altitude).toDouble();
+        if (altitude > m_maxAltitude) {
+            point[QStringLiteral("altitude")] = m_maxAltitude;
+            m_waypoints[i] = point;
+        }
+    }
     markDirty();
 }
 
@@ -370,6 +391,13 @@ void MissionPlanModel::setMargin(double value)
 void MissionPlanModel::setGimbalPitch(double value)
 {
     m_gimbalPitch = std::clamp(value, -90.0, 45.0);
+    for (int i = 0; i < m_waypoints.size(); ++i) {
+        auto point = m_waypoints.at(i).toMap();
+        if (!point.value(QStringLiteral("gimbal_override"), false).toBool()) {
+            point[QStringLiteral("gimbal_pitch")] = m_gimbalPitch;
+            m_waypoints[i] = point;
+        }
+    }
     markDirty();
 }
 
@@ -381,7 +409,18 @@ static QString normalizedOption(const QString &value, const QString &fallback)
 
 void MissionPlanModel::setCameraModel(const QString &value) { m_cameraModel = normalizedOption(value, m_cameraModel); markDirty(); }
 void MissionPlanModel::setShootingAngle(const QString &value) { m_shootingAngle = normalizedOption(value, m_shootingAngle); markDirty(); }
-void MissionPlanModel::setCaptureMode(const QString &value) { m_captureMode = normalizedOption(value, m_captureMode); markDirty(); }
+void MissionPlanModel::setCaptureMode(const QString &value)
+{
+    m_captureMode = normalizedOption(value, m_captureMode);
+    for (int i = 0; i < m_waypoints.size(); ++i) {
+        auto point = m_waypoints.at(i).toMap();
+        if (!point.value(QStringLiteral("camera_mode_override"), false).toBool()) {
+            point[QStringLiteral("camera_mode")] = m_captureMode;
+            m_waypoints[i] = point;
+        }
+    }
+    markDirty();
+}
 void MissionPlanModel::setFlightCourseMode(const QString &value) { m_flightCourseMode = normalizedOption(value, m_flightCourseMode); markDirty(); }
 void MissionPlanModel::setInsideMode(const QString &value) { m_insideMode = normalizedOption(value, m_insideMode); markDirty(); }
 void MissionPlanModel::setHeadingMode(const QString &value) { m_headingMode = normalizedOption(value, m_headingMode); markDirty(); }
@@ -426,6 +465,7 @@ void MissionPlanModel::createDraft(const QString &missionType, const QString &ai
     m_waypoints.clear();
     m_polygon.clear();
     m_poi.clear();
+    regenerateMission();
     setOperationStatus(QStringLiteral("New mission draft created"));
     emit planChanged();
     emit validationChanged();
@@ -490,6 +530,7 @@ void MissionPlanModel::loadMission(const QVariantMap &mission)
     m_warningAction = parameters.value(QStringLiteral("warning_action"), m_warningAction).toString();
     m_flightDirection = parameters.value(QStringLiteral("flight_direction"), m_flightDirection).toString();
 
+    regenerateMission();
     setOperationStatus(QStringLiteral("Mission loaded"));
     emit planChanged();
     emit validationChanged();
@@ -497,6 +538,9 @@ void MissionPlanModel::loadMission(const QVariantMap &mission)
 
 QVariantMap MissionPlanModel::serializeForBackend() const
 {
+    if (m_generationTimer.isActive()) {
+        const_cast<MissionPlanModel *>(this)->regenerateMission();
+    }
     const QVariantList route = serializeForMavsdkMission();
     double routeMeters = 0.0;
     for (int i = 1; i < route.size(); ++i) {
@@ -566,35 +610,10 @@ QVariantMap MissionPlanModel::serializeForBackend() const
 
 QVariantList MissionPlanModel::serializeForMavsdkMission() const
 {
-    QVariantList route;
-    if (m_missionType == QStringLiteral("waypointRoute")) {
-        route = m_waypoints;
-    } else if (m_missionType == QStringLiteral("map3dPoi")) {
-        route = generatedOrbitRoute();
-    } else if (m_missionType == QStringLiteral("photomap")
-               || m_missionType == QStringLiteral("map3dArea")
-               || m_missionType == QStringLiteral("towerInspection")) {
-        route = generatedSurveyRoute();
+    if (m_generationTimer.isActive()) {
+        const_cast<MissionPlanModel *>(this)->regenerateMission();
     }
-
-    if (route.isEmpty() || !hasTakeoffPoint() || boundaryOnly()) {
-        return route;
-    }
-
-    QVariantMap takeoff = m_takeoffPoint;
-    takeoff[QStringLiteral("altitude")] = takeoff.value(QStringLiteral("altitude"), m_altitude);
-    takeoff[QStringLiteral("speed")] = takeoff.value(QStringLiteral("speed"), m_speed);
-    takeoff[QStringLiteral("heading")] = takeoff.value(QStringLiteral("heading"), 0.0);
-    takeoff[QStringLiteral("gimbal_pitch")] = takeoff.value(QStringLiteral("gimbal_pitch"), m_gimbalPitch);
-    takeoff[QStringLiteral("action")] = QStringLiteral("Takeoff");
-
-    const QVariantMap first = route.first().toMap();
-    const double dLat = std::abs(first.value(QStringLiteral("latitude")).toDouble() - takeoff.value(QStringLiteral("latitude")).toDouble());
-    const double dLon = std::abs(first.value(QStringLiteral("longitude")).toDouble() - takeoff.value(QStringLiteral("longitude")).toDouble());
-    if (dLat > 0.0000005 || dLon > 0.0000005) {
-        route.prepend(takeoff);
-    }
-    return route;
+    return m_generatedRoute;
 }
 
 bool MissionPlanModel::validateForUpload(bool aircraftConnected, bool aircraftReady)
@@ -687,7 +706,12 @@ void MissionPlanModel::addWaypoint(double latitude, double longitude)
                                {"camera_mode", m_captureMode},
                                {"loiter_seconds", 0.0},
                                {"hover_seconds", 0.0},
-                               {"is_return_home", false}};
+                               {"is_return_home", false},
+                               {"altitude_override", false},
+                               {"speed_override", false},
+                               {"heading_override", false},
+                               {"gimbal_override", false},
+                               {"camera_mode_override", false}};
     setOperationStatus(QStringLiteral("Waypoint %1 placed").arg(m_waypoints.size()));
     markDirty();
 }
@@ -755,6 +779,7 @@ void MissionPlanModel::setWaypointAltitude(int index, double altitude)
     }
     auto point = m_waypoints.at(index).toMap();
     point["altitude"] = std::clamp(altitude, 10.0, 160.0);
+    point["altitude_override"] = true;
     m_waypoints[index] = point;
     markDirty();
 }
@@ -766,6 +791,7 @@ void MissionPlanModel::setWaypointSpeed(int index, double speed)
     }
     auto point = m_waypoints.at(index).toMap();
     point["speed"] = std::clamp(speed, 1.0, 35.0);
+    point["speed_override"] = true;
     m_waypoints[index] = point;
     markDirty();
 }
@@ -777,6 +803,7 @@ void MissionPlanModel::setWaypointHeading(int index, double heading)
     }
     auto point = m_waypoints.at(index).toMap();
     point["heading"] = std::fmod(std::max(0.0, heading), 360.0);
+    point["heading_override"] = true;
     m_waypoints[index] = point;
     markDirty();
 }
@@ -787,7 +814,8 @@ void MissionPlanModel::setWaypointGimbalPitch(int index, double pitch)
         return;
     }
     auto point = m_waypoints.at(index).toMap();
-    point["gimbal_pitch"] = std::clamp(pitch, -90.0, 20.0);
+    point["gimbal_pitch"] = std::clamp(pitch, -90.0, 45.0);
+    point["gimbal_override"] = true;
     m_waypoints[index] = point;
     markDirty();
 }
@@ -812,6 +840,7 @@ void MissionPlanModel::setWaypointCameraMode(int index, const QString &cameraMod
     }
     auto point = m_waypoints.at(index).toMap();
     point["camera_mode"] = normalizedOption(cameraMode, m_captureMode);
+    point["camera_mode_override"] = true;
     m_waypoints[index] = point;
     markDirty();
 }
@@ -1067,7 +1096,53 @@ void MissionPlanModel::markDirty()
     if (m_executionState != QStringLiteral("executing")) {
         m_executionState = QStringLiteral("planning");
     }
+    scheduleGeneration();
     emit planChanged();
+    emit validationChanged();
+}
+
+void MissionPlanModel::scheduleGeneration()
+{
+    if (!m_generationTimer.isActive()) {
+        m_generationTimer.start();
+    }
+}
+
+void MissionPlanModel::regenerateMission()
+{
+    m_generationTimer.stop();
+    MissionGenerationService::Request request;
+    request.missionType = m_missionType;
+    request.waypoints = m_waypoints;
+    request.takeoffPoint = m_takeoffPoint;
+    request.polygon = m_polygon;
+    request.poi = m_poi;
+    request.speed = m_speed;
+    request.altitude = m_altitude;
+    request.maxAltitude = m_maxAltitude;
+    request.captureInterval = m_captureInterval;
+    request.gsd = m_gsd;
+    request.frontOverlap = m_frontOverlap;
+    request.sideOverlap = m_sideOverlap;
+    request.radius = m_radius;
+    request.buildingRadius = m_buildingRadius;
+    request.safeMargin = m_safeMargin;
+    request.courseAngle = m_courseAngle;
+    request.margin = m_margin;
+    request.gimbalPitch = m_gimbalPitch;
+    request.captureMode = m_captureMode;
+    request.flightDirection = m_flightDirection;
+    request.cameraModel = m_cameraModel;
+    request.boundaryOnly = boundaryOnly();
+
+    const auto result = MissionGenerationService::generate(request);
+    m_generatedRoute = result.route;
+    m_routeEstimates = result.estimates;
+    m_cameraPreview = result.cameraPreview;
+    m_elevationProfile = result.elevationProfile;
+    m_boundaryPreview = result.boundaryPreview;
+    ++m_generationRevision;
+    emit geometryChanged();
     emit validationChanged();
 }
 
@@ -1084,7 +1159,12 @@ QVariantMap MissionPlanModel::waypointFromCoordinate(double latitude, double lon
         {QStringLiteral("camera_mode"), QStringLiteral("Capture at Equal Dist. Interval")},
         {QStringLiteral("loiter_seconds"), 0.0},
         {QStringLiteral("hover_seconds"), 0.0},
-        {QStringLiteral("is_return_home"), false}
+        {QStringLiteral("is_return_home"), false},
+        {QStringLiteral("altitude_override"), false},
+        {QStringLiteral("speed_override"), false},
+        {QStringLiteral("heading_override"), false},
+        {QStringLiteral("gimbal_override"), false},
+        {QStringLiteral("camera_mode_override"), false}
     };
 }
 

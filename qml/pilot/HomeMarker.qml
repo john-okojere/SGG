@@ -5,9 +5,8 @@ import "../controls"
 Item {
     id: root
     property var mapItem
-    property var path: telemetryStore.livePath
-    property bool hasHome: path.length > 0 && mapItem
-    property point homePoint: hasHome ? mapItem.pointFor(path[0].latitude, path[0].longitude) : Qt.point(-300, -300)
+    property bool hasHome: homePositionManager.hasHome && mapItem
+    property point homePoint: hasHome ? mapItem.pointFor(homePositionManager.homeLatitude, homePositionManager.homeLongitude) : Qt.point(-300, -300)
     visible: hasHome
     x: homePoint.x - width / 2
     y: homePoint.y - height / 2
