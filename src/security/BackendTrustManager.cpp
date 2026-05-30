@@ -7,7 +7,7 @@ BackendTrustManager::BackendTrustManager(QObject *parent) : QObject(parent)
 {
     const QString configured = QProcessEnvironment::systemEnvironment()
                                    .value(QStringLiteral("SKYGRID_BACKEND_URL"),
-                                          QStringLiteral("http://127.0.0.1:8000"));
+                                          QStringLiteral("https://sgg-api.up.railway.app"));
     m_baseUrl = normalizedBaseUrl(configured);
 }
 
@@ -27,8 +27,7 @@ QString BackendTrustManager::websocketUrl() const
 bool BackendTrustManager::productionSecure() const
 {
     const QUrl url(m_baseUrl);
-    return url.host() == QStringLiteral("127.0.0.1")
-        || url.host() == QStringLiteral("localhost")
+    return url.host() == QStringLiteral("https://sgg-api.up.railway.app/")
         || url.scheme() == QStringLiteral("https");
 }
 
@@ -60,5 +59,5 @@ QString BackendTrustManager::normalizedBaseUrl(const QString &value) const
     while (trimmed.endsWith('/')) {
         trimmed.chop(1);
     }
-    return trimmed.isEmpty() ? QStringLiteral("http://127.0.0.1:8000") : trimmed;
+    return trimmed.isEmpty() ? QStringLiteral("https://sgg-api.up.railway.app") : trimmed;
 }
