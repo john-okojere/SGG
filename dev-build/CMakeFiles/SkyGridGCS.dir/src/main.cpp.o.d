@@ -321,6 +321,8 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QCoreApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/QQmlApplicationEngine \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlapplicationengine.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlengine.h \
@@ -410,6 +412,8 @@ CMakeFiles/SkyGridGCS.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtQuick/qquickimageprovider.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQuick/qtquickglobal.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQuick/qtquick-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsettings.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
  /usr/include/cairo/cairo.h /usr/include/cairo/cairo-version.h \

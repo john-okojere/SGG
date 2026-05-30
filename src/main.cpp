@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QCoreApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
@@ -13,6 +14,7 @@
 #include <QHash>
 #include <QImage>
 #include <QQuickImageProvider>
+#include <QSettings>
 #include <QSize>
 
 #include <cairo.h>
@@ -166,6 +168,39 @@ private:
     QHash<QString, QImage> m_cache;
 };
 
+namespace {
+void applyPortableConfigDefaults()
+{
+    const QString configPath = QCoreApplication::applicationDirPath() + QStringLiteral("/SkyGridGCS.ini");
+    if (!QFile::exists(configPath)) {
+        return;
+    }
+
+    QSettings settings(configPath, QSettings::IniFormat);
+    const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    const QStringList keys{
+        QStringLiteral("SKYGRID_BACKEND_URL"),
+        QStringLiteral("SKYGRID_MAVSDK_URLS"),
+        QStringLiteral("SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS"),
+        QStringLiteral("SKYGRID_PERFORMANCE_MODE")
+    };
+
+    for (const QString &key : keys) {
+        if (env.contains(key)) {
+            continue;
+        }
+        QVariant value = settings.value(key);
+        if (!value.isValid()) {
+            value = settings.value(QStringLiteral("SkyGrid/") + key);
+        }
+        const QString text = value.toString().trimmed();
+        if (!text.isEmpty()) {
+            qputenv(key.toUtf8(), text.toUtf8());
+        }
+    }
+}
+}
+
 int main(int argc, char *argv[])
 {
 #ifdef SKYGRID_DEV_BUILD
@@ -177,6 +212,7 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication app(argc, argv);
+    applyPortableConfigDefaults();
     QApplication::setOrganizationName("SkyGrid");
     QApplication::setApplicationName("SkyGrid GCS");
     QQuickStyle::setStyle("Basic");

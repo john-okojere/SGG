@@ -388,3 +388,27 @@ add_custom_target(ui-smoke
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Launching SkyGridGCS offscreen UI smoke test"
 )
+
+if(WIN32)
+    find_program(SKYGRID_POWERSHELL_EXECUTABLE
+        NAMES pwsh.exe powershell.exe
+    )
+
+    if(SKYGRID_POWERSHELL_EXECUTABLE)
+        add_custom_target(package-windows-portable
+            COMMAND ${SKYGRID_POWERSHELL_EXECUTABLE}
+                -NoProfile
+                -ExecutionPolicy Bypass
+                -File "${CMAKE_SOURCE_DIR}/tools/package_windows.ps1"
+                -RepoRoot "${CMAKE_SOURCE_DIR}"
+                -BuildDir "${CMAKE_BINARY_DIR}"
+                -Configuration "$<CONFIG>"
+                -SkipBuild
+            DEPENDS SkyGridGCS
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            COMMENT "Packaging portable Windows SkyGridGCS release"
+        )
+    else()
+        message(WARNING "PowerShell was not found; package-windows-portable target will not be available.")
+    endif()
+endif()
