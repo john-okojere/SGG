@@ -5,6 +5,7 @@
 #include <QVariantList>
 
 class GcsEventSyncManager;
+class AccessManager;
 class LocalSyncCache;
 
 class EventLogManager : public QObject
@@ -16,6 +17,7 @@ class EventLogManager : public QObject
 public:
     explicit EventLogManager(GcsEventSyncManager *eventSync,
                              LocalSyncCache *cache,
+                             AccessManager *access = nullptr,
                              QObject *parent = nullptr);
 
     QVariantList events() const;
@@ -25,6 +27,7 @@ public:
                               const QString &severity,
                               const QString &message,
                               const QJsonObject &payload = {});
+    Q_INVOKABLE bool authorizeLogView();
     Q_INVOKABLE void clear();
 
 signals:
@@ -34,6 +37,7 @@ private:
     void persist();
 
     GcsEventSyncManager *m_eventSync = nullptr;
+    AccessManager *m_access = nullptr;
     LocalSyncCache *m_cache = nullptr;
     QVariantList m_events;
     QString m_status = "Event log ready";

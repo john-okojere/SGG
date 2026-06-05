@@ -172,6 +172,8 @@ qt_add_executable(SkyGridGCS
     src/flight/ManualControlManager.h
     src/map/TileCacheManager.cpp
     src/map/TileCacheManager.h
+    src/manufacturer/ManufacturerVehicleManager.cpp
+    src/manufacturer/ManufacturerVehicleManager.h
     src/network/ApiClient.cpp
     src/network/ApiClient.h
     src/network/WebSocketClient.cpp
@@ -184,6 +186,8 @@ qt_add_executable(SkyGridGCS
     src/profile/ProfileManager.h
     src/security/BackendTrustManager.cpp
     src/security/BackendTrustManager.h
+    src/security/AccessManager.cpp
+    src/security/AccessManager.h
     src/security/DeviceManager.cpp
     src/security/DeviceManager.h
     src/security/SecureStorage.cpp
@@ -250,6 +254,18 @@ qt_add_qml_module(SkyGridGCS
         qml/screens/LoginScreen.qml
         qml/screens/HomeScreen.qml
         qml/screens/MissionPlannerScreen.qml
+        qml/manufacturer/ManufacturerWorkspaceScreen.qml
+        qml/manufacturer/ManufacturerPageScaffold.qml
+        qml/manufacturer/StatusFooter.qml
+        qml/manufacturer/VehicleConfigurationPage.qml
+        qml/manufacturer/VehicleProfilePage.qml
+        qml/manufacturer/FlightControllerBindingPage.qml
+        qml/manufacturer/VehicleParametersPage.qml
+        qml/manufacturer/RcMappingPage.qml
+        qml/manufacturer/ManufacturerTestFlightPage.qml
+        qml/manufacturer/ManualTestModePage.qml
+        qml/manufacturer/VehicleReleaseLockPage.qml
+        qml/manufacturer/FirmwareManagerPage.qml
         qml/dashboard/TopStatusPill.qml
         qml/dashboard/SidebarTabButton.qml
         qml/dashboard/MissionHistoryItem.qml

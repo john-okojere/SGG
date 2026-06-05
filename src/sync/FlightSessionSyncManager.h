@@ -6,6 +6,7 @@
 #include <QVariantMap>
 
 class ApiClient;
+class AccessManager;
 class AppState;
 class GcsEventSyncManager;
 class LocalSyncCache;
@@ -32,6 +33,7 @@ public:
                                       VehicleTelemetryModel *telemetry,
                                       GcsEventSyncManager *events,
                                       LocalSyncCache *cache,
+                                      AccessManager *access = nullptr,
                                       QObject *parent = nullptr);
 
     bool active() const;
@@ -63,8 +65,11 @@ private:
     QJsonObject positionPayload() const;
     void setStatus(const QString &status);
     QString normalizedActionType(const QString &actionType) const;
+    QString accessActionForMode(const QString &mode) const;
+    QString accessActionForPilotAction(const QString &actionType) const;
 
     ApiClient *m_api = nullptr;
+    AccessManager *m_access = nullptr;
     SessionManager *m_session = nullptr;
     MissionSyncManager *m_missionSync = nullptr;
     MissionPlanModel *m_plan = nullptr;

@@ -41,6 +41,7 @@ Rectangle {
         RowLayout {
             id: moreRow
             Layout.fillWidth: true
+            visible: accessManager.can("can_view_reports")
             Text { text: "More Settings"; color: "#2e005f"; font.pixelSize: 11; font.bold: true; Layout.fillWidth: true }
             Text { text: "›"; color: "#2e005f"; font.pixelSize: 18; font.bold: true }
             TapHandler { onTapped: root.moreSettingsRequested() }

@@ -354,6 +354,8 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/CL3GGLWYWM/../../../src/flight/PreflightChecklistManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSet \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/RYZVWM34BB/moc_ManufacturerVehicleManager.cpp \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/RYZVWM34BB/../../../src/manufacturer/ManufacturerVehicleManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/GVBWGARL6Y/moc_TileCacheManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/GVBWGARL6Y/../../../src/map/TileCacheManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/QNetworkAccessManager \
@@ -413,6 +415,10 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/N4YDKUCQNK/../../../src/profile/OperatorStateManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/N4YDKUCQNK/moc_ProfileManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/N4YDKUCQNK/../../../src/profile/ProfileManager.h \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/AWH56BEWUT/moc_AccessManager.cpp \
+ /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/AWH56BEWUT/../../../src/security/AccessManager.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/AWH56BEWUT/moc_BackendTrustManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/AWH56BEWUT/../../../src/security/BackendTrustManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/AWH56BEWUT/moc_DeviceManager.cpp \
@@ -427,8 +433,6 @@ CMakeFiles/SkyGridGCS.dir/SkyGridGCS_autogen/mocs_compilation.cpp.o: \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/MissionPreviewManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_MissionSyncManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/MissionSyncManager.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_PilotActionSyncManager.cpp \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/../../../src/sync/PilotActionSyncManager.h \
  /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/Y7MAPSIO2O/moc_PreferencesSyncManager.cpp \

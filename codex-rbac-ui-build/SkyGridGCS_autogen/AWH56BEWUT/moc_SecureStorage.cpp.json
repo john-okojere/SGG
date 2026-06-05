@@ -1,0 +1,17 @@
+{
+    "classes": [
+        {
+            "className": "SecureStorage",
+            "object": true,
+            "qualifiedClassName": "SecureStorage",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "SecureStorage.h",
+    "outputRevision": 68
+}

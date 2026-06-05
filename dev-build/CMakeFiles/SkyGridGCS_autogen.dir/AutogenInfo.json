@@ -722,6 +722,12 @@
 			null
 		],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/manufacturer/ManufacturerVehicleManager.h",
+			"Mu",
+			"RYZVWM34BB/moc_ManufacturerVehicleManager.cpp",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/map/TileCacheManager.h",
 			"Mu",
 			"GVBWGARL6Y/moc_TileCacheManager.cpp",
@@ -773,6 +779,12 @@
 			"/home/Software_projects/SkyGrid_inc/SGG/src/profile/ProfileManager.h",
 			"Mu",
 			"N4YDKUCQNK/moc_ProfileManager.cpp",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/security/AccessManager.h",
+			"Mu",
+			"AWH56BEWUT/moc_AccessManager.cpp",
 			null
 		],
 		[
@@ -1015,6 +1027,18 @@
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/SystemStatusCard_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/TopStatusPill_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp",
+		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/CompassControl_qml.cpp",
 		"/home/Software_projects/SkyGrid_inc/SGG/dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/MapControls_qml.cpp",
@@ -1172,6 +1196,11 @@
 		],
 		[ "/home/Software_projects/SkyGrid_inc/SGG/src/main.cpp", "Mu", null ],
 		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/manufacturer/ManufacturerVehicleManager.cpp",
+			"Mu",
+			null
+		],
+		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/map/TileCacheManager.cpp",
 			"Mu",
 			null
@@ -1213,6 +1242,11 @@
 		],
 		[
 			"/home/Software_projects/SkyGrid_inc/SGG/src/profile/ProfileManager.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/Software_projects/SkyGrid_inc/SGG/src/security/AccessManager.cpp",
 			"Mu",
 			null
 		],

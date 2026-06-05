@@ -172,11 +172,30 @@ Rectangle {
     }
 
     function runValidationThenPreflight() {
+        if (!accessManager.canPerform("mission_validation")) {
+            missionStore.plan.operationStatus = "Mission validation blocked by local permissions."
+            return
+        }
         var center = missionCenter()
         weatherSyncManager.refreshForMission(center.latitude, center.longitude, missionStore.plan.altitude, aircraftId(), "MISSION")
         missionStore.plan.validateMission()
         missionSyncManager.validateActiveMission()
         requestPreflight()
+    }
+
+    function canStartFlying() {
+        if (!hasStartFlyingPermission())
+            return false
+        return true
+    }
+
+    function hasStartFlyingPermission() {
+        if (root.isVirtualFence)
+            return accessManager.can("can_plan_mission")
+        return accessManager.can("can_plan_mission")
+            && accessManager.can("can_stream_telemetry")
+            && accessManager.can("can_upload_mission")
+            && accessManager.can("can_start_mission")
     }
 
     ColumnLayout {
@@ -300,6 +319,7 @@ Rectangle {
                 text: "Preflight Checklist"
                 iconText: "✓"
                 primary: false
+                visible: accessManager.can("can_plan_mission")
                 enabled: sessionManager.operationsAllowed
                 onClicked: root.requestPreflight()
             }
@@ -322,6 +342,7 @@ Rectangle {
                 text: "Save Mission"
                 iconText: "▣"
                 primary: false
+                visible: accessManager.can("can_plan_mission")
                 enabled: sessionManager.operationsAllowed && missionStore.plan.missionState !== "EMPTY"
                 onClicked: missionSyncManager.saveActiveMission()
             }
@@ -331,6 +352,7 @@ Rectangle {
                 text: root.isVirtualFence ? "Validate & Sync" : "Start Flying"
                 iconText: "▷"
                 primary: true
+                visible: root.hasStartFlyingPermission()
                 enabled: sessionManager.operationsAllowed
                          && (root.isVirtualFence || root.routeItems().length >= 2)
                          && !missionUploadManager.uploading

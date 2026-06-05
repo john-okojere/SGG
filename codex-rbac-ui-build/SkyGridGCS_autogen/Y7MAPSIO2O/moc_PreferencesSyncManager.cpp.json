@@ -1,0 +1,58 @@
+{
+    "classes": [
+        {
+            "className": "PreferencesSyncManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "syncPreferences",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "bootstrap",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "applyBootstrap",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "status",
+                    "notify": "preferencesSyncChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "PreferencesSyncManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "preferencesSyncChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "PreferencesSyncManager.h",
+    "outputRevision": 68
+}

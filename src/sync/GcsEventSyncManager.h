@@ -8,6 +8,7 @@
 #include <QVector>
 
 class ApiClient;
+class AccessManager;
 class LocalSyncCache;
 class SessionManager;
 
@@ -23,6 +24,7 @@ public:
                                  QObject *parent = nullptr);
 
     QString status() const;
+    void setAccessManager(AccessManager *access);
 
     Q_INVOKABLE void recordEvent(const QString &eventType,
                                  const QString &severity,
@@ -44,12 +46,14 @@ private:
     void postEvent(const QString &eventType, const QJsonObject &event);
     QJsonObject normalizePayload(const QJsonObject &payload) const;
     QJsonValue normalizeValue(const QString &key, const QJsonValue &value) const;
+    QString accessActionForEvent(const QString &eventType, const QJsonObject &payload) const;
     static double roundNumber(double value, int decimals);
     void setStatus(const QString &status);
 
     ApiClient *m_api = nullptr;
     SessionManager *m_session = nullptr;
     LocalSyncCache *m_cache = nullptr;
+    AccessManager *m_access = nullptr;
     QTimer m_flushTimer;
     QVector<QueuedEvent> m_pendingEvents;
     QString m_status = "GCS event sync idle";

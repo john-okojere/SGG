@@ -8,6 +8,7 @@
 #include <memory>
 
 class ApiClient;
+class AccessManager;
 class FlightSessionSyncManager;
 class GcsEventSyncManager;
 class PreflightChecklistManager;
@@ -34,6 +35,7 @@ public:
                                      SessionManager *session,
                                      FlightSessionSyncManager *flightSessions,
                                      PreflightChecklistManager *preflight,
+                                     AccessManager *access,
                                      GcsEventSyncManager *events,
                                      QObject *parent = nullptr);
 
@@ -61,6 +63,7 @@ private:
     SessionManager *m_session = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
+    AccessManager *m_access = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_executing = false;
     int m_activeWaypoint = -1;

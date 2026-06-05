@@ -8,6 +8,7 @@
 #include "../flight/ManualControlManager.h"
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
+#include "../security/AccessManager.h"
 #include "../vehicle/HomePositionManager.h"
 #include "../vehicle/VehicleTelemetryModel.h"
 #include "../network/WebSocketClient.h"
@@ -36,6 +37,7 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
                                            FlightSessionSyncManager *flightSessions,
                                            WebSocketClient *websocket,
                                            LocalSyncCache *cache,
+                                           AccessManager *access,
                                            QObject *parent)
     : QObject(parent),
       m_api(api),
@@ -50,7 +52,8 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
       m_homePosition(homePosition),
       m_flightSessions(flightSessions),
       m_websocket(websocket),
-      m_cache(cache)
+      m_cache(cache),
+      m_access(access)
 {
     connect(&m_timer, &QTimer::timeout, this, &TelemetrySyncManager::uploadNow);
     const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -85,6 +88,12 @@ void TelemetrySyncManager::setGazeboMode(bool enabled)
 
 void TelemetrySyncManager::start()
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("telemetry_stream"),
+                                               {},
+                                               QStringLiteral("Telemetry stream blocked by local permissions."))) {
+        setStatus(QStringLiteral("Telemetry stream blocked by local permissions."));
+        return;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         setStatus(QStringLiteral("Telemetry blocked: %1").arg(m_session ? m_session->blockReason() : QStringLiteral("session unavailable")));
         return;
@@ -112,6 +121,13 @@ void TelemetrySyncManager::stop()
 
 void TelemetrySyncManager::uploadNow()
 {
+    if (m_access && !m_access->canPerform(QStringLiteral("telemetry_stream"))) {
+        m_access->recordBlocked(QStringLiteral("telemetry_stream"),
+                                QStringLiteral("Telemetry upload blocked by local permissions."),
+                                {});
+        setStatus(QStringLiteral("Telemetry upload blocked by local permissions."));
+        return;
+    }
     if (!m_telemetry || !m_telemetry->connected()) {
         setStatus(QStringLiteral("Telemetry idle: no connected aircraft."));
         return;
@@ -411,6 +427,10 @@ double TelemetrySyncManager::distanceFromHomeMeters() const
 
 void TelemetrySyncManager::drainQueuedSync()
 {
+    if (m_access && !m_access->canPerform(QStringLiteral("telemetry_stream"))) {
+        setPendingQueueCount(0);
+        return;
+    }
     if (!m_cache || !m_api || !m_session || !m_session->operationsAllowed()) {
         return;
     }

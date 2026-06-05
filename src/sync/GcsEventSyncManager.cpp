@@ -3,10 +3,12 @@
 #include "../auth/SessionManager.h"
 #include "../cache/LocalSyncCache.h"
 #include "../network/ApiClient.h"
+#include "../security/AccessManager.h"
 
 #include <QDateTime>
 #include <QJsonArray>
 #include <QProcessEnvironment>
+#include <QVariantMap>
 #include <cmath>
 #include <utility>
 
@@ -32,12 +34,26 @@ GcsEventSyncManager::GcsEventSyncManager(ApiClient *api,
 
 QString GcsEventSyncManager::status() const { return m_status; }
 
+void GcsEventSyncManager::setAccessManager(AccessManager *access)
+{
+    m_access = access;
+}
+
 void GcsEventSyncManager::recordEvent(const QString &eventType,
                                       const QString &severity,
                                       const QString &message,
                                       const QJsonObject &payload)
 {
     const QJsonObject normalizedPayload = normalizePayload(payload);
+    const QString accessAction = accessActionForEvent(eventType, normalizedPayload);
+    if (!accessAction.isEmpty()
+        && (!m_access
+            || !m_access->authorizeAction(accessAction,
+                                          QVariantMap{{QStringLiteral("event_type"), eventType}},
+                                          QStringLiteral("GCS event record blocked by local permissions.")))) {
+        setStatus(QStringLiteral("GCS event blocked by local permissions: %1").arg(eventType));
+        return;
+    }
     const QJsonObject event{
         {QStringLiteral("event_type"), eventType},
         {QStringLiteral("severity"), severity.isEmpty() ? QStringLiteral("info") : severity},
@@ -47,6 +63,55 @@ void GcsEventSyncManager::recordEvent(const QString &eventType,
     };
 
     enqueueOrSend(eventType, event, isCriticalEvent(eventType, severity, normalizedPayload));
+}
+
+QString GcsEventSyncManager::accessActionForEvent(const QString &eventType, const QJsonObject &payload) const
+{
+    Q_UNUSED(payload)
+    const QString event = eventType.trimmed().toLower();
+    if (event.isEmpty()
+        || event.startsWith(QStringLiteral("authorization_"))
+        || event == QStringLiteral("cache_purged_access_changed")) {
+        return {};
+    }
+    if (event.contains(QStringLiteral("emergency_stop")) || event.contains(QStringLiteral("kill"))) {
+        return QStringLiteral("emergency_stop");
+    }
+    if (event.contains(QStringLiteral("manual"))
+        || event.contains(QStringLiteral("pilot"))
+        || event.contains(QStringLiteral("vehicle_"))
+        || event.contains(QStringLiteral("takeoff"))
+        || event.contains(QStringLiteral("land"))
+        || event.contains(QStringLiteral("return_to_home"))
+        || event.contains(QStringLiteral("hold"))) {
+        return QStringLiteral("manual_flight");
+    }
+    if (event.contains(QStringLiteral("mission_upload"))) {
+        return QStringLiteral("mission_upload");
+    }
+    if (event.contains(QStringLiteral("mission_start"))
+        || event.contains(QStringLiteral("mission_progress"))
+        || event.contains(QStringLiteral("mission_finish"))
+        || event.contains(QStringLiteral("mission_finished"))
+        || event.contains(QStringLiteral("mission_abort"))
+        || event.contains(QStringLiteral("mission_failed"))) {
+        return QStringLiteral("mission_start");
+    }
+    if (event.contains(QStringLiteral("mission"))
+        || event.contains(QStringLiteral("preflight"))
+        || event.contains(QStringLiteral("weather"))) {
+        return QStringLiteral("mission_planning");
+    }
+    if (event.contains(QStringLiteral("telemetry")) || event.contains(QStringLiteral("flight_record"))) {
+        return QStringLiteral("telemetry_stream");
+    }
+    if (event.contains(QStringLiteral("event_log"))
+        || event.contains(QStringLiteral("audit"))
+        || event.contains(QStringLiteral("security"))
+        || event.contains(QStringLiteral("activity"))) {
+        return QStringLiteral("security_audit");
+    }
+    return QStringLiteral("security_audit");
 }
 
 bool GcsEventSyncManager::isCriticalEvent(const QString &eventType, const QString &severity, const QJsonObject &payload) const

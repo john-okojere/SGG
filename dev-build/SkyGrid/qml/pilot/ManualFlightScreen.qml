@@ -23,6 +23,10 @@ Item {
     property double lastManualActionAt: 0
 
     function updateManualInput() {
+        if (!accessManager.canPerform("manual_flight")) {
+            manualControlManager.neutral()
+            return
+        }
         var forward = (keyForward ? 1 : 0) + (keyBack ? -1 : 0)
         var lateral = (keyRight ? 1 : 0) + (keyLeft ? -1 : 0)
         var vertical = (keyUp ? 1 : 0) + (keyDown ? -1 : 0)
@@ -57,6 +61,11 @@ Item {
 
     Component.onCompleted: {
         forceActiveFocus()
+        if (!accessManager.canPerform("manual_flight")) {
+            eventLogManager.logEvent("pilot_mode_blocked", "warning", "Manual Flight mode blocked by local permissions")
+            appState.goHome()
+            return
+        }
         if (typeof flightSessionSyncManager !== "undefined") {
             flightSessionSyncManager.beginPilotSession("")
         }
@@ -124,7 +133,12 @@ Item {
         anchors.top: parent.top
         height: Math.max(74, Math.min(84, parent.height * 0.08))
         z: 10
-        onEventLogRequested: eventLogPanel.open()
+        onEventLogRequested: {
+            if (eventLogManager.authorizeLogView()) {
+                eventLogManager.logEvent("event_log_opened", "info", "Pilot opened event log")
+                eventLogPanel.open()
+            }
+        }
     }
 
     RowLayout {
@@ -220,6 +234,8 @@ Item {
                     width: 132
                     height: 34
                     text: "Go To"
+                    visible: accessManager.can("can_fly_manual")
+                    enabled: sessionManager.operationsAllowed && vehicleManager.connected
                     onClicked: goToDialog.open()
                     background: Rectangle { radius: 17; color: parent.hovered ? "#ffffff" : "#ffffffdd"; border.color: "#5b22a8" }
                     contentItem: Text { text: parent.text; color: "#5b22a8"; font.pixelSize: 11; font.bold: true; horizontalAlignment: Text.AlignHCenter; verticalAlignment: Text.AlignVCenter }
@@ -233,7 +249,7 @@ Item {
                 width: Math.min(560, parent.width * 0.62)
                 height: root.width < 1300 ? 164 : 184
                 z: 25
-                visible: root.joystickVisible
+                visible: root.joystickVisible && accessManager.can("can_fly_manual")
                 enabled: telemetryStore.inAir && vehicleManager.connected && sessionManager.operationsAllowed
             }
         }

@@ -11,11 +11,13 @@ Rectangle {
     property string title: "Action"
     property string subtitle: ""
     property bool primary: false
+    property bool enabled: true
 
     signal clicked()
 
     radius: 8
-    color: root.primary ? (mouse.containsMouse ? "#4f0aa6" : "#3b0787") : (mouse.containsMouse ? "#fbfaff" : "#ffffff")
+    opacity: root.enabled ? 1 : 0.48
+    color: root.primary ? (mouse.containsMouse && root.enabled ? "#4f0aa6" : "#3b0787") : (mouse.containsMouse && root.enabled ? "#fbfaff" : "#ffffff")
     border.color: root.primary ? "#3b0787" : "#d9cfec"
     border.width: 1
 
@@ -77,6 +79,6 @@ Rectangle {
         id: mouse
         anchors.fill: parent
         hoverEnabled: true
-        onClicked: root.clicked()
+        onClicked: if (root.enabled) root.clicked()
     }
 }

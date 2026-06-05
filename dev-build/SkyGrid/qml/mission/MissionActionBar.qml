@@ -88,6 +88,7 @@ GridLayout {
         secondary: true
         text: "Save Mission"
         iconSource: AssetRegistry.icons.boxicons_save
+        visible: accessManager.can("can_plan_mission")
         enabled: sessionManager.operationsAllowed && missionStore.plan.missionState !== "EMPTY"
         opacity: enabled ? 1 : 0.55
         onClicked: missionSyncManager.saveActiveMission()
@@ -97,6 +98,7 @@ GridLayout {
     PrimaryButton {
         Layout.fillWidth: true
         secondary: true
+        visible: accessManager.can("can_plan_mission")
         enabled: sessionManager.operationsAllowed && (root.hasUploadRoute() || missionStore.plan.boundaryOnly)
         text: sessionManager.operationsAllowed
             ? (missionSyncManager.syncing ? "Validating..." : "Validate")
@@ -109,6 +111,7 @@ GridLayout {
     }
     PrimaryButton {
         Layout.fillWidth: true
+        visible: accessManager.can("can_upload_mission")
         enabled: sessionManager.operationsAllowed && root.backendReadyForUpload() && vehicleManager.connected && preflightChecklistManager.canUpload && !root.weatherBlocksUpload() && root.hasUploadRoute() && !missionUploadManager.uploading
         text: missionStore.plan.boundaryOnly ? "Boundary Synced" : (missionUploadManager.uploading ? ("Uploading " + missionUploadManager.progress + "%") : "Upload to Aircraft")
         iconSource: AssetRegistry.icons.cloud
@@ -119,6 +122,7 @@ GridLayout {
     }
     PrimaryButton {
         Layout.fillWidth: true
+        visible: accessManager.can("can_start_mission")
         enabled: sessionManager.operationsAllowed && !missionStore.plan.boundaryOnly && vehicleManager.connected && preflightChecklistManager.canStartMission && !missionExecutionManager.executing
         text: missionExecutionManager.executing ? "Executing..." : "Start Mission"
         iconSource: AssetRegistry.icons.boxicons_play

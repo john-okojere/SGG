@@ -8,6 +8,7 @@
 #include <memory>
 
 class GcsEventSyncManager;
+class AccessManager;
 class MavsdkVehicleManager;
 class SessionManager;
 
@@ -28,6 +29,7 @@ class ManualControlManager : public QObject
 public:
     explicit ManualControlManager(MavsdkVehicleManager *vehicle,
                                   SessionManager *session,
+                                  AccessManager *access,
                                   GcsEventSyncManager *events,
                                   QObject *parent = nullptr);
 
@@ -54,6 +56,7 @@ private:
 
     MavsdkVehicleManager *m_vehicle = nullptr;
     SessionManager *m_session = nullptr;
+    AccessManager *m_access = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     std::shared_ptr<mavsdk::ManualControl> m_manualControl;
     QTimer m_publishTimer;

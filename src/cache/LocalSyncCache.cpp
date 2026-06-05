@@ -30,7 +30,7 @@ QString LocalSyncCache::status() const { return m_status; }
 
 QVariantMap LocalSyncCache::loadObject(const QString &namespaceName, const QString &key) const
 {
-    if (!m_available) {
+    if (!m_available || (m_accessLocked && namespaceName != QStringLiteral("access"))) {
         return {};
     }
     const QVariant value = variantFromJson([&]() {
@@ -45,7 +45,7 @@ QVariantMap LocalSyncCache::loadObject(const QString &namespaceName, const QStri
 
 QVariantList LocalSyncCache::loadList(const QString &namespaceName, const QString &key) const
 {
-    if (!m_available) {
+    if (!m_available || (m_accessLocked && namespaceName != QStringLiteral("access"))) {
         return {};
     }
     const QVariant value = variantFromJson([&]() {
@@ -60,7 +60,7 @@ QVariantList LocalSyncCache::loadList(const QString &namespaceName, const QStrin
 
 void LocalSyncCache::saveObject(const QString &namespaceName, const QString &key, const QVariantMap &value)
 {
-    if (!m_available) {
+    if (!m_available || (m_accessLocked && namespaceName != QStringLiteral("access"))) {
         return;
     }
     QSqlQuery query(QSqlDatabase::database(m_connectionName));
@@ -75,7 +75,7 @@ void LocalSyncCache::saveObject(const QString &namespaceName, const QString &key
 
 void LocalSyncCache::saveList(const QString &namespaceName, const QString &key, const QVariantList &value)
 {
-    if (!m_available) {
+    if (!m_available || (m_accessLocked && namespaceName != QStringLiteral("access"))) {
         return;
     }
     QSqlQuery query(QSqlDatabase::database(m_connectionName));
@@ -90,7 +90,7 @@ void LocalSyncCache::saveList(const QString &namespaceName, const QString &key, 
 
 void LocalSyncCache::enqueueSync(const QString &kind, const QVariantMap &payload)
 {
-    if (!m_available) {
+    if (!m_available || m_accessLocked) {
         return;
     }
     QSqlQuery query(QSqlDatabase::database(m_connectionName));
@@ -105,7 +105,7 @@ void LocalSyncCache::enqueueSync(const QString &kind, const QVariantMap &payload
 QVariantList LocalSyncCache::queuedSyncItems(int limit) const
 {
     QVariantList items;
-    if (!m_available) {
+    if (!m_available || m_accessLocked) {
         return items;
     }
     QSqlQuery query(QSqlDatabase::database(m_connectionName));
@@ -152,7 +152,7 @@ void LocalSyncCache::markSyncFailed(int id, const QString &error)
 
 void LocalSyncCache::cacheTelemetry(const QVariantMap &payload)
 {
-    if (!m_available) {
+    if (!m_available || m_accessLocked) {
         return;
     }
     QSqlQuery query(QSqlDatabase::database(m_connectionName));
@@ -161,6 +161,46 @@ void LocalSyncCache::cacheTelemetry(const QVariantMap &payload)
     const QString recordedAt = payload.value(QStringLiteral("recorded_at")).toString();
     query.addBindValue(recordedAt.isEmpty() ? QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs) : recordedAt);
     query.exec();
+}
+
+void LocalSyncCache::setAccessFingerprint(const QString &fingerprint)
+{
+    m_accessFingerprint = fingerprint;
+    m_accessLocked = false;
+    m_status = QStringLiteral("Offline cache ready for verified access.");
+    emit cacheChanged();
+}
+
+void LocalSyncCache::purgeAccessControlledData(const QString &reason)
+{
+    if (!m_available) {
+        return;
+    }
+    QSqlDatabase db = QSqlDatabase::database(m_connectionName);
+    QSqlQuery deleteItems(db);
+    deleteItems.prepare(QStringLiteral("DELETE FROM cache_items WHERE namespace != 'access'"));
+    deleteItems.exec();
+    QSqlQuery deleteQueue(db);
+    deleteQueue.exec(QStringLiteral("DELETE FROM sync_queue"));
+    QSqlQuery deleteTelemetry(db);
+    deleteTelemetry.exec(QStringLiteral("DELETE FROM telemetry_cache"));
+    m_accessLocked = false;
+    m_status = reason.isEmpty()
+        ? QStringLiteral("Access-controlled cache purged.")
+        : QStringLiteral("Access-controlled cache purged: %1").arg(reason);
+    emit cacheChanged();
+}
+
+void LocalSyncCache::lockAccessControlledData(const QString &reason)
+{
+    if (!m_available) {
+        return;
+    }
+    m_accessLocked = true;
+    m_status = reason.isEmpty()
+        ? QStringLiteral("Access-controlled cache locked.")
+        : QStringLiteral("Access-controlled cache locked: %1").arg(reason);
+    emit cacheChanged();
 }
 
 void LocalSyncCache::initialize()

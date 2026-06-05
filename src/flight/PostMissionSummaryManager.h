@@ -5,6 +5,7 @@
 #include <QVariantMap>
 
 class ApiClient;
+class AccessManager;
 class FlightSessionSyncManager;
 class FlightStatsManager;
 class LocalSyncCache;
@@ -35,6 +36,7 @@ public:
                                        MissionSyncManager *missionSync,
                                        ProfileManager *profile,
                                        VehicleTelemetryModel *telemetry,
+                                       AccessManager *access = nullptr,
                                        QObject *parent = nullptr);
 
     bool visible() const;
@@ -80,6 +82,7 @@ private:
     MissionSyncManager *m_missionSync = nullptr;
     ProfileManager *m_profile = nullptr;
     VehicleTelemetryModel *m_telemetry = nullptr;
+    AccessManager *m_access = nullptr;
     bool m_visible = false;
     bool m_fullLogVisible = false;
     QString m_status = QStringLiteral("No post-flight summary");

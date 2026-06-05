@@ -6,6 +6,7 @@ import "../controls"
 
 Rectangle {
     id: root
+    visible: accessManager.can("can_fly_manual")
     radius: 24
     color: enabled ? "#4b0f8178" : "#4b0f813f"
     border.color: enabled ? "#ffffff8f" : "#ffffff55"
@@ -19,7 +20,7 @@ Rectangle {
     property double lastManualActionAt: 0
 
     function sendInput() {
-        if (!enabled) {
+        if (!enabled || !accessManager.canPerform("manual_flight")) {
             manualControlManager.neutral()
             return
         }
@@ -73,6 +74,7 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 156
                     Layout.preferredHeight: 36
+                    visible: accessManager.can("can_fly_manual")
                     enabled: root.enabled
                     onClicked: {
                         root.leftX = root.leftY = root.rightX = root.rightY = 0

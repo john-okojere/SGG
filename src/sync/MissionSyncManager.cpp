@@ -4,6 +4,7 @@
 #include "../cache/LocalSyncCache.h"
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
+#include "../security/AccessManager.h"
 #include "GcsEventSyncManager.h"
 
 #include <QJsonArray>
@@ -57,9 +58,10 @@ MissionSyncManager::MissionSyncManager(ApiClient *api,
                                        SessionManager *session,
                                        LocalSyncCache *cache,
                                        MissionPlanModel *plan,
+                                       AccessManager *access,
                                        GcsEventSyncManager *events,
                                        QObject *parent)
-    : QObject(parent), m_api(api), m_session(session), m_cache(cache), m_plan(plan), m_events(events)
+    : QObject(parent), m_api(api), m_access(access), m_session(session), m_cache(cache), m_plan(plan), m_events(events)
 {
     loadCached();
 }
@@ -69,6 +71,15 @@ void MissionSyncManager::saveActiveMission()
     if (!m_plan) {
         setStatus(QStringLiteral("No active mission to save."));
         emit activeMissionSaved(false, QStringLiteral("No active mission to save."));
+        return;
+    }
+    QVariantMap context{{QStringLiteral("mission_id"), m_plan->missionId()}};
+    if (m_access && !m_access->authorizeAction(QStringLiteral("mission_save"),
+                                               context,
+                                               QStringLiteral("Mission save blocked by local permissions."))) {
+        const QString message = QStringLiteral("Mission save blocked by local permissions.");
+        setStatus(message);
+        emit activeMissionSaved(false, message);
         return;
     }
     QVariantMap mission = m_plan->serializeForBackend();
@@ -149,6 +160,15 @@ void MissionSyncManager::validateActiveMission()
         emit activeMissionValidated(false, QStringLiteral("No active mission to validate."));
         return;
     }
+    QVariantMap context{{QStringLiteral("mission_id"), m_plan->missionId()}};
+    if (m_access && !m_access->authorizeAction(QStringLiteral("mission_validation"),
+                                               context,
+                                               QStringLiteral("Mission validation blocked by local permissions."))) {
+        const QString message = QStringLiteral("Mission validation blocked by local permissions.");
+        setStatus(message);
+        emit activeMissionValidated(false, message);
+        return;
+    }
     m_plan->validateMission();
     if (!m_session || !m_session->operationsAllowed() || !m_api) {
         setStatus(QStringLiteral("Device approval required before aircraft upload."));
@@ -220,6 +240,7 @@ void MissionSyncManager::validateActiveMission()
 bool MissionSyncManager::syncing() const { return m_syncing; }
 QString MissionSyncManager::status() const { return m_status; }
 QVariantMap MissionSyncManager::organization() const { return m_organization; }
+QVariantMap MissionSyncManager::manufacturer() const { return m_manufacturer; }
 QVariantMap MissionSyncManager::pilotProfile() const { return m_pilotProfile; }
 QVariantMap MissionSyncManager::deviceSummary() const { return m_deviceSummary; }
 QVariantMap MissionSyncManager::sessionStatus() const { return m_sessionStatus; }
@@ -227,6 +248,7 @@ QVariantList MissionSyncManager::assignedAircraft() const { return m_assignedAir
 QVariantList MissionSyncManager::approvedMissions() const { return m_approvedMissions; }
 QVariantList MissionSyncManager::activeMissions() const { return m_activeMissions; }
 QVariantList MissionSyncManager::missionHistory() const { return m_missionHistory; }
+QVariantList MissionSyncManager::vehicleProfiles() const { return m_vehicleProfiles; }
 
 void MissionSyncManager::bootstrap()
 {
@@ -267,11 +289,19 @@ void MissionSyncManager::bootstrap()
             return;
         }
         const QVariantMap bootstrap = body.toVariantMap();
+        if (m_access) {
+            m_access->applyBootstrap(bootstrap);
+        }
         m_organization = bootstrap.value(QStringLiteral("organization")).toMap();
+        m_manufacturer = bootstrap.value(QStringLiteral("manufacturer")).toMap();
         m_pilotProfile = bootstrap.value(QStringLiteral("pilot"), bootstrap.value(QStringLiteral("pilot_profile"), bootstrap.value(QStringLiteral("profile")))).toMap();
-        m_deviceSummary = bootstrap.value(QStringLiteral("device_summary")).toMap();
+        m_deviceSummary = bootstrap.value(QStringLiteral("device_summary"), bootstrap.value(QStringLiteral("device"))).toMap();
         m_sessionStatus = bootstrap.value(QStringLiteral("session_status")).toMap();
         m_assignedAircraft = bootstrap.value(QStringLiteral("assigned_aircraft")).toList();
+        if (m_assignedAircraft.isEmpty()) {
+            m_assignedAircraft = bootstrap.value(QStringLiteral("aircraft")).toList();
+        }
+        m_vehicleProfiles = bootstrap.value(QStringLiteral("vehicle_profiles")).toList();
         m_activeMissions = bootstrap.value(QStringLiteral("active_missions"),
                                            bootstrap.value(QStringLiteral("approved_missions"),
                                                            bootstrap.value(QStringLiteral("missions")))).toList();
@@ -282,12 +312,20 @@ void MissionSyncManager::bootstrap()
             m_approvedMissions = bootstrap.value(QStringLiteral("approved_missions"),
                                                  bootstrap.value(QStringLiteral("missions"))).toList();
         }
+        if (m_access) {
+            m_assignedAircraft = m_access->filterAircraft(m_assignedAircraft);
+            m_activeMissions = m_access->filterMissions(m_activeMissions);
+            m_approvedMissions = m_access->filterMissions(m_approvedMissions);
+            m_missionHistory = m_access->filterMissions(m_missionHistory);
+        }
         if (m_cache) {
             m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("organization"), m_organization);
+            m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("manufacturer"), m_manufacturer);
             m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("pilot_profile"), m_pilotProfile);
             m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("device_summary"), m_deviceSummary);
             m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("session_status"), m_sessionStatus);
             m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("assigned_aircraft"), m_assignedAircraft);
+            m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("vehicle_profiles"), m_vehicleProfiles);
             m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("approved_missions"), m_approvedMissions);
             m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("active_missions"), m_activeMissions);
             m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("mission_history"), m_missionHistory);
@@ -324,6 +362,16 @@ void MissionSyncManager::openMission(const QVariantMap &mission)
     if (missionId.isEmpty()) {
         setStatus(QStringLiteral("Cannot open mission without a Control Center id."));
         return;
+    }
+    if (m_access) {
+        QVariantMap context{{QStringLiteral("mission_id"), missionId}};
+        if (!m_access->canAccessMission(missionId)
+            || !m_access->authorizeAction(QStringLiteral("mission_open"),
+                                          context,
+                                          QStringLiteral("Mission open blocked by local permissions."))) {
+            setStatus(QStringLiteral("Mission open blocked by local permissions."));
+            return;
+        }
     }
 
     const QString missionType = mission.value(QStringLiteral("mission_type"), mission.value(QStringLiteral("type"))).toString();
@@ -381,6 +429,13 @@ void MissionSyncManager::applyOpenMission(const QVariantMap &mission)
         setStatus(QStringLiteral("Mission data is incomplete."));
         return;
     }
+    if (m_access && !m_access->canAccessMission(missionId)) {
+        m_access->recordBlocked(QStringLiteral("mission_open"),
+                                QStringLiteral("Mission is outside the local need-to-know scope."),
+                                QVariantMap{{QStringLiteral("mission_id"), missionId}});
+        setStatus(QStringLiteral("Mission open blocked by local access scope."));
+        return;
+    }
 
     m_plan->loadMission(normalized);
     if (m_cache) {
@@ -403,6 +458,12 @@ void MissionSyncManager::applyOpenMission(const QVariantMap &mission)
 
 void MissionSyncManager::syncMissions()
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("mission_sync"),
+                                               {},
+                                               QStringLiteral("Mission sync blocked by local permissions."))) {
+        setStatus(QStringLiteral("Mission sync blocked by local permissions."));
+        return;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         setStatus(QStringLiteral("Mission sync blocked: %1").arg(m_session ? m_session->blockReason() : QStringLiteral("session unavailable")));
         return;
@@ -421,6 +482,9 @@ void MissionSyncManager::syncMissions()
             missions = body.value(QStringLiteral("active_missions")).toArray();
         }
         m_approvedMissions = missions.toVariantList();
+        if (m_access) {
+            m_approvedMissions = m_access->filterMissions(m_approvedMissions);
+        }
         if (m_cache) {
             m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("approved_missions"), m_approvedMissions);
         }
@@ -435,13 +499,21 @@ void MissionSyncManager::loadCached()
         return;
     }
     m_organization = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("organization"));
+    m_manufacturer = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("manufacturer"));
     m_pilotProfile = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("pilot_profile"));
     m_deviceSummary = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("device_summary"));
     m_sessionStatus = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("session_status"));
     m_assignedAircraft = m_cache->loadList(QStringLiteral("mission_sync"), QStringLiteral("assigned_aircraft"));
+    m_vehicleProfiles = m_cache->loadList(QStringLiteral("mission_sync"), QStringLiteral("vehicle_profiles"));
     m_approvedMissions = m_cache->loadList(QStringLiteral("mission_sync"), QStringLiteral("approved_missions"));
     m_activeMissions = m_cache->loadList(QStringLiteral("mission_sync"), QStringLiteral("active_missions"));
     m_missionHistory = m_cache->loadList(QStringLiteral("mission_sync"), QStringLiteral("mission_history"));
+    if (m_access) {
+        m_assignedAircraft = m_access->filterAircraft(m_assignedAircraft);
+        m_approvedMissions = m_access->filterMissions(m_approvedMissions);
+        m_activeMissions = m_access->filterMissions(m_activeMissions);
+        m_missionHistory = m_access->filterMissions(m_missionHistory);
+    }
     if (m_activeMissions.isEmpty()) {
         m_activeMissions = m_approvedMissions;
     }

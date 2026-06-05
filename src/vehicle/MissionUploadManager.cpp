@@ -6,6 +6,7 @@
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
 #include "../flight/PreflightChecklistManager.h"
+#include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
 
 #include <mavsdk/plugins/mission/mission.hpp>
@@ -55,6 +56,7 @@ MissionUploadManager::MissionUploadManager(MavsdkVehicleManager *vehicle,
                                            ApiClient *api,
                                            SessionManager *session,
                                            PreflightChecklistManager *preflight,
+                                           AccessManager *access,
                                            GcsEventSyncManager *events,
                                            QObject *parent)
     : QObject(parent),
@@ -64,6 +66,7 @@ MissionUploadManager::MissionUploadManager(MavsdkVehicleManager *vehicle,
       m_api(api),
       m_session(session),
       m_preflight(preflight),
+      m_access(access),
       m_events(events)
 {
 }
@@ -75,6 +78,18 @@ QString MissionUploadManager::status() const { return m_status; }
 
 void MissionUploadManager::uploadActiveMission()
 {
+    QVariantMap context{
+        {QStringLiteral("mission_id"), m_plan ? m_plan->missionId() : QString()},
+        {QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()}
+    };
+    if (m_access && !m_access->authorizeAction(QStringLiteral("mission_upload"),
+                                               context,
+                                               QStringLiteral("Mission upload blocked by local permissions."))) {
+        const QString message = QStringLiteral("Mission upload blocked by local permissions.");
+        setStatus(message);
+        emit missionUploadFailed(message);
+        return;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         const QString message = QStringLiteral("Device approval required before aircraft upload.");
         setStatus(message);

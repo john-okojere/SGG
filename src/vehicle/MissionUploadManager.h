@@ -4,6 +4,7 @@
 #include <QString>
 
 class ApiClient;
+class AccessManager;
 class GcsEventSyncManager;
 class PreflightChecklistManager;
 class MissionPlanModel;
@@ -26,6 +27,7 @@ public:
                                   ApiClient *api,
                                   SessionManager *session,
                                   PreflightChecklistManager *preflight,
+                                  AccessManager *access,
                                   GcsEventSyncManager *events,
                                   QObject *parent = nullptr);
 
@@ -51,6 +53,7 @@ private:
     ApiClient *m_api = nullptr;
     SessionManager *m_session = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
+    AccessManager *m_access = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_uploading = false;
     bool m_uploaded = false;

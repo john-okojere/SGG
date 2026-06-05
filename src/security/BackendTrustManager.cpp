@@ -5,29 +5,27 @@
  
 BackendTrustManager::BackendTrustManager(QObject *parent) : QObject(parent)
 {
-    const QString configured = QProcessEnvironment::systemEnvironment()
-                                   .value(QStringLiteral("SKYGRID_BACKEND_URL"),
-                                          QStringLiteral("https://sgg-api.up.railway.app"));
-    m_baseUrl = normalizedBaseUrl(configured);
+    const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    const QString configuredApi = env.value(QStringLiteral("SKYGRID_API_BASE_URL"),
+                                            env.value(QStringLiteral("SKYGRID_BACKEND_URL"),
+                                                      defaultBaseUrl()));
+    m_baseUrl = normalizedBaseUrl(configuredApi);
+    const QString configuredWs = env.value(QStringLiteral("SKYGRID_WS_BASE_URL"),
+                                           env.value(QStringLiteral("SKYGRID_WEBSOCKET_URL")));
+    m_webSocketUrl = normalizedBaseUrl(configuredWs.isEmpty() ? websocketUrlFromApiUrl(m_baseUrl) : configuredWs);
 }
 
 QString BackendTrustManager::baseUrl() const { return m_baseUrl; }
 
 QString BackendTrustManager::websocketUrl() const
 {
-    QUrl url(m_baseUrl);
-    url.setScheme(url.scheme() == QStringLiteral("https") ? QStringLiteral("wss") : QStringLiteral("ws"));
-    QString value = url.toString();
-    while (value.endsWith('/')) {
-        value.chop(1);
-    }
-    return value;
+    return m_webSocketUrl;
 }
 
 bool BackendTrustManager::productionSecure() const
 {
     const QUrl url(m_baseUrl);
-    return url.host() == QStringLiteral("https://sgg-api.up.railway.app/")
+    return url.host() == QStringLiteral("sgg-api.up.railway.app")
         || url.scheme() == QStringLiteral("https");
 }
 
@@ -50,6 +48,20 @@ void BackendTrustManager::setBaseUrl(const QString &baseUrl)
         return;
     }
     m_baseUrl = next;
+    if (QProcessEnvironment::systemEnvironment().value(QStringLiteral("SKYGRID_WS_BASE_URL")).trimmed().isEmpty()
+        && QProcessEnvironment::systemEnvironment().value(QStringLiteral("SKYGRID_WEBSOCKET_URL")).trimmed().isEmpty()) {
+        m_webSocketUrl = normalizedBaseUrl(websocketUrlFromApiUrl(m_baseUrl));
+    }
+    emit backendChanged();
+}
+
+void BackendTrustManager::setWebSocketUrl(const QString &webSocketUrl)
+{
+    const QString next = normalizedBaseUrl(webSocketUrl);
+    if (m_webSocketUrl == next) {
+        return;
+    }
+    m_webSocketUrl = next;
     emit backendChanged();
 }
 
@@ -59,5 +71,23 @@ QString BackendTrustManager::normalizedBaseUrl(const QString &value) const
     while (trimmed.endsWith('/')) {
         trimmed.chop(1);
     }
-    return trimmed.isEmpty() ? QStringLiteral("https://sgg-api.up.railway.app") : trimmed;
+    return trimmed.isEmpty() ? defaultBaseUrl() : trimmed;
+}
+
+QString BackendTrustManager::defaultBaseUrl() const
+{
+    return QProcessEnvironment::systemEnvironment().value(QStringLiteral("DEV_BUILD")).toLower() == QStringLiteral("true")
+        ? QStringLiteral("http://localhost:8000")
+        : QStringLiteral("https://sgg-api.up.railway.app");
+}
+
+QString BackendTrustManager::websocketUrlFromApiUrl(const QString &apiUrl) const
+{
+    QUrl url(apiUrl);
+    url.setScheme(url.scheme() == QStringLiteral("https") ? QStringLiteral("wss") : QStringLiteral("ws"));
+    QString value = url.toString();
+    while (value.endsWith('/')) {
+        value.chop(1);
+    }
+    return value;
 }

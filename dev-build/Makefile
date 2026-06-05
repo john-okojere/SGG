@@ -1039,6 +1039,294 @@ dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.s
 .PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.cpp.s
 
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.cpp.s
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.o
+
+# target to build an object file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.o
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.o
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.i: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.i
+
+# target to preprocess a source file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.i
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.i
+
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.s: dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.s
+
+# target to generate assembly for a file
+dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.s
+.PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.cpp.s
+
 dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.o: dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.cpp.o
 .PHONY : dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.o
 
@@ -3175,6 +3463,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/manufacturer/ManufacturerVehicleManager.o: src/manufacturer/ManufacturerVehicleManager.cpp.o
+.PHONY : src/manufacturer/ManufacturerVehicleManager.o
+
+# target to build an object file
+src/manufacturer/ManufacturerVehicleManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/manufacturer/ManufacturerVehicleManager.cpp.o
+.PHONY : src/manufacturer/ManufacturerVehicleManager.cpp.o
+
+src/manufacturer/ManufacturerVehicleManager.i: src/manufacturer/ManufacturerVehicleManager.cpp.i
+.PHONY : src/manufacturer/ManufacturerVehicleManager.i
+
+# target to preprocess a source file
+src/manufacturer/ManufacturerVehicleManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/manufacturer/ManufacturerVehicleManager.cpp.i
+.PHONY : src/manufacturer/ManufacturerVehicleManager.cpp.i
+
+src/manufacturer/ManufacturerVehicleManager.s: src/manufacturer/ManufacturerVehicleManager.cpp.s
+.PHONY : src/manufacturer/ManufacturerVehicleManager.s
+
+# target to generate assembly for a file
+src/manufacturer/ManufacturerVehicleManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/manufacturer/ManufacturerVehicleManager.cpp.s
+.PHONY : src/manufacturer/ManufacturerVehicleManager.cpp.s
+
 src/map/TileCacheManager.o: src/map/TileCacheManager.cpp.o
 .PHONY : src/map/TileCacheManager.o
 
@@ -3390,6 +3702,30 @@ src/profile/ProfileManager.s: src/profile/ProfileManager.cpp.s
 src/profile/ProfileManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/profile/ProfileManager.cpp.s
 .PHONY : src/profile/ProfileManager.cpp.s
+
+src/security/AccessManager.o: src/security/AccessManager.cpp.o
+.PHONY : src/security/AccessManager.o
+
+# target to build an object file
+src/security/AccessManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/security/AccessManager.cpp.o
+.PHONY : src/security/AccessManager.cpp.o
+
+src/security/AccessManager.i: src/security/AccessManager.cpp.i
+.PHONY : src/security/AccessManager.i
+
+# target to preprocess a source file
+src/security/AccessManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/security/AccessManager.cpp.i
+.PHONY : src/security/AccessManager.cpp.i
+
+src/security/AccessManager.s: src/security/AccessManager.cpp.s
+.PHONY : src/security/AccessManager.s
+
+# target to generate assembly for a file
+src/security/AccessManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkyGridGCS.dir/build.make CMakeFiles/SkyGridGCS.dir/src/security/AccessManager.cpp.s
+.PHONY : src/security/AccessManager.cpp.s
 
 src/security/BackendTrustManager.o: src/security/BackendTrustManager.cpp.o
 .PHONY : src/security/BackendTrustManager.o
@@ -4012,6 +4348,42 @@ help:
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.o"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.i"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/dashboard/WeatherForecastCard_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FirmwareManagerPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/FlightControllerBindingPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManualTestModePage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerPageScaffold_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerTestFlightPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/ManufacturerWorkspaceScreen_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/RcMappingPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/StatusFooter_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleConfigurationPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleParametersPage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleProfilePage_qml.s"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.o"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.i"
+	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/manufacturer/VehicleReleaseLockPage_qml.s"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.o"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.i"
 	@echo "... dev-build/.rcc/qmlcache/SkyGridGCS_qml/map/ArcGisMapSurface_qml.s"
@@ -4279,6 +4651,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/manufacturer/ManufacturerVehicleManager.o"
+	@echo "... src/manufacturer/ManufacturerVehicleManager.i"
+	@echo "... src/manufacturer/ManufacturerVehicleManager.s"
 	@echo "... src/map/TileCacheManager.o"
 	@echo "... src/map/TileCacheManager.i"
 	@echo "... src/map/TileCacheManager.s"
@@ -4306,6 +4681,9 @@ help:
 	@echo "... src/profile/ProfileManager.o"
 	@echo "... src/profile/ProfileManager.i"
 	@echo "... src/profile/ProfileManager.s"
+	@echo "... src/security/AccessManager.o"
+	@echo "... src/security/AccessManager.i"
+	@echo "... src/security/AccessManager.s"
 	@echo "... src/security/BackendTrustManager.o"
 	@echo "... src/security/BackendTrustManager.i"
 	@echo "... src/security/BackendTrustManager.s"

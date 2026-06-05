@@ -30,6 +30,9 @@ public:
     void markSyncDone(int id);
     void markSyncFailed(int id, const QString &error);
     void cacheTelemetry(const QVariantMap &payload);
+    void setAccessFingerprint(const QString &fingerprint);
+    void purgeAccessControlledData(const QString &reason);
+    void lockAccessControlledData(const QString &reason);
 
 signals:
     void cacheChanged();
@@ -43,4 +46,6 @@ private:
     QString m_connectionName;
     QString m_status = "Cache initializing";
     bool m_available = false;
+    QString m_accessFingerprint;
+    bool m_accessLocked = false;
 };

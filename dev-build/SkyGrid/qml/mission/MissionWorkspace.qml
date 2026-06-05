@@ -146,11 +146,19 @@ Item {
             return
         }
         if (startFlowStep === "saveSync") {
+            if (!accessManager.canPerform("mission_save")) {
+                failPrepareAndStart("Mission save blocked by local permissions.")
+                return
+            }
             setStartFlowMessage("Saving mission to Control Center.")
             missionSyncManager.saveActiveMission()
             return
         }
         if (startFlowStep === "backendValidation") {
+            if (!accessManager.canPerform("mission_validation")) {
+                failPrepareAndStart("Mission validation blocked by local permissions.")
+                return
+            }
             setStartFlowMessage("Backend validation required.")
             missionSyncManager.validateActiveMission()
             return
@@ -161,6 +169,10 @@ Item {
             return
         }
         if (startFlowStep === "aircraftConnection") {
+            if (!accessManager.canPerform("aircraft_connection")) {
+                failPrepareAndStart("Aircraft connection blocked by local permissions.")
+                return
+            }
             if (!vehicleManager.connected) {
                 if (vehicleRetryAttempts >= 3) {
                     failPrepareAndStart("Aircraft not connected. Please connect Gazebo/PX4 before starting.")
@@ -181,12 +193,20 @@ Item {
             return
         }
         if (startFlowStep === "upload") {
+            if (!accessManager.canPerform("mission_upload")) {
+                failPrepareAndStart("Mission upload blocked by local permissions.")
+                return
+            }
             waitingForUploadBeforePilotStart = true
             setStartFlowMessage("Uploading mission to aircraft.")
             missionUploadManager.uploadActiveMission()
             return
         }
         if (startFlowStep === "pilotMode") {
+            if (!accessManager.canPerform("mission_start")) {
+                failPrepareAndStart("Mission start blocked by local permissions.")
+                return
+            }
             setStartFlowMessage("Starting autonomous flight.")
             appState.operationalMode = "pilot"
             startFlowStep = "execute"
@@ -202,6 +222,10 @@ Item {
         if (appState.operationalMode !== "pilot") {
             return
         }
+        if (!accessManager.canPerform("manual_flight")) {
+            manualControlManager.neutral()
+            return
+        }
         var forward = (keyForward ? 1 : 0) + (keyBack ? -1 : 0)
         var lateral = (keyRight ? 1 : 0) + (keyLeft ? -1 : 0)
         var vertical = (keyUp ? 1 : 0) + (keyDown ? -1 : 0)
@@ -210,6 +234,10 @@ Item {
     }
 
     function importMissionFile(fileUrl) {
+        if (!accessManager.canPerform("mission_planning")) {
+            missionStore.plan.importStatus = "Mission import blocked by local permissions."
+            return
+        }
         if (missionStore.plan.importMissionFile(String(fileUrl))) {
             appState.selectedTool = "select"
             missionStore.plan.validateMission()
@@ -442,6 +470,7 @@ Item {
         border.color: "#ffffff33"
         border.width: 1
         z: 9
+        visible: accessManager.can("can_plan_mission")
         Row {
             anchors.centerIn: parent
             spacing: 8
@@ -508,13 +537,14 @@ Item {
             anchors.margins: root.compactLayout ? 8 : 12
             spacing: root.compactLayout ? 6 : 8
             MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.boxicons_cursor_pointer; tool: "select" }
-            MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.plane; tool: "takeoff"; label: "Takeoff" }
-            MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.pin_location; tool: "point" }
-            MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.lucide_waypoints; tool: "poi" }
-            MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.lucide_route; tool: "route" }
-            MissionToolButton { Layout.fillWidth: true; iconSource: AssetRegistry.icons.lucide_grid_3x3; tool: "polygon" }
+            MissionToolButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.plane; tool: "takeoff"; label: "Takeoff" }
+            MissionToolButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.pin_location; tool: "point" }
+            MissionToolButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.lucide_waypoints; tool: "poi" }
+            MissionToolButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.lucide_route; tool: "route" }
+            MissionToolButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.lucide_grid_3x3; tool: "polygon" }
             IconButton {
                 Layout.fillWidth: true
+                visible: accessManager.can("can_plan_mission")
                 iconSource: AssetRegistry.icons.boxicons_undo
                 onClicked: missionStore.plan.undoLastGeometry()
                 ToolTip.visible: hovered
@@ -522,6 +552,7 @@ Item {
             }
             IconButton {
                 Layout.fillWidth: true
+                visible: accessManager.can("can_plan_mission")
                 iconSource: AssetRegistry.icons.boxicons_trash
                 onClicked: {
                     if (appState.selectedWaypointIndex >= 0) {

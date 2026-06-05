@@ -20,12 +20,16 @@ public:
     QString makeWebSocketUrl(const QString &pathWithQuery) const;
 
     Q_INVOKABLE void setBaseUrl(const QString &baseUrl);
+    Q_INVOKABLE void setWebSocketUrl(const QString &webSocketUrl);
 
 signals:
     void backendChanged();
 
 private:
     QString normalizedBaseUrl(const QString &value) const;
+    QString defaultBaseUrl() const;
+    QString websocketUrlFromApiUrl(const QString &apiUrl) const;
 
     QString m_baseUrl;
+    QString m_webSocketUrl;
 };

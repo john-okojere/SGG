@@ -44,6 +44,7 @@ Rectangle {
                 Layout.fillWidth: true
                 label: "Arm"
                 iconSource: AssetRegistry.icons.plane
+                visible: accessManager.can("can_fly_manual")
                 enabled: sessionManager.operationsAllowed && vehicleManager.connected && preflightChecklistManager.canArm && !vehicleActionManager.busy && !telemetryStore.armed
                 onTriggered: vehicleActionManager.arm()
             }
@@ -51,6 +52,7 @@ Rectangle {
                 Layout.fillWidth: true
                 label: "Takeoff"
                 iconSource: AssetRegistry.icons.iconamoon_arrow_up_2
+                visible: accessManager.can("can_fly_manual")
                 enabled: sessionManager.operationsAllowed && vehicleManager.connected && preflightChecklistManager.canArm && !vehicleActionManager.busy
                 onTriggered: telemetryStore.armed ? vehicleActionManager.takeoff() : vehicleActionManager.armAndTakeoff()
             }
@@ -58,6 +60,7 @@ Rectangle {
                 Layout.fillWidth: true
                 label: "Disarm"
                 iconSource: AssetRegistry.icons.iconoir_cancel
+                visible: accessManager.can("can_fly_manual")
                 enabled: sessionManager.operationsAllowed && vehicleManager.connected && !vehicleActionManager.busy && telemetryStore.armed
                 onTriggered: vehicleActionManager.disarm()
             }
@@ -66,6 +69,7 @@ Rectangle {
                 label: "Land"
                 iconSource: AssetRegistry.icons.iconamoon_arrow_up_2
                 iconRotation: 180
+                visible: accessManager.can("can_fly_manual")
                 enabled: sessionManager.operationsAllowed && vehicleManager.connected && !vehicleActionManager.busy
                 onTriggered: vehicleActionManager.land()
             }
@@ -73,6 +77,7 @@ Rectangle {
                 Layout.fillWidth: true
                 label: "RTH"
                 iconSource: AssetRegistry.icons.lucide_route
+                visible: accessManager.can("can_fly_manual")
                 enabled: sessionManager.operationsAllowed && vehicleManager.connected && !vehicleActionManager.busy
                 onTriggered: vehicleActionManager.returnToLaunch()
             }

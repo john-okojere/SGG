@@ -2,6 +2,7 @@
 
 #include "MavsdkVehicleManager.h"
 #include "../auth/SessionManager.h"
+#include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
 #include "../flight/PreflightChecklistManager.h"
 #include "../sync/PilotActionSyncManager.h"
@@ -16,6 +17,7 @@ VehicleActionManager::VehicleActionManager(MavsdkVehicleManager *vehicle,
                                            SessionManager *session,
                                            PilotActionSyncManager *pilotActions,
                                            PreflightChecklistManager *preflight,
+                                           AccessManager *access,
                                            GcsEventSyncManager *events,
                                            QObject *parent)
     : QObject(parent),
@@ -23,6 +25,7 @@ VehicleActionManager::VehicleActionManager(MavsdkVehicleManager *vehicle,
       m_session(session),
       m_pilotActions(pilotActions),
       m_preflight(preflight),
+      m_access(access),
       m_events(events)
 {
 }
@@ -52,7 +55,7 @@ QString VehicleActionManager::status() const { return m_status; }
 
 void VehicleActionManager::armAndTakeoff()
 {
-    if (!canCommandVehicle(QStringLiteral("arm and take off"))) {
+    if (!canCommandVehicle(QStringLiteral("arm and take off"), QStringLiteral("manual_flight"))) {
         return;
     }
     setBusy(true);
@@ -87,7 +90,7 @@ void VehicleActionManager::armAndTakeoff()
 
 void VehicleActionManager::arm()
 {
-    if (!canCommandVehicle(QStringLiteral("arm"))) {
+    if (!canCommandVehicle(QStringLiteral("arm"), QStringLiteral("manual_flight"))) {
         return;
     }
     setBusy(true);
@@ -107,6 +110,7 @@ void VehicleActionManager::arm()
 void VehicleActionManager::takeoff()
 {
     runAction(QStringLiteral("take off"),
+              QStringLiteral("manual_flight"),
               QStringLiteral("takeoff_started"),
               QStringLiteral("Aircraft takeoff in progress"),
               QStringLiteral("Takeoff failed"),
@@ -118,6 +122,7 @@ void VehicleActionManager::takeoff()
 void VehicleActionManager::disarm()
 {
     runAction(QStringLiteral("disarm"),
+              QStringLiteral("manual_flight"),
               QStringLiteral("vehicle_disarm"),
               QStringLiteral("Aircraft disarmed"),
               QStringLiteral("Disarm failed"),
@@ -129,6 +134,7 @@ void VehicleActionManager::disarm()
 void VehicleActionManager::land()
 {
     runAction(QStringLiteral("land"),
+              QStringLiteral("manual_flight"),
               QStringLiteral("land_requested"),
               QStringLiteral("Land command accepted"),
               QStringLiteral("Land command failed"),
@@ -140,6 +146,7 @@ void VehicleActionManager::land()
 void VehicleActionManager::returnToLaunch()
 {
     runAction(QStringLiteral("return to home"),
+              QStringLiteral("manual_flight"),
               QStringLiteral("return_to_home_requested"),
               QStringLiteral("Return-to-home command accepted"),
               QStringLiteral("Return-to-home command failed"),
@@ -151,6 +158,7 @@ void VehicleActionManager::returnToLaunch()
 void VehicleActionManager::holdPosition()
 {
     runAction(QStringLiteral("hold position"),
+              QStringLiteral("manual_flight"),
               QStringLiteral("vehicle_hold"),
               QStringLiteral("Hold position command accepted"),
               QStringLiteral("Hold position command failed"),
@@ -162,6 +170,7 @@ void VehicleActionManager::holdPosition()
 void VehicleActionManager::emergencyStop()
 {
     runAction(QStringLiteral("emergency stop"),
+              QStringLiteral("emergency_stop"),
               QStringLiteral("emergency_stop_requested"),
               QStringLiteral("Emergency stop accepted"),
               QStringLiteral("Emergency stop failed"),
@@ -197,8 +206,15 @@ void VehicleActionManager::setStatus(const QString &status)
     emit actionChanged();
 }
 
-bool VehicleActionManager::canCommandVehicle(const QString &actionName)
+bool VehicleActionManager::canCommandVehicle(const QString &actionName, const QString &accessAction)
 {
+    if (m_access && !m_access->authorizeAction(accessAction,
+                                               QVariantMap{{QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()},
+                                                           {QStringLiteral("command"), actionName}},
+                                               QStringLiteral("Cannot %1: blocked by local permissions").arg(actionName))) {
+        setStatus(QStringLiteral("Cannot %1: blocked by local permissions").arg(actionName));
+        return false;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         setStatus(QStringLiteral("Cannot %1: device approval required").arg(actionName));
         return false;
@@ -218,13 +234,14 @@ bool VehicleActionManager::canCommandVehicle(const QString &actionName)
 }
 
 void VehicleActionManager::runAction(const QString &actionName,
+                                     const QString &accessAction,
                                      const QString &eventType,
                                      const QString &successStatus,
                                      const QString &failureStatus,
                                      const std::function<void(std::shared_ptr<mavsdk::Action>,
                                                               mavsdk::Action::ResultCallback)> &command)
 {
-    if (!canCommandVehicle(actionName)) {
+    if (!canCommandVehicle(actionName, accessAction)) {
         return;
     }
     setBusy(true);

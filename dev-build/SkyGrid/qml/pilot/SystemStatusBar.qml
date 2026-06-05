@@ -41,13 +41,18 @@ Rectangle {
         Button {
             Layout.preferredWidth: 150
             Layout.preferredHeight: 42
+            visible: accessManager.can("can_view_vehicle_audit")
+            enabled: sessionManager.operationsAllowed
             onClicked: {
-                eventLogManager.logEvent("event_log_opened", "info", "Pilot opened event log")
-                root.eventLogRequested()
+                if (accessManager.canPerform("security_audit")) {
+                    root.eventLogRequested()
+                } else {
+                    accessManager.recordBlocked("security_audit", "Event log opening blocked by local permissions.", {})
+                }
             }
             background: Rectangle {
                 radius: 6
-                color: parent.hovered ? "#f7f1fd" : "#ffffff"
+                color: parent.enabled && parent.hovered ? "#f7f1fd" : "#ffffff"
                 border.color: "#5b22a8"
             }
             contentItem: Row {

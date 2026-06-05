@@ -1,0 +1,260 @@
+{
+    "classes": [
+        {
+            "className": "ManufacturerVehicleManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "name": "fetchVehicleProfiles",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "fetchProfileDetail",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "selectProfile",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profile",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "createVehicleProfile",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "profile",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "updateVehicleProfile",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "uid",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "autopilot",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "bindFlightController",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "mapping",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "saveRcMapping",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "snapshot",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "saveParameterSnapshot",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "organizationId",
+                            "type": "QVariant"
+                        },
+                        {
+                            "name": "notes",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "releaseVehicleToOrganization",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "lockVehicle",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "profileId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "fetchVehicleAudit",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "loading",
+                    "notify": "stateChanged",
+                    "read": "loading",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "status",
+                    "notify": "stateChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "error",
+                    "notify": "stateChanged",
+                    "read": "error",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "profiles",
+                    "notify": "dataChanged",
+                    "read": "profiles",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "selectedProfile",
+                    "notify": "dataChanged",
+                    "read": "selectedProfile",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "auditRecords",
+                    "notify": "dataChanged",
+                    "read": "auditRecords",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ManufacturerVehicleManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "stateChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "dataChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ManufacturerVehicleManager.h",
+    "outputRevision": 68
+}

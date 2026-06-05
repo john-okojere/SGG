@@ -1,0 +1,447 @@
+{
+    "classes": [
+        {
+            "className": "AccessManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "bootstrap",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "applyBootstrap",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "clearAccess",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "clearAccess",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "trusted",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "reachable",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setSessionState",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "trusted",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "reachable",
+                            "type": "bool"
+                        }
+                    ],
+                    "name": "setSessionState",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "permission",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "can",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "permissions",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "name": "canAny",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "module",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "canModule",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "canPerform",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aircraftId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "canAccessAircraft",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "missionId",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "name": "canAccessMission",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aircraft",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "name": "filterAircraft",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "missions",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "name": "filterMissions",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "context",
+                            "type": "QVariantMap"
+                        },
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "authorizeAction",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "context",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "authorizeAction",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "authorizeAction",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "context",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "recordAllowed",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "recordAllowed",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "context",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "name": "recordBlocked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "recordBlocked",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "accessLoaded",
+                    "notify": "accessChanged",
+                    "read": "accessLoaded",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "sessionTrusted",
+                    "notify": "accessChanged",
+                    "read": "sessionTrusted",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "offlineAuthorizationValid",
+                    "notify": "accessChanged",
+                    "read": "offlineAuthorizationValid",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "role",
+                    "notify": "accessChanged",
+                    "read": "role",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "roles",
+                    "notify": "accessChanged",
+                    "read": "roles",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "permissions",
+                    "notify": "accessChanged",
+                    "read": "permissions",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "name": "allowedModules",
+                    "notify": "accessChanged",
+                    "read": "allowedModules",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
+                    "name": "organizationId",
+                    "notify": "accessChanged",
+                    "read": "organizationId",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 8,
+                    "name": "sessionStatus",
+                    "notify": "accessChanged",
+                    "read": "sessionStatus",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 9,
+                    "name": "deviceSummary",
+                    "notify": "accessChanged",
+                    "read": "deviceSummary",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 10,
+                    "name": "status",
+                    "notify": "accessChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "AccessManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "accessChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "reason",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "accessRevoked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "AccessManager.h",
+    "outputRevision": 68
+}

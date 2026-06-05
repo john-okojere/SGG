@@ -7,6 +7,7 @@
 #include <QTimer>
 
 class ApiClient;
+class AccessManager;
 class AppState;
 class FlightSessionSyncManager;
 class FlightStatsManager;
@@ -44,6 +45,7 @@ public:
                                   FlightSessionSyncManager *flightSessions,
                                   WebSocketClient *websocket,
                                   LocalSyncCache *cache,
+                                  AccessManager *access = nullptr,
                                   QObject *parent = nullptr);
 
     bool uploading() const;
@@ -94,6 +96,7 @@ private:
     FlightSessionSyncManager *m_flightSessions = nullptr;
     WebSocketClient *m_websocket = nullptr;
     LocalSyncCache *m_cache = nullptr;
+    AccessManager *m_access = nullptr;
     QTimer m_timer;
     bool m_uploading = false;
     bool m_gazeboMode = true;

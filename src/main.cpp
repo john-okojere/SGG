@@ -41,12 +41,14 @@
 #include "flight/PostMissionSummaryManager.h"
 #include "flight/PreflightChecklistManager.h"
 #include "flight/ManualControlManager.h"
+#include "manufacturer/ManufacturerVehicleManager.h"
 #include "map/TileCacheManager.h"
 #include "network/ApiClient.h"
 #include "network/WebSocketClient.h"
 #include "preferences/PreferencesManager.h"
 #include "profile/OperatorStateManager.h"
 #include "profile/ProfileManager.h"
+#include "security/AccessManager.h"
 #include "security/BackendTrustManager.h"
 #include "security/DeviceManager.h"
 #include "security/SecureStorage.h"
@@ -178,20 +180,41 @@ void applyPortableConfigDefaults()
 
     QSettings settings(configPath, QSettings::IniFormat);
     const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    const QStringList keys{
-        QStringLiteral("SKYGRID_BACKEND_URL"),
-        QStringLiteral("SKYGRID_MAVSDK_URLS"),
-        QStringLiteral("SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS"),
-        QStringLiteral("SKYGRID_PERFORMANCE_MODE")
+    const QHash<QString, QStringList> keys{
+        {QStringLiteral("SKYGRID_API_BASE_URL"),
+         {QStringLiteral("SKYGRID_API_BASE_URL"),
+          QStringLiteral("backend/api_base_url"),
+          QStringLiteral("SkyGrid/SKYGRID_API_BASE_URL")}},
+        {QStringLiteral("SKYGRID_WS_BASE_URL"),
+         {QStringLiteral("SKYGRID_WS_BASE_URL"),
+          QStringLiteral("backend/ws_base_url"),
+          QStringLiteral("SkyGrid/SKYGRID_WS_BASE_URL")}},
+        {QStringLiteral("SKYGRID_BACKEND_URL"),
+         {QStringLiteral("SKYGRID_BACKEND_URL"),
+          QStringLiteral("backend/backend_url"),
+          QStringLiteral("SkyGrid/SKYGRID_BACKEND_URL")}},
+        {QStringLiteral("SKYGRID_MAVSDK_URLS"),
+         {QStringLiteral("SKYGRID_MAVSDK_URLS"),
+          QStringLiteral("SkyGrid/SKYGRID_MAVSDK_URLS")}},
+        {QStringLiteral("SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS"),
+         {QStringLiteral("SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS"),
+          QStringLiteral("SkyGrid/SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS")}},
+        {QStringLiteral("SKYGRID_PERFORMANCE_MODE"),
+         {QStringLiteral("SKYGRID_PERFORMANCE_MODE"),
+          QStringLiteral("SkyGrid/SKYGRID_PERFORMANCE_MODE")}}
     };
 
-    for (const QString &key : keys) {
+    for (auto it = keys.constBegin(); it != keys.constEnd(); ++it) {
+        const QString &key = it.key();
         if (env.contains(key)) {
             continue;
         }
-        QVariant value = settings.value(key);
-        if (!value.isValid()) {
-            value = settings.value(QStringLiteral("SkyGrid/") + key);
+        QVariant value;
+        for (const QString &candidate : it.value()) {
+            value = settings.value(candidate);
+            if (value.isValid()) {
+                break;
+            }
         }
         const QString text = value.toString().trimmed();
         if (!text.isEmpty()) {
@@ -237,7 +260,11 @@ int main(int argc, char *argv[])
     OperatorStateManager operatorStateManager(&localSyncCache);
     PreferencesManager preferencesManager(&localSyncCache);
     GcsEventSyncManager gcsEventSyncManager(&apiClient, &sessionManager, &localSyncCache);
-    EventLogManager eventLogManager(&gcsEventSyncManager, &localSyncCache);
+    AccessManager accessManager(&localSyncCache);
+    accessManager.setEventSyncManager(&gcsEventSyncManager);
+    gcsEventSyncManager.setAccessManager(&accessManager);
+    appState.setAccessManager(&accessManager);
+    EventLogManager eventLogManager(&gcsEventSyncManager, &localSyncCache, &accessManager);
     WeatherManager weatherManager;
     WindTelemetryManager windTelemetryManager;
     WindCheckManager windCheckManager(&weatherManager, &windTelemetryManager);
@@ -250,7 +277,8 @@ int main(int argc, char *argv[])
                                                         &weatherManager,
                                                         &windCheckManager,
                                                         &gcsEventSyncManager);
-    MissionSyncManager missionSyncManager(&apiClient, &sessionManager, &localSyncCache, missionStore.plan(), &gcsEventSyncManager);
+    MissionSyncManager missionSyncManager(&apiClient, &sessionManager, &localSyncCache, missionStore.plan(), &accessManager, &gcsEventSyncManager);
+    ManufacturerVehicleManager manufacturerVehicleManager(&apiClient, &sessionManager, &accessManager, &gcsEventSyncManager);
     MissionPreviewManager missionPreviewManager(&apiClient, &sessionManager);
     FlightSessionSyncManager flightSessionSyncManager(&apiClient,
                                                       &sessionManager,
@@ -259,11 +287,12 @@ int main(int argc, char *argv[])
                                                       &appState,
                                                       &telemetry,
                                                       &gcsEventSyncManager,
-                                                      &localSyncCache);
-    PilotActionSyncManager pilotActionSyncManager(&flightSessionSyncManager, &gcsEventSyncManager, &localSyncCache);
+                                                      &localSyncCache,
+                                                      &accessManager);
+    PilotActionSyncManager pilotActionSyncManager(&flightSessionSyncManager, &gcsEventSyncManager, &localSyncCache, &accessManager);
     ProfileSyncManager profileSyncManager(&apiClient, &sessionManager, &profileManager);
     PreferencesSyncManager preferencesSyncManager(&apiClient, &sessionManager, &preferencesManager);
-    MavsdkVehicleManager vehicleManager(&telemetry);
+    MavsdkVehicleManager vehicleManager(&telemetry, &accessManager);
     HomePositionManager homePositionManager(&telemetry);
     MissionUploadManager missionUploadManager(&vehicleManager,
                                               &telemetry,
@@ -271,6 +300,7 @@ int main(int argc, char *argv[])
                                               &apiClient,
                                               &sessionManager,
                                               &preflightChecklistManager,
+                                              &accessManager,
                                               &gcsEventSyncManager);
     MissionExecutionManager missionExecutionManager(&vehicleManager,
                                                     missionStore.plan(),
@@ -278,19 +308,22 @@ int main(int argc, char *argv[])
                                                     &sessionManager,
                                                     &flightSessionSyncManager,
                                                     &preflightChecklistManager,
+                                                    &accessManager,
                                                     &gcsEventSyncManager);
     VehicleActionManager vehicleActionManager(&vehicleManager,
                                               &sessionManager,
                                               &pilotActionSyncManager,
                                               &preflightChecklistManager,
+                                              &accessManager,
                                               &gcsEventSyncManager);
-    ManualControlManager manualControlManager(&vehicleManager, &sessionManager, &gcsEventSyncManager);
+    ManualControlManager manualControlManager(&vehicleManager, &sessionManager, &accessManager, &gcsEventSyncManager);
     FlightStatsManager flightStatsManager(&telemetry,
                                           &flightSessionSyncManager,
                                           &appState,
                                           missionStore.plan(),
                                           &gcsEventSyncManager,
-                                          &localSyncCache);
+                                          &localSyncCache,
+                                          &accessManager);
     TelemetrySyncManager telemetrySyncManager(&apiClient,
                                               &sessionManager,
                                               &missionSyncManager,
@@ -303,7 +336,8 @@ int main(int argc, char *argv[])
                                               &homePositionManager,
                                               &flightSessionSyncManager,
                                               &webSocketClient,
-                                              &localSyncCache);
+                                              &localSyncCache,
+                                              &accessManager);
     PostMissionSummaryManager postMissionSummaryManager(&apiClient,
                                                         &sessionManager,
                                                         &localSyncCache,
@@ -313,7 +347,8 @@ int main(int argc, char *argv[])
                                                         &telemetrySyncManager,
                                                         &missionSyncManager,
                                                         &profileManager,
-                                                        &telemetry);
+                                                        &telemetry,
+                                                        &accessManager);
     QObject::connect(&missionExecutionManager,
                      &MissionExecutionManager::missionFinished,
                      &postMissionSummaryManager,
@@ -445,10 +480,12 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Theme", &theme);
     engine.rootContext()->setContextProperty("appState", &appState);
     engine.rootContext()->setContextProperty("authManager", &authManager);
+    engine.rootContext()->setContextProperty("accessManager", &accessManager);
     engine.rootContext()->setContextProperty("backendTrustManager", &backendTrust);
     engine.rootContext()->setContextProperty("deviceManager", &deviceManager);
     engine.rootContext()->setContextProperty("localSyncCache", &localSyncCache);
     engine.rootContext()->setContextProperty("missionSyncManager", &missionSyncManager);
+    engine.rootContext()->setContextProperty("manufacturerVehicleManager", &manufacturerVehicleManager);
     engine.rootContext()->setContextProperty("missionPreviewManager", &missionPreviewManager);
     engine.rootContext()->setContextProperty("missionUploadManager", &missionUploadManager);
     engine.rootContext()->setContextProperty("missionExecutionManager", &missionExecutionManager);
@@ -486,15 +523,22 @@ int main(int argc, char *argv[])
     QObject::connect(&missionStore, &MissionStore::overlayInputsChanged, &mapState, &MapState::refreshOverlay);
     QObject::connect(&authManager, &AuthManager::loginSucceeded, &sessionManager, &SessionManager::validateSession);
     QObject::connect(&authManager, &AuthManager::operationsBlocked, &sessionManager, &SessionManager::blockOperations);
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &accessManager, &AccessManager::clearAccess);
     QObject::connect(&sessionManager, &SessionManager::forceLogout, &authManager, &AuthManager::logout);
+    QObject::connect(&sessionManager, &SessionManager::forceLogout, &accessManager, &AccessManager::clearAccess);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &profileSyncManager, &ProfileSyncManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &preferencesSyncManager, &PreferencesSyncManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &operatorStateManager, &OperatorStateManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &flightSessionSyncManager, &FlightSessionSyncManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &accessManager, &AccessManager::applyBootstrap);
+    QObject::connect(&accessManager, &AccessManager::accessChanged, &appState, &AppState::resolveWorkspaceForAccess);
     QObject::connect(&preferencesManager, &PreferencesManager::preferencesChanged, &mapProvider, [&]() {
         mapProvider.setLayerMode(preferencesManager.mapLayer());
     });
     QObject::connect(&sessionManager, &SessionManager::sessionStateChanged, &missionSyncManager, [&]() {
+        accessManager.setSessionState(sessionManager.operationsAllowed(),
+                                      sessionManager.controlCenterReachable(),
+                                      sessionManager.blockReason());
         if (sessionManager.operationsAllowed()) {
             sessionManager.startMonitoring();
             gcsEventSyncManager.recordEvent(QStringLiteral("bootstrap_sync"), QStringLiteral("info"), QStringLiteral("Control Center session trusted"));
@@ -537,7 +581,6 @@ int main(int argc, char *argv[])
         }
     });
 
-    vehicleManager.startDiscovery();
     QObject::connect(&vehicleManager, &MavsdkVehicleManager::systemReady, &gcsEventSyncManager, [&]() {
         gcsEventSyncManager.recordEvent(QStringLiteral("vehicle_connected"), QStringLiteral("info"), QStringLiteral("MAVSDK vehicle connected"));
     });

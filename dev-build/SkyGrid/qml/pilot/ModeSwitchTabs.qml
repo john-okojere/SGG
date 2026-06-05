@@ -31,6 +31,7 @@ Rectangle {
         Rectangle { Layout.preferredWidth: 1; Layout.fillHeight: true; color: "#ece4f3" }
         TabButton {
             Layout.fillWidth: true
+            visible: accessManager.can("can_fly_manual")
             label: "MANUAL FLIGHT"
             iconSource: AssetRegistry.icons.plane
             active: root.activeIndex === 1
@@ -49,7 +50,7 @@ Rectangle {
             onWheel: function(event) { event.accepted = true }
         }
         background: Rectangle {
-            color: tab.active ? "#f7f1fd" : (tab.hovered ? "#fbf8fe" : "#ffffff")
+            color: tab.active ? "#f7f1fd" : (tab.enabled && tab.hovered ? "#fbf8fe" : "#ffffff")
             radius: 7
             Rectangle {
                 anchors.left: parent.left
@@ -72,7 +73,7 @@ Rectangle {
             }
             Text {
                 text: tab.label
-                color: tab.active ? "#2e005f" : "#111111"
+                color: tab.enabled ? (tab.active ? "#2e005f" : "#111111") : "#9b94a6"
                 font.pixelSize: 12
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter

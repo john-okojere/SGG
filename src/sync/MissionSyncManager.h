@@ -6,6 +6,7 @@
 #include <QVariantMap>
 
 class ApiClient;
+class AccessManager;
 class LocalSyncCache;
 class GcsEventSyncManager;
 class MissionPlanModel;
@@ -17,6 +18,7 @@ class MissionSyncManager : public QObject
     Q_PROPERTY(bool syncing READ syncing NOTIFY syncChanged)
     Q_PROPERTY(QString status READ status NOTIFY syncChanged)
     Q_PROPERTY(QVariantMap organization READ organization NOTIFY syncChanged)
+    Q_PROPERTY(QVariantMap manufacturer READ manufacturer NOTIFY syncChanged)
     Q_PROPERTY(QVariantMap pilotProfile READ pilotProfile NOTIFY syncChanged)
     Q_PROPERTY(QVariantMap deviceSummary READ deviceSummary NOTIFY syncChanged)
     Q_PROPERTY(QVariantMap sessionStatus READ sessionStatus NOTIFY syncChanged)
@@ -24,18 +26,21 @@ class MissionSyncManager : public QObject
     Q_PROPERTY(QVariantList approvedMissions READ approvedMissions NOTIFY syncChanged)
     Q_PROPERTY(QVariantList activeMissions READ activeMissions NOTIFY syncChanged)
     Q_PROPERTY(QVariantList missionHistory READ missionHistory NOTIFY syncChanged)
+    Q_PROPERTY(QVariantList vehicleProfiles READ vehicleProfiles NOTIFY syncChanged)
 
 public:
     explicit MissionSyncManager(ApiClient *api,
                                 SessionManager *session,
                                 LocalSyncCache *cache,
                                 MissionPlanModel *plan,
+                                AccessManager *access = nullptr,
                                 GcsEventSyncManager *events = nullptr,
                                 QObject *parent = nullptr);
 
     bool syncing() const;
     QString status() const;
     QVariantMap organization() const;
+    QVariantMap manufacturer() const;
     QVariantMap pilotProfile() const;
     QVariantMap deviceSummary() const;
     QVariantMap sessionStatus() const;
@@ -43,6 +48,7 @@ public:
     QVariantList approvedMissions() const;
     QVariantList activeMissions() const;
     QVariantList missionHistory() const;
+    QVariantList vehicleProfiles() const;
 
     Q_INVOKABLE void bootstrap();
     Q_INVOKABLE void syncMissions();
@@ -64,6 +70,7 @@ private:
     void setStatus(const QString &status);
 
     ApiClient *m_api = nullptr;
+    AccessManager *m_access = nullptr;
     SessionManager *m_session = nullptr;
     LocalSyncCache *m_cache = nullptr;
     MissionPlanModel *m_plan = nullptr;
@@ -72,6 +79,7 @@ private:
     QString m_status = "Not synchronized";
     QDateTime m_lastBootstrapAt;
     QVariantMap m_organization;
+    QVariantMap m_manufacturer;
     QVariantMap m_pilotProfile;
     QVariantMap m_deviceSummary;
     QVariantMap m_sessionStatus;
@@ -79,4 +87,5 @@ private:
     QVariantList m_approvedMissions;
     QVariantList m_activeMissions;
     QVariantList m_missionHistory;
+    QVariantList m_vehicleProfiles;
 };

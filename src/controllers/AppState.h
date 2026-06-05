@@ -2,11 +2,15 @@
 
 #include <QObject>
 #include <QString>
+#include <QVariantMap>
+
+class AccessManager;
 
 class AppState : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString currentScreen READ currentScreen NOTIFY navigationChanged)
+    Q_PROPERTY(QString currentManufacturerTool READ currentManufacturerTool NOTIFY manufacturerToolChanged)
     Q_PROPERTY(QString currentMissionType READ currentMissionType NOTIFY missionChanged)
     Q_PROPERTY(QString operationalMode READ operationalMode WRITE setOperationalMode NOTIFY operationalModeChanged)
     Q_PROPERTY(QString selectedMissionId READ selectedMissionId NOTIFY missionChanged)
@@ -17,8 +21,10 @@ class AppState : public QObject
 
 public:
     explicit AppState(QObject *parent = nullptr);
+    void setAccessManager(AccessManager *access);
 
     QString currentScreen() const;
+    QString currentManufacturerTool() const;
     QString currentMissionType() const;
     QString operationalMode() const;
     QString selectedMissionId() const;
@@ -39,6 +45,9 @@ public:
     Q_INVOKABLE void startMission(const QString &missionType);
     Q_INVOKABLE void openExistingMission(const QString &missionType, const QString &missionId);
     Q_INVOKABLE void startPilotMode();
+    Q_INVOKABLE void openManufacturerWorkspace();
+    Q_INVOKABLE void openManufacturerTool(const QString &tool);
+    Q_INVOKABLE void resolveWorkspaceForAccess();
     Q_INVOKABLE QString missionTitle() const;
 
 signals:
@@ -46,13 +55,22 @@ signals:
     void missionChanged();
     void operationalModeChanged();
     void toolChanged();
+    void manufacturerToolChanged();
     void selectedWaypointChanged();
     void selectedGeometryChanged();
     void panelChanged();
     void missionStarted(const QString &missionType);
 
 private:
+    bool authorize(const QString &action, const QString &message, const QVariantMap &context = {});
+    void applyOperationalMode(const QString &mode);
+    bool hasManufacturerAccess() const;
+    QString actionForManufacturerTool(const QString &tool) const;
+    QString defaultManufacturerTool() const;
+
+    AccessManager *m_access = nullptr;
     QString m_currentScreen = "home";
+    QString m_currentManufacturerTool = "vehicleConfiguration";
     QString m_currentMissionType;
     QString m_operationalMode = "mission";
     QString m_selectedMissionId;

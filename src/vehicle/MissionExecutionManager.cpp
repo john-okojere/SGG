@@ -5,6 +5,7 @@
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
 #include "../flight/PreflightChecklistManager.h"
+#include "../security/AccessManager.h"
 #include "../sync/FlightSessionSyncManager.h"
 #include "../sync/GcsEventSyncManager.h"
 
@@ -38,6 +39,7 @@ MissionExecutionManager::MissionExecutionManager(MavsdkVehicleManager *vehicle,
                                                  SessionManager *session,
                                                  FlightSessionSyncManager *flightSessions,
                                                  PreflightChecklistManager *preflight,
+                                                 AccessManager *access,
                                                  GcsEventSyncManager *events,
                                                  QObject *parent)
     : QObject(parent),
@@ -47,6 +49,7 @@ MissionExecutionManager::MissionExecutionManager(MavsdkVehicleManager *vehicle,
       m_session(session),
       m_flightSessions(flightSessions),
       m_preflight(preflight),
+      m_access(access),
       m_events(events)
 {
     const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -65,6 +68,19 @@ QString MissionExecutionManager::status() const { return m_status; }
 
 void MissionExecutionManager::startMission()
 {
+    QVariantMap context{
+        {QStringLiteral("mission_id"), m_plan ? m_plan->missionId() : QString()},
+        {QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()}
+    };
+    if (m_access && !m_access->authorizeAction(QStringLiteral("mission_start"),
+                                               context,
+                                               QStringLiteral("Mission start blocked by local permissions."))) {
+        const QString message = QStringLiteral("Mission start blocked by local permissions.");
+        setStatus(message);
+        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
+        emit missionStartFailed(message);
+        return;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         const QString message = QStringLiteral("Device approval required before aircraft upload.");
         setStatus(message);
@@ -330,6 +346,21 @@ QVariantMap MissionExecutionManager::finishPayload(const QString &status, const 
 
 void MissionExecutionManager::postExecutionAction(const QString &action, const QJsonObject &payload)
 {
+    if (m_access) {
+        QString accessAction = QStringLiteral("mission_start");
+        if (action == QStringLiteral("finish-execution")) {
+            accessAction = payload.value(QStringLiteral("success")).toBool()
+                ? QStringLiteral("mission_finish")
+                : QStringLiteral("mission_abort");
+        }
+        if (!m_access->canPerform(accessAction)) {
+            m_access->recordBlocked(accessAction,
+                                    QStringLiteral("Execution sync blocked by local permissions."),
+                                    QVariantMap{{QStringLiteral("mission_id"), m_plan ? m_plan->missionId() : QString()},
+                                                {QStringLiteral("execution_action"), action}});
+            return;
+        }
+    }
     if (!m_api || !m_session || !m_session->operationsAllowed() || !m_plan || m_plan->missionId().isEmpty() || m_plan->createdLocally()) {
         return;
     }

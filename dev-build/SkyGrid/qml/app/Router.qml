@@ -2,6 +2,7 @@ import QtQuick
 import "../screens"
 import "../mission"
 import "../pilot"
+import "../manufacturer"
 
 Item {
     id: root
@@ -28,6 +29,14 @@ Item {
         active: appState.currentScreen === "planner" && appState.operationalMode === "pilot"
         visible: active
         sourceComponent: pilotComponent
+    }
+
+    Loader {
+        id: manufacturerLoader
+        anchors.fill: parent
+        active: appState.currentScreen === "manufacturer"
+        visible: active
+        sourceComponent: manufacturerComponent
     }
 
     Loader {
@@ -64,6 +73,13 @@ Item {
     Component {
         id: pilotComponent
         ManualFlightScreen {
+            anchors.fill: parent
+        }
+    }
+
+    Component {
+        id: manufacturerComponent
+        ManufacturerWorkspaceScreen {
             anchors.fill: parent
         }
     }

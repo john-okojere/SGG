@@ -9,6 +9,7 @@
 #include <mavsdk/plugins/action/action.hpp>
 
 class GcsEventSyncManager;
+class AccessManager;
 class MavsdkVehicleManager;
 class PilotActionSyncManager;
 class PreflightChecklistManager;
@@ -26,6 +27,7 @@ public:
                                   SessionManager *session,
                                   PilotActionSyncManager *pilotActions,
                                   PreflightChecklistManager *preflight,
+                                  AccessManager *access,
                                   GcsEventSyncManager *events,
                                   QObject *parent = nullptr);
 
@@ -49,8 +51,9 @@ private:
     void setBusy(bool busy);
     void setTakeoffReady(bool ready);
     void setStatus(const QString &status);
-    bool canCommandVehicle(const QString &actionName);
+    bool canCommandVehicle(const QString &actionName, const QString &accessAction);
     void runAction(const QString &actionName,
+                   const QString &accessAction,
                    const QString &eventType,
                    const QString &successStatus,
                    const QString &failureStatus,
@@ -61,6 +64,7 @@ private:
     SessionManager *m_session = nullptr;
     PilotActionSyncManager *m_pilotActions = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
+    AccessManager *m_access = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_busy = false;
     bool m_takeoffReady = false;

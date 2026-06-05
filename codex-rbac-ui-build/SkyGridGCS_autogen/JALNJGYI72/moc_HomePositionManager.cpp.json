@@ -1,0 +1,169 @@
+{
+    "classes": [
+        {
+            "className": "HomePositionManager",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "source",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setHome",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        }
+                    ],
+                    "name": "setHome",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "clearHome",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "source",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "updateHomeToCurrentTelemetry",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "name": "updateHomeToCurrentTelemetry",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        }
+                    ],
+                    "name": "distanceFromHomeMeters",
+                    "returnType": "double"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "hasHome",
+                    "notify": "homeChanged",
+                    "read": "hasHome",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "homeLatitude",
+                    "notify": "homeChanged",
+                    "read": "homeLatitude",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "homeLongitude",
+                    "notify": "homeChanged",
+                    "read": "homeLongitude",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "source",
+                    "notify": "homeChanged",
+                    "read": "source",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "locked",
+                    "notify": "homeChanged",
+                    "read": "locked",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setLocked"
+                }
+            ],
+            "qualifiedClassName": "HomePositionManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "homeChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "HomePositionManager.h",
+    "outputRevision": 68
+}

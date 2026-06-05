@@ -182,6 +182,7 @@ ColumnLayout {
                     secondary: true
                     text: "Hold"
                     iconSource: AssetRegistry.icons.boxicons_cursor_pointer
+                    visible: accessManager.can("can_fly_manual")
                     enabled: vehicleManager.connected
                     onClicked: {
                         manualControlManager.neutral()
@@ -192,6 +193,7 @@ ColumnLayout {
                     Layout.fillWidth: true
                     text: "Emergency Stop"
                     iconSource: AssetRegistry.icons.iconoir_cancel
+                    visible: accessManager.can("can_fly_manual")
                     enabled: vehicleManager.connected
                     onClicked: vehicleActionManager.emergencyStop()
                 }
@@ -233,6 +235,7 @@ ColumnLayout {
 
         Layout.preferredWidth: 74
         Layout.preferredHeight: 34
+        visible: accessManager.can("can_fly_manual")
         enabled: vehicleManager.connected && sessionManager.operationsAllowed
         hoverEnabled: true
         opacity: enabled ? 1 : 0.46

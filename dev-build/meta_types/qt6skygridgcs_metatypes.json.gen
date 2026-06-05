@@ -592,6 +592,453 @@
     {
         "classes": [
             {
+                "className": "AccessManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "bootstrap",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "applyBootstrap",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "clearAccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "clearAccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "trusted",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "reachable",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setSessionState",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "trusted",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "reachable",
+                                "type": "bool"
+                            }
+                        ],
+                        "name": "setSessionState",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "permission",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "can",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "permissions",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "name": "canAny",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "module",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "canModule",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "canPerform",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "aircraftId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "canAccessAircraft",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "missionId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "canAccessMission",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "aircraft",
+                                "type": "QVariantList"
+                            }
+                        ],
+                        "name": "filterAircraft",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "missions",
+                                "type": "QVariantList"
+                            }
+                        ],
+                        "name": "filterMissions",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "context",
+                                "type": "QVariantMap"
+                            },
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "authorizeAction",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "context",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "authorizeAction",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "authorizeAction",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "context",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "recordAllowed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "recordAllowed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "context",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "recordBlocked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "recordBlocked",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "accessLoaded",
+                        "notify": "accessChanged",
+                        "read": "accessLoaded",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "sessionTrusted",
+                        "notify": "accessChanged",
+                        "read": "sessionTrusted",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "offlineAuthorizationValid",
+                        "notify": "accessChanged",
+                        "read": "offlineAuthorizationValid",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "role",
+                        "notify": "accessChanged",
+                        "read": "role",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "roles",
+                        "notify": "accessChanged",
+                        "read": "roles",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "permissions",
+                        "notify": "accessChanged",
+                        "read": "permissions",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "name": "allowedModules",
+                        "notify": "accessChanged",
+                        "read": "allowedModules",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
+                        "name": "organizationId",
+                        "notify": "accessChanged",
+                        "read": "organizationId",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 8,
+                        "name": "sessionStatus",
+                        "notify": "accessChanged",
+                        "read": "sessionStatus",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 9,
+                        "name": "deviceSummary",
+                        "notify": "accessChanged",
+                        "read": "deviceSummary",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 10,
+                        "name": "status",
+                        "notify": "accessChanged",
+                        "read": "status",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "AccessManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "accessChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "accessRevoked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "AccessManager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "BackendTrustManager",
                 "methods": [
                     {
@@ -603,6 +1050,17 @@
                             }
                         ],
                         "name": "setBaseUrl",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "webSocketUrl",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setWebSocketUrl",
                         "returnType": "void"
                     }
                 ],
@@ -830,6 +1288,11 @@
                         ],
                         "name": "logEvent",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "authorizeLogView",
+                        "returnType": "bool"
                     },
                     {
                         "access": "public",
@@ -4668,6 +5131,27 @@
                     },
                     {
                         "access": "public",
+                        "name": "openManufacturerWorkspace",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tool",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "openManufacturerTool",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "resolveWorkspaceForAccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
                         "name": "missionTitle",
                         "returnType": "QString"
                     }
@@ -4693,6 +5177,20 @@
                         "designable": true,
                         "final": false,
                         "index": 1,
+                        "name": "currentManufacturerTool",
+                        "notify": "manufacturerToolChanged",
+                        "read": "currentManufacturerTool",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
                         "name": "currentMissionType",
                         "notify": "missionChanged",
                         "read": "currentMissionType",
@@ -4706,7 +5204,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 2,
+                        "index": 3,
                         "name": "operationalMode",
                         "notify": "operationalModeChanged",
                         "read": "operationalMode",
@@ -4721,7 +5219,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 3,
+                        "index": 4,
                         "name": "selectedMissionId",
                         "notify": "missionChanged",
                         "read": "selectedMissionId",
@@ -4735,7 +5233,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 4,
+                        "index": 5,
                         "name": "selectedTool",
                         "notify": "toolChanged",
                         "read": "selectedTool",
@@ -4750,7 +5248,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 5,
+                        "index": 6,
                         "name": "selectedWaypointIndex",
                         "notify": "selectedWaypointChanged",
                         "read": "selectedWaypointIndex",
@@ -4765,7 +5263,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 6,
+                        "index": 7,
                         "name": "selectedPolygonIndex",
                         "notify": "selectedGeometryChanged",
                         "read": "selectedPolygonIndex",
@@ -4780,7 +5278,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 7,
+                        "index": 8,
                         "name": "rightPanelCollapsed",
                         "notify": "panelChanged",
                         "read": "rightPanelCollapsed",
@@ -4812,6 +5310,11 @@
                     {
                         "access": "public",
                         "name": "toolChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "manufacturerToolChanged",
                         "returnType": "void"
                     },
                     {
@@ -6301,6 +6804,266 @@
     {
         "classes": [
             {
+                "className": "ManufacturerVehicleManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "fetchVehicleProfiles",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "fetchProfileDetail",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "selectProfile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profile",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "createVehicleProfile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "profile",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "updateVehicleProfile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "autopilot",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "bindFlightController",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "mapping",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "saveRcMapping",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "snapshot",
+                                "type": "QVariantMap"
+                            }
+                        ],
+                        "name": "saveParameterSnapshot",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "organizationId",
+                                "type": "QVariant"
+                            },
+                            {
+                                "name": "notes",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "releaseVehicleToOrganization",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "lockVehicle",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "profileId",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "name": "fetchVehicleAudit",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "loading",
+                        "notify": "stateChanged",
+                        "read": "loading",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "status",
+                        "notify": "stateChanged",
+                        "read": "status",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "error",
+                        "notify": "stateChanged",
+                        "read": "error",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "profiles",
+                        "notify": "dataChanged",
+                        "read": "profiles",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "selectedProfile",
+                        "notify": "dataChanged",
+                        "read": "selectedProfile",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "auditRecords",
+                        "notify": "dataChanged",
+                        "read": "auditRecords",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "ManufacturerVehicleManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "stateChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "dataChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ManufacturerVehicleManager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "ApiClient",
                 "object": true,
                 "properties": [
@@ -6982,6 +7745,20 @@
                         "designable": true,
                         "final": false,
                         "index": 3,
+                        "name": "manufacturer",
+                        "notify": "syncChanged",
+                        "read": "manufacturer",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
                         "name": "pilotProfile",
                         "notify": "syncChanged",
                         "read": "pilotProfile",
@@ -6995,7 +7772,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 4,
+                        "index": 5,
                         "name": "deviceSummary",
                         "notify": "syncChanged",
                         "read": "deviceSummary",
@@ -7009,7 +7786,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 5,
+                        "index": 6,
                         "name": "sessionStatus",
                         "notify": "syncChanged",
                         "read": "sessionStatus",
@@ -7023,7 +7800,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 6,
+                        "index": 7,
                         "name": "assignedAircraft",
                         "notify": "syncChanged",
                         "read": "assignedAircraft",
@@ -7037,7 +7814,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 7,
+                        "index": 8,
                         "name": "approvedMissions",
                         "notify": "syncChanged",
                         "read": "approvedMissions",
@@ -7051,7 +7828,7 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 8,
+                        "index": 9,
                         "name": "activeMissions",
                         "notify": "syncChanged",
                         "read": "activeMissions",
@@ -7065,10 +7842,24 @@
                         "constant": false,
                         "designable": true,
                         "final": false,
-                        "index": 9,
+                        "index": 10,
                         "name": "missionHistory",
                         "notify": "syncChanged",
                         "read": "missionHistory",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 11,
+                        "name": "vehicleProfiles",
+                        "notify": "syncChanged",
+                        "read": "vehicleProfiles",
                         "required": false,
                         "scriptable": true,
                         "stored": true,

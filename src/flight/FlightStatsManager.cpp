@@ -3,6 +3,7 @@
 #include "../cache/LocalSyncCache.h"
 #include "../controllers/AppState.h"
 #include "../models/MissionPlanModel.h"
+#include "../security/AccessManager.h"
 #include "../sync/FlightSessionSyncManager.h"
 #include "../sync/GcsEventSyncManager.h"
 #include "../vehicle/VehicleTelemetryModel.h"
@@ -20,11 +21,13 @@ FlightStatsManager::FlightStatsManager(VehicleTelemetryModel *telemetry,
                                        MissionPlanModel *plan,
                                        GcsEventSyncManager *events,
                                        LocalSyncCache *cache,
+                                       AccessManager *access,
                                        QObject *parent)
     : QObject(parent),
       m_telemetry(telemetry),
       m_flightSessions(flightSessions),
       m_appState(appState),
+      m_access(access),
       m_plan(plan),
       m_events(events),
       m_cache(cache)
@@ -69,6 +72,25 @@ void FlightStatsManager::startSession()
     if (m_active) {
         return;
     }
+    const bool pilotMode = !m_appState || m_appState->operationalMode() == QStringLiteral("pilot");
+    const QString accessAction = pilotMode ? QStringLiteral("manual_flight") : QStringLiteral("mission_start");
+    const QString missionId = m_plan ? m_plan->missionId() : QString();
+    if (!pilotMode && (!m_access || !m_access->canAccessMission(missionId))) {
+        if (m_access) {
+            m_access->recordBlocked(QStringLiteral("mission_start"),
+                                    QStringLiteral("Flight session mission is outside the local need-to-know scope."),
+                                    QVariantMap{{QStringLiteral("mission_id"), missionId}});
+        }
+        setStatus(QStringLiteral("Flight session start blocked by local mission scope."));
+        return;
+    }
+    if (!m_access || !m_access->authorizeAction(accessAction,
+                                                QVariantMap{{QStringLiteral("mode"), pilotMode ? QStringLiteral("PILOT") : QStringLiteral("MISSION")},
+                                                            {QStringLiteral("mission_id"), missionId}},
+                                                QStringLiteral("Flight session start blocked by local permissions."))) {
+        setStatus(QStringLiteral("Flight session start blocked by local permissions."));
+        return;
+    }
     m_active = true;
     if (m_flightSessions && !m_flightSessions->clientSessionId().isEmpty()) {
         m_flightSessionId = m_flightSessions->clientSessionId();
@@ -90,7 +112,6 @@ void FlightStatsManager::startSession()
     m_timer.start();
     setStatus(QStringLiteral("Pilot flight session active"));
     if (m_flightSessions && !m_flightSessions->active()) {
-        const bool pilotMode = !m_appState || m_appState->operationalMode() == QStringLiteral("pilot");
         if (pilotMode) {
             m_flightSessions->beginPilotSession(m_flightSessionId);
         } else {
@@ -120,17 +141,34 @@ void FlightStatsManager::endSession()
     if (!m_active) {
         return;
     }
+    const bool missionMode = m_plan && (m_plan->executionState() == QStringLiteral("executing")
+                                        || m_plan->executionState() == QStringLiteral("completed")
+                                        || m_plan->executionState() == QStringLiteral("failed"));
+    const QString accessAction = missionMode ? QStringLiteral("mission_finish") : QStringLiteral("manual_flight");
+    const QString missionId = m_plan ? m_plan->missionId() : QString();
+    if (missionMode && (!m_access || !m_access->canAccessMission(missionId))) {
+        if (m_access) {
+            m_access->recordBlocked(QStringLiteral("mission_finish"),
+                                    QStringLiteral("Flight session end mission is outside the local need-to-know scope."),
+                                    QVariantMap{{QStringLiteral("mission_id"), missionId}});
+        }
+        setStatus(QStringLiteral("Flight session end blocked by local mission scope."));
+        return;
+    }
+    if (!m_access || !m_access->authorizeAction(accessAction,
+                                                QVariantMap{{QStringLiteral("flight_session_id"), m_flightSessionId},
+                                                            {QStringLiteral("mission_id"), missionId}},
+                                                QStringLiteral("Flight session end blocked by local permissions."))) {
+        setStatus(QStringLiteral("Flight session end blocked by local permissions."));
+        return;
+    }
     tick();
     m_active = false;
     m_timer.stop();
     m_batteryEndPercent = m_telemetry ? m_telemetry->battery() : m_batteryEndPercent;
 
     m_endedAt = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs);
-    const QString operationMode = (m_plan && (m_plan->executionState() == QStringLiteral("executing")
-                                              || m_plan->executionState() == QStringLiteral("completed")
-                                              || m_plan->executionState() == QStringLiteral("failed")))
-        ? QStringLiteral("MISSION")
-        : QStringLiteral("PILOT");
+    const QString operationMode = missionMode ? QStringLiteral("MISSION") : QStringLiteral("PILOT");
     QVariantMap record{
         {QStringLiteral("operation_mode"), operationMode},
         {QStringLiteral("flight_session_id"), m_flightSessionId},

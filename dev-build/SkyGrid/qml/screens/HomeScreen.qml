@@ -94,20 +94,14 @@ Item {
     }
 
     function missionItems() {
+        if (!accessManager.can("can_plan_mission"))
+            return []
         var active = hasObject("missionSyncManager") ? safeList(missionSyncManager.activeMissions) : []
         var history = hasObject("missionSyncManager") ? safeList(missionSyncManager.missionHistory) : []
         var live = active.length > 0 ? active : (hasObject("missionSyncManager") ? safeList(missionSyncManager.approvedMissions) : [])
         var cached = hasObject("missionStore") ? safeList(missionStore.missionHistory) : []
         var source = history.length > 0 ? history : (live.length > 0 ? live : cached)
-        if (source.length > 0)
-            return source
-        return [
-            { name: "Border Patrol Sweep", mission_type: "Surveillance", date: "May 20, 2026 - 08:32", status: "Completed" },
-            { name: "Supply Drop Zone A", mission_type: "Logistics", date: "May 19, 2026 - 16:45", status: "Completed" },
-            { name: "Site Recon Alpha", mission_type: "Reconnaissance", date: "May 19, 2026 - 10:12", status: "Completed" },
-            { name: "Training Mission 04", mission_type: "Training", date: "May 18, 2026 - 14:33", status: "Completed" },
-            { name: "Perimeter Scan", mission_type: "Surveillance", date: "May 18, 2026 - 09:05", status: "Completed" }
-        ]
+        return source
     }
 
     function activeMissionItems() {
@@ -133,14 +127,34 @@ Item {
     }
 
     function aircraftItems() {
+        if (!accessManager.can("can_view_fleet") && !accessManager.can("can_stream_telemetry"))
+            return []
         var assigned = hasObject("missionSyncManager") ? safeList(missionSyncManager.assignedAircraft) : []
         if (assigned.length > 0)
             return assigned
-        var currentName = telemetryConnected() ? telemetryStore.aircraftId : "SkyGrid X8-01"
-        return [
-            { name: currentName, tail_number: "SGX8-01", battery_percent: telemetryConnected() ? telemetryStore.battery : 78, status: "Ready", link_quality: telemetryConnected() ? telemetryStore.transmission + "%" : "Strong" },
-            { name: "SkyGrid VTOL-03", tail_number: "SGVT-03", battery_percent: 89, status: "Ready", link_quality: "Strong" }
-        ]
+        if (telemetryConnected())
+            return [{ name: telemetryStore.aircraftId, tail_number: telemetryStore.aircraftId, battery_percent: telemetryStore.battery, status: "Connected", link_quality: telemetryStore.transmission + "%" }]
+        return []
+    }
+
+    function hasManufacturerAccess() {
+        return accessManager.canModule("manufacturer_dashboard")
+            || accessManager.canModule("manufacturer_test_flight")
+            || accessManager.canModule("vehicle_profiles")
+            || accessManager.can("can_configure_vehicle")
+            || accessManager.can("can_run_manufacturer_test_flight")
+            || accessManager.can("can_fly_manual_test")
+            || accessManager.can("can_edit_vehicle_profile")
+            || accessManager.can("can_register_vehicle")
+    }
+
+    function manufacturerName() {
+        var manufacturer = hasObject("missionSyncManager") ? missionSyncManager.manufacturer : ({})
+        return textValue(manufacturer, ["name", "display_name", "manufacturer_display"], "Manufacturer Workspace")
+    }
+
+    function vehicleProfileItems() {
+        return hasObject("missionSyncManager") ? safeList(missionSyncManager.vehicleProfiles) : []
     }
 
     function onlineAircraftCount() {
@@ -241,6 +255,8 @@ Item {
     }
 
     function activityItems() {
+        if (!accessManager.can("can_view_vehicle_audit"))
+            return []
         var events = hasObject("eventLogManager") ? safeList(eventLogManager.events) : []
         var recent = hasObject("profileManager") ? safeList(profileManager.recentActivity) : []
         var source = events.length > 0 ? events : recent
@@ -255,20 +271,45 @@ Item {
             }
             return out
         }
-        return [
-            { message: "Aircraft SGX8-01 preflight check completed", time: "2 min ago", color: "#28b947" },
-            { message: "Mission Border Patrol Sweep completed", time: "28 min ago", color: "#4B3DA0" },
-            { message: "Weather update: Conditions remain optimal", time: "45 min ago", color: "#276be8" },
-            { message: "New mission plan Site Recon Bravo created", time: "1 hr ago", color: "#f4b000" },
-            { message: "System backup completed successfully", time: "2 hr ago", color: "#8a8494" }
-        ]
+        return []
     }
 
     function showPanel(title, body) {
+        var action = panelAccessAction(title)
+        if (action.length > 0 && !accessManager.canPerform(action)) {
+            blockPanel(title, action)
+            return
+        }
         root.modalTitle = title
         root.modalBody = body
         root.modalOpen = true
         root.toast = title
+    }
+
+    function panelAccessAction(title) {
+        if (title === "Activity Feed" || title === "Flight Logs")
+            return "security_audit"
+        if (title === "Readiness Details" || title === "Operations Center" || title === "Control Center")
+            return "telemetry_stream"
+        if (title === "Change Pilot")
+            return "settings"
+        if (title === "Fleet Center" || title === "Aircraft Details")
+            return "aircraft_profile_access"
+        if (title === "Dashboard Settings")
+            return "settings"
+        if (title === "Mission Filters")
+            return "mission_open"
+        return ""
+    }
+
+    function canShowPanel(title) {
+        var action = panelAccessAction(title)
+        return action.length === 0 || accessManager.canPerform(action)
+    }
+
+    function blockPanel(title, action) {
+        root.toast = title + " blocked by local permissions."
+        accessManager.recordBlocked(action, title + " panel blocked by local permissions.", { panel: title })
     }
 
     function logAction(type, message) {
@@ -278,12 +319,20 @@ Item {
     }
 
     function startPilotMode() {
+        if (typeof accessManager !== "undefined" && !accessManager.canPerform("manual_flight")) {
+            root.toast = "Pilot Mode blocked by local permissions."
+            return
+        }
         logAction("pilot_mode_opened", "Opening Pilot Mode")
         if (hasObject("appState"))
             appState.startPilotMode()
     }
 
     function openNewMission() {
+        if (typeof accessManager !== "undefined" && !accessManager.canPerform("mission_planning")) {
+            root.toast = "Mission planning blocked by local permissions."
+            return
+        }
         logAction("new_mission_opened", "Opening mission planner")
         if (hasObject("appState"))
             appState.openMissionSelector()
@@ -299,6 +348,11 @@ Item {
         var missionId = missionRecordId(mission)
         if (missionId.length === 0) {
             root.toast = "This sample mission cannot be opened. Sync missions from Control Center or create a new mission."
+            return
+        }
+        if (typeof accessManager !== "undefined"
+            && (!accessManager.canPerform("mission_open") || !accessManager.canAccessMission(missionId))) {
+            root.toast = "Mission open blocked by local permissions."
             return
         }
         if (!hasObject("missionSyncManager")) {
@@ -566,8 +620,8 @@ Item {
                     RowLayout {
                         Layout.fillWidth: true
                         spacing: 6
-                        SidebarTabButton { Layout.fillWidth: true; text: "Mission"; iconSource: AssetRegistry.icons.lucide_route; active: root.activeTab === "mission"; onClicked: root.activeTab = "mission" }
-                        SidebarTabButton { Layout.fillWidth: true; text: "Material"; iconSource: AssetRegistry.icons.cube; active: root.activeTab === "material"; onClicked: root.activeTab = "material" }
+                        SidebarTabButton { Layout.fillWidth: true; visible: accessManager.can("can_plan_mission"); text: "Mission"; iconSource: AssetRegistry.icons.lucide_route; active: root.activeTab === "mission"; onClicked: root.activeTab = "mission" }
+                        SidebarTabButton { Layout.fillWidth: true; visible: accessManager.can("can_view_fleet"); text: "Material"; iconSource: AssetRegistry.icons.cube; active: root.activeTab === "material"; onClicked: root.activeTab = "material" }
                         SidebarTabButton { Layout.fillWidth: true; text: "Map"; iconSource: AssetRegistry.icons.lucide_satellite; active: root.activeTab === "map"; onClicked: root.activeTab = "map" }
                     }
 
@@ -575,6 +629,7 @@ Item {
                         Layout.fillWidth: true
                         spacing: 8
                         Rectangle {
+                            visible: accessManager.can("can_plan_mission")
                             Layout.fillWidth: true
                             Layout.preferredHeight: 44
                             radius: 8
@@ -677,6 +732,7 @@ Item {
                             MouseArea { id: newMissionMouse; anchors.fill: parent; hoverEnabled: true; onClicked: root.openNewMission() }
                         }
                         Rectangle {
+                            visible: accessManager.can("can_view_reports")
                             Layout.preferredWidth: 44
                             Layout.preferredHeight: 44
                             radius: 8
@@ -737,6 +793,7 @@ Item {
                                 columnSpacing: 16
 
                                 Rectangle {
+                                    visible: accessManager.can("can_view_fleet") || accessManager.can("can_stream_telemetry")
                                     Layout.fillWidth: true
                                     Layout.preferredHeight: 286
                                     radius: 10
@@ -751,6 +808,7 @@ Item {
                                             Layout.fillWidth: true
                                             Text { Layout.fillWidth: true; text: "Assigned Aircraft"; color: root.ink; font.pixelSize: 16; font.bold: true }
                                             Rectangle {
+                                                visible: accessManager.can("can_view_fleet")
                                                 Layout.preferredWidth: 82
                                                 Layout.preferredHeight: 30
                                                 radius: 7
@@ -777,7 +835,15 @@ Item {
                                                     linkQuality: root.textValue(root.aircraftItems()[index], ["link_quality", "rc_quality", "status"], "Strong")
                                                     lastSync: root.textValue(root.aircraftItems()[index], ["last_sync", "last_seen", "updated_at"], index === 0 ? "2 min ago" : "1 min ago")
                                                     ready: root.textValue(root.aircraftItems()[index], ["status", "readiness"], "Ready").toLowerCase().indexOf("ready") >= 0
-                                                    onClicked: root.showPanel("Aircraft Details", aircraftName + " is selected. Live telemetry, battery history, link health, and assignment details are ready.")
+                                                    onClicked: {
+                                                        var aircraft = root.aircraftItems()[index]
+                                                        var aircraftId = root.textValue(aircraft, ["id", "aircraft_id", "tail_number", "serial_number"], "")
+                                                        if (accessManager.canPerform("aircraft_profile_access") && accessManager.canAccessAircraft(aircraftId)) {
+                                                            root.showPanel("Aircraft Details", aircraftName + " is selected. Live telemetry, battery history, link health, and assignment details are ready.")
+                                                        } else {
+                                                            accessManager.recordBlocked("aircraft_profile_access", "Aircraft detail view blocked by local permissions.", { aircraft_id: aircraftId })
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -802,11 +868,61 @@ Item {
                                             columns: 2
                                             rowSpacing: 14
                                             columnSpacing: 14
-                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; iconSource: AssetRegistry.icons.plane; title: "Pilot Mode"; subtitle: "Live control"; primary: true; onClicked: root.startPilotMode() }
-                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; iconSource: AssetRegistry.icons.plus; title: "New Mission"; subtitle: "Plan route"; onClicked: root.openNewMission() }
+                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; visible: accessManager.can("can_fly_manual"); iconSource: AssetRegistry.icons.plane; title: "Pilot Mode"; subtitle: "Live control"; primary: true; enabled: sessionManager.operationsAllowed; onClicked: root.startPilotMode() }
+                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; visible: accessManager.can("can_plan_mission"); iconSource: AssetRegistry.icons.plus; title: "New Mission"; subtitle: "Plan route"; enabled: sessionManager.operationsAllowed || accessManager.offlineAuthorizationValid; onClicked: root.openNewMission() }
                                             QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; iconSource: AssetRegistry.icons.boxicons_wifi; title: "Control Center"; subtitle: "Sync hub"; onClicked: { root.refreshControlCenterDashboard(true); root.showPanel("Control Center", "SGG_CC sync is " + (root.hasObject("sessionManager") && sessionManager.controlCenterReachable ? "online" : "using local cache") + ". Dashboard data refresh runs in the background so missions are not interrupted.") } }
-                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; iconSource: AssetRegistry.icons.boxicons_save; title: "Logs"; subtitle: "Flight events"; onClicked: root.showPanel("Flight Logs", "Recent GCS events, telemetry sync events, and mission logs are available in the activity stream.") }
+                                            QuickActionTile { Layout.fillWidth: true; Layout.fillHeight: true; visible: accessManager.can("can_view_vehicle_audit"); iconSource: AssetRegistry.icons.boxicons_save; title: "Logs"; subtitle: "Flight events"; enabled: sessionManager.operationsAllowed; onClicked: root.showPanel("Flight Logs", "Recent GCS events, telemetry sync events, and mission logs are available in the activity stream.") }
                                         }
+                                    }
+                                }
+                            }
+
+                            Rectangle {
+                                visible: root.hasManufacturerAccess()
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 238
+                                radius: 10
+                                color: "#ffffff"
+                                border.color: root.line
+
+                                ColumnLayout {
+                                    anchors.fill: parent
+                                    anchors.margins: 18
+                                    spacing: 12
+
+                                    RowLayout {
+                                        Layout.fillWidth: true
+                                        Text {
+                                            Layout.fillWidth: true
+                                            text: root.manufacturerName()
+                                            color: root.ink
+                                            font.pixelSize: 16
+                                            font.bold: true
+                                            elide: Text.ElideRight
+                                        }
+                                        Text {
+                                            text: root.vehicleProfileItems().length + " profiles"
+                                            color: root.muted
+                                            font.pixelSize: 11
+                                        }
+                                    }
+
+                                    GridLayout {
+                                        Layout.fillWidth: true
+                                        Layout.fillHeight: true
+                                        columns: root.compact ? 2 : 4
+                                        rowSpacing: 10
+                                        columnSpacing: 10
+
+                                        ManufacturerToolTile { title: "Vehicle Config"; tool: "vehicleConfiguration"; action: "vehicle_configuration"; detail: "Setup" }
+                                        ManufacturerToolTile { title: "Vehicle Profile"; tool: "vehicleProfile"; action: "vehicle_profile_setup"; detail: "Profiles" }
+                                        ManufacturerToolTile { title: "FC Binding"; tool: "flightControllerBinding"; action: "flight_controller_binding"; detail: "Controller" }
+                                        ManufacturerToolTile { title: "Parameters"; tool: "vehicleParameters"; action: "vehicle_parameter_read"; detail: "Read" }
+                                        ManufacturerToolTile { title: "RC Mapping"; tool: "rcMapping"; action: "rc_mapping"; detail: "Manual" }
+                                        ManufacturerToolTile { title: "Test Flight"; tool: "manufacturerTestFlight"; action: "manufacturer_test_flight"; detail: "Factory" }
+                                        ManufacturerToolTile { title: "Manual Test"; tool: "manualTestMode"; action: "manual_test_mode"; detail: "Mode" }
+                                        ManufacturerToolTile { title: "Release / Lock"; tool: "vehicleReleaseLock"; action: "vehicle_release_lock"; detail: "Status" }
+                                        ManufacturerToolTile { title: "Firmware"; tool: "firmwareManager"; action: "firmware_manager"; detail: "Placeholder" }
                                     }
                                 }
                             }
@@ -822,6 +938,10 @@ Item {
                                     readiness: root.readinessPercent()
                                     checks: root.readinessCheckItems()
                                     onDetailsRequested: {
+                                        if (!root.canShowPanel("Readiness Details")) {
+                                            root.blockPanel("Readiness Details", root.panelAccessAction("Readiness Details"))
+                                            return
+                                        }
                                         if (root.hasObject("preflightChecklistManager")) {
                                             preflightChecklistManager.runChecklist(true)
                                             var reason = preflightChecklistManager.blockReason()
@@ -834,6 +954,7 @@ Item {
                                     }
                                 }
                                 RecentActivityCard {
+                                    visible: accessManager.can("can_view_vehicle_audit")
                                     Layout.fillWidth: true
                                     Layout.preferredHeight: 250
                                     activities: root.activityItems()
@@ -1084,6 +1205,75 @@ Item {
         }
 
         Behavior on opacity { NumberAnimation { duration: 140 } }
+    }
+
+    component ManufacturerToolTile: Rectangle {
+        property string title: ""
+        property string tool: ""
+        property string action: ""
+        property string detail: ""
+        visible: permissionAllowed()
+        enabled: sessionManager.operationsAllowed
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        radius: 8
+        color: manufacturerTileMouse.containsMouse ? "#f7f3fb" : "#fbfaff"
+        border.color: "#e0d7eb"
+
+        function permissionAllowed() {
+            if (action === "vehicle_configuration" || action === "firmware_manager")
+                return accessManager.can("can_configure_vehicle")
+            if (action === "vehicle_profile_setup")
+                return accessManager.can("can_edit_vehicle_profile") || accessManager.can("can_register_vehicle")
+            if (action === "flight_controller_binding")
+                return accessManager.can("can_bind_flight_controller")
+            if (action === "vehicle_parameter_read")
+                return accessManager.can("can_read_vehicle_parameters")
+            if (action === "rc_mapping")
+                return accessManager.can("can_configure_rc")
+            if (action === "manufacturer_test_flight")
+                return accessManager.can("can_run_manufacturer_test_flight")
+            if (action === "manual_test_mode")
+                return accessManager.can("can_fly_manual_test")
+            if (action === "vehicle_release_lock")
+                return accessManager.can("can_release_vehicle_to_organization")
+            return false
+        }
+
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 10
+            spacing: 4
+            Text {
+                Layout.fillWidth: true
+                text: title
+                color: root.ink
+                font.pixelSize: 12
+                font.bold: true
+                elide: Text.ElideRight
+            }
+            Text {
+                Layout.fillWidth: true
+                text: detail
+                color: root.muted
+                font.pixelSize: 10
+                elide: Text.ElideRight
+            }
+        }
+
+        MouseArea {
+            id: manufacturerTileMouse
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {
+                if (!permissionAllowed()) {
+                    accessManager.recordBlocked(action, title + " blocked by local permissions.", { module: "manufacturer" })
+                    return
+                }
+                accessManager.recordAllowed(action, { module: "manufacturer" })
+                appState.openManufacturerTool(tool)
+            }
+        }
     }
 
     Connections {

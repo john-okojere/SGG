@@ -11,6 +11,7 @@ class System;
 }
 
 class VehicleTelemetryModel;
+class AccessManager;
 
 class MavsdkVehicleManager : public QObject
 {
@@ -27,7 +28,9 @@ class MavsdkVehicleManager : public QObject
     Q_PROPERTY(QString health READ health NOTIFY vehicleChanged)
 
 public:
-    explicit MavsdkVehicleManager(VehicleTelemetryModel *telemetry, QObject *parent = nullptr);
+    explicit MavsdkVehicleManager(VehicleTelemetryModel *telemetry,
+                                  AccessManager *access = nullptr,
+                                  QObject *parent = nullptr);
     ~MavsdkVehicleManager() override;
 
     bool connected() const;
@@ -56,6 +59,7 @@ private:
     struct Impl;
     std::unique_ptr<Impl> m_impl;
     VehicleTelemetryModel *m_telemetry = nullptr;
+    AccessManager *m_access = nullptr;
     QTimer m_discoveryTimer;
     bool m_discoveryActive = false;
     bool m_connected = false;

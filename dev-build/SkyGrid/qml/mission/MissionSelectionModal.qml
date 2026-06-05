@@ -41,6 +41,9 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 150
                     property bool hovered: false
+                    property bool permitted: accessManager.can("can_plan_mission")
+                    visible: permitted
+                    opacity: 1
 
                     ColumnLayout {
                         anchors.fill: parent
@@ -51,7 +54,7 @@ Rectangle {
                             Layout.preferredWidth: 70
                             Layout.preferredHeight: 70
                             radius: 35
-                            color: card.hovered ? Theme.purple2 : Theme.purple
+                            color: card.hovered && card.permitted ? Theme.purple2 : Theme.purple
                             border.color: card.hovered ? "#ffffff99" : "#00000000"
                             y: card.hovered ? -5 : 0
                             Rectangle {
@@ -96,7 +99,13 @@ Rectangle {
                         hoverEnabled: true
                         onEntered: card.hovered = true
                         onExited: card.hovered = false
-                        onClicked: appState.startMission(key)
+                        onClicked: {
+                            if (card.permitted) {
+                                appState.startMission(key)
+                            } else {
+                                accessManager.recordBlocked("mission_planning", "Mission type selection blocked by local permissions.", { mission_type: key })
+                            }
+                        }
                     }
                 }
             }

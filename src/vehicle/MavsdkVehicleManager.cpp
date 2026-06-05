@@ -1,6 +1,7 @@
 #include "MavsdkVehicleManager.h"
 
 #include "VehicleTelemetryModel.h"
+#include "../security/AccessManager.h"
 
 #include <mavsdk/component_type.hpp>
 #include <mavsdk/mavsdk.hpp>
@@ -60,8 +61,8 @@ struct MavsdkVehicleManager::Impl
     mavsdk::Telemetry::HealthHandle healthHandle{};
 };
 
-MavsdkVehicleManager::MavsdkVehicleManager(VehicleTelemetryModel *telemetry, QObject *parent)
-    : QObject(parent), m_impl(std::make_unique<Impl>()), m_telemetry(telemetry)
+MavsdkVehicleManager::MavsdkVehicleManager(VehicleTelemetryModel *telemetry, AccessManager *access, QObject *parent)
+    : QObject(parent), m_impl(std::make_unique<Impl>()), m_telemetry(telemetry), m_access(access)
 {
     m_discoveryTimer.setInterval(1500);
     connect(&m_discoveryTimer, &QTimer::timeout, this, &MavsdkVehicleManager::refreshSystems);
@@ -86,6 +87,13 @@ std::shared_ptr<mavsdk::System> MavsdkVehicleManager::system() const { return m_
 
 void MavsdkVehicleManager::startDiscovery()
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("aircraft_connection"),
+                                               {},
+                                               QStringLiteral("Aircraft connection blocked by local permissions."))) {
+        m_status = QStringLiteral("Aircraft connection blocked by local permissions");
+        emit vehicleChanged();
+        return;
+    }
     if (m_discoveryActive) {
         refreshSystems();
         return;
@@ -159,6 +167,13 @@ void MavsdkVehicleManager::stopDiscovery()
 
 void MavsdkVehicleManager::connectRetry()
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("aircraft_connection"),
+                                               {},
+                                               QStringLiteral("Aircraft connection blocked by local permissions."))) {
+        m_status = QStringLiteral("Aircraft connection blocked by local permissions");
+        emit vehicleChanged();
+        return;
+    }
     m_status = QStringLiteral("Retrying MAVSDK aircraft connection");
     emit vehicleChanged();
 

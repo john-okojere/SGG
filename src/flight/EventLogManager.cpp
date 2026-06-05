@@ -1,6 +1,7 @@
 #include "EventLogManager.h"
 
 #include "../cache/LocalSyncCache.h"
+#include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
 
 #include <QDateTime>
@@ -8,9 +9,11 @@
 
 EventLogManager::EventLogManager(GcsEventSyncManager *eventSync,
                                  LocalSyncCache *cache,
+                                 AccessManager *access,
                                  QObject *parent)
     : QObject(parent),
       m_eventSync(eventSync),
+      m_access(access),
       m_cache(cache)
 {
     if (m_cache) {
@@ -45,8 +48,32 @@ void EventLogManager::logEvent(const QString &eventType,
     emit eventsChanged();
 }
 
+bool EventLogManager::authorizeLogView()
+{
+    if (!m_access) {
+        m_status = QStringLiteral("Event log blocked: access manager unavailable");
+        emit eventsChanged();
+        return false;
+    }
+    const bool allowed = m_access->authorizeAction(QStringLiteral("security_audit"),
+                                                   {},
+                                                   QStringLiteral("Event log blocked by local permissions."));
+    if (!allowed) {
+        m_status = QStringLiteral("Event log blocked by local permissions");
+        emit eventsChanged();
+    }
+    return allowed;
+}
+
 void EventLogManager::clear()
 {
+    if (!m_access || !m_access->authorizeAction(QStringLiteral("security_audit"),
+                                                {},
+                                                QStringLiteral("Event log clear blocked by local permissions."))) {
+        m_status = QStringLiteral("Event log clear blocked by local permissions");
+        emit eventsChanged();
+        return;
+    }
     m_events.clear();
     m_status = QStringLiteral("Event log cleared");
     persist();

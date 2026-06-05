@@ -269,12 +269,12 @@ Item {
                     RowLayout {
                         Layout.fillWidth: true
                         spacing: 10
-                        ActionButton { text: "View Full Log"; onClicked: postMissionSummaryManager.viewFullLog() }
-                        ActionButton { text: "Export Report"; onClicked: postMissionSummaryManager.exportReport() }
-                        ActionButton { text: "Sync Now"; onClicked: postMissionSummaryManager.syncNow() }
+                        ActionButton { text: "View Full Log"; visible: accessManager.can("can_view_vehicle_audit"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.viewFullLog() }
+                        ActionButton { text: "Export Report"; visible: accessManager.can("can_view_reports"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.exportReport() }
+                        ActionButton { text: "Sync Now"; visible: accessManager.can("can_view_reports"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.syncNow() }
                         Item { Layout.fillWidth: true }
                         ActionButton { text: "Return to Dashboard"; filled: true; onClicked: postMissionSummaryManager.returnToDashboard() }
-                        ActionButton { text: "Start New Mission"; filled: true; onClicked: postMissionSummaryManager.startNewMission() }
+                        ActionButton { text: "Start New Mission"; filled: true; visible: accessManager.can("can_plan_mission"); enabled: sessionManager.operationsAllowed || accessManager.offlineAuthorizationValid; onClicked: postMissionSummaryManager.startNewMission() }
                     }
                 }
             }
@@ -313,9 +313,10 @@ Item {
         property bool filled: false
         Layout.preferredHeight: 38
         Layout.preferredWidth: filled ? 164 : 132
+        opacity: enabled ? 1 : 0.48
         background: Rectangle {
             radius: 10
-            color: parent.filled ? (parent.hovered ? root.purple2 : root.purple) : (parent.hovered ? "#f0e8fa" : "#ffffff")
+            color: parent.filled ? (parent.hovered && parent.enabled ? root.purple2 : root.purple) : (parent.hovered && parent.enabled ? "#f0e8fa" : "#ffffff")
             border.color: root.purple
             border.width: 1
         }

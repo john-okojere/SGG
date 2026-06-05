@@ -1,6 +1,7 @@
 #include "ManualControlManager.h"
 
 #include "../auth/SessionManager.h"
+#include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
 #include "../vehicle/MavsdkVehicleManager.h"
 
@@ -14,11 +15,13 @@
 
 ManualControlManager::ManualControlManager(MavsdkVehicleManager *vehicle,
                                            SessionManager *session,
+                                           AccessManager *access,
                                            GcsEventSyncManager *events,
                                            QObject *parent)
     : QObject(parent),
       m_vehicle(vehicle),
       m_session(session),
+      m_access(access),
       m_events(events)
 {
     m_publishTimer.setInterval(80);
@@ -82,6 +85,13 @@ void ManualControlManager::stopManualControl()
 
 void ManualControlManager::setInput(double forward, double lateral, double vertical, double yaw)
 {
+    if (m_access && !m_access->canPerform(QStringLiteral("manual_flight"))) {
+        m_access->recordBlocked(QStringLiteral("manual_flight"),
+                                QStringLiteral("Manual control input blocked by local permissions."),
+                                QVariantMap{{QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()}});
+        setStatus(QStringLiteral("Pilot mode blocked by local permissions"));
+        return;
+    }
     m_forward = std::clamp(forward, -1.0, 1.0);
     m_lateral = std::clamp(lateral, -1.0, 1.0);
     m_vertical = std::clamp(vertical, -1.0, 1.0);
@@ -118,6 +128,13 @@ void ManualControlManager::neutral()
 
 void ManualControlManager::goToCoordinate(double latitude, double longitude, double altitudeMeters, double speedMps)
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("manual_flight"),
+                                               QVariantMap{{QStringLiteral("latitude"), latitude},
+                                                           {QStringLiteral("longitude"), longitude}},
+                                               QStringLiteral("Go-to coordinate blocked by local permissions."))) {
+        setStatus(QStringLiteral("Go-to coordinate blocked by local permissions."));
+        return;
+    }
     const bool valid = latitude >= -90.0 && latitude <= 90.0
         && longitude >= -180.0 && longitude <= 180.0
         && altitudeMeters >= 0.0
@@ -157,6 +174,12 @@ void ManualControlManager::goToCoordinate(double latitude, double longitude, dou
 
 bool ManualControlManager::canControl() const
 {
+    if (m_access && !m_access->authorizeAction(QStringLiteral("manual_flight"),
+                                               QVariantMap{{QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()}},
+                                               QStringLiteral("Pilot mode blocked by local permissions."))) {
+        const_cast<ManualControlManager *>(this)->setStatus(QStringLiteral("Pilot mode blocked by local permissions"));
+        return false;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         const_cast<ManualControlManager *>(this)->setStatus(QStringLiteral("Pilot mode blocked: device approval required"));
         return false;

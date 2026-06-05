@@ -6,11 +6,12 @@ import "../controls"
 
 Rectangle {
     id: root
+    visible: accessManager.can("can_fly_manual")
     radius: 7
     color: "#ffffff"
     border.color: "#e2d8ee"
 
-    readonly property bool canCommand: vehicleManager.connected && sessionManager.operationsAllowed && !vehicleActionManager.busy
+    readonly property bool canCommand: vehicleManager.connected && sessionManager.operationsAllowed && accessManager.canPerform("manual_flight") && !vehicleActionManager.busy
     readonly property bool preflightReady: !preflightChecklistManager.blocked && !preflightChecklistManager.cautionRequired
     readonly property bool canArm: canCommand && preflightReady && !telemetryStore.armed
     readonly property bool canTakeoff: canCommand && telemetryStore.armed && !telemetryStore.inAir
@@ -85,6 +86,7 @@ Rectangle {
                 text: "EMERGENCY STOP"
                 iconText: "△"
                 danger: true
+                visible: accessManager.can("can_fly_manual")
                 enabled: root.canCommand
                 onClicked: {
                     pilotActionSyncManager.recordAction("emergency_stop_requested", "Pilot requested emergency stop")

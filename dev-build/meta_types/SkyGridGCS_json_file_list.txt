@@ -2,6 +2,7 @@
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../2DPUCG456N/moc_WindCheckManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../2DPUCG456N/moc_WindTelemetryManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../4VROJRYZ4J/moc_PreferencesManager.cpp.json
+/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../AWH56BEWUT/moc_AccessManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../AWH56BEWUT/moc_BackendTrustManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../AWH56BEWUT/moc_DeviceManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../AWH56BEWUT/moc_SecureStorage.cpp.json
@@ -30,6 +31,7 @@
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../QMBYO36SBA/moc_AuthManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../QMBYO36SBA/moc_SessionManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../QMBYO36SBA/moc_TokenManager.cpp.json
+/home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../RYZVWM34BB/moc_ManufacturerVehicleManager.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../UFQQIFJZKK/moc_ApiClient.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../UFQQIFJZKK/moc_WebSocketClient.cpp.json
 /home/Software_projects/SkyGrid_inc/SGG/dev-build/SkyGridGCS_autogen/include/../Y7MAPSIO2O/moc_FlightSessionSyncManager.cpp.json

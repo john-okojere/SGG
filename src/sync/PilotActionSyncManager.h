@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 
+class AccessManager;
 class FlightSessionSyncManager;
 class GcsEventSyncManager;
 class LocalSyncCache;
@@ -17,6 +18,7 @@ public:
     explicit PilotActionSyncManager(FlightSessionSyncManager *flightSessions,
                                     GcsEventSyncManager *events,
                                     LocalSyncCache *cache,
+                                    AccessManager *access = nullptr,
                                     QObject *parent = nullptr);
 
     QString status() const;
@@ -30,7 +32,9 @@ signals:
 
 private:
     void setStatus(const QString &status);
+    QString accessActionForPilotAction(const QString &actionType) const;
 
+    AccessManager *m_access = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     LocalSyncCache *m_cache = nullptr;

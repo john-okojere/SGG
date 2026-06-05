@@ -5,6 +5,7 @@
 #include <QVariantList>
 
 class AppState;
+class AccessManager;
 class FlightSessionSyncManager;
 class GcsEventSyncManager;
 class LocalSyncCache;
@@ -37,6 +38,7 @@ public:
                                 MissionPlanModel *plan,
                                 GcsEventSyncManager *events,
                                 LocalSyncCache *cache,
+                                AccessManager *access = nullptr,
                                 QObject *parent = nullptr);
 
     bool active() const;
@@ -72,6 +74,7 @@ private:
     VehicleTelemetryModel *m_telemetry = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     AppState *m_appState = nullptr;
+    AccessManager *m_access = nullptr;
     MissionPlanModel *m_plan = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     LocalSyncCache *m_cache = nullptr;

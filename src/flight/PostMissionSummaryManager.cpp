@@ -5,6 +5,7 @@
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
 #include "../profile/ProfileManager.h"
+#include "../security/AccessManager.h"
 #include "../sync/FlightSessionSyncManager.h"
 #include "../sync/MissionSyncManager.h"
 #include "../sync/TelemetrySyncManager.h"
@@ -61,6 +62,7 @@ PostMissionSummaryManager::PostMissionSummaryManager(ApiClient *api,
                                                      MissionSyncManager *missionSync,
                                                      ProfileManager *profile,
                                                      VehicleTelemetryModel *telemetry,
+                                                     AccessManager *access,
                                                      QObject *parent)
     : QObject(parent),
       m_api(api),
@@ -72,7 +74,8 @@ PostMissionSummaryManager::PostMissionSummaryManager(ApiClient *api,
       m_telemetrySync(telemetrySync),
       m_missionSync(missionSync),
       m_profile(profile),
-      m_telemetry(telemetry)
+      m_telemetry(telemetry),
+      m_access(access)
 {
     if (m_flightStats) {
         connect(m_flightStats, &FlightStatsManager::flightEnded,
@@ -107,6 +110,12 @@ void PostMissionSummaryManager::syncNow()
     if (m_lastSummary.isEmpty()) {
         return;
     }
+    if (!m_access || !m_access->authorizeAction(QStringLiteral("telemetry_export"),
+                                                QVariantMap{{QStringLiteral("summary_id"), stringValue(m_lastSummary, QStringLiteral("summary_id"))}},
+                                                QStringLiteral("Post-flight sync blocked by local permissions."))) {
+        setStatus(QStringLiteral("Post-flight sync blocked by local permissions."));
+        return;
+    }
     if (m_telemetrySync) {
         m_telemetrySync->uploadNow();
     }
@@ -116,6 +125,12 @@ void PostMissionSummaryManager::syncNow()
 void PostMissionSummaryManager::exportReport()
 {
     if (m_lastSummary.isEmpty()) {
+        return;
+    }
+    if (!m_access || !m_access->authorizeAction(QStringLiteral("telemetry_export"),
+                                                QVariantMap{{QStringLiteral("summary_id"), stringValue(m_lastSummary, QStringLiteral("summary_id"))}},
+                                                QStringLiteral("Report export blocked by local permissions."))) {
+        setStatus(QStringLiteral("Report export blocked by local permissions."));
         return;
     }
     QVariantMap copy = m_lastSummary;
@@ -128,6 +143,12 @@ void PostMissionSummaryManager::exportReport()
 
 void PostMissionSummaryManager::viewFullLog()
 {
+    if (!m_access || !m_access->authorizeAction(QStringLiteral("security_audit"),
+                                                QVariantMap{{QStringLiteral("summary_id"), stringValue(m_lastSummary, QStringLiteral("summary_id"))}},
+                                                QStringLiteral("Full log view blocked by local permissions."))) {
+        setStatus(QStringLiteral("Full log view blocked by local permissions."));
+        return;
+    }
     setFullLogVisible(true);
 }
 
@@ -247,7 +268,13 @@ QVariantMap PostMissionSummaryManager::buildSummary(const QString &kind,
 
 void PostMissionSummaryManager::publishSummary(QVariantMap summary)
 {
-    writeReportFiles(&summary);
+    if (m_access && m_access->authorizeAction(QStringLiteral("telemetry_export"),
+                                              QVariantMap{{QStringLiteral("summary_id"), stringValue(summary, QStringLiteral("summary_id"))}},
+                                              QStringLiteral("Automatic report export blocked by local permissions."))) {
+        writeReportFiles(&summary);
+    } else if (m_access) {
+        summary.insert(QStringLiteral("report_export_blocked"), true);
+    }
     m_lastSummary = summary;
     m_visible = true;
     m_fullLogVisible = false;

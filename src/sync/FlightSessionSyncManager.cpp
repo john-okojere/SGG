@@ -5,6 +5,7 @@
 #include "../controllers/AppState.h"
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
+#include "../security/AccessManager.h"
 #include "../vehicle/VehicleTelemetryModel.h"
 #include "GcsEventSyncManager.h"
 #include "MissionSyncManager.h"
@@ -37,9 +38,11 @@ FlightSessionSyncManager::FlightSessionSyncManager(ApiClient *api,
                                                    VehicleTelemetryModel *telemetry,
                                                    GcsEventSyncManager *events,
                                                    LocalSyncCache *cache,
+                                                   AccessManager *access,
                                                    QObject *parent)
     : QObject(parent),
       m_api(api),
+      m_access(access),
       m_session(session),
       m_missionSync(missionSync),
       m_plan(plan),
@@ -68,6 +71,12 @@ void FlightSessionSyncManager::applyBootstrap(const QVariantMap &bootstrap)
 
 void FlightSessionSyncManager::beginPilotSession(const QString &clientSessionId)
 {
+    if (!m_access || !m_access->authorizeAction(QStringLiteral("manual_flight"),
+                                                QVariantMap{{QStringLiteral("client_session_id"), clientSessionId}},
+                                                QStringLiteral("Pilot flight session blocked by local permissions."))) {
+        setStatus(QStringLiteral("Pilot flight session blocked by local permissions."));
+        return;
+    }
     QString clientId = clientSessionId.trimmed();
     if (clientId.isEmpty()) {
         clientId = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -84,6 +93,20 @@ void FlightSessionSyncManager::beginPilotSession(const QString &clientSessionId)
 
 void FlightSessionSyncManager::beginMissionSession(const QString &clientSessionId, const QString &missionId)
 {
+    if (!m_access
+        || !m_access->canAccessMission(missionId)
+        || !m_access->authorizeAction(QStringLiteral("mission_start"),
+                                      QVariantMap{{QStringLiteral("client_session_id"), clientSessionId},
+                                                  {QStringLiteral("mission_id"), missionId}},
+                                      QStringLiteral("Mission flight session blocked by local permissions."))) {
+        if (m_access && !m_access->canAccessMission(missionId)) {
+            m_access->recordBlocked(QStringLiteral("mission_start"),
+                                    QStringLiteral("Mission session is outside the local need-to-know scope."),
+                                    QVariantMap{{QStringLiteral("mission_id"), missionId}});
+        }
+        setStatus(QStringLiteral("Mission flight session blocked by local permissions."));
+        return;
+    }
     if (clientSessionId.isEmpty()) {
         return;
     }
@@ -105,6 +128,18 @@ void FlightSessionSyncManager::beginMissionSession(const QString &clientSessionI
 void FlightSessionSyncManager::endActiveSession(const QString &endStatus, const QString &reason, const QVariantMap &summary)
 {
     if (!m_active) {
+        return;
+    }
+    const QString endAction = m_mode == QStringLiteral("MISSION")
+        ? (endStatus == QStringLiteral("completed") ? QStringLiteral("mission_finish") : QStringLiteral("mission_abort"))
+        : QStringLiteral("manual_flight");
+    if (!m_access || !m_access->authorizeAction(endAction,
+                                                QVariantMap{{QStringLiteral("server_session_id"), m_serverSessionId},
+                                                            {QStringLiteral("client_session_id"), m_clientSessionId},
+                                                            {QStringLiteral("mode"), m_mode},
+                                                            {QStringLiteral("end_status"), endStatus}},
+                                                QStringLiteral("Flight session end blocked by local permissions."))) {
+        setStatus(QStringLiteral("Flight session end blocked by local permissions."));
         return;
     }
 
@@ -160,6 +195,14 @@ void FlightSessionSyncManager::recordPilotAction(const QString &actionType,
                                                  const QString &message)
 {
     const QString normalizedType = normalizedActionType(actionType);
+    const QString accessAction = accessActionForPilotAction(normalizedType);
+    if (!m_access || !m_access->authorizeAction(accessAction,
+                                                QVariantMap{{QStringLiteral("action_type"), normalizedType},
+                                                            {QStringLiteral("client_session_id"), m_clientSessionId}},
+                                                QStringLiteral("Pilot action record blocked by local permissions."))) {
+        setStatus(QStringLiteral("Pilot action record blocked by local permissions."));
+        return;
+    }
     QJsonObject payload = actionData;
     payload[QStringLiteral("message")] = message;
     payload[QStringLiteral("operation_mode")] = m_mode.isEmpty() ? QStringLiteral("PILOT") : m_mode;
@@ -215,6 +258,15 @@ void FlightSessionSyncManager::startSessionOnServer(const QString &mode,
                                                     const QString &clientSessionId,
                                                     const QString &missionId)
 {
+    const QString accessAction = accessActionForMode(mode);
+    if (!m_access || !m_access->authorizeAction(accessAction,
+                                                QVariantMap{{QStringLiteral("client_session_id"), clientSessionId},
+                                                            {QStringLiteral("mission_id"), missionId},
+                                                            {QStringLiteral("mode"), mode}},
+                                                QStringLiteral("Flight session start blocked by local permissions."))) {
+        setStatus(QStringLiteral("Flight session start blocked by local permissions."));
+        return;
+    }
     m_mode = mode;
     m_clientSessionId = clientSessionId;
 
@@ -382,4 +434,21 @@ QString FlightSessionSyncManager::normalizedActionType(const QString &actionType
         return QStringLiteral("PILOT_MODE_STARTED");
     }
     return actionType.trimmed().toUpper();
+}
+
+QString FlightSessionSyncManager::accessActionForMode(const QString &mode) const
+{
+    return mode == QStringLiteral("MISSION") ? QStringLiteral("mission_start") : QStringLiteral("manual_flight");
+}
+
+QString FlightSessionSyncManager::accessActionForPilotAction(const QString &actionType) const
+{
+    const QString action = actionType.toLower();
+    if (action.contains(QStringLiteral("emergency_stop")) || action.contains(QStringLiteral("kill"))) {
+        return QStringLiteral("emergency_stop");
+    }
+    if (action.contains(QStringLiteral("mission"))) {
+        return QStringLiteral("mission_start");
+    }
+    return QStringLiteral("manual_flight");
 }
