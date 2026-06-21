@@ -6,6 +6,7 @@ import "../controls"
 ColumnLayout {
     id: root
     spacing: 8
+    readonly property bool compactLayout: width < 360
 
     function backendLabel() {
         if (missionStore.plan.backendUploadEligible || missionStore.plan.boundaryOnly) return "Control Center ready"
@@ -16,13 +17,15 @@ ColumnLayout {
     Text {
         text: "Mission Ready: " + missionStore.plan.missionReadiness + "%"
         color: Theme.ink
-        font.pixelSize: 18
+        font.pixelSize: root.compactLayout ? 16 : 18
         font.bold: true
     }
 
-    RowLayout {
+    GridLayout {
         Layout.fillWidth: true
-        spacing: 8
+        columns: root.compactLayout ? 1 : 2
+        rowSpacing: 8
+        columnSpacing: 8
         StatusPill {
             Layout.fillWidth: true
             iconText: "●"
@@ -58,22 +61,23 @@ ColumnLayout {
         model: missionStore.plan.validationChecks
         delegate: Rectangle {
             Layout.fillWidth: true
-            height: 34
+            implicitHeight: Math.max(root.compactLayout ? 38 : 34, checkRow.implicitHeight + 12)
             radius: 6
             color: modelData.passed ? "#edf9f1" : (modelData.severity === "critical" ? "#ffe9e9" : (modelData.severity === "warning" ? "#fff6d8" : "#edf6ff"))
             border.color: modelData.passed ? "#b9e8c6" : (modelData.severity === "critical" ? "#efaaaa" : (modelData.severity === "warning" ? "#efd06c" : "#b8d6ee"))
             RowLayout {
+                id: checkRow
                 anchors.fill: parent
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
                 AssetIcon {
-                    Layout.preferredWidth: 18
-                    Layout.preferredHeight: 18
+                    Layout.preferredWidth: root.compactLayout ? 16 : 18
+                    Layout.preferredHeight: root.compactLayout ? 16 : 18
                     source: modelData.passed ? AssetRegistry.icons.boxicons_save : (modelData.severity === "critical" ? AssetRegistry.icons.iconoir_cancel : AssetRegistry.icons.boxicons_filter)
                     active: true
                 }
-                Text { text: modelData.label; color: Theme.ink; font.pixelSize: 13; font.bold: true; Layout.fillWidth: true }
-                Text { text: modelData.passed ? "PASS" : modelData.severity.toUpperCase(); color: Theme.muted; font.pixelSize: 11; font.bold: true }
+                Text { text: modelData.label; color: Theme.ink; font.pixelSize: root.compactLayout ? 12 : 13; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
+                Text { text: modelData.passed ? "PASS" : modelData.severity.toUpperCase(); color: Theme.muted; font.pixelSize: root.compactLayout ? 10 : 11; font.bold: true }
             }
         }
     }
@@ -82,11 +86,12 @@ ColumnLayout {
         model: missionStore.plan.validationWarnings
         delegate: Rectangle {
             Layout.fillWidth: true
-            height: 46
+            implicitHeight: Math.max(46, warningText.implicitHeight + 20)
             radius: 6
             color: modelData.severity === "critical" ? "#ffe9e9" : (modelData.severity === "warning" ? "#fff6d8" : "#edf6ff")
             border.color: modelData.severity === "critical" ? "#efaaaa" : (modelData.severity === "warning" ? "#efd06c" : "#b8d6ee")
             Text {
+                id: warningText
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -94,8 +99,8 @@ ColumnLayout {
                 anchors.rightMargin: 12
                 text: modelData.text
                 color: Theme.ink
-                font.pixelSize: 13
-                elide: Text.ElideRight
+                font.pixelSize: root.compactLayout ? 12 : 13
+                wrapMode: Text.WordWrap
             }
         }
     }
@@ -107,6 +112,6 @@ ColumnLayout {
         radius: 6
         color: "#edf9f1"
         border.color: "#b9e8c6"
-        Text { anchors.centerIn: parent; text: "All critical checks are passing."; color: "#1f7a3c"; font.pixelSize: 14; font.bold: true }
+        Text { anchors.fill: parent; anchors.margins: 8; text: "All critical checks are passing."; color: "#1f7a3c"; font.pixelSize: root.compactLayout ? 12 : 14; font.bold: true; horizontalAlignment: Text.AlignHCenter; verticalAlignment: Text.AlignVCenter; elide: Text.ElideRight }
     }
 }

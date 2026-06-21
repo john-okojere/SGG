@@ -29,6 +29,12 @@ class ThemeController : public QObject
     Q_PROPERTY(int animFast READ animFast CONSTANT)
     Q_PROPERTY(int anim READ anim CONSTANT)
     Q_PROPERTY(QString fontFamily READ fontFamily CONSTANT)
+    Q_PROPERTY(int fontTiny READ fontTiny CONSTANT)
+    Q_PROPERTY(int fontSmall READ fontSmall CONSTANT)
+    Q_PROPERTY(int fontBody READ fontBody CONSTANT)
+    Q_PROPERTY(int fontLabel READ fontLabel CONSTANT)
+    Q_PROPERTY(int fontTitle READ fontTitle CONSTANT)
+    Q_PROPERTY(int fontHero READ fontHero CONSTANT)
 
 public:
     explicit ThemeController(QObject *parent = nullptr) : QObject(parent) {}
@@ -56,4 +62,17 @@ public:
     int animFast() const { return 140; }
     int anim() const { return 220; }
     QString fontFamily() const { return QStringLiteral("Inter, Arial, sans-serif"); }
+    int fontTiny() const { return 10; }
+    int fontSmall() const { return 11; }
+    int fontBody() const { return 13; }
+    int fontLabel() const { return 12; }
+    int fontTitle() const { return 18; }
+    int fontHero() const { return 30; }
+
+    Q_INVOKABLE int fontTinyFor(int width) const { return width < 1280 ? 9 : 10; }
+    Q_INVOKABLE int fontSmallFor(int width) const { return width < 1280 ? 10 : 11; }
+    Q_INVOKABLE int fontBodyFor(int width) const { return width < 1280 ? 12 : 13; }
+    Q_INVOKABLE int fontLabelFor(int width) const { return width < 1280 ? 11 : 12; }
+    Q_INVOKABLE int fontTitleFor(int width) const { return width < 1280 ? 16 : (width < 1600 ? 17 : 18); }
+    Q_INVOKABLE int fontHeroFor(int width) const { return width < 1280 ? 24 : (width < 1600 ? 27 : 30); }
 };

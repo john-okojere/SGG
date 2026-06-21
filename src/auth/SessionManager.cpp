@@ -4,12 +4,20 @@
 #include "../network/ApiClient.h"
 
 #include <QJsonObject>
+#include <QProcessEnvironment>
+#include <QtGlobal>
 
 SessionManager::SessionManager(ApiClient *api, TokenManager *tokens, QObject *parent)
     : QObject(parent), m_api(api), m_tokens(tokens)
 {
     connect(&m_monitorTimer, &QTimer::timeout, this, &SessionManager::validateSession);
-    m_monitorTimer.setInterval(30000);
+    const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    const int monitorInterval = qBound(60000,
+                                       env.value(QStringLiteral("SKYGRID_SESSION_MONITOR_INTERVAL_MS"),
+                                                 QStringLiteral("300000")).toInt(),
+                                       900000);
+    m_monitorTimer.setInterval(monitorInterval);
+    m_monitorTimer.setTimerType(Qt::VeryCoarseTimer);
 
     if (m_tokens) {
         connect(m_tokens, &TokenManager::sessionChanged, this, [this]() {

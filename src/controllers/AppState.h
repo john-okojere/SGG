@@ -11,6 +11,7 @@ class AppState : public QObject
     Q_OBJECT
     Q_PROPERTY(QString currentScreen READ currentScreen NOTIFY navigationChanged)
     Q_PROPERTY(QString currentManufacturerTool READ currentManufacturerTool NOTIFY manufacturerToolChanged)
+    Q_PROPERTY(QString currentGcsTool READ currentGcsTool NOTIFY gcsToolChanged)
     Q_PROPERTY(QString currentMissionType READ currentMissionType NOTIFY missionChanged)
     Q_PROPERTY(QString operationalMode READ operationalMode WRITE setOperationalMode NOTIFY operationalModeChanged)
     Q_PROPERTY(QString selectedMissionId READ selectedMissionId NOTIFY missionChanged)
@@ -25,6 +26,7 @@ public:
 
     QString currentScreen() const;
     QString currentManufacturerTool() const;
+    QString currentGcsTool() const;
     QString currentMissionType() const;
     QString operationalMode() const;
     QString selectedMissionId() const;
@@ -42,11 +44,17 @@ public:
     Q_INVOKABLE void goHome();
     Q_INVOKABLE void openMissionSelector();
     Q_INVOKABLE void closeMissionSelector();
+    Q_INVOKABLE void openVehicleConfiguration();
+    Q_INVOKABLE void openManufacturerTestFlight();
+    Q_INVOKABLE void openDefaultWorkspace(const QString &workspace);
     Q_INVOKABLE void startMission(const QString &missionType);
     Q_INVOKABLE void openExistingMission(const QString &missionType, const QString &missionId);
     Q_INVOKABLE void startPilotMode();
+    Q_INVOKABLE void openGcsTools();
+    Q_INVOKABLE void openGcsTool(const QString &tool);
     Q_INVOKABLE void openManufacturerWorkspace();
     Q_INVOKABLE void openManufacturerTool(const QString &tool);
+    Q_INVOKABLE void openHelpCenter();
     Q_INVOKABLE void resolveWorkspaceForAccess();
     Q_INVOKABLE QString missionTitle() const;
 
@@ -56,6 +64,7 @@ signals:
     void operationalModeChanged();
     void toolChanged();
     void manufacturerToolChanged();
+    void gcsToolChanged();
     void selectedWaypointChanged();
     void selectedGeometryChanged();
     void panelChanged();
@@ -66,11 +75,14 @@ private:
     void applyOperationalMode(const QString &mode);
     bool hasManufacturerAccess() const;
     QString actionForManufacturerTool(const QString &tool) const;
+    QString actionForGcsTool(const QString &tool) const;
     QString defaultManufacturerTool() const;
+    QString defaultGcsTool() const;
 
     AccessManager *m_access = nullptr;
     QString m_currentScreen = "home";
     QString m_currentManufacturerTool = "vehicleConfiguration";
+    QString m_currentGcsTool = "connect";
     QString m_currentMissionType;
     QString m_operationalMode = "mission";
     QString m_selectedMissionId;

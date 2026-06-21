@@ -1,8 +1,10 @@
 #pragma once
 
 #include <QObject>
+#include <QDateTime>
 #include <QString>
 #include <QStringList>
+#include <QtGlobal>
 
 class QJsonObject;
 
@@ -19,6 +21,7 @@ class AuthManager : public QObject
     Q_PROPERTY(bool busy READ busy NOTIFY authChanged)
     Q_PROPERTY(QString statusMessage READ statusMessage NOTIFY authChanged)
     Q_PROPERTY(QString securityWarning READ securityWarning NOTIFY authChanged)
+    Q_PROPERTY(qint64 loginDurationSeconds READ loginDurationSeconds NOTIFY authChanged)
 
 public:
     explicit AuthManager(ApiClient *api, TokenManager *tokens, DeviceManager *device, QObject *parent = nullptr);
@@ -29,17 +32,21 @@ public:
     bool busy() const;
     QString statusMessage() const;
     QString securityWarning() const;
+    qint64 loginDurationSeconds() const;
 
     Q_INVOKABLE void login(const QString &email, const QString &password);
     Q_INVOKABLE void logout();
     Q_INVOKABLE void checkDeviceApproval();
+    Q_INVOKABLE qint64 finishLoginSession();
 
 signals:
     void authChanged();
     void loginSucceeded();
+    void loginSessionRecorded(qint64 durationSeconds);
     void operationsBlocked(const QString &reason);
 
 private:
+    void markLoginStarted();
     void setBusy(bool busy);
     void setStatus(const QString &message);
     void setSecurityWarning(const QString &message);
@@ -51,4 +58,5 @@ private:
     bool m_busy = false;
     QString m_statusMessage = "Sign in with your Control Center account.";
     QString m_securityWarning;
+    QDateTime m_loginStartedAt;
 };

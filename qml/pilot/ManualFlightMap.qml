@@ -13,11 +13,11 @@ Item {
     property bool hudVisible: false
 
     function pointFor(latitude, longitude) {
-        return surface.item && surface.item.pointFor ? surface.item.pointFor(latitude, longitude) : Qt.point(width / 2, height / 2)
+        return surface.pointFor ? surface.pointFor(latitude, longitude) : Qt.point(width / 2, height / 2)
     }
 
     function coordinateFor(point) {
-        return surface.item && surface.item.coordinateFor ? surface.item.coordinateFor(point) : { latitude: mapState.centerLatitude, longitude: mapState.centerLongitude }
+        return surface.coordinateFor ? surface.coordinateFor(point) : { latitude: mapState.centerLatitude, longitude: mapState.centerLongitude }
     }
 
     Component.onCompleted: {
@@ -45,10 +45,9 @@ Item {
         }
     }
 
-    Loader {
+    TileMapSurface {
         id: surface
         anchors.fill: parent
-        source: "../map/TileMapSurface.qml"
     }
 
     FlightTrailOverlay {

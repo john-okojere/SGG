@@ -9,10 +9,18 @@
 #include <QSettings>
 #include <QStandardPaths>
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#include <wincrypt.h>
+#endif
+
 SecureStorage::SecureStorage(QObject *parent) : QObject(parent) {}
 
 bool SecureStorage::writeSecret(const QString &key, const QString &value)
 {
+    if (writePlatformSecret(key, value)) {
+        return true;
+    }
     if (writeKeyring(key, value)) {
         return true;
     }
@@ -33,6 +41,11 @@ bool SecureStorage::writeSecret(const QString &key, const QString &value)
 
 QString SecureStorage::readSecret(const QString &key) const
 {
+    const QString platformValue = readPlatformSecret(key);
+    if (!platformValue.isEmpty()) {
+        return platformValue;
+    }
+
     const QString keyringValue = readKeyring(key);
     if (!keyringValue.isEmpty()) {
         return keyringValue;
@@ -104,6 +117,60 @@ QByteArray SecureStorage::machineSecret() const
 bool SecureStorage::keyringAvailable() const
 {
     return !QStandardPaths::findExecutable(QStringLiteral("secret-tool")).isEmpty();
+}
+
+bool SecureStorage::writePlatformSecret(const QString &key, const QString &value) const
+{
+#ifdef Q_OS_WIN
+    const QByteArray plain = value.toUtf8();
+    DATA_BLOB input;
+    input.pbData = reinterpret_cast<BYTE *>(const_cast<char *>(plain.constData()));
+    input.cbData = static_cast<DWORD>(plain.size());
+
+    DATA_BLOB output;
+    if (!CryptProtectData(&input, L"SkyGridGCS", nullptr, nullptr, nullptr, 0, &output)) {
+        return false;
+    }
+
+    const QByteArray protectedData(reinterpret_cast<const char *>(output.pbData), static_cast<int>(output.cbData));
+    LocalFree(output.pbData);
+
+    QSettings settings;
+    settings.setValue(storageKey(key), QStringLiteral("dpapi:%1").arg(QString::fromLatin1(protectedData.toBase64())));
+    settings.sync();
+    return settings.status() == QSettings::NoError;
+#else
+    Q_UNUSED(key)
+    Q_UNUSED(value)
+    return false;
+#endif
+}
+
+QString SecureStorage::readPlatformSecret(const QString &key) const
+{
+#ifdef Q_OS_WIN
+    QSettings settings;
+    const QString encoded = settings.value(storageKey(key)).toString();
+    if (!encoded.startsWith(QStringLiteral("dpapi:"))) {
+        return {};
+    }
+    const QByteArray protectedData = QByteArray::fromBase64(encoded.mid(6).toLatin1());
+    DATA_BLOB input;
+    input.pbData = reinterpret_cast<BYTE *>(const_cast<char *>(protectedData.constData()));
+    input.cbData = static_cast<DWORD>(protectedData.size());
+
+    DATA_BLOB output;
+    if (!CryptUnprotectData(&input, nullptr, nullptr, nullptr, nullptr, 0, &output)) {
+        return {};
+    }
+
+    const QByteArray plain(reinterpret_cast<const char *>(output.pbData), static_cast<int>(output.cbData));
+    LocalFree(output.pbData);
+    return QString::fromUtf8(plain);
+#else
+    Q_UNUSED(key)
+    return {};
+#endif
 }
 
 bool SecureStorage::writeKeyring(const QString &key, const QString &value) const

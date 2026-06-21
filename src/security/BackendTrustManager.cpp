@@ -25,8 +25,9 @@ QString BackendTrustManager::websocketUrl() const
 bool BackendTrustManager::productionSecure() const
 {
     const QUrl url(m_baseUrl);
-    return url.host() == QStringLiteral("sgg-api.up.railway.app")
-        || url.scheme() == QStringLiteral("https");
+    return url.scheme() == QStringLiteral("https")
+        && (url.host() == QStringLiteral("sgg-api.up.railway.app")
+            || !url.host().isEmpty());
 }
 
 QString BackendTrustManager::makeUrl(const QString &path) const
@@ -71,7 +72,29 @@ QString BackendTrustManager::normalizedBaseUrl(const QString &value) const
     while (trimmed.endsWith('/')) {
         trimmed.chop(1);
     }
-    return trimmed.isEmpty() ? defaultBaseUrl() : trimmed;
+    if (trimmed.isEmpty()) {
+        return defaultBaseUrl();
+    }
+    QUrl url(trimmed);
+    if (url.scheme().isEmpty()) {
+        url.setScheme(QStringLiteral("https"));
+    }
+    const bool localhost = url.host() == QStringLiteral("localhost")
+        || url.host() == QStringLiteral("127.0.0.1")
+        || url.host() == QStringLiteral("::1");
+    const bool allowInsecure = QProcessEnvironment::systemEnvironment()
+                                   .value(QStringLiteral("SKYGRID_ALLOW_INSECURE_BACKEND"))
+                                   .trimmed()
+                                   .toLower()
+                               == QStringLiteral("true");
+    if (url.scheme() != QStringLiteral("https") && !localhost && !allowInsecure) {
+        return QStringLiteral("https://sgg-api.up.railway.app");
+    }
+    QString normalized = url.toString();
+    while (normalized.endsWith('/')) {
+        normalized.chop(1);
+    }
+    return normalized;
 }
 
 QString BackendTrustManager::defaultBaseUrl() const

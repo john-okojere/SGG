@@ -10,6 +10,7 @@
 class GcsEventSyncManager;
 class AccessManager;
 class MavsdkVehicleManager;
+class PermissionManager;
 class SessionManager;
 
 namespace mavsdk {
@@ -29,6 +30,7 @@ class ManualControlManager : public QObject
 public:
     explicit ManualControlManager(MavsdkVehicleManager *vehicle,
                                   SessionManager *session,
+                                  PermissionManager *permissions,
                                   AccessManager *access,
                                   GcsEventSyncManager *events,
                                   QObject *parent = nullptr);
@@ -56,6 +58,7 @@ private:
 
     MavsdkVehicleManager *m_vehicle = nullptr;
     SessionManager *m_session = nullptr;
+    PermissionManager *m_permissions = nullptr;
     AccessManager *m_access = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     std::shared_ptr<mavsdk::ManualControl> m_manualControl;

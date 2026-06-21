@@ -11,6 +11,7 @@
 class GcsEventSyncManager;
 class AccessManager;
 class MavsdkVehicleManager;
+class PermissionManager;
 class PilotActionSyncManager;
 class PreflightChecklistManager;
 class SessionManager;
@@ -25,6 +26,7 @@ class VehicleActionManager : public QObject
 public:
     explicit VehicleActionManager(MavsdkVehicleManager *vehicle,
                                   SessionManager *session,
+                                  PermissionManager *permissions,
                                   PilotActionSyncManager *pilotActions,
                                   PreflightChecklistManager *preflight,
                                   AccessManager *access,
@@ -62,6 +64,7 @@ private:
 
     MavsdkVehicleManager *m_vehicle = nullptr;
     SessionManager *m_session = nullptr;
+    PermissionManager *m_permissions = nullptr;
     PilotActionSyncManager *m_pilotActions = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
     AccessManager *m_access = nullptr;

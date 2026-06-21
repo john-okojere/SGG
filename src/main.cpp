@@ -3,6 +3,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
+#include <QColor>
+#include <QDebug>
 #include <QDir>
 #include <QProcessEnvironment>
 #include <QTimer>
@@ -13,6 +15,8 @@
 #include <QFile>
 #include <QHash>
 #include <QImage>
+#include <QIcon>
+#include <QPalette>
 #include <QQuickImageProvider>
 #include <QSettings>
 #include <QSize>
@@ -30,6 +34,12 @@
 #include "auth/AuthManager.h"
 #include "auth/SessionManager.h"
 #include "auth/TokenManager.h"
+#include "access/ModuleAccessManager.h"
+#include "access/PermissionManager.h"
+#include "access/PermissionGuard.h"
+#include "access/RoleAccessManager.h"
+#include "app/AppStartupManager.h"
+#include "autopilot/AutopilotToolsFacade.h"
 #include "cache/LocalSyncCache.h"
 #include "controllers/AppState.h"
 #include "controllers/MapState.h"
@@ -37,21 +47,34 @@
 #include "controllers/MissionStore.h"
 #include "controllers/ThemeController.h"
 #include "flight/EventLogManager.h"
+#include "flight/FlightDataManager.h"
 #include "flight/FlightStatsManager.h"
 #include "flight/PostMissionSummaryManager.h"
 #include "flight/PreflightChecklistManager.h"
 #include "flight/ManualControlManager.h"
+#include "flight/UsbControllerManager.h"
+#include "firmware/FirmwareUpdateManager.h"
+#include "hardware/OptionalHardwareManager.h"
+#include "help/HelpCenterManager.h"
+#include "logs/LogAnalysisManager.h"
 #include "manufacturer/ManufacturerVehicleManager.h"
 #include "map/TileCacheManager.h"
+#include "mission/AdvancedMissionManager.h"
 #include "network/ApiClient.h"
+#include "parameters/ParameterManager.h"
+#include "parameters/ParameterMetadataManager.h"
+#include "payload/PayloadManager.h"
+#include "payload/VideoStreamManager.h"
 #include "network/WebSocketClient.h"
 #include "preferences/PreferencesManager.h"
 #include "profile/OperatorStateManager.h"
 #include "profile/ProfileManager.h"
+#include "readiness/ProductionReadinessManager.h"
 #include "security/AccessManager.h"
 #include "security/BackendTrustManager.h"
 #include "security/DeviceManager.h"
 #include "security/SecureStorage.h"
+#include "setup/InitialSetupManager.h"
 #include "sync/FlightSessionSyncManager.h"
 #include "sync/GcsEventSyncManager.h"
 #include "sync/MissionPreviewManager.h"
@@ -61,6 +84,8 @@
 #include "sync/TelemetrySyncManager.h"
 #include "sync/PilotActionSyncManager.h"
 #include "sync/WeatherSyncManager.h"
+#include "simulation/ProtocolTestManager.h"
+#include "simulation/SimulationManager.h"
 #include "telemetry/WeatherManager.h"
 #include "telemetry/WindCheckManager.h"
 #include "telemetry/WindTelemetryManager.h"
@@ -68,8 +93,13 @@
 #include "vehicle/HomePositionManager.h"
 #include "vehicle/MissionExecutionManager.h"
 #include "vehicle/MissionUploadManager.h"
+#include "vehicle/MultiVehicleManager.h"
+#include "vehicle/RcCalibrationManager.h"
 #include "vehicle/VehicleActionManager.h"
+#include "vehicle/VehicleConfigManager.h"
+#include "vehicle/VehicleProfileManager.h"
 #include "vehicle/VehicleTelemetryModel.h"
+#include "tools/GcsToolCatalogManager.h"
 
 class SvgIconProvider final : public QQuickImageProvider
 {
@@ -238,7 +268,18 @@ int main(int argc, char *argv[])
     applyPortableConfigDefaults();
     QApplication::setOrganizationName("SkyGrid");
     QApplication::setApplicationName("SkyGrid GCS");
+    QApplication::setWindowIcon(QIcon(QStringLiteral(":/qt/qml/SkyGrid/assets/app_icon.png")));
     QQuickStyle::setStyle("Basic");
+    QPalette palette = app.palette();
+    palette.setColor(QPalette::Base, QColor(QStringLiteral("#ffffff")));
+    palette.setColor(QPalette::AlternateBase, QColor(QStringLiteral("#f7f3fb")));
+    palette.setColor(QPalette::Text, QColor(QStringLiteral("#050505")));
+    palette.setColor(QPalette::Button, QColor(QStringLiteral("#ffffff")));
+    palette.setColor(QPalette::ButtonText, QColor(QStringLiteral("#050505")));
+    palette.setColor(QPalette::Highlight, QColor(QStringLiteral("#5f16c5")));
+    palette.setColor(QPalette::HighlightedText, QColor(QStringLiteral("#ffffff")));
+    palette.setColor(QPalette::PlaceholderText, QColor(QStringLiteral("#6f687a")));
+    app.setPalette(palette);
 
     AppState appState;
     MissionStore missionStore;
@@ -252,8 +293,13 @@ int main(int argc, char *argv[])
     DeviceManager deviceManager(&secureStorage);
     BackendTrustManager backendTrust;
     ApiClient apiClient(&backendTrust, &tokenManager);
+    RoleAccessManager roleAccessManager;
+    PermissionManager permissionManager;
+    ModuleAccessManager moduleAccessManager;
+    AppStartupManager appStartupManager;
     AuthManager authManager(&apiClient, &tokenManager, &deviceManager);
     SessionManager sessionManager(&apiClient, &tokenManager);
+    PermissionGuard permissionGuard(&permissionManager, &moduleAccessManager, &sessionManager);
     WebSocketClient webSocketClient(&backendTrust, &tokenManager);
     LocalSyncCache localSyncCache;
     ProfileManager profileManager(&localSyncCache);
@@ -264,6 +310,7 @@ int main(int argc, char *argv[])
     accessManager.setEventSyncManager(&gcsEventSyncManager);
     gcsEventSyncManager.setAccessManager(&accessManager);
     appState.setAccessManager(&accessManager);
+    HelpCenterManager helpCenterManager;
     EventLogManager eventLogManager(&gcsEventSyncManager, &localSyncCache, &accessManager);
     WeatherManager weatherManager;
     WindTelemetryManager windTelemetryManager;
@@ -277,7 +324,7 @@ int main(int argc, char *argv[])
                                                         &weatherManager,
                                                         &windCheckManager,
                                                         &gcsEventSyncManager);
-    MissionSyncManager missionSyncManager(&apiClient, &sessionManager, &localSyncCache, missionStore.plan(), &accessManager, &gcsEventSyncManager);
+    MissionSyncManager missionSyncManager(&apiClient, &sessionManager, &localSyncCache, missionStore.plan(), &permissionManager, &accessManager, &gcsEventSyncManager);
     ManufacturerVehicleManager manufacturerVehicleManager(&apiClient, &sessionManager, &accessManager, &gcsEventSyncManager);
     MissionPreviewManager missionPreviewManager(&apiClient, &sessionManager);
     FlightSessionSyncManager flightSessionSyncManager(&apiClient,
@@ -292,31 +339,86 @@ int main(int argc, char *argv[])
     PilotActionSyncManager pilotActionSyncManager(&flightSessionSyncManager, &gcsEventSyncManager, &localSyncCache, &accessManager);
     ProfileSyncManager profileSyncManager(&apiClient, &sessionManager, &profileManager);
     PreferencesSyncManager preferencesSyncManager(&apiClient, &sessionManager, &preferencesManager);
+    GcsToolCatalogManager gcsToolCatalog(&accessManager);
     MavsdkVehicleManager vehicleManager(&telemetry, &accessManager);
+    AutopilotToolsFacade autopilotToolsFacade(&vehicleManager, &accessManager, &gcsEventSyncManager);
+    FirmwareUpdateManager firmwareUpdateManager(&vehicleManager,
+                                                &sessionManager,
+                                                &permissionManager,
+                                                &autopilotToolsFacade,
+                                                &gcsEventSyncManager);
+    VehicleProfileManager vehicleProfileManager(&apiClient, &sessionManager, &permissionManager);
+    VehicleConfigManager vehicleConfigManager(&vehicleManager,
+                                              &vehicleProfileManager,
+                                              &apiClient,
+                                              &sessionManager,
+                                              &permissionManager,
+                                              &gcsEventSyncManager);
+    RcCalibrationManager rcCalibrationManager(&vehicleManager,
+                                              &sessionManager,
+                                              &permissionManager,
+                                              &gcsEventSyncManager);
     HomePositionManager homePositionManager(&telemetry);
+    AdvancedMissionManager advancedMissionManager(&vehicleManager, &accessManager, &sessionManager, &gcsEventSyncManager);
     MissionUploadManager missionUploadManager(&vehicleManager,
                                               &telemetry,
                                               missionStore.plan(),
                                               &apiClient,
                                               &sessionManager,
+                                              &permissionManager,
                                               &preflightChecklistManager,
                                               &accessManager,
+                                              &advancedMissionManager,
                                               &gcsEventSyncManager);
     MissionExecutionManager missionExecutionManager(&vehicleManager,
                                                     missionStore.plan(),
                                                     &apiClient,
                                                     &sessionManager,
+                                                    &permissionManager,
                                                     &flightSessionSyncManager,
                                                     &preflightChecklistManager,
                                                     &accessManager,
+                                                    &advancedMissionManager,
                                                     &gcsEventSyncManager);
     VehicleActionManager vehicleActionManager(&vehicleManager,
                                               &sessionManager,
+                                              &permissionManager,
                                               &pilotActionSyncManager,
                                               &preflightChecklistManager,
                                               &accessManager,
                                               &gcsEventSyncManager);
-    ManualControlManager manualControlManager(&vehicleManager, &sessionManager, &accessManager, &gcsEventSyncManager);
+    ManualControlManager manualControlManager(&vehicleManager, &sessionManager, &permissionManager, &accessManager, &gcsEventSyncManager);
+    ParameterMetadataManager parameterMetadataManager;
+    ParameterManager parameterManager(&vehicleManager,
+                                      &parameterMetadataManager,
+                                      &accessManager,
+                                      &sessionManager,
+                                      &missionExecutionManager,
+                                      &manualControlManager,
+                                      &gcsEventSyncManager);
+    FlightDataManager flightDataManager(&telemetry, &vehicleManager, &accessManager, &gcsEventSyncManager);
+    LogAnalysisManager logAnalysisManager(&vehicleManager,
+                                          &accessManager,
+                                          &sessionManager,
+                                          &gcsEventSyncManager,
+                                          &eventLogManager);
+    SimulationManager simulationManager(&vehicleConfigManager, &vehicleManager, &accessManager, &gcsEventSyncManager);
+    InitialSetupManager initialSetupManager(&vehicleManager, &accessManager, &sessionManager, &gcsEventSyncManager);
+    VideoStreamManager videoStreamManager(&accessManager, &gcsEventSyncManager);
+    PayloadManager payloadManager(&telemetry, &vehicleManager, &videoStreamManager, &accessManager, &gcsEventSyncManager);
+    OptionalHardwareManager optionalHardwareManager(&vehicleManager, &accessManager, &gcsEventSyncManager);
+    MultiVehicleManager multiVehicleManager(&vehicleManager, &telemetry, &accessManager, &gcsEventSyncManager);
+    ProtocolTestManager protocolTestManager(&accessManager, &gcsEventSyncManager);
+    ProductionReadinessManager productionReadinessManager(&vehicleManager,
+                                                          &parameterManager,
+                                                          &advancedMissionManager,
+                                                          &firmwareUpdateManager,
+                                                          &logAnalysisManager,
+                                                          &videoStreamManager,
+                                                          &sessionManager,
+                                                          &accessManager,
+                                                          &gcsEventSyncManager);
+    UsbControllerManager usbControllerManager(&manualControlManager);
     FlightStatsManager flightStatsManager(&telemetry,
                                           &flightSessionSyncManager,
                                           &appState,
@@ -336,6 +438,7 @@ int main(int argc, char *argv[])
                                               &homePositionManager,
                                               &flightSessionSyncManager,
                                               &webSocketClient,
+                                              &permissionManager,
                                               &localSyncCache,
                                               &accessManager);
     PostMissionSummaryManager postMissionSummaryManager(&apiClient,
@@ -385,6 +488,9 @@ int main(int argc, char *argv[])
     const QString performanceMode = QProcessEnvironment::systemEnvironment()
         .value(QStringLiteral("SKYGRID_PERFORMANCE_MODE"), QStringLiteral("balanced"))
         .toLower();
+    const bool rbacDiagnosticsEnabled = QProcessEnvironment::systemEnvironment()
+                                            .value(QStringLiteral("SKYGRID_RBAC_DEBUG")) == QStringLiteral("true")
+        || QProcessEnvironment::systemEnvironment().value(QStringLiteral("DEV_BUILD")) == QStringLiteral("true");
     const auto asset = [&assetBase](const QString &fileName) {
         return assetBase + fileName;
     };
@@ -395,6 +501,7 @@ int main(int argc, char *argv[])
         return QStringLiteral("image://svgicon/") + fileName;
     };
     QVariantMap logos{
+        {QStringLiteral("app_icon"), asset(QStringLiteral("app_icon.png"))},
         {QStringLiteral("full_logo"), svg(QStringLiteral("full_logo.svg"))},
         {QStringLiteral("logo"), asset(QStringLiteral("logo.png"))},
         {QStringLiteral("icon"), asset(QStringLiteral("icon.png"))}
@@ -477,10 +584,32 @@ int main(int argc, char *argv[])
     };
     engine.rootContext()->setContextProperty("AssetRegistry", assetRegistry);
     engine.rootContext()->setContextProperty("performanceMode", performanceMode);
+    engine.rootContext()->setContextProperty("rbacDiagnosticsEnabled", rbacDiagnosticsEnabled);
     engine.rootContext()->setContextProperty("Theme", &theme);
     engine.rootContext()->setContextProperty("appState", &appState);
+    engine.rootContext()->setContextProperty("roleAccessManager", &roleAccessManager);
+    engine.rootContext()->setContextProperty("permissionManager", &permissionManager);
+    engine.rootContext()->setContextProperty("moduleAccessManager", &moduleAccessManager);
+    engine.rootContext()->setContextProperty("appStartupManager", &appStartupManager);
+    engine.rootContext()->setContextProperty("permissionGuard", &permissionGuard);
     engine.rootContext()->setContextProperty("authManager", &authManager);
     engine.rootContext()->setContextProperty("accessManager", &accessManager);
+    engine.rootContext()->setContextProperty("helpCenterManager", &helpCenterManager);
+    engine.rootContext()->setContextProperty("gcsToolCatalog", &gcsToolCatalog);
+    engine.rootContext()->setContextProperty("autopilotToolsFacade", &autopilotToolsFacade);
+    engine.rootContext()->setContextProperty("parameterManager", &parameterManager);
+    engine.rootContext()->setContextProperty("parameterMetadataManager", &parameterMetadataManager);
+    engine.rootContext()->setContextProperty("flightDataManager", &flightDataManager);
+    engine.rootContext()->setContextProperty("logAnalysisManager", &logAnalysisManager);
+    engine.rootContext()->setContextProperty("simulationManager", &simulationManager);
+    engine.rootContext()->setContextProperty("protocolTestManager", &protocolTestManager);
+    engine.rootContext()->setContextProperty("advancedMissionManager", &advancedMissionManager);
+    engine.rootContext()->setContextProperty("initialSetupManager", &initialSetupManager);
+    engine.rootContext()->setContextProperty("payloadManager", &payloadManager);
+    engine.rootContext()->setContextProperty("videoStreamManager", &videoStreamManager);
+    engine.rootContext()->setContextProperty("optionalHardwareManager", &optionalHardwareManager);
+    engine.rootContext()->setContextProperty("multiVehicleManager", &multiVehicleManager);
+    engine.rootContext()->setContextProperty("productionReadinessManager", &productionReadinessManager);
     engine.rootContext()->setContextProperty("backendTrustManager", &backendTrust);
     engine.rootContext()->setContextProperty("deviceManager", &deviceManager);
     engine.rootContext()->setContextProperty("localSyncCache", &localSyncCache);
@@ -491,6 +620,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("missionExecutionManager", &missionExecutionManager);
     engine.rootContext()->setContextProperty("vehicleActionManager", &vehicleActionManager);
     engine.rootContext()->setContextProperty("manualControlManager", &manualControlManager);
+    engine.rootContext()->setContextProperty("usbControllerManager", &usbControllerManager);
     engine.rootContext()->setContextProperty("gcsEventSyncManager", &gcsEventSyncManager);
     engine.rootContext()->setContextProperty("eventLogManager", &eventLogManager);
     engine.rootContext()->setContextProperty("pilotActionSyncManager", &pilotActionSyncManager);
@@ -516,24 +646,115 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("mapProvider", &mapProvider);
     engine.rootContext()->setContextProperty("tileCacheManager", &tileCacheManager);
     engine.rootContext()->setContextProperty("vehicleManager", &vehicleManager);
+    engine.rootContext()->setContextProperty("firmwareUpdateManager", &firmwareUpdateManager);
+    engine.rootContext()->setContextProperty("vehicleProfileManager", &vehicleProfileManager);
+    engine.rootContext()->setContextProperty("vehicleConfigManager", &vehicleConfigManager);
+    engine.rootContext()->setContextProperty("rcCalibrationManager", &rcCalibrationManager);
     engine.rootContext()->setContextProperty("homePositionManager", &homePositionManager);
 
     QObject::connect(&appState, &AppState::missionStarted, &missionStore, &MissionStore::startDraft);
     QObject::connect(&missionSyncManager, &MissionSyncManager::missionOpened, &appState, &AppState::openExistingMission);
     QObject::connect(&missionStore, &MissionStore::overlayInputsChanged, &mapState, &MapState::refreshOverlay);
+    if (rbacDiagnosticsEnabled) {
+        const auto logNavigationState = [&]() {
+            qInfo().noquote()
+                << "[RBAC] navigation"
+                << "currentScreen=" << appState.currentScreen()
+                << "operationalMode=" << appState.operationalMode()
+                << "defaultWorkspace=" << moduleAccessManager.defaultWorkspace();
+        };
+        QObject::connect(&appState, &AppState::navigationChanged, &appState, logNavigationState);
+        QObject::connect(&appState, &AppState::operationalModeChanged, &appState, logNavigationState);
+    }
     QObject::connect(&authManager, &AuthManager::loginSucceeded, &sessionManager, &SessionManager::validateSession);
+    QObject::connect(&authManager, &AuthManager::loginSucceeded, &appStartupManager, &AppStartupManager::checkingSession);
     QObject::connect(&authManager, &AuthManager::operationsBlocked, &sessionManager, &SessionManager::blockOperations);
-    QObject::connect(&authManager, &AuthManager::operationsBlocked, &accessManager, &AccessManager::clearAccess);
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &appStartupManager, &AppStartupManager::deviceBlocked);
     QObject::connect(&sessionManager, &SessionManager::forceLogout, &authManager, &AuthManager::logout);
+    QObject::connect(&authManager, &AuthManager::loginSessionRecorded, &eventLogManager, [&](qint64 durationSeconds) {
+        eventLogManager.logEvent(QStringLiteral("gcs_login_session_duration"),
+                                 QStringLiteral("info"),
+                                 QStringLiteral("GCS login session duration recorded."),
+                                 QJsonObject{
+                                     {QStringLiteral("duration_seconds"), static_cast<double>(durationSeconds)},
+                                     {QStringLiteral("reason"), QStringLiteral("logout_or_app_close")}
+                                 });
+    });
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, &authManager, [&]() {
+        authManager.finishLoginSession();
+        tokenManager.clearRuntimeSession();
+    });
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &roleAccessManager, &RoleAccessManager::reset);
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &permissionManager, &PermissionManager::reset);
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &moduleAccessManager, &ModuleAccessManager::reset);
+    QObject::connect(&authManager, &AuthManager::operationsBlocked, &accessManager, &AccessManager::clearAccess);
     QObject::connect(&sessionManager, &SessionManager::forceLogout, &accessManager, &AccessManager::clearAccess);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &roleAccessManager, &RoleAccessManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &permissionManager, &PermissionManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &moduleAccessManager, &ModuleAccessManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &accessManager, &AccessManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &profileSyncManager, &ProfileSyncManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &preferencesSyncManager, &PreferencesSyncManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &operatorStateManager, &OperatorStateManager::applyBootstrap);
     QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &flightSessionSyncManager, &FlightSessionSyncManager::applyBootstrap);
-    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &accessManager, &AccessManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &vehicleProfileManager, &VehicleProfileManager::applyBootstrap);
+    QObject::connect(&missionSyncManager, &MissionSyncManager::bootstrapReceived, &appStartupManager, [&]() {
+        appStartupManager.accessReady(moduleAccessManager.defaultWorkspace());
+    });
+    QObject::connect(&missionSyncManager, &MissionSyncManager::syncChanged, &appStartupManager, [&]() {
+        if (missionSyncManager.syncing()) {
+            appStartupManager.backgroundSyncStarted();
+        } else if (appStartupManager.startupComplete()) {
+            appStartupManager.backgroundSyncFinished(missionSyncManager.status());
+        }
+    });
+    const auto enforceWorkspaceAccess = [&]() {
+        const QString current = appState.currentScreen();
+        if ((current == QStringLiteral("home") || current == QStringLiteral("missionSelector"))
+            && moduleAccessManager.defaultWorkspace() != QStringLiteral("home")) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+        if (current == QStringLiteral("vehicleConfiguration")
+            && !moduleAccessManager.vehicleConfigurationWorkspaceAllowed()) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+        if (current == QStringLiteral("manufacturerTestFlight")
+            && !moduleAccessManager.manufacturerTestFlightWorkspaceAllowed()) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+        if (current == QStringLiteral("planner")
+            && appState.operationalMode() == QStringLiteral("pilot")
+            && !moduleAccessManager.pilotWorkspaceAllowed()) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+        if (current == QStringLiteral("planner")
+            && appState.operationalMode() != QStringLiteral("pilot")
+            && !moduleAccessManager.missionWorkspaceAllowed()) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+        if (current == QStringLiteral("gcsTools")
+            && !moduleAccessManager.gcsToolsWorkspaceAllowed()) {
+            appState.openDefaultWorkspace(moduleAccessManager.defaultWorkspace());
+            return;
+        }
+    };
+    QObject::connect(&moduleAccessManager, &ModuleAccessManager::modulesChanged, &appState, enforceWorkspaceAccess);
+    QObject::connect(&appState, &AppState::navigationChanged, &appState, enforceWorkspaceAccess);
     QObject::connect(&accessManager, &AccessManager::accessChanged, &appState, &AppState::resolveWorkspaceForAccess);
     QObject::connect(&preferencesManager, &PreferencesManager::preferencesChanged, &mapProvider, [&]() {
         mapProvider.setLayerMode(preferencesManager.mapLayer());
+    });
+    bool workspaceBootstrapLoaded = false;
+    QObject::connect(&authManager, &AuthManager::loginSucceeded, &missionSyncManager, [&]() {
+        workspaceBootstrapLoaded = false;
+    });
+    QObject::connect(&sessionManager, &SessionManager::forceLogout, &missionSyncManager, [&]() {
+        workspaceBootstrapLoaded = false;
     });
     QObject::connect(&sessionManager, &SessionManager::sessionStateChanged, &missionSyncManager, [&]() {
         accessManager.setSessionState(sessionManager.operationsAllowed(),
@@ -541,27 +762,42 @@ int main(int argc, char *argv[])
                                       sessionManager.blockReason());
         if (sessionManager.operationsAllowed()) {
             sessionManager.startMonitoring();
-            gcsEventSyncManager.recordEvent(QStringLiteral("bootstrap_sync"), QStringLiteral("info"), QStringLiteral("Control Center session trusted"));
-            missionSyncManager.bootstrap();
-            vehicleManager.startDiscovery();
+            appStartupManager.connecting();
+            if (!workspaceBootstrapLoaded) {
+                workspaceBootstrapLoaded = true;
+                gcsEventSyncManager.recordEvent(QStringLiteral("bootstrap_sync"), QStringLiteral("info"), QStringLiteral("Control Center session trusted"));
+                missionSyncManager.bootstrap(true);
+            }
             telemetrySyncManager.start();
         } else {
+            workspaceBootstrapLoaded = false;
             sessionManager.stopMonitoring();
             telemetrySyncManager.stop();
         }
     });
-    QTimer liveBootstrapTimer;
-    liveBootstrapTimer.setSingleShot(true);
-    liveBootstrapTimer.setInterval(performanceMode == QStringLiteral("fast") ? 3500 : 1500);
-    QObject::connect(&liveBootstrapTimer, &QTimer::timeout, &missionSyncManager, [&]() {
+    QTimer targetedAccessSyncTimer;
+    targetedAccessSyncTimer.setSingleShot(true);
+    targetedAccessSyncTimer.setInterval(performanceMode == QStringLiteral("fast") ? 3500 : 1500);
+    QObject::connect(&targetedAccessSyncTimer, &QTimer::timeout, &missionSyncManager, [&]() {
         if (sessionManager.operationsAllowed()) {
-            missionSyncManager.bootstrap();
+            missionSyncManager.bootstrap(true);
+        }
+    });
+    QTimer missionListSyncTimer;
+    missionListSyncTimer.setSingleShot(true);
+    missionListSyncTimer.setInterval(performanceMode == QStringLiteral("fast") ? 2500 : 1200);
+    QObject::connect(&missionListSyncTimer, &QTimer::timeout, &missionSyncManager, [&]() {
+        if (sessionManager.operationsAllowed()) {
+            missionSyncManager.syncMissions();
         }
     });
     QObject::connect(&webSocketClient, &WebSocketClient::messageReceived, &missionSyncManager, [&](const QString &message) {
         const QJsonObject envelope = QJsonDocument::fromJson(message.toUtf8()).object();
         const QString eventName = envelope.value(QStringLiteral("event")).toString();
         const QJsonObject payload = envelope.value(QStringLiteral("payload")).toObject();
+        const QString streamName = envelope.value(QStringLiteral("stream")).toString();
+        const QString payloadType = payload.value(QStringLiteral("type")).toString();
+        const QString eventKey = QStringLiteral("%1 %2 %3").arg(eventName, streamName, payloadType).toLower();
         if (eventName == QStringLiteral("WEATHER_UPDATE") || payload.value(QStringLiteral("type")).toString() == QStringLiteral("WEATHER_UPDATE")) {
             QVariantMap weather = payload.toVariantMap();
             weather[QStringLiteral("assessment")] = payload.value(QStringLiteral("assessment")).toObject().toVariantMap();
@@ -570,14 +806,29 @@ int main(int argc, char *argv[])
             windCheckManager.evaluate();
             return;
         }
+        const bool accessCriticalEvent = eventKey.contains(QStringLiteral("permission"))
+            || eventKey.contains(QStringLiteral("role"))
+            || eventKey.contains(QStringLiteral("organization"))
+            || eventKey.contains(QStringLiteral("device_trust"))
+            || eventKey.contains(QStringLiteral("device trust"))
+            || eventKey.contains(QStringLiteral("account_suspension"))
+            || eventKey.contains(QStringLiteral("account_activation"))
+            || eventKey.contains(QStringLiteral("aircraft_access"));
+        if (accessCriticalEvent) {
+            targetedAccessSyncTimer.start();
+            if (eventKey.contains(QStringLiteral("device")) || eventKey.contains(QStringLiteral("account"))) {
+                sessionManager.validateSession();
+            }
+            return;
+        }
         if (eventName.contains(QStringLiteral("mission"), Qt::CaseInsensitive)
-            || envelope.value(QStringLiteral("stream")).toString() == QStringLiteral("missions")) {
-            liveBootstrapTimer.start();
+            || streamName == QStringLiteral("missions")) {
+            missionListSyncTimer.start();
             return;
         }
         if (eventName.contains(QStringLiteral("flight_session"), Qt::CaseInsensitive)
-            || envelope.value(QStringLiteral("stream")).toString() == QStringLiteral("flight_sessions")) {
-            liveBootstrapTimer.start();
+            || streamName == QStringLiteral("flight_sessions")) {
+            missionListSyncTimer.start();
         }
     });
 
@@ -635,7 +886,12 @@ int main(int argc, char *argv[])
     });
 
     if (tokenManager.hasSession() && tokenManager.deviceTrusted()) {
+        appStartupManager.begin();
+        missionSyncManager.publishCached();
+        appStartupManager.checkingSession();
         sessionManager.validateSession();
+    } else {
+        appStartupManager.completeForLogin();
     }
 
     engine.load(QUrl(QStringLiteral("qrc:/qt/qml/SkyGrid/qml/Main.qml")));

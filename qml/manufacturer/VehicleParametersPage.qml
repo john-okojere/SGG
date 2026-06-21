@@ -3,41 +3,50 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Rectangle {
+    id: root
     color: "#f6f4fa"
 
-    ColumnLayout {
+    ScrollView {
         anchors.fill: parent
-        anchors.margins: 24
-        spacing: 14
+        contentWidth: availableWidth
+        clip: true
 
-        Text { text: "Vehicle Parameters"; color: "#14111d"; font.pixelSize: 24; font.bold: true }
-        Text { Layout.fillWidth: true; text: "Save a parameter snapshot to SGG_CC. Live parameter reading still depends on the vehicle connection layer."; color: "#706a7e"; font.pixelSize: 13; wrapMode: Text.WordWrap }
+        ColumnLayout {
+            width: Math.max(0, root.width - (root.width < 520 ? 32 : 48))
+            x: root.width < 520 ? 16 : 24
+            y: root.width < 520 ? 16 : 24
+            spacing: 14
 
-        GridLayout {
-            Layout.fillWidth: true
-            columns: 2
-            rowSpacing: 10
-            columnSpacing: 12
-            ParamField { id: maxAlt; label: "Max Altitude"; text: "120" }
-            ParamField { id: rtlAlt; label: "RTL Altitude"; text: "50" }
-            ParamField { id: geofence; label: "Geofence Radius"; text: "500" }
-            ParamField { id: firmware; label: "Firmware"; text: manufacturerVehicleManager.selectedProfile.firmware_version || "" }
+            Text { Layout.fillWidth: true; text: "Vehicle Parameters"; color: "#14111d"; font.pixelSize: root.width < 520 ? 20 : 24; font.bold: true; elide: Text.ElideRight }
+            Text { Layout.fillWidth: true; text: "Save a parameter snapshot to SGG_CC. Live parameter reading still depends on the vehicle connection layer."; color: "#706a7e"; font.pixelSize: 13; wrapMode: Text.WordWrap }
+
+            GridLayout {
+                Layout.fillWidth: true
+                columns: width < 520 ? 1 : 2
+                rowSpacing: 10
+                columnSpacing: 12
+                ParamField { id: maxAlt; label: "Max Altitude"; text: "120" }
+                ParamField { id: rtlAlt; label: "RTL Altitude"; text: "50" }
+                ParamField { id: geofence; label: "Geofence Radius"; text: "500" }
+                ParamField { id: firmware; label: "Firmware"; text: manufacturerVehicleManager.selectedProfile.firmware_version || "" }
+            }
+
+            Button {
+                text: "Save Parameter Snapshot"
+                visible: accessManager.can("can_write_vehicle_parameters")
+                enabled: !manufacturerVehicleManager.loading && manufacturerVehicleManager.selectedProfile.id !== undefined
+                onClicked: manufacturerVehicleManager.saveParameterSnapshot(manufacturerVehicleManager.selectedProfile.id, {
+                    max_altitude_m: maxAlt.text,
+                    rtl_altitude_m: rtlAlt.text,
+                    geofence_radius_m: geofence.text,
+                    firmware_version: firmware.text,
+                    source: vehicleManager.connected ? "connected_vehicle" : "manual_gcs_entry"
+                })
+            }
+
+            StatusFooter {}
+            Item { Layout.preferredHeight: root.width < 520 ? 16 : 24 }
         }
-
-        Button {
-            text: "Save Parameter Snapshot"
-            visible: accessManager.can("can_write_vehicle_parameters")
-            enabled: !manufacturerVehicleManager.loading && manufacturerVehicleManager.selectedProfile.id !== undefined
-            onClicked: manufacturerVehicleManager.saveParameterSnapshot(manufacturerVehicleManager.selectedProfile.id, {
-                max_altitude_m: maxAlt.text,
-                rtl_altitude_m: rtlAlt.text,
-                geofence_radius_m: geofence.text,
-                firmware_version: firmware.text,
-                source: vehicleManager.connected ? "connected_vehicle" : "manual_gcs_entry"
-            })
-        }
-
-        StatusFooter {}
     }
 
     component ParamField: ColumnLayout {

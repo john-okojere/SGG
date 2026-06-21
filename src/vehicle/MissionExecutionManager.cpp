@@ -1,8 +1,10 @@
 #include "MissionExecutionManager.h"
 
 #include "MavsdkVehicleManager.h"
+#include "../access/PermissionManager.h"
 #include "../auth/SessionManager.h"
 #include "../models/MissionPlanModel.h"
+#include "../mission/AdvancedMissionManager.h"
 #include "../network/ApiClient.h"
 #include "../flight/PreflightChecklistManager.h"
 #include "../security/AccessManager.h"
@@ -37,9 +39,11 @@ MissionExecutionManager::MissionExecutionManager(MavsdkVehicleManager *vehicle,
                                                  MissionPlanModel *plan,
                                                  ApiClient *api,
                                                  SessionManager *session,
+                                                 PermissionManager *permissions,
                                                  FlightSessionSyncManager *flightSessions,
                                                  PreflightChecklistManager *preflight,
                                                  AccessManager *access,
+                                                 AdvancedMissionManager *advancedMission,
                                                  GcsEventSyncManager *events,
                                                  QObject *parent)
     : QObject(parent),
@@ -47,9 +51,11 @@ MissionExecutionManager::MissionExecutionManager(MavsdkVehicleManager *vehicle,
       m_plan(plan),
       m_api(api),
       m_session(session),
+      m_permissions(permissions),
       m_flightSessions(flightSessions),
       m_preflight(preflight),
       m_access(access),
+      m_advancedMission(advancedMission),
       m_events(events)
 {
     const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -76,6 +82,13 @@ void MissionExecutionManager::startMission()
                                                context,
                                                QStringLiteral("Mission start blocked by local permissions."))) {
         const QString message = QStringLiteral("Mission start blocked by local permissions.");
+        setStatus(message);
+        emit missionFinished(finishPayload(QStringLiteral("failed"), message));
+        emit missionStartFailed(message);
+        return;
+    }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_start_mission")))) {
+        const QString message = QStringLiteral("Mission start blocked: role does not allow autonomous mission start.");
         setStatus(message);
         emit missionFinished(finishPayload(QStringLiteral("failed"), message));
         emit missionStartFailed(message);
@@ -115,6 +128,9 @@ void MissionExecutionManager::startMission()
     }
 
     m_activeMission = std::make_shared<mavsdk::Mission>(m_vehicle->system());
+    const bool rawMissionHandlesTakeoff = m_advancedMission
+        && m_advancedMission->useForUpload()
+        && m_advancedMission->containsTakeoffCommand();
     m_activeMission->subscribe_mission_progress([this](mavsdk::Mission::MissionProgress progress) {
         QMetaObject::invokeMethod(this, [this, progress]() {
             m_activeWaypoint = progress.current;
@@ -267,13 +283,13 @@ void MissionExecutionManager::startMission()
     if (!m_vehicle->armed()) {
         setStatus(QStringLiteral("Arming aircraft for mission..."));
         auto armThenContinue = std::make_shared<std::function<void(int)>>();
-        *armThenContinue = [this, armThenContinue, takeoffThenStart](int attempt) {
+        *armThenContinue = [this, armThenContinue, takeoffThenStart, startUploadedMission, rawMissionHandlesTakeoff](int attempt) {
             if (attempt > 0) {
                 setStatus(QStringLiteral("Arm retry %1/3...").arg(attempt + 1));
             }
             auto action = std::make_shared<mavsdk::Action>(m_vehicle->system());
-            action->arm_async([this, action, armThenContinue, takeoffThenStart, attempt](mavsdk::Action::Result result) {
-                QMetaObject::invokeMethod(this, [this, action, result, armThenContinue, takeoffThenStart, attempt]() {
+            action->arm_async([this, action, armThenContinue, takeoffThenStart, startUploadedMission, rawMissionHandlesTakeoff, attempt](mavsdk::Action::Result result) {
+                QMetaObject::invokeMethod(this, [this, action, result, armThenContinue, takeoffThenStart, startUploadedMission, rawMissionHandlesTakeoff, attempt]() {
                     Q_UNUSED(action)
                     if (result != mavsdk::Action::Result::Success) {
                         if (attempt < 2) {
@@ -305,13 +321,21 @@ void MissionExecutionManager::startMission()
                     if (m_events) {
                         m_events->recordEvent(QStringLiteral("vehicle_arm"), QStringLiteral("info"), QStringLiteral("Aircraft armed for mission start"));
                     }
-                    (*takeoffThenStart)(0);
+                    if (rawMissionHandlesTakeoff) {
+                        (*startUploadedMission)(0);
+                    } else {
+                        (*takeoffThenStart)(0);
+                    }
                 }, Qt::QueuedConnection);
             });
         };
         (*armThenContinue)(0);
     } else if (!m_vehicle->inAir()) {
-        (*takeoffThenStart)(0);
+        if (rawMissionHandlesTakeoff) {
+            (*startUploadedMission)(0);
+        } else {
+            (*takeoffThenStart)(0);
+        }
     } else {
         (*startUploadedMission)(0);
     }

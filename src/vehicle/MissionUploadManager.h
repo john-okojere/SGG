@@ -5,10 +5,12 @@
 
 class ApiClient;
 class AccessManager;
+class AdvancedMissionManager;
 class GcsEventSyncManager;
 class PreflightChecklistManager;
 class MissionPlanModel;
 class MavsdkVehicleManager;
+class PermissionManager;
 class SessionManager;
 class VehicleTelemetryModel;
 
@@ -26,8 +28,10 @@ public:
                                   MissionPlanModel *plan,
                                   ApiClient *api,
                                   SessionManager *session,
+                                  PermissionManager *permissions,
                                   PreflightChecklistManager *preflight,
                                   AccessManager *access,
+                                  AdvancedMissionManager *advancedMission,
                                   GcsEventSyncManager *events,
                                   QObject *parent = nullptr);
 
@@ -46,14 +50,18 @@ signals:
 private:
     void setStatus(const QString &status);
     void markBackendUploaded(int itemCount);
+    bool useAdvancedRawMissionUpload() const;
+    void uploadAdvancedRawMission();
 
     MavsdkVehicleManager *m_vehicle = nullptr;
     VehicleTelemetryModel *m_telemetry = nullptr;
     MissionPlanModel *m_plan = nullptr;
     ApiClient *m_api = nullptr;
     SessionManager *m_session = nullptr;
+    PermissionManager *m_permissions = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
     AccessManager *m_access = nullptr;
+    AdvancedMissionManager *m_advancedMission = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_uploading = false;
     bool m_uploaded = false;

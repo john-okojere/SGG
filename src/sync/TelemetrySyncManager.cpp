@@ -1,5 +1,6 @@
 #include "TelemetrySyncManager.h"
 
+#include "../access/PermissionManager.h"
 #include "../auth/SessionManager.h"
 #include "../cache/LocalSyncCache.h"
 #include "../controllers/AppState.h"
@@ -36,6 +37,7 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
                                            HomePositionManager *homePosition,
                                            FlightSessionSyncManager *flightSessions,
                                            WebSocketClient *websocket,
+                                           PermissionManager *permissions,
                                            LocalSyncCache *cache,
                                            AccessManager *access,
                                            QObject *parent)
@@ -52,6 +54,7 @@ TelemetrySyncManager::TelemetrySyncManager(ApiClient *api,
       m_homePosition(homePosition),
       m_flightSessions(flightSessions),
       m_websocket(websocket),
+      m_permissions(permissions),
       m_cache(cache),
       m_access(access)
 {
@@ -94,6 +97,10 @@ void TelemetrySyncManager::start()
         setStatus(QStringLiteral("Telemetry stream blocked by local permissions."));
         return;
     }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_stream_telemetry")))) {
+        setStatus(QStringLiteral("Telemetry blocked: role does not allow telemetry streaming."));
+        return;
+    }
     if (!m_session || !m_session->operationsAllowed()) {
         setStatus(QStringLiteral("Telemetry blocked: %1").arg(m_session ? m_session->blockReason() : QStringLiteral("session unavailable")));
         return;
@@ -126,6 +133,11 @@ void TelemetrySyncManager::uploadNow()
                                 QStringLiteral("Telemetry upload blocked by local permissions."),
                                 {});
         setStatus(QStringLiteral("Telemetry upload blocked by local permissions."));
+        return;
+    }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_stream_telemetry")))) {
+        setSyncState(QStringLiteral("offline"));
+        setStatus(QStringLiteral("Telemetry blocked: role does not allow telemetry streaming."));
         return;
     }
     if (!m_telemetry || !m_telemetry->connected()) {
@@ -434,6 +446,9 @@ void TelemetrySyncManager::drainQueuedSync()
     if (!m_cache || !m_api || !m_session || !m_session->operationsAllowed()) {
         return;
     }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_stream_telemetry")))) {
+        return;
+    }
     const QDateTime now = QDateTime::currentDateTimeUtc();
     if (m_lastQueueDrainAt.isValid() && m_lastQueueDrainAt.msecsTo(now) < m_queueDrainIntervalMs) {
         return;
@@ -527,7 +542,8 @@ void TelemetrySyncManager::postQueuedItem(const QVariantMap &item)
 
 void TelemetrySyncManager::pollOutboundMessages()
 {
-    if (!m_api || !m_session || !m_session->operationsAllowed()) {
+    if (!m_api || !m_session || !m_session->operationsAllowed()
+        || !m_permissions || !m_permissions->hasPermission(QStringLiteral("can_stream_telemetry"))) {
         return;
     }
     m_api->get(QStringLiteral("/api/operations/pending-sync/"), true, true,

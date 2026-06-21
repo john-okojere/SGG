@@ -2,7 +2,10 @@ import QtQuick
 import "../screens"
 import "../mission"
 import "../pilot"
+import "../vehicle"
 import "../manufacturer"
+import "../tools"
+import "../help"
 
 Item {
     id: root
@@ -18,7 +21,7 @@ Item {
     Loader {
         id: plannerLoader
         anchors.fill: parent
-        active: appState.currentScreen === "planner" && appState.operationalMode !== "pilot"
+        active: appState.currentScreen === "planner" && appState.operationalMode !== "pilot" && moduleAccessManager.missionWorkspaceAllowed
         visible: active
         sourceComponent: plannerComponent
     }
@@ -26,9 +29,25 @@ Item {
     Loader {
         id: pilotLoader
         anchors.fill: parent
-        active: appState.currentScreen === "planner" && appState.operationalMode === "pilot"
+        active: appState.currentScreen === "planner" && appState.operationalMode === "pilot" && moduleAccessManager.pilotWorkspaceAllowed
         visible: active
         sourceComponent: pilotComponent
+    }
+
+    Loader {
+        id: vehicleConfigLoader
+        anchors.fill: parent
+        active: appState.currentScreen === "vehicleConfiguration" && moduleAccessManager.vehicleConfigurationWorkspaceAllowed
+        visible: active
+        sourceComponent: vehicleConfigComponent
+    }
+
+    Loader {
+        id: manufacturerTestFlightLoader
+        anchors.fill: parent
+        active: appState.currentScreen === "manufacturerTestFlight" && moduleAccessManager.manufacturerTestFlightWorkspaceAllowed
+        visible: active
+        sourceComponent: manufacturerTestFlightComponent
     }
 
     Loader {
@@ -37,6 +56,22 @@ Item {
         active: appState.currentScreen === "manufacturer"
         visible: active
         sourceComponent: manufacturerComponent
+    }
+
+    Loader {
+        id: gcsToolsLoader
+        anchors.fill: parent
+        active: appState.currentScreen === "gcsTools" && moduleAccessManager.gcsToolsWorkspaceAllowed
+        visible: active
+        sourceComponent: gcsToolsComponent
+    }
+
+    Loader {
+        id: helpLoader
+        anchors.fill: parent
+        active: appState.currentScreen === "help"
+        visible: active
+        sourceComponent: helpComponent
     }
 
     Loader {
@@ -78,8 +113,36 @@ Item {
     }
 
     Component {
+        id: vehicleConfigComponent
+        VehicleConfigurationScreen {
+            anchors.fill: parent
+        }
+    }
+
+    Component {
+        id: manufacturerTestFlightComponent
+        ManufacturerTestFlightScreen {
+            anchors.fill: parent
+        }
+    }
+
+    Component {
         id: manufacturerComponent
         ManufacturerWorkspaceScreen {
+            anchors.fill: parent
+        }
+    }
+
+    Component {
+        id: gcsToolsComponent
+        GcsToolsWorkspace {
+            anchors.fill: parent
+        }
+    }
+
+    Component {
+        id: helpComponent
+        HelpCenterScreen {
             anchors.fill: parent
         }
     }

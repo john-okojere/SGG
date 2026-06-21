@@ -1,5 +1,6 @@
 #include "ManualControlManager.h"
 
+#include "../access/PermissionManager.h"
 #include "../auth/SessionManager.h"
 #include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
@@ -15,12 +16,14 @@
 
 ManualControlManager::ManualControlManager(MavsdkVehicleManager *vehicle,
                                            SessionManager *session,
+                                           PermissionManager *permissions,
                                            AccessManager *access,
                                            GcsEventSyncManager *events,
                                            QObject *parent)
     : QObject(parent),
       m_vehicle(vehicle),
       m_session(session),
+      m_permissions(permissions),
       m_access(access),
       m_events(events)
 {
@@ -178,6 +181,10 @@ bool ManualControlManager::canControl() const
                                                QVariantMap{{QStringLiteral("vehicle_system_id"), m_vehicle ? m_vehicle->systemId() : QString()}},
                                                QStringLiteral("Pilot mode blocked by local permissions."))) {
         const_cast<ManualControlManager *>(this)->setStatus(QStringLiteral("Pilot mode blocked by local permissions"));
+        return false;
+    }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_fly_manual")))) {
+        const_cast<ManualControlManager *>(this)->setStatus(QStringLiteral("Pilot mode blocked: role does not allow manual flight"));
         return false;
     }
     if (!m_session || !m_session->operationsAllowed()) {

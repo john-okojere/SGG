@@ -31,6 +31,7 @@ public:
                    const QString &deviceTrustToken = {});
     void updateAccessToken(const QString &accessToken);
     void updateDeviceTrust(const QString &status, const QString &trustToken);
+    void clearRuntimeSession();
     void clear();
 
 signals:

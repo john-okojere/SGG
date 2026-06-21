@@ -12,6 +12,8 @@ Item {
 
     signal dismissed()
     signal checklistCompleted()
+    readonly property bool compact: width < 720
+    readonly property int modalInset: compact ? 24 : 68
 
     function aircraftId() {
         return missionSyncManager.assignedAircraft.length > 0 ? String(missionSyncManager.assignedAircraft[0].id) : ""
@@ -62,8 +64,8 @@ Item {
     Rectangle {
         id: card
         anchors.centerIn: parent
-        width: Math.min(parent.width - 48, 780)
-        height: Math.min(parent.height - 56, 930)
+        width: Math.min(parent.width - 32, 780)
+        height: Math.min(parent.height - 32, 930)
         radius: 4
         color: "#ffffff"
         clip: true
@@ -74,7 +76,7 @@ Item {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 72
+                Layout.preferredHeight: root.compact ? 60 : 72
                 color: Theme.purple
                 RowLayout {
                     anchors.fill: parent
@@ -85,8 +87,9 @@ Item {
                         text: "Pre-flight Checklist"
                         color: Theme.white
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: 24
+                        font.pixelSize: root.compact ? 20 : 24
                         font.bold: true
+                        elide: Text.ElideRight
                     }
                     IconButton {
                         implicitWidth: 34
@@ -121,8 +124,8 @@ Item {
                         color: "#ffffff"
                         RowLayout {
                             anchors.fill: parent
-                            anchors.leftMargin: 68
-                            anchors.rightMargin: 68
+                            anchors.leftMargin: root.modalInset
+                            anchors.rightMargin: root.modalInset
                             Text {
                                 Layout.fillWidth: true
                                 text: preflightChecklistManager.status
@@ -157,8 +160,8 @@ Item {
                     Rectangle {
                         visible: preflightChecklistManager.blocked || preflightChecklistManager.cautionRequired
                         Layout.fillWidth: true
-                        Layout.leftMargin: 68
-                        Layout.rightMargin: 68
+                        Layout.leftMargin: root.modalInset
+                        Layout.rightMargin: root.modalInset
                         Layout.topMargin: 8
                         implicitHeight: warningText.implicitHeight + 22
                         radius: 6
@@ -179,8 +182,8 @@ Item {
 
                     PrimaryButton {
                         Layout.fillWidth: true
-                        Layout.leftMargin: 68
-                        Layout.rightMargin: 68
+                        Layout.leftMargin: root.modalInset
+                        Layout.rightMargin: root.modalInset
                         Layout.topMargin: 28
                         Layout.bottomMargin: 36
                         Layout.preferredHeight: 56
@@ -210,17 +213,17 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.leftMargin: 68
-            anchors.rightMargin: 68
+            anchors.leftMargin: root.modalInset
+            anchors.rightMargin: root.modalInset
             height: 1
             color: "#e4dfeb"
         }
 
         RowLayout {
             anchors.fill: parent
-            anchors.leftMargin: 78
-            anchors.rightMargin: 68
-            spacing: 20
+            anchors.leftMargin: root.modalInset + 10
+            anchors.rightMargin: root.modalInset
+            spacing: root.compact ? 10 : 20
 
             Text {
                 text: row.severity === "critical" ? "!"
@@ -232,11 +235,11 @@ Item {
             }
 
             Text {
-                Layout.preferredWidth: 250
+                Layout.preferredWidth: root.compact ? Math.max(120, row.width * 0.28) : 250
                 text: row.title
                 color: row.muted ? "#bdb9c5"
                      : (row.severity === "warning" ? "#ffc400" : (row.severity === "critical" ? Theme.red : "#009e18"))
-                font.pixelSize: 16
+                font.pixelSize: root.compact ? 14 : 16
                 font.bold: true
                 elide: Text.ElideRight
             }
@@ -246,7 +249,7 @@ Item {
                 Layout.fillWidth: true
                 text: row.value
                 color: "#85808a"
-                font.pixelSize: 16
+                font.pixelSize: root.compact ? 13 : 16
                 wrapMode: Text.WordWrap
                 maximumLineCount: 3
                 elide: Text.ElideRight

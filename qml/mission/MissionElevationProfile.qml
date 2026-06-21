@@ -11,7 +11,8 @@ Rectangle {
     border.width: 1
     clip: true
     readonly property bool compact: height < 120
-    width: 1030
+    implicitWidth: 720
+    Layout.fillWidth: true
 
     function routeItems() {
         return missionStore.plan.generatedRoute

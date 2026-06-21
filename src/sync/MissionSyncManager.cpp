@@ -1,6 +1,7 @@
 #include "MissionSyncManager.h"
 
 #include "../auth/SessionManager.h"
+#include "../access/PermissionManager.h"
 #include "../cache/LocalSyncCache.h"
 #include "../models/MissionPlanModel.h"
 #include "../network/ApiClient.h"
@@ -11,6 +12,7 @@
 #include <QJsonObject>
 #include <QDateTime>
 #include <QMetaType>
+#include <QTimer>
 
 namespace {
 
@@ -58,16 +60,22 @@ MissionSyncManager::MissionSyncManager(ApiClient *api,
                                        SessionManager *session,
                                        LocalSyncCache *cache,
                                        MissionPlanModel *plan,
+                                       PermissionManager *permissions,
                                        AccessManager *access,
                                        GcsEventSyncManager *events,
                                        QObject *parent)
-    : QObject(parent), m_api(api), m_access(access), m_session(session), m_cache(cache), m_plan(plan), m_events(events)
+    : QObject(parent), m_api(api), m_access(access), m_session(session), m_cache(cache), m_plan(plan), m_permissions(permissions), m_events(events)
 {
     loadCached();
 }
 
 void MissionSyncManager::saveActiveMission()
 {
+    if (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_plan_mission"))) {
+        setStatus(QStringLiteral("Mission save blocked: role does not allow mission planning."));
+        emit activeMissionSaved(false, QStringLiteral("Mission save blocked: role does not allow mission planning."));
+        return;
+    }
     if (!m_plan) {
         setStatus(QStringLiteral("No active mission to save."));
         emit activeMissionSaved(false, QStringLiteral("No active mission to save."));
@@ -155,6 +163,11 @@ void MissionSyncManager::saveActiveMission()
 
 void MissionSyncManager::validateActiveMission()
 {
+    if (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_plan_mission"))) {
+        setStatus(QStringLiteral("Mission validation blocked: role does not allow mission planning."));
+        emit activeMissionValidated(false, QStringLiteral("Mission validation blocked: role does not allow mission planning."));
+        return;
+    }
     if (!m_plan) {
         setStatus(QStringLiteral("No active mission to validate."));
         emit activeMissionValidated(false, QStringLiteral("No active mission to validate."));
@@ -250,14 +263,14 @@ QVariantList MissionSyncManager::activeMissions() const { return m_activeMission
 QVariantList MissionSyncManager::missionHistory() const { return m_missionHistory; }
 QVariantList MissionSyncManager::vehicleProfiles() const { return m_vehicleProfiles; }
 
-void MissionSyncManager::bootstrap()
+void MissionSyncManager::bootstrap(bool force)
 {
     const QDateTime now = QDateTime::currentDateTimeUtc();
     if (m_syncing) {
         setStatus(QStringLiteral("Control Center sync already running."));
         return;
     }
-    if (m_lastBootstrapAt.isValid() && m_lastBootstrapAt.msecsTo(now) < 15000) {
+    if (!force && m_lastBootstrapAt.isValid() && m_lastBootstrapAt.msecsTo(now) < 15000) {
         setStatus(QStringLiteral("Control Center dashboard data recently refreshed."));
         return;
     }
@@ -267,7 +280,107 @@ void MissionSyncManager::bootstrap()
     }
     setSyncing(true);
     m_lastBootstrapAt = now;
-    setStatus(QStringLiteral("Bootstrapping Control Center data..."));
+    setStatus(QStringLiteral("Loading user permissions..."));
+    m_api->get(QStringLiteral("/api/auth/bootstrap/"), true, true,
+               [this](int statusCode, const QJsonObject &body, const QString &error) {
+        if (statusCode >= 200 && statusCode < 300) {
+            const QVariantMap accessBootstrap = body.toVariantMap();
+            m_accessBootstrap = accessBootstrap;
+            if (m_cache) {
+                m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("access_bootstrap"), accessBootstrap);
+            }
+            emit bootstrapReceived(accessBootstrap);
+            setStatus(QStringLiteral("Workspace ready. Syncing dashboard data in background..."));
+            QTimer::singleShot(150, this, [this]() {
+                if (!m_session || !m_session->operationsAllowed() || !m_api) {
+                    setSyncing(false);
+                    return;
+                }
+                m_api->get(QStringLiteral("/api/missions/sync/bootstrap/"), true, true,
+                           [this](int statusCode, const QJsonObject &body, const QString &error) {
+                    setSyncing(false);
+                    if (statusCode < 200 || statusCode >= 300) {
+                        loadCached();
+                        setStatus(error.isEmpty() ? QStringLiteral("Dashboard sync offline; using local cache.") : QStringLiteral("%1; using local cache.").arg(error));
+                        if (m_events) {
+                            QJsonObject payload{
+                                {QStringLiteral("source"), QStringLiteral("SGG_CC")},
+                                {QStringLiteral("cached"), true},
+                                {QStringLiteral("status_code"), statusCode},
+                                {QStringLiteral("error"), error}
+                            };
+                            m_events->recordEvent(QStringLiteral("control_center_unreachable"),
+                                                  QStringLiteral("warning"),
+                                                  QStringLiteral("Control Center unreachable; dashboard is using local cache"),
+                                                  payload);
+                        }
+                        return;
+                    }
+                    const QVariantMap bootstrap = mergedBootstrap(body.toVariantMap());
+                    m_organization = bootstrap.value(QStringLiteral("organization")).toMap();
+                    m_pilotProfile = bootstrap.value(QStringLiteral("pilot"), bootstrap.value(QStringLiteral("pilot_profile"), bootstrap.value(QStringLiteral("profile")))).toMap();
+                    m_deviceSummary = bootstrap.value(QStringLiteral("device_summary"), bootstrap.value(QStringLiteral("device"))).toMap();
+                    m_sessionStatus = bootstrap.value(QStringLiteral("session_status")).toMap();
+                    m_assignedAircraft = bootstrap.value(QStringLiteral("assigned_aircraft")).toList();
+                    m_activeMissions = bootstrap.value(QStringLiteral("active_missions"),
+                                                       bootstrap.value(QStringLiteral("approved_missions"),
+                                                                       bootstrap.value(QStringLiteral("missions")))).toList();
+                    m_missionHistory = bootstrap.value(QStringLiteral("mission_history"),
+                                                       bootstrap.value(QStringLiteral("completed_missions"))).toList();
+                    m_approvedMissions = m_activeMissions;
+                    if (m_approvedMissions.isEmpty()) {
+                        m_approvedMissions = bootstrap.value(QStringLiteral("approved_missions"),
+                                                             bootstrap.value(QStringLiteral("missions"))).toList();
+                    }
+                    if (m_cache) {
+                        m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("organization"), m_organization);
+                        m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("pilot_profile"), m_pilotProfile);
+                        m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("device_summary"), m_deviceSummary);
+                        m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("session_status"), m_sessionStatus);
+                        m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("assigned_aircraft"), m_assignedAircraft);
+                        m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("approved_missions"), m_approvedMissions);
+                        m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("active_missions"), m_activeMissions);
+                        m_cache->saveList(QStringLiteral("mission_sync"), QStringLiteral("mission_history"), m_missionHistory);
+                        m_cache->saveObject(QStringLiteral("mission_sync"), QStringLiteral("bootstrap"), bootstrap);
+                    }
+                    setStatus(QStringLiteral("Background dashboard sync complete."));
+                    if (m_events) {
+                        QJsonObject payload{
+                            {QStringLiteral("source"), QStringLiteral("SGG_CC")},
+                            {QStringLiteral("cached"), false},
+                            {QStringLiteral("active_missions"), m_activeMissions.size()},
+                            {QStringLiteral("mission_history"), m_missionHistory.size()},
+                            {QStringLiteral("assigned_aircraft"), m_assignedAircraft.size()},
+                            {QStringLiteral("synced_at"), QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)}
+                        };
+                        m_events->recordEvent(QStringLiteral("control_center_reachable"),
+                                              QStringLiteral("info"),
+                                              QStringLiteral("Control Center dashboard data synchronized"),
+                                              payload);
+                    }
+                    emit bootstrapReceived(bootstrap);
+                    emit syncChanged();
+                });
+            });
+            return;
+        }
+        setSyncing(false);
+        loadCached();
+        setStatus(error.isEmpty() ? QStringLiteral("Control Center unavailable. Loading cached workspace.") : QStringLiteral("%1; loading cached workspace.").arg(error));
+    });
+}
+
+void MissionSyncManager::publishCached()
+{
+    loadCached();
+}
+
+/*
+    Legacy full dashboard bootstrap flow kept here for reference. Startup now
+    emits the lightweight auth bootstrap first, then runs this dashboard load in
+    the background so QML can render the role workspace quickly.
+*/
+#if 0
     m_api->get(QStringLiteral("/api/missions/sync/bootstrap/"), true, true,
                [this](int statusCode, const QJsonObject &body, const QString &error) {
         setSyncing(false);
@@ -288,7 +401,7 @@ void MissionSyncManager::bootstrap()
             }
             return;
         }
-        const QVariantMap bootstrap = body.toVariantMap();
+        const QVariantMap bootstrap = mergedBootstrap(body.toVariantMap());
         if (m_access) {
             m_access->applyBootstrap(bootstrap);
         }
@@ -349,7 +462,7 @@ void MissionSyncManager::bootstrap()
         emit bootstrapReceived(bootstrap);
         emit syncChanged();
     });
-}
+#endif
 
 void MissionSyncManager::openMission(const QVariantMap &mission)
 {
@@ -498,6 +611,9 @@ void MissionSyncManager::loadCached()
     if (!m_cache) {
         return;
     }
+    const QVariantMap cachedBootstrap = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("bootstrap"));
+    const QVariantMap cachedAccessBootstrap = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("access_bootstrap"));
+    m_accessBootstrap = cachedAccessBootstrap;
     m_organization = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("organization"));
     m_manufacturer = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("manufacturer"));
     m_pilotProfile = m_cache->loadObject(QStringLiteral("mission_sync"), QStringLiteral("pilot_profile"));
@@ -520,7 +636,42 @@ void MissionSyncManager::loadCached()
     if (!m_organization.isEmpty() || !m_assignedAircraft.isEmpty() || !m_approvedMissions.isEmpty() || !m_missionHistory.isEmpty()) {
         m_status = QStringLiteral("Loaded local workspace cache.");
     }
+    if (!cachedBootstrap.isEmpty()) {
+        emit bootstrapReceived(mergedBootstrap(cachedBootstrap));
+    }
+    if (!cachedBootstrap.isEmpty() && cachedAccessBootstrap.isEmpty()) {
+        m_accessBootstrap = cachedBootstrap;
+    } else if (!cachedAccessBootstrap.isEmpty()) {
+        emit bootstrapReceived(cachedAccessBootstrap);
+    }
     emit syncChanged();
+}
+
+QVariantMap MissionSyncManager::mergedBootstrap(const QVariantMap &bootstrap) const
+{
+    QVariantMap merged = m_accessBootstrap;
+    for (auto it = bootstrap.constBegin(); it != bootstrap.constEnd(); ++it) {
+        const bool hasAuthoritativeAccess = m_accessBootstrap.contains(it.key())
+            && m_accessBootstrap.value(it.key()).isValid()
+            && !m_accessBootstrap.value(it.key()).isNull();
+        if (hasAuthoritativeAccess
+            && (it.key() == QStringLiteral("permissions")
+                || it.key() == QStringLiteral("allowed_modules")
+                || it.key() == QStringLiteral("allowed_gcs_modules")
+                || it.key() == QStringLiteral("roles"))) {
+            continue;
+        }
+        if (!it.value().isNull()) {
+            merged.insert(it.key(), it.value());
+        }
+    }
+    if (!merged.contains(QStringLiteral("device")) && merged.contains(QStringLiteral("device_summary"))) {
+        merged.insert(QStringLiteral("device"), merged.value(QStringLiteral("device_summary")));
+    }
+    if (!merged.contains(QStringLiteral("device_summary")) && merged.contains(QStringLiteral("device"))) {
+        merged.insert(QStringLiteral("device_summary"), merged.value(QStringLiteral("device")));
+    }
+    return merged;
 }
 
 void MissionSyncManager::setSyncing(bool syncing)

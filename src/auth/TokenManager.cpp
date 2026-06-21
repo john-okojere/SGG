@@ -21,8 +21,10 @@ void TokenManager::load()
     if (!m_storage) {
         return;
     }
-    m_accessToken = m_storage->readSecret(QStringLiteral("access_token"));
-    m_refreshToken = m_storage->readSecret(QStringLiteral("refresh_token"));
+    m_accessToken.clear();
+    m_refreshToken.clear();
+    m_storage->deleteSecret(QStringLiteral("access_token"));
+    m_storage->deleteSecret(QStringLiteral("refresh_token"));
     m_deviceUuid = m_storage->readSecret(QStringLiteral("device_uuid"));
     m_deviceTrustToken = m_storage->readSecret(QStringLiteral("device_trust_token"));
     m_deviceStatus = m_storage->readSecret(QStringLiteral("device_status"));
@@ -45,8 +47,6 @@ void TokenManager::saveLogin(const QString &accessToken,
     m_deviceTrustToken = deviceTrustToken;
 
     if (m_storage) {
-        m_storage->writeSecret(QStringLiteral("access_token"), m_accessToken);
-        m_storage->writeSecret(QStringLiteral("refresh_token"), m_refreshToken);
         m_storage->writeSecret(QStringLiteral("device_uuid"), m_deviceUuid);
         m_storage->writeSecret(QStringLiteral("device_status"), m_deviceStatus);
         if (!m_deviceTrustToken.isEmpty()) {
@@ -60,7 +60,7 @@ void TokenManager::updateAccessToken(const QString &accessToken)
 {
     m_accessToken = accessToken;
     if (m_storage) {
-        m_storage->writeSecret(QStringLiteral("access_token"), m_accessToken);
+        m_storage->deleteSecret(QStringLiteral("access_token"));
     }
     emit sessionChanged();
 }
@@ -74,6 +74,17 @@ void TokenManager::updateDeviceTrust(const QString &status, const QString &trust
         if (!m_deviceTrustToken.isEmpty()) {
             m_storage->writeSecret(QStringLiteral("device_trust_token"), m_deviceTrustToken);
         }
+    }
+    emit sessionChanged();
+}
+
+void TokenManager::clearRuntimeSession()
+{
+    m_accessToken.clear();
+    m_refreshToken.clear();
+    if (m_storage) {
+        m_storage->deleteSecret(QStringLiteral("access_token"));
+        m_storage->deleteSecret(QStringLiteral("refresh_token"));
     }
     emit sessionChanged();
 }
