@@ -89,6 +89,47 @@ QString GcsEventSyncManager::accessActionForEvent(const QString &eventType, cons
     if (event.contains(QStringLiteral("mission_upload"))) {
         return QStringLiteral("mission_upload");
     }
+    if (event.contains(QStringLiteral("firmware"))) {
+        return QStringLiteral("firmware_flash");
+    }
+    if (event.contains(QStringLiteral("parameter_write"))
+        || event.contains(QStringLiteral("param_write"))) {
+        return QStringLiteral("vehicle_parameter_write");
+    }
+    if (event.contains(QStringLiteral("parameter"))
+        || event.contains(QStringLiteral("tuning"))) {
+        return QStringLiteral("vehicle_parameter_read");
+    }
+    if (event.contains(QStringLiteral("log_download"))) {
+        return QStringLiteral("log_download");
+    }
+    if (event.contains(QStringLiteral("log"))
+        || event.contains(QStringLiteral("replay"))
+        || event.contains(QStringLiteral("analysis"))) {
+        return QStringLiteral("logs_analysis");
+    }
+    if (event.contains(QStringLiteral("simulation"))
+        || event.contains(QStringLiteral("sitl"))) {
+        return QStringLiteral("simulation");
+    }
+    if (event.contains(QStringLiteral("mavlink"))
+        || event.contains(QStringLiteral("diagnostic"))
+        || event.contains(QStringLiteral("board_info"))) {
+        return QStringLiteral("advanced_mavlink");
+    }
+    if (event.contains(QStringLiteral("payload"))
+        || event.contains(QStringLiteral("camera"))
+        || event.contains(QStringLiteral("gimbal"))) {
+        return QStringLiteral("payload_configuration");
+    }
+    if (event.contains(QStringLiteral("multi_vehicle"))
+        || event.contains(QStringLiteral("vehicle_profile_selected"))) {
+        return QStringLiteral("multi_vehicle");
+    }
+    if (event.contains(QStringLiteral("command_center"))
+        || event.contains(QStringLiteral("sync_profile"))) {
+        return QStringLiteral("command_center_sync");
+    }
     if (event.contains(QStringLiteral("mission_start"))
         || event.contains(QStringLiteral("mission_progress"))
         || event.contains(QStringLiteral("mission_finish"))

@@ -6,32 +6,33 @@ import "../controls"
 
 Item {
     id: root
+    readonly property color loginSurface: "#11091b"
+    readonly property color loginSurfaceRaised: "#180d25"
+    readonly property color loginText: "#ffffff"
+    readonly property color loginMuted: "#d8d0e8"
+    readonly property color inputText: "#050505"
+    readonly property color inputBorder: "#d9cce8"
+
+    Image {
+        anchors.fill: parent
+        source: AssetRegistry.login.background
+        fillMode: Image.PreserveAspectCrop
+        smooth: true
+        mipmap: true
+    }
 
     Rectangle {
         anchors.fill: parent
-        color: "#08040d"
+        color: "#07030c"
+        opacity: 0.54
     }
 
-    Canvas {
+    Rectangle {
         anchors.fill: parent
-        opacity: 0.24
-        onPaint: {
-            var ctx = getContext("2d")
-            ctx.clearRect(0, 0, width, height)
-            var g = ctx.createLinearGradient(0, 0, width, height)
-            g.addColorStop(0, "#19042e")
-            g.addColorStop(0.48, "#06070d")
-            g.addColorStop(1, "#10241f")
-            ctx.fillStyle = g
-            ctx.fillRect(0, 0, width, height)
-            ctx.strokeStyle = "rgba(255,255,255,0.10)"
-            ctx.lineWidth = 1
-            for (var x = -120; x < width + 120; x += 64) {
-                ctx.beginPath()
-                ctx.moveTo(x, 0)
-                ctx.lineTo(x + width * 0.18, height)
-                ctx.stroke()
-            }
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#12051fdd" }
+            GradientStop { position: 0.46; color: "#09040dbb" }
+            GradientStop { position: 1.0; color: "#160526ee" }
         }
     }
 
@@ -40,7 +41,9 @@ Item {
         width: Math.min(520, parent.width - 48)
         height: authManager.devicePending ? 530 : 610
         radius: 10
-        color: "#f7f3fb"
+        color: root.loginSurface
+        border.color: "#332047"
+        border.width: 1
 
         ColumnLayout {
             anchors.fill: parent
@@ -58,7 +61,7 @@ Item {
 
             Text {
                 text: "Control Center Login"
-                color: Theme.ink
+                color: root.loginText
                 font.pixelSize: 28
                 font.bold: true
             }
@@ -66,7 +69,7 @@ Item {
             Text {
                 Layout.fillWidth: true
                 text: authManager.statusMessage
-                color: authManager.devicePending ? Theme.amber : Theme.muted
+                color: authManager.devicePending ? Theme.amber : root.loginMuted
                 font.pixelSize: 15
                 wrapMode: Text.WordWrap
             }
@@ -79,21 +82,35 @@ Item {
                 TextField {
                     id: emailField
                     Layout.fillWidth: true
-                    height: 54
+                    Layout.preferredHeight: 54
                     placeholderText: "Email"
                     inputMethodHints: Qt.ImhEmailCharactersOnly
                     font.pixelSize: 17
-                    color: Theme.ink
+                    color: root.inputText
+                    placeholderTextColor: "#6f687a"
+                    background: Rectangle {
+                        radius: 7
+                        color: "#ffffff"
+                        border.color: emailField.activeFocus ? "#7c45b8" : root.inputBorder
+                        border.width: emailField.activeFocus ? 2 : 1
+                    }
                 }
 
                 TextField {
                     id: passwordField
                     Layout.fillWidth: true
-                    height: 54
+                    Layout.preferredHeight: 54
                     placeholderText: "Password"
                     echoMode: TextInput.Password
                     font.pixelSize: 17
-                    color: Theme.ink
+                    color: root.inputText
+                    placeholderTextColor: "#6f687a"
+                    background: Rectangle {
+                        radius: 7
+                        color: "#ffffff"
+                        border.color: passwordField.activeFocus ? "#7c45b8" : root.inputBorder
+                        border.width: passwordField.activeFocus ? 2 : 1
+                    }
                     Keys.onReturnPressed: authManager.login(emailField.text, passwordField.text)
                 }
             }
@@ -102,7 +119,9 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 72
                 radius: 8
-                color: "#ffffff"
+                color: root.loginSurfaceRaised
+                border.color: "#332047"
+                border.width: 1
                 RowLayout {
                     anchors.fill: parent
                     anchors.margins: 14
@@ -110,8 +129,8 @@ Item {
                     AssetIcon { Layout.preferredWidth: 26; Layout.preferredHeight: 26; source: AssetRegistry.icons.plane; active: true }
                     Column {
                         Layout.fillWidth: true
-                        Text { text: deviceManager.hostname; color: Theme.ink; font.pixelSize: 16; font.bold: true }
-                        Text { text: deviceManager.osName + " · " + deviceManager.deviceUuid; color: Theme.muted; font.pixelSize: 12; elide: Text.ElideRight; width: parent.width }
+                        Text { text: deviceManager.hostname; color: root.loginText; font.pixelSize: 16; font.bold: true }
+                        Text { text: deviceManager.osName + " - " + deviceManager.deviceUuid; color: root.loginMuted; font.pixelSize: 12; elide: Text.ElideRight; width: parent.width }
                     }
                 }
             }
@@ -120,7 +139,7 @@ Item {
                 Layout.fillWidth: true
                 visible: authManager.securityWarning.length > 0
                 text: authManager.securityWarning
-                color: Theme.red
+                color: "#ff8a8a"
                 font.pixelSize: 14
                 wrapMode: Text.WordWrap
             }
@@ -144,8 +163,8 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 46
                 radius: Theme.controlRadius
-                color: cancelArea.containsMouse ? "#ede6f5" : "#00000000"
-                border.color: "#d9cce8"
+                color: cancelArea.containsMouse ? "#211334" : "#00000000"
+                border.color: "#5a3a78"
                 border.width: 1
                 RowLayout {
                     anchors.centerIn: parent
@@ -158,7 +177,7 @@ Item {
                     }
                     Text {
                         text: authManager.devicePending ? "Cancel Sign In" : "Clear Session"
-                        color: Theme.purple
+                        color: root.loginText
                         font.pixelSize: 15
                         font.bold: true
                     }
@@ -179,7 +198,7 @@ Item {
             Text {
                 Layout.fillWidth: true
                 text: "Accounts are created in SkyGrid Control Center. This GCS only signs in approved operators and trusted devices."
-                color: Theme.muted
+                color: root.loginMuted
                 font.pixelSize: 12
                 wrapMode: Text.WordWrap
             }

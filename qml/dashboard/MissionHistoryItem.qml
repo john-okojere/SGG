@@ -8,8 +8,8 @@ Rectangle {
 
     property string missionName: "Untitled Mission"
     property string category: "Surveillance"
-    property string timestamp: "May 20, 2026 - 08:32"
-    property string status: "Completed"
+    property string timestamp: "No timestamp"
+    property string status: "Pending"
     property url iconSource: ""
     property color badgeColor: "#efe2ff"
     property color badgeTextColor: "#5b22a8"

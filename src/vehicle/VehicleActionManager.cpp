@@ -1,6 +1,7 @@
 #include "VehicleActionManager.h"
 
 #include "MavsdkVehicleManager.h"
+#include "../access/PermissionManager.h"
 #include "../auth/SessionManager.h"
 #include "../security/AccessManager.h"
 #include "../sync/GcsEventSyncManager.h"
@@ -15,6 +16,7 @@
 
 VehicleActionManager::VehicleActionManager(MavsdkVehicleManager *vehicle,
                                            SessionManager *session,
+                                           PermissionManager *permissions,
                                            PilotActionSyncManager *pilotActions,
                                            PreflightChecklistManager *preflight,
                                            AccessManager *access,
@@ -23,6 +25,7 @@ VehicleActionManager::VehicleActionManager(MavsdkVehicleManager *vehicle,
     : QObject(parent),
       m_vehicle(vehicle),
       m_session(session),
+      m_permissions(permissions),
       m_pilotActions(pilotActions),
       m_preflight(preflight),
       m_access(access),
@@ -213,6 +216,10 @@ bool VehicleActionManager::canCommandVehicle(const QString &actionName, const QS
                                                            {QStringLiteral("command"), actionName}},
                                                QStringLiteral("Cannot %1: blocked by local permissions").arg(actionName))) {
         setStatus(QStringLiteral("Cannot %1: blocked by local permissions").arg(actionName));
+        return false;
+    }
+    if (!m_access && (!m_permissions || !m_permissions->hasPermission(QStringLiteral("can_fly_manual")))) {
+        setStatus(QStringLiteral("Cannot %1: role does not allow manual vehicle control").arg(actionName));
         return false;
     }
     if (!m_session || !m_session->operationsAllowed()) {

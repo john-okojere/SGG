@@ -13,10 +13,12 @@
 #include <QRegularExpression>
 #include <QDebug>
 #include <QtMath>
+#include <QSerialPortInfo>
 
 #include <cmath>
 #include <memory>
 #include <sstream>
+#include <utility>
 
 namespace {
 template <typename T>
@@ -66,6 +68,7 @@ MavsdkVehicleManager::MavsdkVehicleManager(VehicleTelemetryModel *telemetry, Acc
 {
     m_discoveryTimer.setInterval(1500);
     connect(&m_discoveryTimer, &QTimer::timeout, this, &MavsdkVehicleManager::refreshSystems);
+    refreshSerialPorts();
 }
 
 MavsdkVehicleManager::~MavsdkVehicleManager()
@@ -83,6 +86,8 @@ bool MavsdkVehicleManager::armed() const { return m_armed; }
 bool MavsdkVehicleManager::inAir() const { return m_inAir; }
 QString MavsdkVehicleManager::flightMode() const { return m_flightMode; }
 QString MavsdkVehicleManager::health() const { return m_health; }
+QStringList MavsdkVehicleManager::availableSerialPorts() const { return m_availableSerialPorts; }
+QVariantList MavsdkVehicleManager::serialPortOptions() const { return m_serialPortOptions; }
 std::shared_ptr<mavsdk::System> MavsdkVehicleManager::system() const { return m_impl->system; }
 
 void MavsdkVehicleManager::startDiscovery()
@@ -110,12 +115,51 @@ void MavsdkVehicleManager::startDiscovery()
         urls << QStringLiteral("udpin://0.0.0.0:14540")
              << QStringLiteral("udpin://0.0.0.0:14550");
     }
-    urls.removeDuplicates();
-
     const bool allowMultipleLinks = envEnabled(env.value(QStringLiteral("SKYGRID_MAVSDK_ALLOW_MULTIPLE_URLS")));
+    startDiscoveryWithUrls(urls, allowMultipleLinks);
+}
+
+void MavsdkVehicleManager::connectToUrl(const QString &url, bool allowMultipleLinks)
+{
+    connectToUrls(QStringList{url}, allowMultipleLinks);
+}
+
+void MavsdkVehicleManager::connectToUrls(const QStringList &urls, bool allowMultipleLinks)
+{
+    if (m_access && !m_access->authorizeAction(QStringLiteral("aircraft_connection"),
+                                               {},
+                                               QStringLiteral("Aircraft connection blocked by local permissions."))) {
+        m_status = QStringLiteral("Aircraft connection blocked by local permissions");
+        emit vehicleChanged();
+        return;
+    }
+
+    stopDiscovery();
+    m_impl = std::make_unique<Impl>();
+    startDiscoveryWithUrls(urls, allowMultipleLinks);
+}
+
+void MavsdkVehicleManager::startDiscoveryWithUrls(QStringList urls, bool allowMultipleLinks)
+{
+    QStringList normalizedUrls;
+    for (const QString &entry : std::as_const(urls)) {
+        const QString trimmed = entry.trimmed();
+        if (!trimmed.isEmpty()) {
+            normalizedUrls << trimmed;
+        }
+    }
+    normalizedUrls.removeDuplicates();
+    if (normalizedUrls.isEmpty()) {
+        m_connectionUrl.clear();
+        m_status = QStringLiteral("MAVSDK connection failed. No connection URL was provided.");
+        m_discoveryActive = false;
+        emit vehicleChanged();
+        return;
+    }
+
     QStringList accepted;
     QStringList rejected;
-    for (const QString &url : urls) {
+    for (const QString &url : normalizedUrls) {
         const auto result = m_impl->sdk.add_any_connection(url.toStdString());
         if (result == mavsdk::ConnectionResult::Success) {
             accepted << url;
@@ -128,8 +172,14 @@ void MavsdkVehicleManager::startDiscovery()
     }
     m_connectionUrl = accepted.join(QStringLiteral(", "));
     m_status = accepted.isEmpty()
-        ? QStringLiteral("MAVSDK UDP bind failed")
-        : QStringLiteral("Searching for Gazebo/PX4 aircraft");
+        ? QStringLiteral("MAVSDK connection failed. Check port, baud, or network bind.")
+        : QStringLiteral("Waiting for MAVLink heartbeat on %1").arg(m_connectionUrl);
+    if (accepted.isEmpty()) {
+        m_discoveryActive = false;
+        qInfo() << "MAVSDK discovery failed. Accepted:" << accepted << "Rejected:" << rejected;
+        emit vehicleChanged();
+        return;
+    }
     m_discoveryActive = true;
 
     m_impl->newSystemHandle = m_impl->sdk.subscribe_on_new_system([this]() {
@@ -186,6 +236,47 @@ void MavsdkVehicleManager::connectRetry()
         m_discoveryTimer.start();
     }
     refreshSystems();
+}
+
+void MavsdkVehicleManager::refreshSerialPorts()
+{
+    QStringList ports;
+    QVariantList options;
+    const QList<QSerialPortInfo> available = QSerialPortInfo::availablePorts();
+    for (const QSerialPortInfo &port : available) {
+        const QString name = port.portName().isEmpty() ? port.systemLocation() : port.portName();
+        if (!name.isEmpty() && !ports.contains(name)) {
+            ports << name;
+        }
+        QVariantMap option{
+            {QStringLiteral("portName"), port.portName()},
+            {QStringLiteral("systemLocation"), port.systemLocation()},
+            {QStringLiteral("description"), port.description()},
+            {QStringLiteral("manufacturer"), port.manufacturer()},
+            {QStringLiteral("serialNumber"), port.serialNumber()},
+            {QStringLiteral("vendorIdentifier"), port.hasVendorIdentifier() ? QString::number(port.vendorIdentifier(), 16).toUpper() : QString()},
+            {QStringLiteral("productIdentifier"), port.hasProductIdentifier() ? QString::number(port.productIdentifier(), 16).toUpper() : QString()},
+        };
+        QString display = port.systemLocation().isEmpty() ? name : port.systemLocation();
+        const QString detail = port.description().isEmpty() ? port.manufacturer() : port.description();
+        if (!detail.isEmpty()) {
+            display += QStringLiteral(" - ") + detail;
+        }
+        if (port.hasVendorIdentifier() && port.hasProductIdentifier()) {
+            display += QStringLiteral(" (%1:%2)")
+                           .arg(QString::number(port.vendorIdentifier(), 16).toUpper(),
+                                QString::number(port.productIdentifier(), 16).toUpper());
+        }
+        option[QStringLiteral("display")] = display;
+        option[QStringLiteral("connectionName")] = name;
+        options << option;
+    }
+    if (m_availableSerialPorts == ports && m_serialPortOptions == options) {
+        return;
+    }
+    m_availableSerialPorts = ports;
+    m_serialPortOptions = options;
+    emit serialPortsChanged();
 }
 
 void MavsdkVehicleManager::refreshSystems()
@@ -321,7 +412,9 @@ void MavsdkVehicleManager::refreshSystems()
     }
     m_connected = false;
     m_status = m_discoveryActive
-        ? QStringLiteral("Searching for Gazebo/PX4 aircraft")
+        ? QStringLiteral("Waiting for MAVLink heartbeat on %1").arg(m_connectionUrl.isEmpty()
+              ? QStringLiteral("configured link")
+              : m_connectionUrl)
         : QStringLiteral("No Connected Aircraft");
     if (m_telemetry) {
         m_telemetry->setConnection(false, QString());

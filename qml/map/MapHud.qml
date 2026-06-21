@@ -5,8 +5,9 @@ import "../controls"
 
 Item {
     id: item1
-    width: 720
-    height: 190
+    width: parent ? Math.min(parent.width - 24, 720) : 720
+    height: Math.min(190, parent ? Math.max(150, parent.height * 0.34) : 190)
+    readonly property bool compact: width < 620
 
     function valueOrNa(value, decimals) {
         return telemetryStore.connected ? Number(value).toFixed(decimals) : "N/A"
@@ -16,9 +17,9 @@ Item {
         y: 63
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        anchors.leftMargin: 170
+        anchors.leftMargin: item1.compact ? 0 : 170
         anchors.bottomMargin: 89
-        width: providerText.implicitWidth + 34
+        width: Math.min(parent.width - anchors.leftMargin, providerText.implicitWidth + 34)
         height: 38
         color: mapProvider.online ? "#11351fdc" : "#2f2038dc"
         border.color: mapProvider.online ? "#3fe27b70" : "#f7c94870"
@@ -36,7 +37,7 @@ Item {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 146
-        width: 350
+        width: item1.compact ? Math.min(parent.width, 350) : 350
         height: 40
         color: "#160720d9"
         RowLayout {
@@ -90,15 +91,15 @@ Item {
     Rectangle {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: 154
-        height: 154
+        width: item1.compact ? 118 : 154
+        height: width
         radius: 77
         color: "transparent"
         AssetIcon {
             anchors.centerIn: parent
-            width: 154
-            height: 154
-            iconSize: 154
+            width: parent.width
+            height: parent.height
+            iconSize: parent.width
             source: AssetRegistry.icons.compass_border
             active: true
         }
@@ -116,9 +117,9 @@ Item {
 
     GlassPanel {
         anchors.left: parent.left
-        anchors.leftMargin: 170
+        anchors.leftMargin: item1.compact ? 0 : 170
         anchors.bottom: parent.bottom
-        width: 560
+        width: item1.compact ? parent.width : Math.min(560, parent.width - anchors.leftMargin)
         height: 88
         color: Theme.purple
         RowLayout {

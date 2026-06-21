@@ -10,8 +10,11 @@ Rectangle {
     color: "#f5f1fa"
     border.color: "#e2d8ed"
     border.width: 0
-    readonly property bool compact: width < 1320
-    readonly property bool narrow: width < 1040
+    readonly property bool compact: width < 1440
+    readonly property bool narrow: width < 1180
+    readonly property bool micro: width < 1060
+    readonly property bool showDetailedTelemetry: !root.narrow
+    readonly property bool showProfile: !root.compact
 
     RowLayout {
         anchors.fill: parent
@@ -20,13 +23,13 @@ Rectangle {
         spacing: root.compact ? 7 : 9
 
         Item {
-            Layout.preferredWidth: root.narrow ? 142 : (root.compact ? 188 : 250)
+            Layout.preferredWidth: root.micro ? 96 : (root.narrow ? 128 : (root.compact ? 176 : 238))
             Layout.fillHeight: true
             Image {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                width: root.narrow ? 132 : (root.compact ? 178 : 226)
-                height: root.narrow ? 34 : 44
+                width: root.micro ? 88 : (root.narrow ? 120 : (root.compact ? 168 : 226))
+                height: root.narrow ? 30 : 44
                 source: AssetRegistry.logos.full_logo
                 sourceSize.width: 552
                 sourceSize.height: 104
@@ -44,18 +47,18 @@ Rectangle {
                     ? operatorStateManager.activeAircraftName
                     : telemetryStore.aircraftId) + "  AIR"
             iconSource: AssetRegistry.icons.plane
-            implicitWidth: root.compact ? 150 : 190
+            implicitWidth: root.narrow ? 128 : (root.compact ? 150 : 190)
         }
-        StatusPill { value: telemetryStore.connected ? telemetryStore.battery + "%" : "--%"; iconSource: AssetRegistry.icons.boxicons_battery_3; accent: telemetryStore.battery > 35 ? Theme.green : Theme.amber; implicitWidth: root.compact ? 88 : 104 }
-        StatusPill { value: telemetryStore.connected ? telemetryStore.satellites + " SAT" : "NO GPS"; iconSource: AssetRegistry.icons.lucide_satellite; accent: telemetryStore.gpsQuality === "High" ? Theme.green : Theme.amber; implicitWidth: root.compact ? 104 : 124 }
-        StatusPill { value: telemetryStore.connected ? telemetryStore.transmission + "%" : "OFFLINE"; iconSource: AssetRegistry.icons.boxicons_wifi; accent: telemetryStore.transmission > 90 ? Theme.green : Theme.amber; implicitWidth: root.compact ? 104 : 124 }
-        StatusPill { value: telemetryStore.recordingState; iconSource: AssetRegistry.icons.boxicons_camera; accent: telemetryStore.recording ? Theme.red : Theme.ink; implicitWidth: root.compact ? 102 : 120 }
-        StatusPill { value: telemetryStore.connected ? Number(telemetryStore.speed).toFixed(1) + " m/s" : "-- m/s"; iconSource: AssetRegistry.icons.boxicons_wind_filled; accent: Theme.ink; implicitWidth: root.compact ? 104 : 124 }
-        StatusPill { value: telemetryStore.connected ? Number(telemetryStore.altitude).toFixed(0) + " m" : "-- m"; iconSource: AssetRegistry.icons.lucide_mountain; accent: Theme.ink; implicitWidth: root.compact ? 92 : 108 }
-        StatusPill { value: telemetryStore.connected ? (telemetryStore.armed ? "ARMED" : "IDLE") : "NO AIR"; iconSource: AssetRegistry.icons.boxicons_cursor_pointer; accent: telemetryStore.armed ? Theme.purple : Theme.ink; implicitWidth: root.compact ? 92 : 108 }
+        StatusPill { value: telemetryStore.connected ? telemetryStore.battery + "%" : "--%"; iconSource: AssetRegistry.icons.boxicons_battery_3; accent: telemetryStore.battery > 35 ? Theme.green : Theme.amber; implicitWidth: root.narrow ? 76 : (root.compact ? 88 : 104) }
+        StatusPill { value: telemetryStore.connected ? telemetryStore.satellites + " SAT" : "NO GPS"; iconSource: AssetRegistry.icons.lucide_satellite; accent: telemetryStore.gpsQuality === "High" ? Theme.green : Theme.amber; implicitWidth: root.narrow ? 92 : (root.compact ? 104 : 124) }
+        StatusPill { value: telemetryStore.connected ? telemetryStore.transmission + "%" : "OFFLINE"; iconSource: AssetRegistry.icons.boxicons_wifi; accent: telemetryStore.transmission > 90 ? Theme.green : Theme.amber; implicitWidth: root.narrow ? 92 : (root.compact ? 104 : 124) }
+        StatusPill { visible: root.showDetailedTelemetry; value: telemetryStore.recordingState; iconSource: AssetRegistry.icons.boxicons_camera; accent: telemetryStore.recording ? Theme.red : Theme.ink; implicitWidth: root.compact ? 96 : 120 }
+        StatusPill { visible: root.showDetailedTelemetry; value: telemetryStore.connected ? Number(telemetryStore.speed).toFixed(1) + " m/s" : "-- m/s"; iconSource: AssetRegistry.icons.boxicons_wind_filled; accent: Theme.ink; implicitWidth: root.compact ? 98 : 124 }
+        StatusPill { visible: root.showDetailedTelemetry; value: telemetryStore.connected ? Number(telemetryStore.altitude).toFixed(0) + " m" : "-- m"; iconSource: AssetRegistry.icons.lucide_mountain; accent: Theme.ink; implicitWidth: root.compact ? 86 : 108 }
+        StatusPill { visible: root.showDetailedTelemetry; value: telemetryStore.connected ? (telemetryStore.armed ? "ARMED" : "IDLE") : "NO AIR"; iconSource: AssetRegistry.icons.boxicons_cursor_pointer; accent: telemetryStore.armed ? Theme.purple : Theme.ink; implicitWidth: root.compact ? 86 : 108 }
         StatusPill {
             objectName: "backendLiveSyncStatus"
-            visible: !root.compact
+            visible: root.showProfile
             value: webSocketClient.liveStreamSummary + (telemetrySyncManager.pendingQueueCount > 0 ? " / Q " + telemetrySyncManager.pendingQueueCount : "")
             iconSource: AssetRegistry.icons.boxicons_wifi
             accent: webSocketClient.liveStreamCount >= 4 ? Theme.green : (telemetrySyncManager.pendingQueueCount > 0 ? Theme.amber : Theme.ink)
@@ -63,7 +66,7 @@ Rectangle {
         }
 
         Rectangle {
-            visible: !root.compact
+            visible: root.showProfile
             Layout.preferredWidth: 42
             Layout.preferredHeight: 42
             radius: 21
@@ -87,7 +90,7 @@ Rectangle {
             }
         }
         Text {
-            visible: !root.compact
+            visible: root.showProfile
             text: profileManager.displayName + (profileManager.organizationName.length > 0 ? "\n" + profileManager.organizationName : "")
             color: Theme.ink
             font.pixelSize: 12
@@ -95,6 +98,30 @@ Rectangle {
             lineHeight: 0.88
             Layout.preferredWidth: 132
             elide: Text.ElideRight
+        }
+
+        Button {
+            id: helpButton
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 36
+            text: "?"
+            hoverEnabled: true
+            ToolTip.text: "Open Help Center"
+            ToolTip.visible: hovered
+            onClicked: appState.openHelpCenter()
+            contentItem: Text {
+                text: "?"
+                color: Theme.purple
+                font.pixelSize: 18
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+            background: Rectangle {
+                radius: 18
+                color: helpButton.hovered ? "#eadff4" : "#ffffff"
+                border.color: "#d9cce8"
+            }
         }
 
         Rectangle {
@@ -123,12 +150,12 @@ Rectangle {
 
         Button {
             id: moreButton
-            visible: root.compact
-            Layout.preferredWidth: 42
+            visible: root.compact || root.narrow
+            Layout.preferredWidth: root.micro ? 46 : 54
             Layout.preferredHeight: 34
             hoverEnabled: true
             contentItem: Text {
-                text: "More"
+                text: root.micro ? "..." : "More"
                 color: Theme.purple
                 font.pixelSize: 12
                 font.bold: true
@@ -156,6 +183,34 @@ Rectangle {
                     width: parent.width
                     spacing: 8
                     StatusPill {
+                        visible: !root.showDetailedTelemetry
+                        Layout.fillWidth: true
+                        value: telemetryStore.recordingState
+                        iconSource: AssetRegistry.icons.boxicons_camera
+                        accent: telemetryStore.recording ? Theme.red : Theme.ink
+                    }
+                    StatusPill {
+                        visible: !root.showDetailedTelemetry
+                        Layout.fillWidth: true
+                        value: telemetryStore.connected ? Number(telemetryStore.speed).toFixed(1) + " m/s" : "-- m/s"
+                        iconSource: AssetRegistry.icons.boxicons_wind_filled
+                        accent: Theme.ink
+                    }
+                    StatusPill {
+                        visible: !root.showDetailedTelemetry
+                        Layout.fillWidth: true
+                        value: telemetryStore.connected ? Number(telemetryStore.altitude).toFixed(0) + " m" : "-- m"
+                        iconSource: AssetRegistry.icons.lucide_mountain
+                        accent: Theme.ink
+                    }
+                    StatusPill {
+                        visible: !root.showDetailedTelemetry
+                        Layout.fillWidth: true
+                        value: telemetryStore.connected ? (telemetryStore.armed ? "ARMED" : "IDLE") : "NO AIR"
+                        iconSource: AssetRegistry.icons.boxicons_cursor_pointer
+                        accent: telemetryStore.armed ? Theme.purple : Theme.ink
+                    }
+                    StatusPill {
                         Layout.fillWidth: true
                         value: webSocketClient.liveStreamSummary + (telemetrySyncManager.pendingQueueCount > 0 ? " / Q " + telemetrySyncManager.pendingQueueCount : "")
                         iconSource: AssetRegistry.icons.boxicons_wifi
@@ -171,6 +226,14 @@ Rectangle {
                     }
                     Button {
                         Layout.fillWidth: true
+                        text: "Help Center"
+                        onClicked: {
+                            overflowPopup.close()
+                            appState.openHelpCenter()
+                        }
+                    }
+                    Button {
+                        Layout.fillWidth: true
                         text: "Logout"
                         onClicked: {
                             overflowPopup.close()
@@ -179,11 +242,6 @@ Rectangle {
                     }
                 }
             }
-        }
-
-        WindowCloseButton {
-            Layout.preferredWidth: root.compact ? 34 : 38
-            Layout.preferredHeight: root.compact ? 34 : 38
         }
     }
 }

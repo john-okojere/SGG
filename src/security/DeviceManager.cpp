@@ -25,7 +25,7 @@ QString DeviceManager::hostname() const { return QHostInfo::localHostName(); }
 QString DeviceManager::osName() const { return QSysInfo::prettyProductName(); }
 QString DeviceManager::osVersion() const { return QSysInfo::productVersion(); }
 QString DeviceManager::hardwareFingerprint() const { return m_hardwareFingerprint; }
-QString DeviceManager::appVersion() const { return QStringLiteral("0.1.0"); }
+QString DeviceManager::appVersion() const { return QStringLiteral("2.0.0"); }
 
 QVariantMap DeviceManager::devicePayload() const
 {

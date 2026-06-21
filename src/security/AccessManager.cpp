@@ -1,19 +1,29 @@
 #include "AccessManager.h"
 
+#include "../access/RbacBootstrapNormalizer.h"
 #include "../cache/LocalSyncCache.h"
 #include "../sync/GcsEventSyncManager.h"
 
 #include <QCryptographicHash>
+#include <QDebug>
 #include <QHash>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMetaType>
+#include <QProcessEnvironment>
 
 #include <optional>
 
 namespace {
 constexpr qint64 OfflineAuthorizationHours = 8;
+
+bool rbacDebugEnabled()
+{
+    const QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    return env.value(QStringLiteral("SKYGRID_RBAC_DEBUG")) == QStringLiteral("true")
+        || env.value(QStringLiteral("DEV_BUILD")) == QStringLiteral("true");
+}
 
 QJsonArray sortedArray(const QStringList &values)
 {
@@ -58,6 +68,72 @@ std::optional<bool> boolValue(const QVariantMap &map, const QStringList &keys)
     }
     return std::nullopt;
 }
+
+QStringList fallbackPermissionsForAction(const QString &action)
+{
+    static const QHash<QString, QStringList> map{
+        {QStringLiteral("gcs_tools"), {QStringLiteral("can_plan_mission"),
+                                       QStringLiteral("can_upload_mission"),
+                                       QStringLiteral("can_start_mission"),
+                                       QStringLiteral("can_stream_telemetry"),
+                                       QStringLiteral("can_view_telemetry"),
+                                       QStringLiteral("can_configure_vehicle"),
+                                       QStringLiteral("can_view_reports"),
+                                       QStringLiteral("can_run_initial_setup"),
+                                       QStringLiteral("can_tune_vehicle"),
+                                       QStringLiteral("can_flash_firmware"),
+                                       QStringLiteral("can_view_logs"),
+                                       QStringLiteral("can_download_logs"),
+                                       QStringLiteral("can_use_simulation"),
+                                       QStringLiteral("can_use_advanced_mavlink"),
+                                       QStringLiteral("can_configure_payload"),
+                                       QStringLiteral("can_configure_optional_hardware"),
+                                       QStringLiteral("can_view_video_stream"),
+                                       QStringLiteral("can_configure_video_payload"),
+                                       QStringLiteral("can_use_terminal"),
+                                       QStringLiteral("can_manage_multi_vehicle"),
+                                       QStringLiteral("can_view_mission_logs"),
+                                       QStringLiteral("can_view_vehicle_audit"),
+                                       QStringLiteral("can_view_fleet")}},
+        {QStringLiteral("connect"), {QStringLiteral("can_stream_telemetry")}},
+        {QStringLiteral("flight_data"), {QStringLiteral("can_stream_telemetry"),
+                                         QStringLiteral("can_view_telemetry")}},
+        {QStringLiteral("initial_setup"), {QStringLiteral("can_configure_vehicle"),
+                                           QStringLiteral("can_configure_rc")}},
+        {QStringLiteral("vehicle_tuning"), {QStringLiteral("can_read_vehicle_parameters"),
+                                            QStringLiteral("can_write_vehicle_parameters")}},
+        {QStringLiteral("firmware_manager"), {QStringLiteral("can_configure_vehicle")}},
+        {QStringLiteral("firmware_flash"), {QStringLiteral("can_configure_vehicle")}},
+        {QStringLiteral("optional_hardware"), {QStringLiteral("can_configure_vehicle"),
+                                               QStringLiteral("can_configure_optional_hardware")}},
+        {QStringLiteral("video_stream"), {QStringLiteral("can_view_video_stream"),
+                                          QStringLiteral("can_configure_payload"),
+                                          QStringLiteral("can_configure_vehicle")}},
+        {QStringLiteral("video_payload_configuration"), {QStringLiteral("can_configure_video_payload"),
+                                                        QStringLiteral("can_configure_payload"),
+                                                        QStringLiteral("can_configure_vehicle")}},
+        {QStringLiteral("terminal"), {QStringLiteral("can_use_terminal"),
+                                      QStringLiteral("can_use_advanced_mavlink")}},
+        {QStringLiteral("advanced_mavlink"), {QStringLiteral("can_use_advanced_mavlink"),
+                                              QStringLiteral("can_use_terminal")}},
+        {QStringLiteral("parameter_safety_override"), {QStringLiteral("can_override_parameter_safety"),
+                                                       QStringLiteral("can_use_advanced_mavlink")}},
+        {QStringLiteral("logs_analysis"), {QStringLiteral("can_view_mission_logs"),
+                                           QStringLiteral("can_view_vehicle_audit")}},
+        {QStringLiteral("log_download"), {QStringLiteral("can_view_mission_logs")}},
+        {QStringLiteral("command_center_sync"), {QStringLiteral("can_view_reports"),
+                                                 QStringLiteral("can_view_vehicle_audit")}},
+        {QStringLiteral("advanced_mission_editor"), {QStringLiteral("can_plan_mission")}},
+        {QStringLiteral("payload_configuration"), {QStringLiteral("can_configure_vehicle"),
+                                                   QStringLiteral("can_configure_payload"),
+                                                   QStringLiteral("can_view_video_stream"),
+                                                   QStringLiteral("can_configure_video_payload")}},
+        {QStringLiteral("multi_vehicle"), {QStringLiteral("can_view_fleet"),
+                                           QStringLiteral("can_assign_aircraft")}}
+    };
+    return map.value(action);
+}
+
 }
 
 AccessManager::AccessManager(LocalSyncCache *cache, QObject *parent)
@@ -70,8 +146,21 @@ bool AccessManager::accessLoaded() const { return m_accessLoaded; }
 bool AccessManager::sessionTrusted() const { return m_sessionTrusted; }
 QString AccessManager::role() const { return m_role; }
 QStringList AccessManager::roles() const { return m_roles; }
+QStringList AccessManager::rawRoles() const { return m_rawRoles; }
 QStringList AccessManager::permissions() const { return m_permissions; }
 QStringList AccessManager::allowedModules() const { return m_allowedModules; }
+QStringList AccessManager::assignedAircraftIds() const
+{
+    QStringList ids(m_aircraftIds.cbegin(), m_aircraftIds.cend());
+    ids.sort();
+    return ids;
+}
+QStringList AccessManager::assignedMissionIds() const
+{
+    QStringList ids(m_missionIds.cbegin(), m_missionIds.cend());
+    ids.sort();
+    return ids;
+}
 int AccessManager::organizationId() const { return m_organizationId; }
 QVariantMap AccessManager::sessionStatus() const { return m_sessionStatus; }
 QVariantMap AccessManager::deviceSummary() const { return m_deviceSummary; }
@@ -93,119 +182,42 @@ void AccessManager::setEventSyncManager(GcsEventSyncManager *events)
 void AccessManager::applyBootstrap(const QVariantMap &bootstrap)
 {
     const QString previous = m_fingerprint;
-    const QVariantMap user = bootstrap.value(QStringLiteral("user")).toMap();
-    const QVariantMap pilot = firstMapValue(bootstrap, {QStringLiteral("pilot"), QStringLiteral("pilot_profile")});
-    const QVariantMap profile = firstMapValue(bootstrap, {QStringLiteral("profile"), QStringLiteral("operator_profile")});
-    m_sessionStatus = bootstrap.value(QStringLiteral("session_status")).toMap();
-    m_deviceSummary = firstMapValue(bootstrap, {QStringLiteral("device_summary"), QStringLiteral("device")});
+    const RbacBootstrapProfile profile = RbacBootstrapNormalizer::fromBootstrap(bootstrap);
 
-    m_roles = stringListFromVariant(bootstrap.value(QStringLiteral("roles")));
-    const QStringList roleCandidates{
-        firstStringValue(user, {QStringLiteral("role"), QStringLiteral("role_name"), QStringLiteral("primary_role")}),
-        firstStringValue(pilot, {QStringLiteral("role"), QStringLiteral("role_name"), QStringLiteral("primary_role")}),
-        firstStringValue(profile, {QStringLiteral("role"), QStringLiteral("role_name"), QStringLiteral("primary_role")})
-    };
-    for (const QString &candidate : roleCandidates) {
-        if (!candidate.isEmpty()) {
-            m_roles << candidate;
-        }
-    }
-    m_roles.removeDuplicates();
+    m_rawRoles = profile.rawRoles;
+    m_roles = profile.normalizedRoles;
     m_role = m_roles.isEmpty() ? QString() : m_roles.first();
-
-    QVariantMap permissionMap = bootstrap.value(QStringLiteral("permissions")).toMap();
-    if (permissionMap.isEmpty()) {
-        permissionMap = user.value(QStringLiteral("permissions")).toMap();
+    m_permissions = profile.permissionKeys;
+    m_allowedModules = profile.allowedModules;
+    m_sessionStatus = profile.sessionStatus;
+    m_deviceSummary = profile.deviceSummary;
+    m_organizationId = profile.organizationId;
+    m_aircraftIds = profile.aircraftIds;
+    m_missionIds = profile.missionIds;
+    if (profile.hasSessionTrusted) {
+        m_sessionTrusted = profile.sessionTrusted;
     }
-    if (permissionMap.isEmpty()) {
-        permissionMap = pilot.value(QStringLiteral("permissions")).toMap();
-    }
-    if (permissionMap.isEmpty()) {
-        permissionMap = profile.value(QStringLiteral("permissions")).toMap();
-    }
-    m_permissions.clear();
-    for (auto it = permissionMap.constBegin(); it != permissionMap.constEnd(); ++it) {
-        if (it.value().toBool()) {
-            m_permissions << it.key();
-        }
-    }
-    if (m_permissions.isEmpty()) {
-        m_permissions = stringListFromVariant(bootstrap.value(QStringLiteral("permissions")));
-    }
-    if (m_permissions.isEmpty()) {
-        m_permissions = stringListFromVariant(user.value(QStringLiteral("permissions")));
-    }
-    if (m_permissions.isEmpty()) {
-        m_permissions = stringListFromVariant(pilot.value(QStringLiteral("permissions")));
-    }
-    if (m_permissions.isEmpty()) {
-        m_permissions = stringListFromVariant(profile.value(QStringLiteral("permissions")));
-    }
-    m_permissions.removeDuplicates();
-    m_permissions.sort();
-
-    m_allowedModules = stringListFromVariant(bootstrap.value(QStringLiteral("allowed_modules")));
-    if (m_allowedModules.isEmpty()) {
-        m_allowedModules = stringListFromVariant(bootstrap.value(QStringLiteral("allowed_gcs_modules")));
-    }
-    if (m_allowedModules.isEmpty()) {
-        m_allowedModules = stringListFromVariant(user.value(QStringLiteral("allowed_modules")));
-    }
-    if (m_allowedModules.isEmpty()) {
-        m_allowedModules = stringListFromVariant(pilot.value(QStringLiteral("allowed_modules")));
-    }
-    if (m_allowedModules.isEmpty()) {
-        m_allowedModules = stringListFromVariant(profile.value(QStringLiteral("allowed_modules")));
-    }
-    m_allowedModules.removeDuplicates();
-    m_allowedModules.sort();
-
-    QVariantMap organization = bootstrap.value(QStringLiteral("organization")).toMap();
-    if (organization.isEmpty()) {
-        organization = firstMapValue(user, {QStringLiteral("organization"), QStringLiteral("organization_profile")});
-    }
-    if (organization.isEmpty()) {
-        organization = firstMapValue(pilot, {QStringLiteral("organization"), QStringLiteral("organization_profile")});
-    }
-    if (organization.isEmpty()) {
-        organization = firstMapValue(profile, {QStringLiteral("organization"), QStringLiteral("organization_profile")});
-    }
-    m_organizationId = organization.value(QStringLiteral("id")).toInt();
-    m_aircraftIds = idsFromList(bootstrap.value(QStringLiteral("assigned_aircraft")).toList(),
-                                {QStringLiteral("id"), QStringLiteral("aircraft_id")});
-    QVariantList missions = bootstrap.value(QStringLiteral("missions")).toList();
-    missions += bootstrap.value(QStringLiteral("active_missions")).toList();
-    missions += bootstrap.value(QStringLiteral("mission_history")).toList();
-    missions += bootstrap.value(QStringLiteral("approved_missions")).toList();
-    m_missionIds = idsFromList(missions, {QStringLiteral("id"), QStringLiteral("mission_id")});
-    const auto sessionTrusted = boolValue(m_sessionStatus,
-                                          {QStringLiteral("operations_allowed"),
-                                           QStringLiteral("trusted"),
-                                           QStringLiteral("device_trusted"),
-                                           QStringLiteral("session_trusted")});
-    const auto deviceTrusted = boolValue(m_deviceSummary,
-                                         {QStringLiteral("trusted"),
-                                          QStringLiteral("is_trusted"),
-                                          QStringLiteral("approved"),
-                                          QStringLiteral("device_trusted")});
-    const auto reachable = boolValue(m_sessionStatus,
-                                     {QStringLiteral("control_center_reachable"),
-                                      QStringLiteral("backend_reachable"),
-                                      QStringLiteral("reachable"),
-                                      QStringLiteral("online")});
-    if (sessionTrusted.has_value()) {
-        m_sessionTrusted = sessionTrusted.value();
-    }
-    if (deviceTrusted.has_value()) {
-        m_sessionTrusted = m_sessionTrusted && deviceTrusted.value();
-    }
-    if (reachable.has_value()) {
-        m_backendReachable = reachable.value();
+    if (profile.hasBackendReachable) {
+        m_backendReachable = profile.backendReachable;
     }
     m_lastVerifiedAt = QDateTime::currentDateTimeUtc();
     m_accessLoaded = !m_permissions.isEmpty() || !m_allowedModules.isEmpty();
     m_fingerprint = accessFingerprint(bootstrap);
     persistSnapshot();
+
+    if (rbacDebugEnabled()) {
+        qInfo().noquote()
+            << "[RBAC] bootstrap applied"
+            << "rawRoles=" << m_rawRoles.join(QStringLiteral(","))
+            << "roles=" << m_roles.join(QStringLiteral(","))
+            << "permissions=" << m_permissions.join(QStringLiteral(","))
+            << "modules=" << m_allowedModules.join(QStringLiteral(","))
+            << "trusted=" << m_sessionTrusted
+            << "reachable=" << m_backendReachable
+            << "org=" << m_organizationId
+            << "aircraft=" << assignedAircraftIds().join(QStringLiteral(","))
+            << "missions=" << assignedMissionIds().join(QStringLiteral(","));
+    }
 
     if (!previous.isEmpty() && previous != m_fingerprint && m_cache) {
         m_cache->purgeAccessControlledData(QStringLiteral("access profile changed"));
@@ -223,6 +235,7 @@ void AccessManager::clearAccess(const QString &reason)
     m_sessionTrusted = false;
     m_backendReachable = false;
     m_role.clear();
+    m_rawRoles.clear();
     m_roles.clear();
     m_permissions.clear();
     m_allowedModules.clear();
@@ -246,6 +259,13 @@ void AccessManager::setSessionState(bool trusted, bool reachable, const QString 
     const bool changed = m_sessionTrusted != trusted || m_backendReachable != reachable;
     m_sessionTrusted = trusted;
     m_backendReachable = reachable;
+    if (rbacDebugEnabled()) {
+        qInfo().noquote()
+            << "[RBAC] session state"
+            << "sessionManager.operationsAllowed=" << trusted
+            << "backendReachable=" << reachable
+            << "reason=" << reason;
+    }
     if (!trusted && m_cache) {
         m_cache->lockAccessControlledData(reason.isEmpty() ? QStringLiteral("session not trusted") : reason);
     }
@@ -265,7 +285,7 @@ void AccessManager::setSessionState(bool trusted, bool reachable, const QString 
 
 bool AccessManager::can(const QString &permission) const
 {
-    return m_accessLoaded && m_permissions.contains(permission);
+    return m_accessLoaded && m_permissions.contains(RbacBootstrapNormalizer::normalizePermission(permission));
 }
 
 bool AccessManager::canAny(const QStringList &permissions) const
@@ -280,27 +300,117 @@ bool AccessManager::canAny(const QStringList &permissions) const
 
 bool AccessManager::canModule(const QString &module) const
 {
-    return m_accessLoaded && m_allowedModules.contains(module);
+    return m_accessLoaded && m_allowedModules.contains(RbacBootstrapNormalizer::normalizeModule(module));
 }
 
 bool AccessManager::canPerform(const QString &action) const
 {
+    return actionDenialReason(action).isEmpty();
+}
+
+QString AccessManager::denialReasonForAction(const QString &action) const
+{
+    return actionDenialReason(action);
+}
+
+QString AccessManager::moduleDenialReason(const QString &module) const
+{
+    if (!m_accessLoaded) {
+        return QStringLiteral("Access profile is not loaded.");
+    }
+    const QString normalized = RbacBootstrapNormalizer::normalizeModule(module);
+    if (m_allowedModules.contains(normalized)) {
+        return {};
+    }
+    return QStringLiteral("Module not allowed: %1").arg(normalized);
+}
+
+QVariantMap AccessManager::diagnosticSnapshot() const
+{
+    auto workspaceRow = [this](const QString &name, const QString &module, const QString &action) {
+        const QString moduleReason = moduleDenialReason(module);
+        const QString actionReason = actionDenialReason(action);
+        const bool visible = moduleReason.isEmpty() && actionReason.isEmpty();
+        return QVariantMap{
+            {QStringLiteral("name"), name},
+            {QStringLiteral("module"), RbacBootstrapNormalizer::normalizeModule(module)},
+            {QStringLiteral("action"), normalizedAction(action)},
+            {QStringLiteral("visible"), visible},
+            {QStringLiteral("reason"), visible ? QStringLiteral("visible")
+                                                : (!moduleReason.isEmpty() ? moduleReason : actionReason)}
+        };
+    };
+
+    QVariantList workspaces{
+        workspaceRow(QStringLiteral("Pilot Mode"), QStringLiteral("pilot_operations"), QStringLiteral("manual_flight")),
+        workspaceRow(QStringLiteral("Mission Planner"), QStringLiteral("mission_planning"), QStringLiteral("mission_planning")),
+        workspaceRow(QStringLiteral("Flight Data"), QStringLiteral("flight_data"), QStringLiteral("flight_data")),
+        workspaceRow(QStringLiteral("GCS Tools"), QStringLiteral("gcs_tools"), QStringLiteral("gcs_tools")),
+        workspaceRow(QStringLiteral("Fleet"), QStringLiteral("fleet"), QStringLiteral("aircraft_profile_access")),
+        workspaceRow(QStringLiteral("Manufacturer"), QStringLiteral("manufacturer_dashboard"), QStringLiteral("manufacturer_tools"))
+    };
+
+    return QVariantMap{
+        {QStringLiteral("role"), m_role},
+        {QStringLiteral("roles"), m_roles},
+        {QStringLiteral("raw_roles"), m_rawRoles},
+        {QStringLiteral("permissions"), m_permissions},
+        {QStringLiteral("allowed_modules"), m_allowedModules},
+        {QStringLiteral("trusted_device"), m_sessionTrusted},
+        {QStringLiteral("backend_reachable"), m_backendReachable},
+        {QStringLiteral("offline_authorization_valid"), offlineAuthorizationValid()},
+        {QStringLiteral("organization_id"), m_organizationId},
+        {QStringLiteral("assigned_aircraft_ids"), assignedAircraftIds()},
+        {QStringLiteral("assigned_mission_ids"), assignedMissionIds()},
+        {QStringLiteral("session_status"), m_sessionStatus},
+        {QStringLiteral("device_summary"), m_deviceSummary},
+        {QStringLiteral("status"), m_status},
+        {QStringLiteral("workspaces"), workspaces}
+    };
+}
+
+QString AccessManager::actionDenialReason(const QString &action) const
+{
     const QString normalized = normalizedAction(action);
+    const QString permission = permissionForAction(normalized);
+    const QStringList fallbacks = fallbackPermissionsForAction(normalized);
     if (normalized == QStringLiteral("vehicle_profile_setup")) {
-        if (!canAny({QStringLiteral("can_register_vehicle"), QStringLiteral("can_edit_vehicle_profile")})) {
-            return false;
+        if (!m_accessLoaded) {
+            return QStringLiteral("Access profile is not loaded.");
         }
-        return !actionRequiresTrustedSession(normalized)
-            || (m_sessionTrusted && (m_backendReachable || actionAllowsOfflineAuthorization(normalized)));
+        if (!canAny({QStringLiteral("can_register_vehicle"), QStringLiteral("can_edit_vehicle_profile")})) {
+            return QStringLiteral("Missing permission: can_register_vehicle or can_edit_vehicle_profile");
+        }
+        if (actionRequiresTrustedSession(normalized) && !m_sessionTrusted) {
+            return QStringLiteral("Trusted device session is required.");
+        }
+        if (actionRequiresTrustedSession(normalized) && !m_backendReachable && !actionAllowsOfflineAuthorization(normalized)) {
+            return QStringLiteral("Online authorization is required.");
+        }
+        return {};
     }
-    const QString permission = permissionForAction(action);
-    if (permission.isEmpty() || !can(permission)) {
-        return false;
+    if (permission.isEmpty() && fallbacks.isEmpty()) {
+        return QStringLiteral("No permission mapping for action.");
     }
-    if (actionRequiresTrustedSession(action)) {
-        return m_sessionTrusted && (m_backendReachable || actionAllowsOfflineAuthorization(action));
+    if (!m_accessLoaded) {
+        return QStringLiteral("Access profile is not loaded.");
     }
-    return true;
+    if ((permission.isEmpty() || !can(permission)) && !canAny(fallbacks)) {
+        QStringList accepted;
+        if (!permission.isEmpty()) {
+            accepted << permission;
+        }
+        accepted << fallbacks;
+        accepted.removeDuplicates();
+        return QStringLiteral("Missing permission: %1").arg(accepted.join(QStringLiteral(" or ")));
+    }
+    if (actionRequiresTrustedSession(normalized) && !m_sessionTrusted) {
+        return QStringLiteral("Trusted device session is required.");
+    }
+    if (actionRequiresTrustedSession(normalized) && !m_backendReachable && !actionAllowsOfflineAuthorization(normalized)) {
+        return QStringLiteral("Online authorization is required.");
+    }
+    return {};
 }
 
 bool AccessManager::canAccessAircraft(const QVariant &aircraftId) const
@@ -342,29 +452,7 @@ QVariantList AccessManager::filterMissions(const QVariantList &missions) const
 bool AccessManager::authorizeAction(const QString &action, const QVariantMap &context, const QString &message)
 {
     const QString normalized = normalizedAction(action);
-    const QString permission = permissionForAction(normalized);
-    QString reason;
-    if (normalized == QStringLiteral("vehicle_profile_setup")) {
-        if (!m_accessLoaded) {
-            reason = QStringLiteral("Access profile is not loaded.");
-        } else if (!canAny({QStringLiteral("can_register_vehicle"), QStringLiteral("can_edit_vehicle_profile")})) {
-            reason = QStringLiteral("Missing permission: can_register_vehicle or can_edit_vehicle_profile");
-        } else if (actionRequiresTrustedSession(normalized) && !m_sessionTrusted) {
-            reason = QStringLiteral("Trusted device session is required.");
-        } else if (actionRequiresTrustedSession(normalized) && !m_backendReachable && !actionAllowsOfflineAuthorization(normalized)) {
-            reason = QStringLiteral("Online authorization is required.");
-        }
-    } else if (permission.isEmpty()) {
-        reason = QStringLiteral("No permission mapping for action.");
-    } else if (!m_accessLoaded) {
-        reason = QStringLiteral("Access profile is not loaded.");
-    } else if (!can(permission)) {
-        reason = QStringLiteral("Missing permission: %1").arg(permission);
-    } else if (actionRequiresTrustedSession(normalized) && !m_sessionTrusted) {
-        reason = QStringLiteral("Trusted device session is required.");
-    } else if (actionRequiresTrustedSession(normalized) && !m_backendReachable && !actionAllowsOfflineAuthorization(normalized)) {
-        reason = QStringLiteral("Online authorization is required.");
-    }
+    const QString reason = actionDenialReason(normalized);
     if (!reason.isEmpty()) {
         recordBlocked(normalized, reason, context);
         setStatus(message.isEmpty() ? reason : message);
@@ -416,15 +504,34 @@ QString AccessManager::permissionForAction(const QString &action) const
         {QStringLiteral("mission_resume"), QStringLiteral("can_start_mission")},
         {QStringLiteral("mission_finish"), QStringLiteral("can_start_mission")},
         {QStringLiteral("mission_abort"), QStringLiteral("can_start_mission")},
+        {QStringLiteral("advanced_mission_editor"), QStringLiteral("can_plan_mission")},
         {QStringLiteral("manual_flight"), QStringLiteral("can_fly_manual")},
+        {QStringLiteral("gcs_tools"), QStringLiteral("can_use_flight_data")},
+        {QStringLiteral("connect"), QStringLiteral("can_use_flight_data")},
+        {QStringLiteral("flight_data"), QStringLiteral("can_use_flight_data")},
         {QStringLiteral("aircraft_connection"), QStringLiteral("can_stream_telemetry")},
         {QStringLiteral("telemetry_stream"), QStringLiteral("can_stream_telemetry")},
         {QStringLiteral("telemetry_export"), QStringLiteral("can_view_reports")},
         {QStringLiteral("aircraft_profile_access"), QStringLiteral("can_view_fleet")},
+        {QStringLiteral("initial_setup"), QStringLiteral("can_run_initial_setup")},
+        {QStringLiteral("vehicle_tuning"), QStringLiteral("can_tune_vehicle")},
         {QStringLiteral("vehicle_parameter_read"), QStringLiteral("can_read_vehicle_parameters")},
         {QStringLiteral("vehicle_parameter_write"), QStringLiteral("can_write_vehicle_parameters")},
         {QStringLiteral("emergency_stop"), QStringLiteral("can_fly_manual")},
-        {QStringLiteral("firmware_manager"), QStringLiteral("can_configure_vehicle")},
+        {QStringLiteral("firmware_manager"), QStringLiteral("can_flash_firmware")},
+        {QStringLiteral("firmware_flash"), QStringLiteral("can_flash_firmware")},
+        {QStringLiteral("optional_hardware"), QStringLiteral("can_configure_optional_hardware")},
+        {QStringLiteral("video_stream"), QStringLiteral("can_view_video_stream")},
+        {QStringLiteral("video_payload_configuration"), QStringLiteral("can_configure_video_payload")},
+        {QStringLiteral("terminal"), QStringLiteral("can_use_terminal")},
+        {QStringLiteral("parameter_safety_override"), QStringLiteral("can_override_parameter_safety")},
+        {QStringLiteral("logs_analysis"), QStringLiteral("can_view_logs")},
+        {QStringLiteral("log_download"), QStringLiteral("can_download_logs")},
+        {QStringLiteral("simulation"), QStringLiteral("can_use_simulation")},
+        {QStringLiteral("advanced_mavlink"), QStringLiteral("can_use_advanced_mavlink")},
+        {QStringLiteral("payload_configuration"), QStringLiteral("can_configure_payload")},
+        {QStringLiteral("multi_vehicle"), QStringLiteral("can_manage_multi_vehicle")},
+        {QStringLiteral("command_center_sync"), QStringLiteral("can_view_reports")},
         {QStringLiteral("manufacturer_tools"), QStringLiteral("can_configure_vehicle")},
         {QStringLiteral("manufacturer_dashboard"), QStringLiteral("can_configure_vehicle")},
         {QStringLiteral("manufacturer_test_flight"), QStringLiteral("can_run_manufacturer_test_flight")},
@@ -534,14 +641,32 @@ bool AccessManager::actionRequiresTrustedSession(const QString &action) const
         QStringLiteral("mission_resume"),
         QStringLiteral("mission_finish"),
         QStringLiteral("mission_abort"),
+        QStringLiteral("advanced_mission_editor"),
         QStringLiteral("manual_flight"),
+        QStringLiteral("connect"),
+        QStringLiteral("flight_data"),
         QStringLiteral("aircraft_connection"),
         QStringLiteral("telemetry_stream"),
         QStringLiteral("telemetry_export"),
+        QStringLiteral("initial_setup"),
+        QStringLiteral("vehicle_tuning"),
         QStringLiteral("vehicle_parameter_read"),
         QStringLiteral("vehicle_parameter_write"),
         QStringLiteral("emergency_stop"),
         QStringLiteral("firmware_manager"),
+        QStringLiteral("firmware_flash"),
+        QStringLiteral("optional_hardware"),
+        QStringLiteral("video_stream"),
+        QStringLiteral("video_payload_configuration"),
+        QStringLiteral("terminal"),
+        QStringLiteral("parameter_safety_override"),
+        QStringLiteral("logs_analysis"),
+        QStringLiteral("log_download"),
+        QStringLiteral("simulation"),
+        QStringLiteral("advanced_mavlink"),
+        QStringLiteral("payload_configuration"),
+        QStringLiteral("multi_vehicle"),
+        QStringLiteral("command_center_sync"),
         QStringLiteral("manufacturer_tools"),
         QStringLiteral("manufacturer_dashboard"),
         QStringLiteral("manufacturer_test_flight"),
@@ -561,7 +686,36 @@ bool AccessManager::actionAllowsOfflineAuthorization(const QString &action) cons
     const QString key = normalizedAction(action);
     return key == QStringLiteral("mission_planning")
         || key == QStringLiteral("mission_open")
-        || key == QStringLiteral("settings");
+        || key == QStringLiteral("settings")
+        || key == QStringLiteral("connect")
+        || key == QStringLiteral("flight_data")
+        || key == QStringLiteral("aircraft_connection")
+        || key == QStringLiteral("telemetry_stream")
+        || key == QStringLiteral("initial_setup")
+        || key == QStringLiteral("vehicle_tuning")
+        || key == QStringLiteral("vehicle_parameter_read")
+        || key == QStringLiteral("vehicle_parameter_write")
+        || key == QStringLiteral("firmware_manager")
+        || key == QStringLiteral("firmware_flash")
+        || key == QStringLiteral("optional_hardware")
+        || key == QStringLiteral("video_stream")
+        || key == QStringLiteral("video_payload_configuration")
+        || key == QStringLiteral("terminal")
+        || key == QStringLiteral("parameter_safety_override")
+        || key == QStringLiteral("logs_analysis")
+        || key == QStringLiteral("log_download")
+        || key == QStringLiteral("simulation")
+        || key == QStringLiteral("advanced_mavlink")
+        || key == QStringLiteral("payload_configuration")
+        || key == QStringLiteral("multi_vehicle")
+        || key == QStringLiteral("manufacturer_tools")
+        || key == QStringLiteral("manufacturer_dashboard")
+        || key == QStringLiteral("manufacturer_test_flight")
+        || key == QStringLiteral("manual_test_mode")
+        || key == QStringLiteral("vehicle_configuration")
+        || key == QStringLiteral("vehicle_profile_setup")
+        || key == QStringLiteral("flight_controller_binding")
+        || key == QStringLiteral("rc_mapping");
 }
 
 void AccessManager::persistSnapshot()
@@ -572,6 +726,7 @@ void AccessManager::persistSnapshot()
     QVariantMap snapshot{
         {QStringLiteral("access_loaded"), m_accessLoaded},
         {QStringLiteral("role"), m_role},
+        {QStringLiteral("raw_roles"), m_rawRoles},
         {QStringLiteral("roles"), m_roles},
         {QStringLiteral("permissions"), m_permissions},
         {QStringLiteral("allowed_modules"), m_allowedModules},
@@ -605,10 +760,33 @@ void AccessManager::loadSnapshot()
         return;
     }
     m_accessLoaded = snapshot.value(QStringLiteral("access_loaded")).toBool();
-    m_role = snapshot.value(QStringLiteral("role")).toString();
-    m_roles = stringListFromVariant(snapshot.value(QStringLiteral("roles")));
-    m_permissions = stringListFromVariant(snapshot.value(QStringLiteral("permissions")));
-    m_allowedModules = stringListFromVariant(snapshot.value(QStringLiteral("allowed_modules")));
+    m_rawRoles = stringListFromVariant(snapshot.value(QStringLiteral("raw_roles")));
+    m_roles.clear();
+    for (const QString &role : stringListFromVariant(snapshot.value(QStringLiteral("roles")))) {
+        const QString normalized = RbacBootstrapNormalizer::normalizeRole(role);
+        if (!normalized.isEmpty() && !m_roles.contains(normalized)) {
+            m_roles << normalized;
+        }
+    }
+    m_role = m_roles.isEmpty()
+        ? RbacBootstrapNormalizer::normalizeRole(snapshot.value(QStringLiteral("role")).toString())
+        : m_roles.first();
+    m_permissions.clear();
+    for (const QString &permission : stringListFromVariant(snapshot.value(QStringLiteral("permissions")))) {
+        const QString normalized = RbacBootstrapNormalizer::normalizePermission(permission);
+        if (!normalized.isEmpty() && !m_permissions.contains(normalized)) {
+            m_permissions << normalized;
+        }
+    }
+    m_permissions.sort();
+    m_allowedModules.clear();
+    for (const QString &module : stringListFromVariant(snapshot.value(QStringLiteral("allowed_modules")))) {
+        const QString normalized = RbacBootstrapNormalizer::normalizeModule(module);
+        if (!normalized.isEmpty() && !m_allowedModules.contains(normalized)) {
+            m_allowedModules << normalized;
+        }
+    }
+    m_allowedModules.sort();
     m_organizationId = snapshot.value(QStringLiteral("organization_id")).toInt();
     m_sessionStatus = snapshot.value(QStringLiteral("session_status")).toMap();
     m_deviceSummary = snapshot.value(QStringLiteral("device_summary")).toMap();

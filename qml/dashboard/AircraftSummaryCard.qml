@@ -5,12 +5,28 @@ Rectangle {
     id: root
 
     property url imageSource: ""
-    property string aircraftName: "SkyGrid X8-01"
-    property string tailNumber: "SGX8-01"
-    property real battery: 78
-    property string linkQuality: "Strong"
-    property string lastSync: "2 min ago"
-    property bool ready: true
+    property string aircraftName: "Unassigned aircraft"
+    property string tailNumber: "--"
+    property real battery: 0
+    property string linkQuality: "Offline"
+    property string lastSync: "No recent sync"
+    property bool ready: false
+
+    readonly property real linkScore: linkScoreFor(root.linkQuality)
+
+    function linkScoreFor(value) {
+        var quality = String(value || "").toLowerCase()
+        var parsed = parseFloat(quality)
+        if (!isNaN(parsed))
+            return Math.max(0, Math.min(100, parsed))
+        if (quality.indexOf("strong") >= 0 || quality.indexOf("good") >= 0 || quality.indexOf("online") >= 0 || quality.indexOf("connected") >= 0)
+            return 96
+        if (quality.indexOf("weak") >= 0 || quality.indexOf("poor") >= 0 || quality.indexOf("caution") >= 0)
+            return 40
+        if (quality.indexOf("offline") >= 0 || quality.indexOf("disconnect") >= 0 || quality.indexOf("pending") >= 0 || quality.indexOf("no ") >= 0)
+            return 0
+        return 50
+    }
 
     signal clicked()
 
@@ -77,7 +93,7 @@ Rectangle {
             }
 
             MetricBar { label: "Battery"; value: root.battery; suffix: "%" }
-            MetricBar { label: "Link"; value: root.linkQuality === "Strong" ? 96 : 72; suffix: ""; textValue: root.linkQuality }
+            MetricBar { label: "Link"; value: root.linkScore; suffix: ""; textValue: root.linkQuality }
 
             RowLayout {
                 Layout.fillWidth: true

@@ -20,9 +20,9 @@ Rectangle {
                                             || activeMissionType === "map3dArea"
                                             || activeMissionType === "towerInspection"
                                             || activeMissionType === "virtualFence"
-    readonly property bool compactLayout: width < 370 || height < 760
-    readonly property int labelSize: compactLayout ? 13 : 14
-    readonly property int inputSize: compactLayout ? 12 : 13
+    readonly property bool compactLayout: width < 390 || height < 760
+    readonly property int labelSize: compactLayout ? 12 : 14
+    readonly property int inputSize: compactLayout ? 11 : 13
     readonly property int helperSize: 10
     readonly property int controlHeight: compactLayout ? 32 : 34
     readonly property int rowSpacing: compactLayout ? 8 : 10
@@ -153,16 +153,6 @@ Rectangle {
         appState.selectedTool = "polygon"
     }
 
-    function templateDescription() {
-        if (activeMissionType === "photomap") return "Creates mapped photo coverage from a polygon, camera settings, overlap, altitude, and capture mode."
-        if (activeMissionType === "virtualFence") return "Defines a safe operational boundary for the UAV and syncs it to Control Center."
-        if (activeMissionType === "map3dArea") return "Builds a 3D area capture path from boundary, overlap, camera, and altitude settings."
-        if (activeMissionType === "map3dPoi") return "Creates an orbit or scan around a point of interest with radius, camera, and altitude controls."
-        if (activeMissionType === "waypointRoute") return "Plans a route from editable waypoints, each with independent flight and camera actions."
-        if (activeMissionType === "towerInspection") return "Plans a structured inspection route around a tower or vertical asset."
-        return "Configure mission geometry, command sequence, validation, and aircraft execution settings."
-    }
-
     function applyTakeoff(latText, lonText) {
         var lat = Number(latText)
         var lon = Number(lonText)
@@ -196,6 +186,35 @@ Rectangle {
             && accessManager.can("can_stream_telemetry")
             && accessManager.can("can_upload_mission")
             && accessManager.can("can_start_mission")
+    }
+
+    function uploadModeLabel() {
+        return advancedMissionManager.useForUpload && advancedMissionManager.missionItems.length > 0
+               ? "Raw MAVLink"
+               : "SkyGrid Plan"
+    }
+
+    function startButtonText() {
+        if (root.isVirtualFence)
+            return "Validate & Sync"
+        if (advancedMissionManager.useForUpload && advancedMissionManager.missionItems.length > 0)
+            return "Preflight & Upload Raw"
+        if (missionStore.plan.uploadState === "uploaded")
+            return "Start Uploaded Mission"
+        return "Preflight & Upload"
+    }
+
+    function workflowSteps() {
+        var geometryReady = root.isVirtualFence ? missionStore.plan.polygon.length >= 3 : root.routeItems().length >= 2
+        var takeoffReady = root.isVirtualFence || missionStore.plan.hasTakeoffPoint
+        var aircraftReady = vehicleManager.connected
+        var uploadReady = root.isVirtualFence || missionStore.plan.uploadState === "uploaded"
+        return [
+            { label: "Geometry", state: geometryReady ? "READY" : "NEEDED", ready: geometryReady, detail: root.isVirtualFence ? "Boundary points" : "Route points" },
+            { label: "Takeoff", state: takeoffReady ? "READY" : "NEEDED", ready: takeoffReady, detail: root.isVirtualFence ? "Not required" : "First action" },
+            { label: "Aircraft", state: aircraftReady ? "ONLINE" : "OFFLINE", ready: aircraftReady, detail: "Connection" },
+            { label: "Upload", state: uploadReady ? "READY" : "PENDING", ready: uploadReady, detail: root.uploadModeLabel() }
+        ]
     }
 
     ColumnLayout {
@@ -250,22 +269,7 @@ Rectangle {
             Layout.maximumHeight: root.compactLayout ? 50 : 56
         }
 
-        Rectangle {
-            Layout.fillWidth: true
-            implicitHeight: descriptionText.implicitHeight + 18
-            radius: 7
-            color: "#eee8f7"
-            border.color: "#d8cbe9"
-            Text {
-                id: descriptionText
-                anchors.fill: parent
-                anchors.margins: 8
-                text: root.templateDescription()
-                color: "#4f465b"
-                font.pixelSize: root.compactLayout ? 10 : 11
-                wrapMode: Text.WordWrap
-            }
-        }
+        WorkflowStrip { Layout.fillWidth: true }
 
         Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#ded5ea" }
 
@@ -276,7 +280,7 @@ Rectangle {
             Layout.preferredHeight: root.controlHeight
             radius: 6
             color: "#f0eef3"
-            visible: !root.isVirtualFence
+            visible: !root.isVirtualFence && !root.isWaypointRoute
 
             RowLayout {
                 anchors.fill: parent
@@ -301,7 +305,7 @@ Rectangle {
                 width: parent.width
                 spacing: 12
 
-                TakeoffSection {}
+                TakeoffSection { visible: root.activeTab === 0 || root.isVirtualFence || root.isWaypointRoute }
                 WaypointRouteForm { visible: root.isWaypointRoute }
                 VirtualFenceForm { visible: root.isVirtualFence }
                 PoiForm { visible: root.isPoi }
@@ -349,7 +353,7 @@ Rectangle {
 
             ActionButton {
                 Layout.fillWidth: true
-                text: root.isVirtualFence ? "Validate & Sync" : "Start Flying"
+                text: root.startButtonText()
                 iconText: "▷"
                 primary: true
                 visible: root.hasStartFlyingPermission()
@@ -363,7 +367,7 @@ Rectangle {
     }
 
     component MissionMetricsRow: RowLayout {
-        spacing: 0
+        spacing: root.compactLayout ? 2 : 0
         Metric { label: root.metricOneLabel(); value: root.metricOneValue(); unit: root.metricOneUnit() }
         Separator {}
         Metric { label: root.metricTwoLabel(); value: root.metricTwoValue(); unit: root.metricTwoUnit() }
@@ -371,6 +375,67 @@ Rectangle {
         Metric { label: "Est. Flight Time"; value: missionStore.plan.estimatedTime; unit: "" }
         Separator { visible: root.metricFourLabel().length > 0 }
         Metric { visible: root.metricFourLabel().length > 0; label: root.metricFourLabel(); value: root.metricFourValue(); unit: root.metricFourUnit() }
+    }
+
+    component WorkflowStrip: Rectangle {
+        implicitHeight: workflowRow.implicitHeight + 12
+        radius: 7
+        color: "#fbfaff"
+        border.color: "#e2d8ee"
+        RowLayout {
+            id: workflowRow
+            anchors.fill: parent
+            anchors.margins: 6
+            spacing: 6
+            Repeater {
+                model: root.workflowSteps()
+                delegate: WorkflowChip {
+                    Layout.fillWidth: true
+                    label: modelData.label
+                    state: modelData.state
+                    detail: modelData.detail
+                    ready: modelData.ready
+                }
+            }
+        }
+    }
+
+    component WorkflowChip: Rectangle {
+        property string label: ""
+        property string state: ""
+        property string detail: ""
+        property bool ready: false
+        implicitHeight: 46
+        radius: 6
+        color: ready ? "#effaf2" : "#fff8df"
+        border.color: ready ? "#b7dfbf" : "#e8cf7c"
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 6
+            spacing: 1
+            Text {
+                Layout.fillWidth: true
+                text: label
+                color: "#2f2935"
+                font.pixelSize: 9
+                elide: Text.ElideRight
+            }
+            Text {
+                Layout.fillWidth: true
+                text: state
+                color: ready ? Theme.green : "#a86c00"
+                font.pixelSize: 11
+                font.bold: true
+                elide: Text.ElideRight
+            }
+            Text {
+                Layout.fillWidth: true
+                text: detail
+                color: "#706a7e"
+                font.pixelSize: 9
+                elide: Text.ElideRight
+            }
+        }
     }
 
     component PolygonWorkflowSection: ColumnLayout {
@@ -663,10 +728,10 @@ Rectangle {
             Layout.fillWidth: true
             spacing: root.rowSpacing
             FieldLabel { text: "Min Alt."; help: "Minimum planned altitude in meters for validation and generated routes." }
-            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Minimum planned altitude in meters for this mission."; text: Number(missionStore.plan.minAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.minAltitude = Number(value) }
+            ValueBox { Layout.preferredWidth: root.compactLayout ? 66 : 84; help: "Minimum planned altitude in meters for this mission."; text: Number(missionStore.plan.minAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.minAltitude = Number(value) }
             Item { Layout.fillWidth: true }
-            FieldLabel { Layout.preferredWidth: root.compactLayout ? 64 : 74; text: "Max Alt."; help: "Maximum planned altitude in meters for validation and generated routes." }
-            ValueBox { Layout.preferredWidth: root.compactLayout ? 76 : 84; help: "Maximum planned altitude in meters for this mission."; text: Number(missionStore.plan.maxAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.maxAltitude = Number(value) }
+            FieldLabel { Layout.preferredWidth: root.compactLayout ? 56 : 74; text: "Max Alt."; help: "Maximum planned altitude in meters for validation and generated routes." }
+            ValueBox { Layout.preferredWidth: root.compactLayout ? 66 : 84; help: "Maximum planned altitude in meters for this mission."; text: Number(missionStore.plan.maxAltitude).toFixed(1); suffix: "m"; onAcceptedValue: missionStore.plan.maxAltitude = Number(value) }
         }
         SliderBox {
             Layout.fillWidth: true
@@ -810,7 +875,7 @@ Rectangle {
 
     component FieldLabel: Text {
         property string help: text.length > 0 ? "Configure " + text + " for this mission." : ""
-        Layout.preferredWidth: root.compactLayout ? 98 : 112
+        Layout.preferredWidth: root.compactLayout ? 76 : 112
         color: "#161119"
         font.pixelSize: root.labelSize
         verticalAlignment: Text.AlignVCenter
@@ -885,12 +950,12 @@ Rectangle {
         property string unit: ""
         Layout.fillWidth: true
         spacing: 2
-        Text { Layout.fillWidth: true; text: label; color: "#2f2935"; horizontalAlignment: Text.AlignHCenter; font.pixelSize: 11; elide: Text.ElideRight }
-        Text { Layout.fillWidth: true; text: value + (unit.length > 0 ? unit : ""); color: "#05040a"; horizontalAlignment: Text.AlignHCenter; font.pixelSize: root.compactLayout ? 17 : 18; font.bold: true; elide: Text.ElideRight }
+        Text { Layout.fillWidth: true; text: label; color: "#2f2935"; horizontalAlignment: Text.AlignHCenter; font.pixelSize: root.compactLayout ? 9 : 11; elide: Text.ElideRight }
+        Text { Layout.fillWidth: true; text: value + (unit.length > 0 ? unit : ""); color: "#05040a"; horizontalAlignment: Text.AlignHCenter; font.pixelSize: root.compactLayout ? 15 : 18; font.bold: true; elide: Text.ElideRight }
     }
 
     component Separator: Rectangle {
-        Layout.preferredWidth: 1
+        Layout.preferredWidth: root.compactLayout ? 0 : 1
         Layout.preferredHeight: root.compactLayout ? 42 : 48
         Layout.alignment: Qt.AlignVCenter
         color: "#cdbfe0"
@@ -905,7 +970,15 @@ Rectangle {
             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
             onWheel: function(event) { event.accepted = true }
         }
-        contentItem: Text { text: tab.text; color: tab.active ? Theme.white : "#0f0b14"; horizontalAlignment: Text.AlignHCenter; verticalAlignment: Text.AlignVCenter; font.pixelSize: 13; font.bold: true }
+        contentItem: Text {
+            text: tab.text
+            color: tab.active ? Theme.white : "#0f0b14"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pixelSize: root.compactLayout ? 11 : 13
+            font.bold: true
+            elide: Text.ElideRight
+        }
         background: Rectangle { radius: 4; color: tab.active ? Theme.purple : "#00000000" }
     }
 
@@ -915,16 +988,34 @@ Rectangle {
         property string iconText: ""
         implicitHeight: root.controlHeight
         hoverEnabled: true
+        clip: true
         opacity: enabled ? 1 : 0.45
         WheelHandler {
             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
             onWheel: function(event) { event.accepted = true }
         }
-        contentItem: Row {
-            anchors.centerIn: parent
-            spacing: 8
-            Text { text: button.iconText; color: button.primary ? Theme.white : "#141017"; font.pixelSize: 16; font.bold: true }
-            Text { text: button.text; color: button.primary ? Theme.white : "#141017"; font.pixelSize: 13; elide: Text.ElideRight }
+        contentItem: RowLayout {
+            anchors.fill: parent
+            anchors.leftMargin: root.compactLayout ? 8 : 10
+            anchors.rightMargin: root.compactLayout ? 8 : 10
+            spacing: root.compactLayout ? 5 : 8
+            Text {
+                visible: button.iconText.length > 0
+                Layout.preferredWidth: root.compactLayout ? 12 : 16
+                text: button.iconText
+                color: button.primary ? Theme.white : "#141017"
+                font.pixelSize: root.compactLayout ? 13 : 16
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Text {
+                Layout.fillWidth: true
+                text: button.text
+                color: button.primary ? Theme.white : "#141017"
+                font.pixelSize: root.compactLayout ? 11 : 13
+                elide: Text.ElideRight
+                horizontalAlignment: Text.AlignHCenter
+            }
         }
         background: Rectangle { radius: 5; color: button.primary ? (button.hovered ? Theme.purple2 : Theme.purple) : "#f8f6fb"; border.color: button.primary ? Theme.purple : "#cdb9e6"; border.width: 1 }
     }

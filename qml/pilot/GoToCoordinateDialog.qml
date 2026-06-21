@@ -6,8 +6,8 @@ Popup {
     id: root
     modal: true
     focus: true
-    width: 360
-    height: 330
+    width: parent ? Math.min(360, parent.width - 32) : 360
+    height: parent ? Math.min(330, parent.height - 32) : 330
     x: parent ? (parent.width - width) / 2 : 0
     y: parent ? (parent.height - height) / 2 : 0
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -85,7 +85,7 @@ Popup {
         property string label: ""
         property string suffix: ""
         Layout.fillWidth: true
-        Text { text: label; color: "#111111"; font.pixelSize: 11; Layout.preferredWidth: 90 }
+        Text { text: label; color: "#111111"; font.pixelSize: 11; Layout.preferredWidth: root.width < 340 ? 72 : 90; elide: Text.ElideRight }
         TextField {
             id: input
             Layout.fillWidth: true

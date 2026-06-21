@@ -5,14 +5,14 @@ Rectangle {
     id: root
 
     property string status: "GOOD_TO_FLY"
-    property string temperature: "28 C"
-    property string condition: "Partly Cloudy"
+    property string temperature: "--"
+    property string condition: "Weather pending"
     property string location: "Lagos, Nigeria"
-    property string wind: "8 km/h NE"
-    property string visibility: "10 km"
-    property string precipitation: "10%"
-    property string gusts: "15 km/h"
-    property string forecastWindow: "Good for next 6 hours"
+    property string wind: "--"
+    property string visibility: "--"
+    property string precipitation: "--"
+    property string gusts: "--"
+    property string forecastWindow: "Review before flight"
     property bool syncing: false
 
     signal refreshRequested()

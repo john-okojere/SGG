@@ -6,9 +6,9 @@ Popup {
     id: root
     modal: false
     focus: true
-    width: 390
-    height: parent ? parent.height - 120 : 760
-    x: 24
+    width: parent ? Math.min(390, parent.width - 32) : 390
+    height: parent ? Math.max(320, parent.height - 120) : 760
+    x: parent ? Math.max(16, Math.min(24, parent.width - width - 16)) : 24
     y: 92
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
@@ -26,7 +26,7 @@ Popup {
         contentWidth: availableWidth
         clip: true
         ColumnLayout {
-            width: root.width
+            width: parent.width
             spacing: 14
             anchors.margins: 16
 
@@ -81,7 +81,7 @@ Popup {
         Layout.fillWidth: true
         Layout.leftMargin: 16
         Layout.rightMargin: 16
-        Text { text: label; color: "#5f5a66"; font.pixelSize: 11; Layout.preferredWidth: 128 }
+        Text { text: label; color: "#5f5a66"; font.pixelSize: 11; Layout.preferredWidth: root.width < 360 ? 92 : 128; elide: Text.ElideRight }
         Text { text: value; color: "#111111"; font.pixelSize: 11; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
     }
 

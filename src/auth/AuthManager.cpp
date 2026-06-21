@@ -26,6 +26,13 @@ bool AuthManager::deviceTrusted() const { return m_tokens && m_tokens->deviceTru
 bool AuthManager::busy() const { return m_busy; }
 QString AuthManager::statusMessage() const { return m_statusMessage; }
 QString AuthManager::securityWarning() const { return m_securityWarning; }
+qint64 AuthManager::loginDurationSeconds() const
+{
+    if (!m_loginStartedAt.isValid()) {
+        return 0;
+    }
+    return qMax<qint64>(0, m_loginStartedAt.secsTo(QDateTime::currentDateTimeUtc()));
+}
 
 void AuthManager::login(const QString &email, const QString &password)
 {
@@ -64,6 +71,7 @@ void AuthManager::login(const QString &email, const QString &password)
             setStatus(QStringLiteral("Device pending Control Center approval."));
             emit operationsBlocked(m_statusMessage);
         } else {
+            markLoginStarted();
             setStatus(QStringLiteral("Control Center session established."));
             emit loginSucceeded();
         }
@@ -73,6 +81,7 @@ void AuthManager::login(const QString &email, const QString &password)
 
 void AuthManager::logout()
 {
+    finishLoginSession();
     if (m_tokens) {
         m_tokens->clear();
     }
@@ -106,6 +115,7 @@ void AuthManager::checkDeviceApproval()
         const QString trustToken = firstString(body, {QStringLiteral("device_trust_token"), QStringLiteral("trust_token")});
         if (approved && !trustToken.isEmpty()) {
             m_tokens->updateDeviceTrust(QStringLiteral("approved"), trustToken);
+            markLoginStarted();
             setStatus(QStringLiteral("Device approved. Mission operations unlocked."));
             emit loginSucceeded();
         } else {
@@ -117,6 +127,27 @@ void AuthManager::checkDeviceApproval()
         }
         emit authChanged();
     });
+}
+
+qint64 AuthManager::finishLoginSession()
+{
+    const qint64 duration = loginDurationSeconds();
+    if (!m_loginStartedAt.isValid()) {
+        return 0;
+    }
+    m_loginStartedAt = QDateTime();
+    emit loginSessionRecorded(duration);
+    emit authChanged();
+    return duration;
+}
+
+void AuthManager::markLoginStarted()
+{
+    if (m_loginStartedAt.isValid()) {
+        return;
+    }
+    m_loginStartedAt = QDateTime::currentDateTimeUtc();
+    emit authChanged();
 }
 
 void AuthManager::setBusy(bool busy)

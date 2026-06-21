@@ -7,7 +7,7 @@ Item {
     objectName: "missionMap"
     property real routeDashOffset: 0
     readonly property string activeMissionType: missionStore.plan.missionType.length > 0 ? missionStore.plan.missionType : appState.currentMissionType
-    readonly property bool mapInteractionActive: ["select", "takeoff", "point", "poi", "route", "polygon"].indexOf(appState.selectedTool) !== -1
+    readonly property bool mapInteractionActive: ["select", "takeoff", "point", "poi", "route", "polygon", "rawWaypoint", "fence", "rally"].indexOf(appState.selectedTool) !== -1
     readonly property bool showGeneratedSurvey: root.activeMissionType !== "photomap"
                                              || (missionStore.plan.polygon.length >= 3 && appState.selectedTool !== "polygon")
     readonly property bool fastMode: String(performanceMode) === "fast"
@@ -40,6 +40,26 @@ Item {
         return mapSurface.item && mapSurface.item.coordinateFor
             ? mapSurface.item.coordinateFor(point)
             : { latitude: mapState.centerLatitude, longitude: mapState.centerLongitude }
+    }
+
+    function rowLatitude(row) {
+        if (row.latitude !== undefined)
+            return Number(row.latitude)
+        var raw = Number(row.x)
+        return Math.abs(raw) > 1000000 ? raw / 10000000 : raw
+    }
+
+    function rowLongitude(row) {
+        if (row.longitude !== undefined)
+            return Number(row.longitude)
+        var raw = Number(row.y)
+        return Math.abs(raw) > 1000000 ? raw / 10000000 : raw
+    }
+
+    function validCoordinate(row) {
+        var lat = rowLatitude(row)
+        var lon = rowLongitude(row)
+        return !isNaN(lat) && !isNaN(lon) && Math.abs(lat) > 0.000001 && Math.abs(lon) > 0.000001
     }
 
     Connections {
@@ -183,6 +203,79 @@ Item {
                 ctx.strokeStyle = "rgba(0,255,128,0.82)"
                 ctx.lineWidth = 3
                 ctx.stroke()
+            }
+        }
+    }
+
+    Canvas {
+        id: advancedMissionCanvas
+        objectName: "advancedMissionCanvas"
+        anchors.fill: parent
+        z: 2.7
+        antialiasing: !root.fastMode
+        visible: advancedMissionManager.useForUpload
+                 || appState.selectedTool === "rawWaypoint"
+                 || appState.selectedTool === "fence"
+                 || appState.selectedTool === "rally"
+                 || advancedMissionManager.geofenceItems.length > 0
+                 || advancedMissionManager.rallyItems.length > 0
+
+        Connections { target: advancedMissionManager; function onMissionChanged() { advancedMissionCanvas.requestPaint() } }
+        Connections { target: appState; function onToolChanged() { advancedMissionCanvas.requestPaint() } }
+        Connections { target: mapState; function onZoomChanged() { advancedMissionCanvas.requestPaint() } }
+        Connections { target: mapState; function onCenterChanged() { advancedMissionCanvas.requestPaint() } }
+        onWidthChanged: requestPaint()
+        onHeightChanged: requestPaint()
+
+        onPaint: {
+            var ctx = getContext("2d")
+            ctx.clearRect(0, 0, width, height)
+
+            var missionRows = advancedMissionManager.missionItems
+            var first = true
+            ctx.beginPath()
+            for (var i = 0; i < missionRows.length; ++i) {
+                if (!root.validCoordinate(missionRows[i]))
+                    continue
+                var mp = root.pointFor(root.rowLatitude(missionRows[i]), root.rowLongitude(missionRows[i]))
+                if (first) {
+                    ctx.moveTo(mp.x, mp.y)
+                    first = false
+                } else {
+                    ctx.lineTo(mp.x, mp.y)
+                }
+            }
+            if (!first) {
+                ctx.strokeStyle = "rgba(95,22,197,0.88)"
+                ctx.lineWidth = 4
+                ctx.setLineDash([10, 8])
+                ctx.stroke()
+                ctx.setLineDash([])
+            }
+
+            var fenceRows = advancedMissionManager.geofenceItems
+            if (fenceRows.length > 1) {
+                ctx.beginPath()
+                var fenceStarted = false
+                for (var f = 0; f < fenceRows.length; ++f) {
+                    if (!root.validCoordinate(fenceRows[f]))
+                        continue
+                    var fp = root.pointFor(root.rowLatitude(fenceRows[f]), root.rowLongitude(fenceRows[f]))
+                    if (!fenceStarted) {
+                        ctx.moveTo(fp.x, fp.y)
+                        fenceStarted = true
+                    } else {
+                        ctx.lineTo(fp.x, fp.y)
+                    }
+                }
+                if (fenceStarted) {
+                    ctx.closePath()
+                    ctx.fillStyle = "rgba(247,201,72,0.12)"
+                    ctx.strokeStyle = "rgba(161,92,0,0.92)"
+                    ctx.lineWidth = 3
+                    ctx.fill()
+                    ctx.stroke()
+                }
             }
         }
     }
@@ -335,6 +428,76 @@ Item {
         }
     }
 
+    Repeater {
+        model: advancedMissionManager.missionItems
+        delegate: Rectangle {
+            z: 5.5
+            width: 26
+            height: 26
+            radius: 13
+            visible: root.validCoordinate(modelData)
+                     && (advancedMissionManager.useForUpload || appState.selectedTool === "rawWaypoint")
+            color: "#ffffff"
+            border.color: "#5f16c5"
+            border.width: 3
+            x: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).x - width / 2
+            y: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).y - height / 2
+            Text {
+                anchors.centerIn: parent
+                text: "M" + String(modelData.seq)
+                color: "#5f16c5"
+                font.pixelSize: 9
+                font.bold: true
+            }
+        }
+    }
+
+    Repeater {
+        model: advancedMissionManager.geofenceItems
+        delegate: Rectangle {
+            z: 5.4
+            width: 24
+            height: 24
+            radius: 12
+            visible: root.validCoordinate(modelData)
+            color: "#fff7d6"
+            border.color: "#a15c00"
+            border.width: 3
+            x: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).x - width / 2
+            y: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).y - height / 2
+            Text {
+                anchors.centerIn: parent
+                text: "F" + String(modelData.seq)
+                color: "#7a4300"
+                font.pixelSize: 9
+                font.bold: true
+            }
+        }
+    }
+
+    Repeater {
+        model: advancedMissionManager.rallyItems
+        delegate: Rectangle {
+            z: 5.4
+            width: 24
+            height: 24
+            radius: 12
+            visible: root.validCoordinate(modelData)
+            color: "#e7fbef"
+            border.color: "#167a3a"
+            border.width: 3
+            x: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).x - width / 2
+            y: root.pointFor(root.rowLatitude(modelData), root.rowLongitude(modelData)).y - height / 2
+            Text {
+                anchors.centerIn: parent
+                text: "R" + String(modelData.seq)
+                color: "#167a3a"
+                font.pixelSize: 9
+                font.bold: true
+            }
+        }
+    }
+
     Rectangle {
         id: radiusHandle
         z: 5
@@ -432,7 +595,14 @@ Item {
                 return
             }
             var c = root.coordinateFor(Qt.point(mouse.x, mouse.y))
-            if (appState.selectedTool === "takeoff" || (!missionStore.plan.hasTakeoffPoint && appState.selectedTool !== "select")) {
+            if (appState.selectedTool === "rawWaypoint") {
+                advancedMissionManager.addMissionCommand(16, 3, 0, 0, 0, 0, c.latitude, c.longitude, missionStore.plan.altitude, 0)
+            } else if (appState.selectedTool === "fence") {
+                advancedMissionManager.addGeofencePoint(c.latitude, c.longitude, missionStore.plan.altitude, 5001)
+            } else if (appState.selectedTool === "rally") {
+                advancedMissionManager.addRallyPoint(c.latitude, c.longitude, missionStore.plan.altitude)
+            } else if (appState.selectedTool === "takeoff"
+                       || (!missionStore.plan.hasTakeoffPoint && ["point", "poi", "route", "polygon"].indexOf(appState.selectedTool) !== -1)) {
                 missionStore.plan.setTakeoffPoint(c.latitude, c.longitude)
             } else if (appState.selectedTool === "point" || appState.selectedTool === "route") {
                 missionStore.plan.addWaypoint(c.latitude, c.longitude)

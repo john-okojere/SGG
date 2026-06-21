@@ -15,6 +15,7 @@ class HomePositionManager;
 class LocalSyncCache;
 class ManualControlManager;
 class MissionPlanModel;
+class PermissionManager;
 class MissionSyncManager;
 class SessionManager;
 class VehicleTelemetryModel;
@@ -44,6 +45,7 @@ public:
                                   HomePositionManager *homePosition,
                                   FlightSessionSyncManager *flightSessions,
                                   WebSocketClient *websocket,
+                                  PermissionManager *permissions,
                                   LocalSyncCache *cache,
                                   AccessManager *access = nullptr,
                                   QObject *parent = nullptr);
@@ -95,6 +97,7 @@ private:
     HomePositionManager *m_homePosition = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     WebSocketClient *m_websocket = nullptr;
+    PermissionManager *m_permissions = nullptr;
     LocalSyncCache *m_cache = nullptr;
     AccessManager *m_access = nullptr;
     QTimer m_timer;

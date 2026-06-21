@@ -5,9 +5,24 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
 #include <QUrl>
-#include <QUrlQuery>
 #include <QWebSocketProtocol>
+
+namespace {
+
+QNetworkRequest trustedWebSocketRequest(const QUrl &url, TokenManager *tokens)
+{
+    QNetworkRequest request(url);
+    if (tokens) {
+        request.setRawHeader("Authorization", QByteArray("Bearer ") + tokens->accessToken().toUtf8());
+        request.setRawHeader("X-Device-UUID", tokens->deviceUuid().toUtf8());
+        request.setRawHeader("X-Device-Trust-Token", tokens->deviceTrustToken().toUtf8());
+    }
+    return request;
+}
+
+} // namespace
 
 WebSocketClient::WebSocketClient(BackendTrustManager *backend, TokenManager *tokens, QObject *parent)
     : QObject(parent), m_backend(backend), m_tokens(tokens)
@@ -62,14 +77,8 @@ void WebSocketClient::connectTelemetry()
         return;
     }
 
-    QUrl url(m_backend->makeWebSocketUrl(QStringLiteral("/ws/telemetry/")));
-    QUrlQuery query;
-    query.addQueryItem(QStringLiteral("access_token"), m_tokens->accessToken());
-    query.addQueryItem(QStringLiteral("device_uuid"), m_tokens->deviceUuid());
-    query.addQueryItem(QStringLiteral("device_trust_token"), m_tokens->deviceTrustToken());
-    url.setQuery(query);
-
-    m_socket.open(url);
+    const QUrl url(m_backend->makeWebSocketUrl(QStringLiteral("/ws/telemetry/")));
+    m_socket.open(trustedWebSocketRequest(url, m_tokens));
     setStatus(QStringLiteral("Connecting telemetry WebSocket..."), false);
 }
 
@@ -145,13 +154,8 @@ void WebSocketClient::openStream(const QString &stream, const QString &path)
         setStatus(QStringLiteral("%1 stream error: %2").arg(stream, socket->errorString()), !m_streamSockets.isEmpty());
     });
 
-    QUrl url(m_backend->makeWebSocketUrl(path));
-    QUrlQuery query;
-    query.addQueryItem(QStringLiteral("access_token"), m_tokens->accessToken());
-    query.addQueryItem(QStringLiteral("device_uuid"), m_tokens->deviceUuid());
-    query.addQueryItem(QStringLiteral("device_trust_token"), m_tokens->deviceTrustToken());
-    url.setQuery(query);
-    socket->open(url);
+    const QUrl url(m_backend->makeWebSocketUrl(path));
+    socket->open(trustedWebSocketRequest(url, m_tokens));
 }
 
 void WebSocketClient::closeStream(const QString &stream)

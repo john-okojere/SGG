@@ -15,6 +15,7 @@ Rectangle {
 
     height: 46
     radius: 8
+    opacity: root.enabled ? 1 : 0.45
     color: root.active ? "#3c0787" : (mouse.containsMouse ? "#f5f1fb" : "#ffffff")
     border.color: root.active ? "#3c0787" : "#e1dceb"
     border.width: 1
@@ -52,6 +53,7 @@ Rectangle {
     MouseArea {
         id: mouse
         anchors.fill: parent
+        enabled: root.enabled
         hoverEnabled: true
         onClicked: root.clicked()
     }

@@ -7,6 +7,7 @@ import "../controls"
 ColumnLayout {
     id: root
     spacing: 8
+    readonly property bool compactLayout: width < 360
 
     function aircraftId() {
         return missionSyncManager.assignedAircraft.length > 0
@@ -42,7 +43,7 @@ ColumnLayout {
             Text {
                 text: "Pre-flight Checklist"
                 color: Theme.ink
-                font.pixelSize: 18
+                font.pixelSize: root.compactLayout ? 16 : 18
                 font.bold: true
             }
             Text {
@@ -60,6 +61,7 @@ ColumnLayout {
                  : (preflightChecklistManager.cautionRequired ? Theme.amber : Theme.green)
             font.pixelSize: 11
             font.bold: true
+            elide: Text.ElideRight
         }
     }
 
@@ -99,7 +101,7 @@ ColumnLayout {
         }
         PrimaryButton {
             visible: preflightChecklistManager.cautionRequired
-            Layout.preferredWidth: 150
+            Layout.preferredWidth: root.compactLayout ? 118 : 150
             secondary: true
             text: "Acknowledge"
             onClicked: preflightChecklistManager.acknowledgeAllCautions()
@@ -110,7 +112,7 @@ ColumnLayout {
         model: preflightChecklistManager.checks
         delegate: Rectangle {
             Layout.fillWidth: true
-            implicitHeight: 52
+            implicitHeight: Math.max(root.compactLayout ? 58 : 52, checkContent.implicitHeight + 20)
             radius: 6
             color: modelData.passed ? "#edf9f1"
                  : (modelData.severity === "critical" ? "#ffe9e9" : (modelData.severity === "warning" ? "#fff6d8" : "#edf6ff"))
@@ -118,6 +120,7 @@ ColumnLayout {
                  : (modelData.severity === "critical" ? "#efaaaa" : (modelData.severity === "warning" ? "#efd06c" : "#b8d6ee"))
 
             ColumnLayout {
+                id: checkContent
                 anchors.fill: parent
                 anchors.margins: 10
                 spacing: 2
@@ -125,6 +128,7 @@ ColumnLayout {
                     Layout.fillWidth: true
                     spacing: 8
                     Text {
+                        visible: !root.compactLayout
                         text: modelData.category
                         color: Theme.purple
                         font.pixelSize: 10
@@ -134,14 +138,14 @@ ColumnLayout {
                         Layout.fillWidth: true
                         text: modelData.label
                         color: Theme.ink
-                        font.pixelSize: 13
+                        font.pixelSize: root.compactLayout ? 12 : 13
                         font.bold: true
                         elide: Text.ElideRight
                     }
                     Text {
                         text: modelData.passed ? "PASS" : modelData.severity.toUpperCase()
                         color: Theme.muted
-                        font.pixelSize: 10
+                        font.pixelSize: root.compactLayout ? 9 : 10
                         font.bold: true
                     }
                 }
@@ -151,7 +155,7 @@ ColumnLayout {
                         Layout.fillWidth: true
                         text: modelData.message
                         color: Theme.muted
-                        font.pixelSize: 11
+                        font.pixelSize: root.compactLayout ? 10 : 11
                         wrapMode: Text.WordWrap
                     }
                     Button {

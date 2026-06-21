@@ -11,11 +11,14 @@ Rectangle {
     property string value: "--"
     property string label: ""
     property color accent: "#4B3DA0"
+    property bool compact: false
 
     signal clicked()
 
-    width: 146
-    height: 48
+    width: root.compact ? 118 : 146
+    height: root.compact ? 44 : 48
+    implicitWidth: width
+    implicitHeight: height
     radius: 8
     color: mouse.containsMouse ? "#fbfaff" : "#ffffff"
     border.color: mouse.containsMouse ? "#cfc4eb" : "#e7e2ef"
@@ -28,17 +31,17 @@ Rectangle {
         spacing: 8
 
         Rectangle {
-            Layout.preferredWidth: 28
-            Layout.preferredHeight: 28
+            Layout.preferredWidth: root.compact ? 26 : 28
+            Layout.preferredHeight: root.compact ? 26 : 28
             radius: 8
             color: Qt.rgba(root.accent.r, root.accent.g, root.accent.b, 0.10)
             border.color: Qt.rgba(root.accent.r, root.accent.g, root.accent.b, 0.20)
 
             AssetIcon {
                 anchors.centerIn: parent
-                width: 17
-                height: 17
-                iconSize: 17
+                width: root.compact ? 15 : 17
+                height: root.compact ? 15 : 17
+                iconSize: root.compact ? 15 : 17
                 source: root.iconSource
                 active: true
                 visible: root.iconSource.toString().length > 0
@@ -72,7 +75,7 @@ Rectangle {
                 Layout.fillWidth: true
                 text: root.value
                 color: "#14111d"
-                font.pixelSize: 12
+                font.pixelSize: root.compact ? 11 : 12
                 font.bold: true
                 elide: Text.ElideRight
             }
@@ -81,7 +84,7 @@ Rectangle {
                 Layout.fillWidth: true
                 text: root.label
                 color: "#706a7e"
-                font.pixelSize: 9
+                font.pixelSize: root.compact ? 8 : 9
                 elide: Text.ElideRight
             }
         }

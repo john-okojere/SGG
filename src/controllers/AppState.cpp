@@ -11,6 +11,7 @@ void AppState::setAccessManager(AccessManager *access)
 
 QString AppState::currentScreen() const { return m_currentScreen; }
 QString AppState::currentManufacturerTool() const { return m_currentManufacturerTool; }
+QString AppState::currentGcsTool() const { return m_currentGcsTool; }
 QString AppState::currentMissionType() const { return m_currentMissionType; }
 QString AppState::operationalMode() const { return m_operationalMode; }
 QString AppState::selectedMissionId() const { return m_selectedMissionId; }
@@ -135,9 +136,19 @@ void AppState::openManufacturerTool(const QString &tool)
         }
         return;
     }
-    if (!authorize(action,
-                   QStringLiteral("Manufacturer tool blocked by local permissions."),
-                   QVariantMap{{QStringLiteral("tool"), normalized}})) {
+    const bool alternateAllowed =
+        (normalized == QStringLiteral("vehicleProfile")
+         && m_access
+         && (m_access->can(QStringLiteral("can_register_vehicle"))
+             || m_access->can(QStringLiteral("can_edit_vehicle_profile"))))
+        || (normalized == QStringLiteral("vehicleReleaseLock")
+            && m_access
+            && (m_access->can(QStringLiteral("can_release_vehicle_to_organization"))
+                || m_access->can(QStringLiteral("can_edit_vehicle_profile"))));
+    if (!alternateAllowed
+        && !authorize(action,
+                      QStringLiteral("Manufacturer tool blocked by local permissions."),
+                      QVariantMap{{QStringLiteral("tool"), normalized}})) {
         return;
     }
     applyOperationalMode(QStringLiteral("mission"));
@@ -156,11 +167,8 @@ void AppState::resolveWorkspaceForAccess()
     if (!m_access || !m_access->accessLoaded()) {
         return;
     }
-    if (hasManufacturerAccess()
-        && (m_currentScreen == QStringLiteral("home")
-            || m_currentScreen == QStringLiteral("missionSelector")
-            || m_currentScreen == QStringLiteral("manufacturer"))) {
-        openManufacturerWorkspace();
+    if (m_currentScreen == QStringLiteral("manufacturer") && !hasManufacturerAccess()) {
+        goHome();
     }
 }
 
@@ -183,6 +191,44 @@ void AppState::closeMissionSelector()
         m_currentScreen = "home";
         emit navigationChanged();
     }
+}
+
+void AppState::openVehicleConfiguration()
+{
+    if (hasManufacturerAccess()) {
+        openManufacturerTool(QStringLiteral("vehicleConfiguration"));
+        return;
+    }
+    setOperationalMode(QStringLiteral("mission"));
+    m_currentMissionType.clear();
+    m_selectedMissionId.clear();
+    m_currentScreen = QStringLiteral("vehicleConfiguration");
+    m_selectedTool = QStringLiteral("select");
+    m_selectedWaypointIndex = -1;
+    m_selectedPolygonIndex = -1;
+    emit missionChanged();
+    emit navigationChanged();
+    emit toolChanged();
+    emit selectedWaypointChanged();
+    emit selectedGeometryChanged();
+}
+
+void AppState::openManufacturerTestFlight()
+{
+    startPilotMode();
+}
+
+void AppState::openDefaultWorkspace(const QString &workspace)
+{
+    if (workspace == QStringLiteral("vehicleConfiguration")) {
+        openVehicleConfiguration();
+        return;
+    }
+    if (workspace == QStringLiteral("manufacturerTestFlight")) {
+        openManufacturerTestFlight();
+        return;
+    }
+    goHome();
 }
 
 void AppState::startMission(const QString &missionType)
@@ -281,6 +327,62 @@ void AppState::startPilotMode()
     emit selectedGeometryChanged();
 }
 
+void AppState::openGcsTools()
+{
+    if (!authorize(QStringLiteral("gcs_tools"),
+                   QStringLiteral("GCS tools workspace blocked by local permissions."))) {
+        return;
+    }
+    const QString nextTool = defaultGcsTool();
+    if (!nextTool.isEmpty() && m_currentGcsTool != nextTool) {
+        m_currentGcsTool = nextTool;
+        emit gcsToolChanged();
+    }
+    applyOperationalMode(QStringLiteral("mission"));
+    if (m_currentScreen == QStringLiteral("gcsTools")) {
+        return;
+    }
+    m_currentScreen = QStringLiteral("gcsTools");
+    emit navigationChanged();
+}
+
+void AppState::openGcsTool(const QString &tool)
+{
+    const QString normalized = tool.trimmed();
+    const QString action = actionForGcsTool(normalized);
+    if (action.isEmpty()) {
+        if (m_access) {
+            m_access->recordBlocked(QStringLiteral("gcs_tools"),
+                                    QStringLiteral("Unknown GCS tool blocked."),
+                                    QVariantMap{{QStringLiteral("tool"), normalized}});
+        }
+        return;
+    }
+    if (!authorize(action,
+                   QStringLiteral("GCS tool blocked by local permissions."),
+                   QVariantMap{{QStringLiteral("tool"), normalized}})) {
+        return;
+    }
+    applyOperationalMode(QStringLiteral("mission"));
+    if (m_currentGcsTool != normalized) {
+        m_currentGcsTool = normalized;
+        emit gcsToolChanged();
+    }
+    if (m_currentScreen != QStringLiteral("gcsTools")) {
+        m_currentScreen = QStringLiteral("gcsTools");
+        emit navigationChanged();
+    }
+}
+
+void AppState::openHelpCenter()
+{
+    if (m_currentScreen == QStringLiteral("help")) {
+        return;
+    }
+    m_currentScreen = QStringLiteral("help");
+    emit navigationChanged();
+}
+
 bool AppState::authorize(const QString &action, const QString &message, const QVariantMap &context)
 {
     if (!m_access) {
@@ -341,18 +443,92 @@ QString AppState::actionForManufacturerTool(const QString &tool) const
     return {};
 }
 
+QString AppState::actionForGcsTool(const QString &tool) const
+{
+    if (tool == QStringLiteral("installFirmware") || tool == QStringLiteral("installFirmwareLegacy")) {
+        return tool == QStringLiteral("installFirmware") ? QStringLiteral("firmware_manager") : QStringLiteral("firmware_flash");
+    }
+    if (tool == QStringLiteral("connect")) {
+        return QStringLiteral("connect");
+    }
+    if (tool == QStringLiteral("dashboard")) {
+        return QStringLiteral("gcs_tools");
+    }
+    if (tool == QStringLiteral("flightData")) {
+        return QStringLiteral("flight_data");
+    }
+    if (tool == QStringLiteral("missionPlanner")) {
+        return QStringLiteral("advanced_mission_editor");
+    }
+    if (tool == QStringLiteral("initialSetup")) {
+        return QStringLiteral("initial_setup");
+    }
+    if (tool == QStringLiteral("configurationTuning") || tool == QStringLiteral("parametersTuning")
+        || tool == QStringLiteral("flightModes")) {
+        return QStringLiteral("vehicle_tuning");
+    }
+    if (tool == QStringLiteral("rcRadio") || tool == QStringLiteral("escSetup")
+        || tool == QStringLiteral("servoSetup") || tool == QStringLiteral("batterySetup")
+        || tool == QStringLiteral("failsafeSetup") || tool == QStringLiteral("airframeSetup")) {
+        return QStringLiteral("initial_setup");
+    }
+    if (tool == QStringLiteral("firmwareManager")) {
+        return QStringLiteral("firmware_manager");
+    }
+    if (tool == QStringLiteral("logsAnalysis")) {
+        return QStringLiteral("logs_analysis");
+    }
+    if (tool == QStringLiteral("simulation")) {
+        return QStringLiteral("simulation");
+    }
+    if (tool == QStringLiteral("commandCenterSync")) {
+        return QStringLiteral("command_center_sync");
+    }
+    if (tool == QStringLiteral("payloadTools")) {
+        return QStringLiteral("payload_configuration");
+    }
+    if (tool == QStringLiteral("optionalHardware")) {
+        return QStringLiteral("optional_hardware");
+    }
+    if (tool == QStringLiteral("advancedTools")) {
+        return QStringLiteral("advanced_mavlink");
+    }
+    if (tool == QStringLiteral("rtkGpsInject") || tool == QStringLiteral("sikRadio")
+        || tool == QStringLiteral("droneCan") || tool == QStringLiteral("joystick")
+        || tool == QStringLiteral("px4flow") || tool == QStringLiteral("bluetoothSetup")
+        || tool == QStringLiteral("antennaTracker")) {
+        return QStringLiteral("optional_hardware");
+    }
+    if (tool == QStringLiteral("payloadCamera") || tool == QStringLiteral("payloadGimbal")) {
+        return QStringLiteral("payload_configuration");
+    }
+    if (tool == QStringLiteral("payloadVideo")) {
+        return QStringLiteral("video_stream");
+    }
+    if (tool == QStringLiteral("geotagging") || tool == QStringLiteral("mappingOverlap")) {
+        return QStringLiteral("video_payload_configuration");
+    }
+    if (tool == QStringLiteral("terminal")) {
+        return QStringLiteral("terminal");
+    }
+    if (tool == QStringLiteral("mavlinkInspector") || tool == QStringLiteral("messageSender")
+        || tool == QStringLiteral("mavftp") || tool == QStringLiteral("signing")
+        || tool == QStringLiteral("serialPassthrough") || tool == QStringLiteral("boardInfo")) {
+        return QStringLiteral("advanced_mavlink");
+    }
+    if (tool == QStringLiteral("multiVehicle")) {
+        return QStringLiteral("multi_vehicle");
+    }
+    return {};
+}
+
 QString AppState::defaultManufacturerTool() const
 {
     const QStringList candidates{
         QStringLiteral("vehicleConfiguration"),
         QStringLiteral("vehicleProfile"),
         QStringLiteral("flightControllerBinding"),
-        QStringLiteral("vehicleParameters"),
-        QStringLiteral("rcMapping"),
-        QStringLiteral("manufacturerTestFlight"),
-        QStringLiteral("manualTestMode"),
-        QStringLiteral("vehicleReleaseLock"),
-        QStringLiteral("firmwareManager")
+        QStringLiteral("vehicleReleaseLock")
     };
     for (const QString &tool : candidates) {
         const QString action = actionForManufacturerTool(tool);
@@ -361,6 +537,35 @@ QString AppState::defaultManufacturerTool() const
         }
     }
     return QStringLiteral("vehicleConfiguration");
+}
+
+QString AppState::defaultGcsTool() const
+{
+    const QStringList candidates{
+        QStringLiteral("installFirmware"),
+        QStringLiteral("connect"),
+        QStringLiteral("initialSetup"),
+        QStringLiteral("parametersTuning"),
+        QStringLiteral("payloadVideo"),
+        QStringLiteral("dashboard"),
+        QStringLiteral("flightData"),
+        QStringLiteral("missionPlanner"),
+        QStringLiteral("configurationTuning"),
+        QStringLiteral("firmwareManager"),
+        QStringLiteral("logsAnalysis"),
+        QStringLiteral("simulation"),
+        QStringLiteral("mavlinkInspector"),
+        QStringLiteral("terminal"),
+        QStringLiteral("commandCenterSync"),
+        QStringLiteral("multiVehicle")
+    };
+    for (const QString &tool : candidates) {
+        const QString action = actionForGcsTool(tool);
+        if (!action.isEmpty() && m_access && m_access->canPerform(action)) {
+            return tool;
+        }
+    }
+    return QStringLiteral("connect");
 }
 
 QString AppState::missionTitle() const

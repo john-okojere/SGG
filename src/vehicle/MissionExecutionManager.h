@@ -9,11 +9,13 @@
 
 class ApiClient;
 class AccessManager;
+class AdvancedMissionManager;
 class FlightSessionSyncManager;
 class GcsEventSyncManager;
 class PreflightChecklistManager;
 class MissionPlanModel;
 class MavsdkVehicleManager;
+class PermissionManager;
 class SessionManager;
 
 namespace mavsdk {
@@ -33,9 +35,11 @@ public:
                                      MissionPlanModel *plan,
                                      ApiClient *api,
                                      SessionManager *session,
+                                     PermissionManager *permissions,
                                      FlightSessionSyncManager *flightSessions,
                                      PreflightChecklistManager *preflight,
                                      AccessManager *access,
+                                     AdvancedMissionManager *advancedMission,
                                      GcsEventSyncManager *events,
                                      QObject *parent = nullptr);
 
@@ -61,9 +65,11 @@ private:
     MissionPlanModel *m_plan = nullptr;
     ApiClient *m_api = nullptr;
     SessionManager *m_session = nullptr;
+    PermissionManager *m_permissions = nullptr;
     FlightSessionSyncManager *m_flightSessions = nullptr;
     PreflightChecklistManager *m_preflight = nullptr;
     AccessManager *m_access = nullptr;
+    AdvancedMissionManager *m_advancedMission = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_executing = false;
     int m_activeWaypoint = -1;

@@ -20,7 +20,7 @@ Rectangle {
             Layout.fillWidth: true
             spacing: 8
             Text {
-                text: "Mission Command"
+                text: "Flight Actions"
                 color: Theme.purple
                 font.pixelSize: 12
                 font.bold: true
@@ -31,6 +31,34 @@ Rectangle {
                 color: vehicleManager.connected ? Theme.green : Theme.red
                 font.pixelSize: 10
                 font.bold: true
+            }
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 32
+            radius: 6
+            color: vehicleManager.connected ? "#effaf2" : "#fff8df"
+            border.color: vehicleManager.connected ? "#b7dfbf" : "#e8cf7c"
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 7
+                spacing: 8
+                Text {
+                    text: telemetryStore.armed ? "ARMED" : "DISARMED"
+                    color: telemetryStore.armed ? Theme.red : Theme.green
+                    font.pixelSize: 10
+                    font.bold: true
+                }
+                Text {
+                    Layout.fillWidth: true
+                    text: vehicleManager.connected
+                          ? (preflightChecklistManager.canArm ? "Preflight permits flight actions" : "Preflight blocks arm/takeoff")
+                          : "Connect aircraft before sending direct commands"
+                    color: "#4f465b"
+                    font.pixelSize: 10
+                    elide: Text.ElideRight
+                }
             }
         }
 
@@ -83,7 +111,7 @@ Rectangle {
             }
             CommandButton {
                 Layout.fillWidth: true
-                label: "POI"
+                label: "Set POI"
                 iconSource: AssetRegistry.icons.pin_location
                 active: appState.selectedTool === "poi"
                 enabled: true

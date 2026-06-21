@@ -56,6 +56,18 @@ Rectangle {
             }
         }
 
+        Text {
+            visible: root.activities.length === 0
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            text: "No recent activity in this role scope."
+            color: "#7e778a"
+            font.pixelSize: 12
+            wrapMode: Text.WordWrap
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+
         Item { Layout.fillHeight: true }
 
         Text {

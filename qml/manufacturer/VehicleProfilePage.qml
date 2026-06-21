@@ -11,57 +11,66 @@ Rectangle {
         return value === undefined || value === null ? fallback : String(value)
     }
 
-    ColumnLayout {
+    ScrollView {
         anchors.fill: parent
-        anchors.margins: 24
-        spacing: 14
+        contentWidth: availableWidth
+        clip: true
 
-        Text { text: "Vehicle Profile"; color: "#14111d"; font.pixelSize: 24; font.bold: true }
-        Text { Layout.fillWidth: true; text: "Create or update scoped vehicle profiles through SGG_CC."; color: "#706a7e"; font.pixelSize: 13; wrapMode: Text.WordWrap }
+        ColumnLayout {
+            width: Math.max(0, root.width - (root.width < 520 ? 32 : 48))
+            x: root.width < 520 ? 16 : 24
+            y: root.width < 520 ? 16 : 24
+            spacing: 14
 
-        GridLayout {
-            Layout.fillWidth: true
-            columns: 2
-            rowSpacing: 10
-            columnSpacing: 12
-            ProfileField { id: nameField; label: "Name"; text: root.selected("name", "") }
-            ProfileField { id: modelField; label: "Model"; text: root.selected("model", "") }
-            ProfileField { id: serialField; label: "Serial"; text: root.selected("serial_number", "") }
-            ProfileField { id: firmwareField; label: "Firmware"; text: root.selected("firmware_version", "") }
-            ProfileField { id: airframeField; label: "Airframe"; text: root.selected("airframe_type", "") }
-            Text { Layout.fillWidth: true; text: "Status: " + root.selected("status", "draft"); color: "#706a7e"; font.pixelSize: 13 }
-        }
+            Text { Layout.fillWidth: true; text: "Vehicle Profile"; color: "#14111d"; font.pixelSize: root.width < 520 ? 20 : 24; font.bold: true; elide: Text.ElideRight }
+            Text { Layout.fillWidth: true; text: "Create or update scoped vehicle profiles through SGG_CC."; color: "#706a7e"; font.pixelSize: 13; wrapMode: Text.WordWrap }
 
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-            Button {
-                text: "Create Profile"
-                visible: accessManager.can("can_register_vehicle")
-                enabled: !manufacturerVehicleManager.loading && nameField.text.length > 0
-                onClicked: manufacturerVehicleManager.createVehicleProfile({
-                    name: nameField.text,
-                    model: modelField.text,
-                    serial_number: serialField.text,
-                    firmware_version: firmwareField.text,
-                    airframe_type: airframeField.text
-                })
+            GridLayout {
+                Layout.fillWidth: true
+                columns: width < 520 ? 1 : 2
+                rowSpacing: 10
+                columnSpacing: 12
+                ProfileField { id: nameField; label: "Name"; text: root.selected("name", "") }
+                ProfileField { id: modelField; label: "Model"; text: root.selected("model", "") }
+                ProfileField { id: serialField; label: "Serial"; text: root.selected("serial_number", "") }
+                ProfileField { id: firmwareField; label: "Firmware"; text: root.selected("firmware_version", "") }
+                ProfileField { id: airframeField; label: "Airframe"; text: root.selected("airframe_type", "") }
+                Text { Layout.fillWidth: true; text: "Status: " + root.selected("status", "draft"); color: "#706a7e"; font.pixelSize: 13 }
             }
-            Button {
-                text: "Update Selected"
-                visible: accessManager.can("can_edit_vehicle_profile")
-                enabled: !manufacturerVehicleManager.loading && manufacturerVehicleManager.selectedProfile.id !== undefined
-                onClicked: manufacturerVehicleManager.updateVehicleProfile(manufacturerVehicleManager.selectedProfile.id, {
-                    name: nameField.text,
-                    model: modelField.text,
-                    serial_number: serialField.text,
-                    firmware_version: firmwareField.text,
-                    airframe_type: airframeField.text
-                })
-            }
-        }
 
-        StatusFooter {}
+            Flow {
+                Layout.fillWidth: true
+                Layout.preferredHeight: childrenRect.height
+                spacing: 10
+                Button {
+                    text: "Create Profile"
+                    visible: accessManager.can("can_register_vehicle")
+                    enabled: !manufacturerVehicleManager.loading && nameField.text.length > 0
+                    onClicked: manufacturerVehicleManager.createVehicleProfile({
+                        name: nameField.text,
+                        model: modelField.text,
+                        serial_number: serialField.text,
+                        firmware_version: firmwareField.text,
+                        airframe_type: airframeField.text
+                    })
+                }
+                Button {
+                    text: "Update Selected"
+                    visible: accessManager.can("can_edit_vehicle_profile")
+                    enabled: !manufacturerVehicleManager.loading && manufacturerVehicleManager.selectedProfile.id !== undefined
+                    onClicked: manufacturerVehicleManager.updateVehicleProfile(manufacturerVehicleManager.selectedProfile.id, {
+                        name: nameField.text,
+                        model: modelField.text,
+                        serial_number: serialField.text,
+                        firmware_version: firmwareField.text,
+                        airframe_type: airframeField.text
+                    })
+                }
+            }
+
+            StatusFooter {}
+            Item { Layout.preferredHeight: root.width < 520 ? 16 : 24 }
+        }
     }
 
     component ProfileField: ColumnLayout {

@@ -9,7 +9,8 @@ Rectangle {
     color: "#ffffff"
     border.color: canReachFirstWaypoint() ? "#b9e8c6" : "#efd06c"
     border.width: 1
-    implicitHeight: 132
+    readonly property int metricColumns: width < 300 ? 2 : (width < 390 ? 3 : 4)
+    implicitHeight: metricColumns === 2 ? 220 : (metricColumns === 3 ? 176 : 132)
 
     function routeItems() {
         return missionStore.plan.generatedRoute
@@ -59,12 +60,12 @@ Rectangle {
     GridLayout {
         anchors.fill: parent
         anchors.margins: 10
-        columns: 4
+        columns: root.metricColumns
         rowSpacing: 8
         columnSpacing: 8
 
         RowLayout {
-            Layout.columnSpan: 4
+            Layout.columnSpan: root.metricColumns
             Layout.fillWidth: true
             spacing: 8
             AssetIcon {
@@ -111,11 +112,13 @@ Rectangle {
         property var value: "--"
         property string unit: ""
         property color accent: Theme.ink
+        Layout.fillWidth: true
         spacing: 0
         Text { text: label; color: Theme.muted; font.pixelSize: 9; font.bold: true; elide: Text.ElideRight; Layout.fillWidth: true }
         RowLayout {
+            Layout.fillWidth: true
             spacing: 2
-            Text { text: String(value); color: accent; font.pixelSize: 12; font.bold: true; elide: Text.ElideRight }
+            Text { Layout.fillWidth: true; text: String(value); color: accent; font.pixelSize: 12; font.bold: true; elide: Text.ElideRight }
             Text { text: unit; visible: unit.length > 0; color: Theme.muted; font.pixelSize: 9; font.bold: true }
         }
     }

@@ -20,6 +20,7 @@ QtObject {
     }
 
     readonly property var logos: ({
+        app_icon: asset("app_icon.png"),
         full_logo: svg("full_logo.svg"),
         logo: asset("logo.png"),
         icon: asset("icon.png")
@@ -27,6 +28,10 @@ QtObject {
 
     readonly property var dashboard: ({
         mission_operations_center_bg: asset("dashboard/mission_operations_center_bg.png")
+    })
+
+    readonly property var login: ({
+        background: asset("login/login_background.png")
     })
 
     readonly property var aircraft: ({

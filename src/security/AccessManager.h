@@ -19,8 +19,11 @@ class AccessManager : public QObject
     Q_PROPERTY(bool offlineAuthorizationValid READ offlineAuthorizationValid NOTIFY accessChanged)
     Q_PROPERTY(QString role READ role NOTIFY accessChanged)
     Q_PROPERTY(QStringList roles READ roles NOTIFY accessChanged)
+    Q_PROPERTY(QStringList rawRoles READ rawRoles NOTIFY accessChanged)
     Q_PROPERTY(QStringList permissions READ permissions NOTIFY accessChanged)
     Q_PROPERTY(QStringList allowedModules READ allowedModules NOTIFY accessChanged)
+    Q_PROPERTY(QStringList assignedAircraftIds READ assignedAircraftIds NOTIFY accessChanged)
+    Q_PROPERTY(QStringList assignedMissionIds READ assignedMissionIds NOTIFY accessChanged)
     Q_PROPERTY(int organizationId READ organizationId NOTIFY accessChanged)
     Q_PROPERTY(QVariantMap sessionStatus READ sessionStatus NOTIFY accessChanged)
     Q_PROPERTY(QVariantMap deviceSummary READ deviceSummary NOTIFY accessChanged)
@@ -34,8 +37,11 @@ public:
     bool offlineAuthorizationValid() const;
     QString role() const;
     QStringList roles() const;
+    QStringList rawRoles() const;
     QStringList permissions() const;
     QStringList allowedModules() const;
+    QStringList assignedAircraftIds() const;
+    QStringList assignedMissionIds() const;
     int organizationId() const;
     QVariantMap sessionStatus() const;
     QVariantMap deviceSummary() const;
@@ -50,6 +56,9 @@ public:
     Q_INVOKABLE bool canAny(const QStringList &permissions) const;
     Q_INVOKABLE bool canModule(const QString &module) const;
     Q_INVOKABLE bool canPerform(const QString &action) const;
+    Q_INVOKABLE QString denialReasonForAction(const QString &action) const;
+    Q_INVOKABLE QString moduleDenialReason(const QString &module) const;
+    Q_INVOKABLE QVariantMap diagnosticSnapshot() const;
     Q_INVOKABLE bool canAccessAircraft(const QVariant &aircraftId) const;
     Q_INVOKABLE bool canAccessMission(const QVariant &missionId) const;
     Q_INVOKABLE QVariantList filterAircraft(const QVariantList &aircraft) const;
@@ -68,6 +77,7 @@ signals:
 
 private:
     QString permissionForAction(const QString &action) const;
+    QString actionDenialReason(const QString &action) const;
     QString normalizedAction(const QString &action) const;
     QString idString(const QVariant &value) const;
     QStringList stringListFromVariant(const QVariant &value) const;
@@ -90,6 +100,7 @@ private:
     bool m_backendReachable = false;
     QString m_status = "Access profile not loaded";
     QString m_role;
+    QStringList m_rawRoles;
     QStringList m_roles;
     QStringList m_permissions;
     QStringList m_allowedModules;

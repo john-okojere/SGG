@@ -10,6 +10,7 @@ class AccessManager;
 class LocalSyncCache;
 class GcsEventSyncManager;
 class MissionPlanModel;
+class PermissionManager;
 class SessionManager;
 
 class MissionSyncManager : public QObject
@@ -33,6 +34,7 @@ public:
                                 SessionManager *session,
                                 LocalSyncCache *cache,
                                 MissionPlanModel *plan,
+                                PermissionManager *permissions = nullptr,
                                 AccessManager *access = nullptr,
                                 GcsEventSyncManager *events = nullptr,
                                 QObject *parent = nullptr);
@@ -50,7 +52,8 @@ public:
     QVariantList missionHistory() const;
     QVariantList vehicleProfiles() const;
 
-    Q_INVOKABLE void bootstrap();
+    Q_INVOKABLE void bootstrap(bool force = false);
+    Q_INVOKABLE void publishCached();
     Q_INVOKABLE void syncMissions();
     Q_INVOKABLE void saveActiveMission();
     Q_INVOKABLE void validateActiveMission();
@@ -65,6 +68,7 @@ signals:
 
 private:
     void loadCached();
+    QVariantMap mergedBootstrap(const QVariantMap &bootstrap) const;
     void applyOpenMission(const QVariantMap &mission);
     void setSyncing(bool syncing);
     void setStatus(const QString &status);
@@ -74,10 +78,12 @@ private:
     SessionManager *m_session = nullptr;
     LocalSyncCache *m_cache = nullptr;
     MissionPlanModel *m_plan = nullptr;
+    PermissionManager *m_permissions = nullptr;
     GcsEventSyncManager *m_events = nullptr;
     bool m_syncing = false;
     QString m_status = "Not synchronized";
     QDateTime m_lastBootstrapAt;
+    QVariantMap m_accessBootstrap;
     QVariantMap m_organization;
     QVariantMap m_manufacturer;
     QVariantMap m_pilotProfile;

@@ -15,8 +15,11 @@ Rectangle {
     radius: 6
     color: "#f5f1fa"
     border.color: Theme.line
-    implicitHeight: 40
-    implicitWidth: 180
+    clip: true
+    implicitHeight: root.compact ? 34 : 40
+    implicitWidth: Math.max(96,
+                            Math.min(180,
+                                     valueText.implicitWidth + (root.hasAssetIcon || root.iconText.length > 0 ? 52 : 24)))
 
     RowLayout {
         anchors.fill: parent
@@ -47,6 +50,14 @@ Rectangle {
                 font.bold: true
             }
         }
-        Text { text: root.value; color: Theme.ink; font.pixelSize: root.compact ? 11 : 12; font.bold: true; elide: Text.ElideRight; Layout.fillWidth: true }
+        Text {
+            id: valueText
+            text: root.value
+            color: Theme.ink
+            font.pixelSize: root.compact ? 10 : 12
+            font.bold: true
+            elide: Text.ElideRight
+            Layout.fillWidth: true
+        }
     }
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QByteArray>
 #include <QObject>
 #include <QString>
 
@@ -20,6 +21,8 @@ private:
     QString storageKey(const QString &key) const;
     QByteArray machineSecret() const;
     bool keyringAvailable() const;
+    bool writePlatformSecret(const QString &key, const QString &value) const;
+    QString readPlatformSecret(const QString &key) const;
     bool writeKeyring(const QString &key, const QString &value) const;
     QString readKeyring(const QString &key) const;
     bool deleteKeyring(const QString &key) const;

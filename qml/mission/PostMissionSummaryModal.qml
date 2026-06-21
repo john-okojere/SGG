@@ -119,18 +119,22 @@ Item {
                     y: root.compact ? 14 : 20
                     spacing: root.compact ? 12 : 16
 
-                    RowLayout {
+                    GridLayout {
                         Layout.fillWidth: true
-                        spacing: 12
+                        columns: root.width < 760 ? 2 : 4
+                        rowSpacing: 12
+                        columnSpacing: 12
                         SummaryCard { title: "Mission"; value: root.value("mission_name", "Manual Flight"); detail: root.value("mission_type", "Flight") }
                         SummaryCard { title: "Pilot"; value: root.value("pilot_name", "Operator"); detail: root.value("aircraft_name", "Aircraft") }
                         SummaryCard { title: "Flight Time"; value: root.value("duration_text", "00:00:00"); detail: root.value("start_time", "--") }
                         SummaryCard { title: "Distance"; value: root.numberValue("distance_km", 2, " km"); detail: root.numberValue("average_speed_mps", 1, " m/s avg") }
                     }
 
-                    RowLayout {
+                    GridLayout {
                         Layout.fillWidth: true
-                        spacing: 12
+                        columns: root.width < 760 ? 1 : 2
+                        rowSpacing: 12
+                        columnSpacing: 12
 
                         Rectangle {
                             Layout.fillWidth: true
@@ -224,7 +228,8 @@ Item {
                         }
 
                         ColumnLayout {
-                            Layout.preferredWidth: root.compact ? 250 : 310
+                            Layout.preferredWidth: root.width < 760 ? 0 : (root.compact ? 250 : 310)
+                            Layout.fillWidth: root.width < 760
                             Layout.fillHeight: true
                             spacing: 10
                             SummaryCard { Layout.fillWidth: true; title: "Max Altitude"; value: root.numberValue("max_altitude_m", 1, " m"); detail: "highest recorded" }
@@ -266,13 +271,13 @@ Item {
                         }
                     }
 
-                    RowLayout {
+                    Flow {
                         Layout.fillWidth: true
+                        Layout.preferredHeight: childrenRect.height
                         spacing: 10
                         ActionButton { text: "View Full Log"; visible: accessManager.can("can_view_vehicle_audit"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.viewFullLog() }
                         ActionButton { text: "Export Report"; visible: accessManager.can("can_view_reports"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.exportReport() }
                         ActionButton { text: "Sync Now"; visible: accessManager.can("can_view_reports"); enabled: sessionManager.operationsAllowed; onClicked: postMissionSummaryManager.syncNow() }
-                        Item { Layout.fillWidth: true }
                         ActionButton { text: "Return to Dashboard"; filled: true; onClicked: postMissionSummaryManager.returnToDashboard() }
                         ActionButton { text: "Start New Mission"; filled: true; visible: accessManager.can("can_plan_mission"); enabled: sessionManager.operationsAllowed || accessManager.offlineAuthorizationValid; onClicked: postMissionSummaryManager.startNewMission() }
                     }
@@ -311,6 +316,8 @@ Item {
 
     component ActionButton: Button {
         property bool filled: false
+        width: Math.min(parent ? parent.width : (filled ? 164 : 132), filled ? 164 : 132)
+        height: 38
         Layout.preferredHeight: 38
         Layout.preferredWidth: filled ? 164 : 132
         opacity: enabled ? 1 : 0.48

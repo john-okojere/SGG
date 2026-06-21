@@ -58,6 +58,7 @@ GridLayout {
     }
 
     function uploadReason() {
+        if (!permissionManager.canUploadMission) return "Your role cannot upload missions to aircraft."
         if (!sessionManager.operationsAllowed) return "Device approval is required."
         if (missionStore.plan.boundaryOnly) return "Virtual Fence syncs as a Control Center boundary, not an aircraft route."
         if (missionStore.plan.createdLocally) return "Save and sync with Control Center before upload."
@@ -74,6 +75,7 @@ GridLayout {
     }
 
     function startReason() {
+        if (!permissionManager.canStartMission) return "Your role cannot start autonomous missions."
         if (!sessionManager.operationsAllowed) return "Device approval is required."
         if (missionStore.plan.boundaryOnly) return "Virtual Fence is a Control Center boundary, not a startable aircraft mission."
         if (!vehicleManager.connected) return "No connected aircraft."
@@ -89,17 +91,17 @@ GridLayout {
         text: "Save Mission"
         iconSource: AssetRegistry.icons.boxicons_save
         visible: accessManager.can("can_plan_mission")
-        enabled: sessionManager.operationsAllowed && missionStore.plan.missionState !== "EMPTY"
+        enabled: permissionManager.canPlanMission && sessionManager.operationsAllowed && missionStore.plan.missionState !== "EMPTY"
         opacity: enabled ? 1 : 0.55
         onClicked: missionSyncManager.saveActiveMission()
         ToolTip.visible: hovered && !enabled
-        ToolTip.text: sessionManager.operationsAllowed ? "Create a mission first." : "Device approval is required."
+        ToolTip.text: permissionManager.canPlanMission ? (sessionManager.operationsAllowed ? "Create a mission first." : "Device approval is required.") : "Your role cannot save mission plans."
     }
     PrimaryButton {
         Layout.fillWidth: true
         secondary: true
         visible: accessManager.can("can_plan_mission")
-        enabled: sessionManager.operationsAllowed && (root.hasUploadRoute() || missionStore.plan.boundaryOnly)
+        enabled: permissionManager.canPlanMission && sessionManager.operationsAllowed && (root.hasUploadRoute() || missionStore.plan.boundaryOnly)
         text: sessionManager.operationsAllowed
             ? (missionSyncManager.syncing ? "Validating..." : "Validate")
             : "Device Approval Required"
@@ -107,12 +109,12 @@ GridLayout {
         opacity: enabled ? 1 : 0.55
         onClicked: root.runValidation()
         ToolTip.visible: hovered && !enabled
-        ToolTip.text: sessionManager.operationsAllowed ? "Add mission geometry before validation." : "Device approval is required."
+        ToolTip.text: permissionManager.canPlanMission ? (sessionManager.operationsAllowed ? "Add mission geometry before validation." : "Device approval is required.") : "Your role cannot validate mission plans."
     }
     PrimaryButton {
         Layout.fillWidth: true
         visible: accessManager.can("can_upload_mission")
-        enabled: sessionManager.operationsAllowed && root.backendReadyForUpload() && vehicleManager.connected && preflightChecklistManager.canUpload && !root.weatherBlocksUpload() && root.hasUploadRoute() && !missionUploadManager.uploading
+        enabled: permissionManager.canUploadMission && sessionManager.operationsAllowed && root.backendReadyForUpload() && vehicleManager.connected && preflightChecklistManager.canUpload && !root.weatherBlocksUpload() && root.hasUploadRoute() && !missionUploadManager.uploading
         text: missionStore.plan.boundaryOnly ? "Boundary Synced" : (missionUploadManager.uploading ? ("Uploading " + missionUploadManager.progress + "%") : "Upload to Aircraft")
         iconSource: AssetRegistry.icons.cloud
         opacity: enabled ? 1 : 0.55
@@ -123,7 +125,7 @@ GridLayout {
     PrimaryButton {
         Layout.fillWidth: true
         visible: accessManager.can("can_start_mission")
-        enabled: sessionManager.operationsAllowed && !missionStore.plan.boundaryOnly && vehicleManager.connected && preflightChecklistManager.canStartMission && !missionExecutionManager.executing
+        enabled: permissionManager.canStartMission && sessionManager.operationsAllowed && !missionStore.plan.boundaryOnly && vehicleManager.connected && preflightChecklistManager.canStartMission && !missionExecutionManager.executing
         text: missionExecutionManager.executing ? "Executing..." : "Start Mission"
         iconSource: AssetRegistry.icons.boxicons_play
         opacity: enabled ? 1 : 0.55

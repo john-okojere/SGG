@@ -4,13 +4,13 @@ import QtQuick.Controls
 Button {
     id: root
     property bool controlsVisible: true
-    signal toggled(bool visible)
+    signal visibilityToggled(bool visible)
     implicitWidth: 132
     implicitHeight: 34
     text: controlsVisible ? "Hide Controls" : "Show Controls"
     onClicked: {
         controlsVisible = !controlsVisible
-        toggled(controlsVisible)
+        visibilityToggled(controlsVisible)
     }
     background: Rectangle {
         radius: 17
